@@ -3,10 +3,19 @@
 namespace SimpleSquid\Vend;
 
 use GuzzleHttp\Client;
+use SimpleSquid\Vend\Actions\ManagesInventory;
+use SimpleSquid\Vend\Actions\ManagesProductImages;
+use SimpleSquid\Vend\Actions\ManagesProducts;
+use SimpleSquid\Vend\Actions\ManagesResources;
+use SimpleSquid\Vend\Exceptions\AuthorisationException;
 
 class Vend
 {
-    use MakesHttpRequests;
+    use MakesHttpRequests,
+        ManagesResources,
+        ManagesProducts,
+        ManagesProductImages,
+        ManagesInventory;
 
     /**
      * The Guzzle HTTP Client instance.
@@ -37,6 +46,11 @@ class Vend
     private $domainPrefix;
 
     /**
+     * @var string
+     */
+    private $personalAccessToken;
+
+    /**
      * Create a new Vend instance.
      *
      * @param  string  $domainPrefix
@@ -49,7 +63,7 @@ class Vend
         $this->makeClient($domainPrefix, $guzzle);
     }
 
-    private function makeClient(string $domainPrefix, Client $guzzle): void
+    private function makeClient($domainPrefix, $guzzle): void
     {
         $this->domainPrefix = $domainPrefix;
 
@@ -68,10 +82,17 @@ class Vend
      * Get the current access token or refresh and return a new one.
      *
      * @return string
+     * @throws AuthorisationException
      */
     public function getAccessToken(): string
     {
-        return null;
+        if (isset($this->personalAccessToken)) {
+            return $this->personalAccessToken;
+        } elseif (isset($this->accessToken)) {
+            return $this->accessToken;
+        }
+
+        throw new AuthorisationException();
     }
 
     /**
@@ -127,6 +148,23 @@ class Vend
      */
     public function isAuthorised(): bool
     {
+        if (isset($this->personalAccessToken)) {
+            return true;
+        }
+
         return false;
+    }
+
+    /**
+     * Sets the personal access token
+     *
+     * @param  string  $personalAccessToken
+     * @return self
+     */
+    public function setPersonalAccessToken(string $personalAccessToken): self
+    {
+        $this->personalAccessToken = $personalAccessToken;
+
+        return $this;
     }
 }
