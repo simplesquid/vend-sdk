@@ -2,13 +2,22 @@
 
 namespace SimpleSquid\Vend;
 
-use Exception;
+use GuzzleHttp\Client;
+use GuzzleHttp\Exception\GuzzleException;
 use Psr\Http\Message\ResponseInterface;
+use SimpleSquid\Vend\Exceptions\AuthorisationException;
+use SimpleSquid\Vend\Exceptions\BadRequestException;
 use SimpleSquid\Vend\Exceptions\ConfirmationTimeoutException;
-use SimpleSquid\Vend\Exceptions\FailedActionException;
 use SimpleSquid\Vend\Exceptions\NotFoundException;
-use SimpleSquid\Vend\Exceptions\ValidationException;
+use SimpleSquid\Vend\Exceptions\RateLimitException;
+use SimpleSquid\Vend\Exceptions\RequestException;
+use SimpleSquid\Vend\Exceptions\TokenExpiredException;
+use SimpleSquid\Vend\Exceptions\UnauthorisedException;
+use SimpleSquid\Vend\Exceptions\UnknownException;
 
+/**
+ * @property Client $guzzle
+ */
 trait MakesHttpRequests
 {
     /**
@@ -52,7 +61,14 @@ trait MakesHttpRequests
      *
      * @return mixed
      *
-     * @throws Exception
+     * @throws AuthorisationException
+     * @throws BadRequestException
+     * @throws NotFoundException
+     * @throws RateLimitException
+     * @throws RequestException
+     * @throws TokenExpiredException
+     * @throws UnauthorisedException
+     * @throws UnknownException
      */
     private function delete(string $uri, array $payload = [])
     {
@@ -67,7 +83,14 @@ trait MakesHttpRequests
      *
      * @return mixed
      *
-     * @throws Exception
+     * @throws AuthorisationException
+     * @throws BadRequestException
+     * @throws NotFoundException
+     * @throws RateLimitException
+     * @throws RequestException
+     * @throws TokenExpiredException
+     * @throws UnauthorisedException
+     * @throws UnknownException
      */
     private function get(string $uri, array $query = [])
     {
@@ -79,15 +102,22 @@ trait MakesHttpRequests
      *
      * @param  string  $verb
      * @param  string  $uri
-     * @param  array  $query
      * @param  array  $payload
-     * @param  bool  $json
+     * @param  array  $query
+     * @param  string  $format  One of `json`, `form_params`, `multipart`.
      *
      * @return mixed
      *
-     * @throws Exception
+     * @throws BadRequestException
+     * @throws NotFoundException
+     * @throws RateLimitException
+     * @throws RequestException
+     * @throws UnauthorisedException
+     * @throws UnknownException
+     * @throws TokenExpiredException
+     * @throws AuthorisationException
      */
-    private function request(string $verb, string $uri, array $payload = [], array $query = [], bool $json = true)
+    private function request(string $verb, string $uri, array $payload = [], array $query = [], string $format = 'json')
     {
         $options = [
             'timeout' => $this->getRequestTimeout(),
@@ -95,18 +125,23 @@ trait MakesHttpRequests
         ];
 
         if ($this->isAuthorised()) {
-            $options['headers'] = ['Authorization' => 'Bearer ' . $this->getAccessToken()];
+            $options['headers']['Authorization'] = 'Bearer ' . $this->getAccessToken();
         }
 
-        if ($json) {
+        if ($format === 'json') {
             $options['json'] = $payload;
+            $options['headers']['Content-Type'] = 'application/json';
         } else {
-            $options['form_params'] = $payload;
+            $options[$format] = $payload;
         }
 
-        $response = $this->guzzle->request($verb, $uri, $options);
+        try {
+            $response = $this->guzzle->request($verb, "https://$this->domainPrefix.vendhq.com/api/$uri", $options);
+        } catch (GuzzleException $e) {
+            throw new RequestException($e);
+        }
 
-        if ($response->getStatusCode() != 200) {
+        if (in_array($response->getStatusCode(), [200, 201, 204])) {
             $this->handleRequestError($response);
         }
 
@@ -122,23 +157,34 @@ trait MakesHttpRequests
      *
      * @return void
      *
-     * @throws Exception
+     * @throws BadRequestException
+     * @throws NotFoundException
+     * @throws RateLimitException
+     * @throws UnauthorisedException
+     * @throws UnknownException
      */
     private function handleRequestError(ResponseInterface $response)
     {
-        if ($response->getStatusCode() == 422) {
-            throw new ValidationException(json_decode((string) $response->getBody(), true));
+        $body = json_decode((string) $response->getBody(), true);
+        $errors = $body['errors'] ?? $body ?? null;
+
+        if ($response->getStatusCode() === 404) {
+            throw new NotFoundException($errors);
         }
 
-        if ($response->getStatusCode() == 404) {
-            throw new NotFoundException();
+        if ($response->getStatusCode() === 400) {
+            throw new BadRequestException($errors);
         }
 
-        if ($response->getStatusCode() == 400) {
-            throw new FailedActionException((string) $response->getBody());
+        if ($response->getStatusCode() === 401) {
+            throw new UnauthorisedException();
         }
 
-        throw new Exception((string) $response->getBody());
+        if ($response->getStatusCode() === 429) {
+            throw new RateLimitException($body);
+        }
+
+        throw new UnknownException($errors);
     }
 
     /**
@@ -146,15 +192,22 @@ trait MakesHttpRequests
      *
      * @param  string  $uri
      * @param  array  $payload
-     * @param  bool  $json
+     * @param  string  $format
      *
      * @return mixed
      *
-     * @throws Exception
+     * @throws AuthorisationException
+     * @throws BadRequestException
+     * @throws NotFoundException
+     * @throws RateLimitException
+     * @throws RequestException
+     * @throws TokenExpiredException
+     * @throws UnauthorisedException
+     * @throws UnknownException
      */
-    private function post(string $uri, array $payload = [], bool $json = true)
+    private function post(string $uri, array $payload = [], string $format = 'json')
     {
-        return $this->request('POST', $uri, $payload, [], $json);
+        return $this->request('POST', $uri, $payload, [], $format);
     }
 
     /**
@@ -165,7 +218,14 @@ trait MakesHttpRequests
      *
      * @return mixed
      *
-     * @throws Exception
+     * @throws AuthorisationException
+     * @throws BadRequestException
+     * @throws NotFoundException
+     * @throws RateLimitException
+     * @throws RequestException
+     * @throws TokenExpiredException
+     * @throws UnauthorisedException
+     * @throws UnknownException
      */
     private function put(string $uri, array $payload = [])
     {

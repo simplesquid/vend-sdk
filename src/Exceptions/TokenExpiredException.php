@@ -4,13 +4,13 @@ namespace SimpleSquid\Vend\Exceptions;
 
 use Exception;
 
-class AuthorisationException extends Exception
+class TokenExpiredException extends Exception
 {
     /**
      * Create a new exception instance.
      */
     public function __construct()
     {
-        parent::__construct('No access token provided.');
+        parent::__construct('The access token has expired and needs to be refreshed.');
     }
 }
