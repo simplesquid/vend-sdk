@@ -4,7 +4,7 @@ namespace SimpleSquid\Vend\Exceptions;
 
 use Exception;
 
-class NotFoundException extends Exception
+class BadRequestException extends Exception
 {
     use HasErrors;
 
@@ -15,7 +15,7 @@ class NotFoundException extends Exception
      */
     public function __construct(array $errors = null)
     {
-        parent::__construct('The resource you are looking for could not be found.');
+        parent::__construct('The request could not be completed due to errors.');
 
         $this->errors = $errors;
     }

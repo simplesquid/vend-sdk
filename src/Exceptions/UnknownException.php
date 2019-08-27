@@ -4,7 +4,7 @@ namespace SimpleSquid\Vend\Exceptions;
 
 use Exception;
 
-class NotFoundException extends Exception
+class UnknownException extends Exception
 {
     use HasErrors;
 
@@ -15,7 +15,7 @@ class NotFoundException extends Exception
      */
     public function __construct(array $errors = null)
     {
-        parent::__construct('The resource you are looking for could not be found.');
+        parent::__construct('An unknown exception has occurred in the request.');
 
         $this->errors = $errors;
     }

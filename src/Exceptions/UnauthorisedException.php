@@ -4,13 +4,13 @@ namespace SimpleSquid\Vend\Exceptions;
 
 use Exception;
 
-class AuthorisationException extends Exception
+class UnauthorisedException extends Exception
 {
     /**
      * Create a new exception instance.
      */
     public function __construct()
     {
-        parent::__construct('No access token provided.');
+        parent::__construct('Request not authorised with provided access token or method.');
     }
 }
