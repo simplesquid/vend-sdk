@@ -4,7 +4,10 @@ namespace SimpleSquid\Vend;
 
 use Carbon\Carbon;
 use GuzzleHttp\Client;
+use SimpleSquid\Vend\Actions\ManagesBrands;
+use SimpleSquid\Vend\Actions\ManagesChannels;
 use SimpleSquid\Vend\Actions\ManagesInventory;
+use SimpleSquid\Vend\Actions\ManagesPriceBooks;
 use SimpleSquid\Vend\Actions\ManagesProductImages;
 use SimpleSquid\Vend\Actions\ManagesProducts;
 use SimpleSquid\Vend\Actions\ManagesResources;
@@ -22,9 +25,12 @@ class Vend
 {
     use MakesHttpRequests,
         ManagesResources,
+        ManagesBrands,
+        ManagesChannels,
+        ManagesInventory,
+        ManagesPriceBooks,
         ManagesProducts,
-        ManagesProductImages,
-        ManagesInventory;
+        ManagesProductImages;
 
     /**
      * Single instance.

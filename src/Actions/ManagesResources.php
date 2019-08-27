@@ -8,7 +8,7 @@ use Spatie\DataTransferObject\DataTransferObjectCollection;
 
 trait ManagesResources
 {
-    private function collection(string $collection, string $endpoint, array $query): DataTransferObjectCollection
+    private function collection(string $collection, string $endpoint, array $query = []): DataTransferObjectCollection
     {
         $query = array_filter($query, function ($value) {
             return !is_null($value);

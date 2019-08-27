@@ -15,11 +15,8 @@ trait ManagesInventory
      * @param  int|null  $before
      * @return InventoryCollection
      */
-    public function inventory(
-        int $page_size = null,
-        int $after = null,
-        int $before = null
-    ): InventoryCollection {
+    public function inventory(int $page_size = null, int $after = null, int $before = null): InventoryCollection
+    {
         return $this->collection(InventoryCollection::class, '2.0/inventory',
                                  compact('page_size', 'after', 'before'));
     }
