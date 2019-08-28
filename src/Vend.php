@@ -47,13 +47,6 @@ class Vend
         ManagesSearch;
 
     /**
-     * Single instance.
-     *
-     * @var self
-     */
-    private static $instance;
-
-    /**
      * OAuth Client ID.
      *
      * @var string
@@ -68,6 +61,20 @@ class Vend
     private $clientSecret;
 
     /**
+     * Number of seconds a request is retried.
+     *
+     * @var int
+     */
+    private $confirmationTimeout = 30;
+
+    /**
+     * Vend domain prefix.
+     *
+     * @var string
+     */
+    private $domainPrefix;
+
+    /**
      * The Guzzle HTTP Client instance.
      *
      * @var Client
@@ -75,11 +82,18 @@ class Vend
     public $guzzle;
 
     /**
-     * Number of seconds a request is retried.
+     * Single instance.
      *
-     * @var int
+     * @var self
      */
-    private $confirmationTimeout = 30;
+    private static $instance;
+
+    /**
+     * Personal access token.
+     *
+     * @var string
+     */
+    private $personalAccessToken;
 
     /**
      * OAuth Redirect URI.
@@ -96,82 +110,11 @@ class Vend
     private $requestTimeout = 2;
 
     /**
-     * Vend domain prefix.
-     *
-     * @var string
-     */
-    private $domainPrefix;
-
-    /**
-     * Personal access token.
-     *
-     * @var string
-     */
-    private $personalAccessToken;
-
-    /**
      * Authorisation token.
      *
      * @var Token
      */
     private $token;
-
-    /**
-     * Disable instantiation.
-     */
-    private function __construct()
-    {
-    }
-
-    /**
-     * Create or retrieve the instance of Vend client.
-     *
-     * @return self
-     */
-    public static function getInstance()
-    {
-        if (is_null(static::$instance)) {
-            static::$instance = new Vend;
-            static::$instance->makeClient();
-        }
-
-        return static::$instance;
-    }
-
-    /**
-     * Disable the cloning of this class.
-     */
-    final private function __clone()
-    {
-    }
-
-    /**
-     * Disable the wakeup of this class.
-     */
-    final private function __wakeup()
-    {
-    }
-
-    /**
-     * Make the Vend API client.
-     *
-     * @param  string|null  $userAgent
-     * @param  Client|null  $guzzle
-     * @return Vend
-     */
-    public function makeClient(string $userAgent = null, Client $guzzle = null): self
-    {
-        $this->guzzle = $guzzle ?? new Client([
-                                                  'http_errors' => false,
-                                                  'verify'      => true,
-                                                  'headers'     => [
-                                                      'Accept'     => 'application/json',
-                                                      'User-Agent' => $userAgent ?? 'Vend SDK (PHP)',
-                                                  ],
-                                              ]);
-
-        return $this;
-    }
 
     /**
      * Get the current access token or refresh and return a new one.
@@ -195,6 +138,18 @@ class Vend
     }
 
     /**
+     * Get the URL to get OAuth 2.0 authorisation.
+     *
+     * @param  string  $previousURL
+     *
+     * @return string
+     */
+    public function getAuthorisationUrl(string $previousURL): string
+    {
+        return "https://secure.vendhq.com/connect?response_type=code&client_id=$this->clientID&redirect_uri=$this->redirectURI&state=$previousURL";
+    }
+
+    /**
      * Get the confirmation timeout.
      *
      * @return  int
@@ -208,6 +163,7 @@ class Vend
      * Set a new confirmation timeout.
      *
      * @param  int  $confirmationTimeout
+     *
      * @return self
      */
     public function setConfirmationTimeout(int $confirmationTimeout): self
@@ -215,6 +171,20 @@ class Vend
         $this->confirmationTimeout = $confirmationTimeout;
 
         return $this;
+    }
+
+    /**
+     * Create or retrieve the instance of Vend client.
+     *
+     * @return self
+     */
+    public static function getInstance()
+    {
+        if (is_null(static::$instance)) {
+            static::$instance = new Vend;
+        }
+
+        return static::$instance;
     }
 
     /**
@@ -231,6 +201,7 @@ class Vend
      * Set a new request timeout.
      *
      * @param  int  $requestTimeout
+     *
      * @return self
      */
     public function setRequestTimeout(int $requestTimeout): self
@@ -251,64 +222,25 @@ class Vend
     }
 
     /**
-     * Sets the personal access token.
+     * Make the Vend API client.
      *
-     * @param  string  $domainPrefix
-     * @param  string  $access_token
-     * @return self
+     * @param  string  $userAgent
+     * @param  Client|null  $guzzle
+     *
+     * @return Vend
      */
-    public function setPersonalAccessToken(string $domainPrefix, string $access_token): self
+    public function makeClient(string $userAgent, Client $guzzle = null): self
     {
-        $this->domainPrefix = $domainPrefix;
-        $this->token = new Token(compact('access_token'));
+        $this->guzzle = $guzzle ?? new Client([
+                                                  'http_errors' => false,
+                                                  'verify'      => true,
+                                                  'headers'     => [
+                                                      'Accept'     => 'application/json',
+                                                      'User-Agent' => $userAgent,
+                                                  ],
+                                              ]);
 
         return $this;
-    }
-
-    /**
-     * Sets the OAuth 2.0 identifiers.
-     *
-     * @param  string  $clientID
-     * @param  string  $clientSecret
-     * @param  string  $redirectURI
-     * @return self
-     */
-    public function setOAuthIdentifiers(string $clientID, string $clientSecret, string $redirectURI): self
-    {
-        $this->clientID = $clientID;
-        $this->clientSecret = $clientSecret;
-        $this->redirectURI = $redirectURI;
-
-        return $this;
-    }
-
-    /**
-     * Sets the OAuth 2.0 authorisation code.
-     *
-     * @param  string  $domainPrefix
-     * @param  string  $code
-     * @return Token
-     *
-     * @throws AuthorisationException
-     * @throws BadRequestException
-     * @throws NotFoundException
-     * @throws RateLimitException
-     * @throws RequestException
-     * @throws UnauthorisedException
-     * @throws UnknownException
-     * @throws TokenExpiredException
-     */
-    public function setOAuthAuthorisationCode(string $domainPrefix, string $code)
-    {
-        $this->domainPrefix = $domainPrefix;
-
-        return $this->token = new Token($this->post('1.0/token', [
-            'code'          => $code,
-            'client_id'     => $this->clientID,
-            'client_secret' => $this->clientSecret,
-            'grant_type'    => 'authorization_code',
-            'redirect_uri'  => $this->redirectURI,
-        ], 'form_params', false));
     }
 
     /**
@@ -345,7 +277,38 @@ class Vend
      * Sets the OAuth 2.0 authorisation code.
      *
      * @param  string  $domainPrefix
+     * @param  string  $code
+     *
+     * @return Token
+     *
+     * @throws AuthorisationException
+     * @throws BadRequestException
+     * @throws NotFoundException
+     * @throws RateLimitException
+     * @throws RequestException
+     * @throws UnauthorisedException
+     * @throws UnknownException
+     * @throws TokenExpiredException
+     */
+    public function setOAuthAuthorisationCode(string $domainPrefix, string $code)
+    {
+        $this->domainPrefix = $domainPrefix;
+
+        return $this->token = new Token($this->post('1.0/token', [
+            'code'          => $code,
+            'client_id'     => $this->clientID,
+            'client_secret' => $this->clientSecret,
+            'grant_type'    => 'authorization_code',
+            'redirect_uri'  => $this->redirectURI,
+        ], 'form_params', false));
+    }
+
+    /**
+     * Sets the OAuth 2.0 authorisation code.
+     *
+     * @param  string  $domainPrefix
      * @param  Token  $token
+     *
      * @return Vend
      */
     public function setOAuthAuthorisationToken(string $domainPrefix, Token $token)
@@ -357,13 +320,36 @@ class Vend
     }
 
     /**
-     * Get the URL to get OAuth 2.0 authorisation.
+     * Sets the OAuth 2.0 identifiers.
      *
-     * @param  string  $previousURL
-     * @return string
+     * @param  string  $clientID
+     * @param  string  $clientSecret
+     * @param  string  $redirectURI
+     *
+     * @return self
      */
-    public function getAuthorisationUrl(string $previousURL): string
+    public function setOAuthIdentifiers(string $clientID, string $clientSecret, string $redirectURI): self
     {
-        return "https://secure.vendhq.com/connect?response_type=code&client_id=$this->clientID&redirect_uri=$this->redirectURI&state=$previousURL";
+        $this->clientID = $clientID;
+        $this->clientSecret = $clientSecret;
+        $this->redirectURI = $redirectURI;
+
+        return $this;
+    }
+
+    /**
+     * Sets the personal access token.
+     *
+     * @param  string  $domainPrefix
+     * @param  string  $access_token
+     *
+     * @return self
+     */
+    public function setPersonalAccessToken(string $domainPrefix, string $access_token): self
+    {
+        $this->domainPrefix = $domainPrefix;
+        $this->token = new Token(compact('access_token'));
+
+        return $this;
     }
 }

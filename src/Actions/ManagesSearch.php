@@ -48,6 +48,7 @@ trait ManagesSearch
      * @param  int|null  $offset  The number of objects to be "skipped" for the response. Used for pagination.
      * @param  string|null  $order_by  The attribute used to sort items returned in the response.
      * @param  string|null  $order_direction  Sorting direction. One of: `asc`, `desc`.
+     *
      * @return DataTransferObjectCollection
      */
     public function search(

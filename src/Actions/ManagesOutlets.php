@@ -12,6 +12,7 @@ trait ManagesOutlets
      * Returns a single outlet with the requested ID.
      *
      * @param  string  $id  Valid Outlet ID.
+     *
      * @return Outlet
      */
     public function outlet(string $id): Outlet
@@ -27,6 +28,7 @@ trait ManagesOutlets
      * @param  int|null  $after  The lower limit for the version numbers to be included in the response.
      * @param  int|null  $before  The upper limit for the version numbers to be included in the response.
      * @param  bool|null  $deleted  Indicates whether deleted items should be included in the response.
+     *
      * @return OutletCollection
      */
     public function outlets(

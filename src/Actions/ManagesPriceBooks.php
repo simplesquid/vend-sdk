@@ -12,6 +12,7 @@ trait ManagesPriceBooks
      * Returns a single price book with a requested ID.
      *
      * @param  string  $id  Valid price book ID.
+     *
      * @return PriceBook
      */
     public function priceBook(string $id): PriceBook
@@ -26,6 +27,7 @@ trait ManagesPriceBooks
      * @param  int|null  $page_size  The maximum number of items to be returned in the response.
      * @param  int|null  $after  The lower limit for the version numbers to be included in the response.
      * @param  int|null  $before  The upper limit for the version numbers to be included in the response.
+     *
      * @return PriceBookCollection
      */
     public function priceBooks(int $page_size = null, int $after = null, int $before = null): PriceBookCollection

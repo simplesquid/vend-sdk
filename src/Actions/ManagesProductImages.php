@@ -11,6 +11,7 @@ trait ManagesProductImages
      * Returns the metadata for a single product image with a given ID. This method is useful for checking the status of an image after it was uploaded.
      *
      * @param  string  $id
+     *
      * @return Image
      */
     public function productImage(string $id): Image

@@ -17,12 +17,14 @@ Then use Composer's autoload:
 require __DIR__.'/../vendor/autoload.php';
 ```
 
-And finally get the instance of the SDK, and optionally set the desired user agent:
+And finally get the instance of the SDK, and set the desired user agent:
 
 ```php
 $vend = Vend::getInstance();
 $vend->makeClient('User Agent');
 ```
+
+It is advisable that you use the client object as a singleton, however, there is no explicit restriction for this.
 
 ## How to use
 
