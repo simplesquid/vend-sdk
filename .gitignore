@@ -2,6 +2,7 @@ composer.phar
 /vendor
 
 phpunit.xml
+.phpunit.*
 phpdox.xml
 
 /.idea
