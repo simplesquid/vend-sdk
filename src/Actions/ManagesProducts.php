@@ -11,12 +11,12 @@ trait ManagesProducts
     /**
      * Create a new product.
      *
-     * @param  array  $data
+     * @param  array  $body
      * @return Product
      */
-    public function createProduct(array $data)
+    public function createProduct(array $body)
     {
-        return $this->createResource(Product::class, 'products', $data);
+        return $this->createResource(Product::class, 'products', $body);
     }
 
     /**
@@ -47,9 +47,9 @@ trait ManagesProducts
      * Returns inventory data for a single product in all the outlets.
      *
      * @param  string  $product_id
-     * @param  int|null  $page_size
-     * @param  int|null  $after
-     * @param  int|null  $before
+     * @param  int|null  $page_size  The maximum number of items to be returned in the response.
+     * @param  int|null  $after  The lower limit for the version numbers to be included in the response.
+     * @param  int|null  $before  The upper limit for the version numbers to be included in the response.
      * @return InventoryCollection
      */
     public function productInventory(
@@ -66,9 +66,9 @@ trait ManagesProducts
      * List products.
      * Returns a paginated list of products.
      *
-     * @param  int|null  $page_size
-     * @param  int|null  $after
-     * @param  int|null  $before
+     * @param  int|null  $page_size  The maximum number of items to be returned in the response.
+     * @param  int|null  $after  The lower limit for the version numbers to be included in the response.
+     * @param  int|null  $before  The upper limit for the version numbers to be included in the response.
      * @param  bool|null  $deleted
      * @return ProductCollection
      */
@@ -86,12 +86,12 @@ trait ManagesProducts
      * Update a product.
      *
      * @param  string  $id
-     * @param  array  $data
+     * @param  array  $body
      * @return Product
      */
-    public function updateProduct(string $id, array $data): Product
+    public function updateProduct(string $id, array $body): Product
     {
-        return $this->createResource(Product::class, 'products', array_merge($data, compact('id')));
+        return $this->createResource(Product::class, 'products', array_merge($body, compact('id')));
     }
 
 //    /**

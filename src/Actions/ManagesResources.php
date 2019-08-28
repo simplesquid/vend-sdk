@@ -25,9 +25,9 @@ trait ManagesResources
         return $collection;
     }
 
-    private function createResource(string $resource, string $endpoint, array $data): DataTransferObject
+    private function createResource(string $resource, string $endpoint, array $body): DataTransferObject
     {
-        $response = $this->post($endpoint, $data);
+        $response = $this->post($endpoint, $body);
 
         return new $resource($response['product']);
     }
@@ -46,9 +46,9 @@ trait ManagesResources
         return new $resource($response['data']);
     }
 
-    private function updateResource(string $resource, string $endpoint, array $data): DataTransferObject
+    private function updateResource(string $resource, string $endpoint, array $body): DataTransferObject
     {
-        $response = $this->put($endpoint, $data);
+        $response = $this->put($endpoint, $body);
 
         return new $resource($response['product']);
     }
