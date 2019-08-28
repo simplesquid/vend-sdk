@@ -12,6 +12,7 @@ trait ManagesCustomers
      * Creates a new customer.
      *
      * @param  array  $body  TODO: Could use CustomerBase object.
+     *
      * @return Customer
      */
     public function createCustomer(array $body): Customer
@@ -24,6 +25,7 @@ trait ManagesCustomers
      * Returns a single customer with a requested ID.
      *
      * @param  string  $id  Valid customer ID.
+     *
      * @return Customer
      */
     public function customer(string $id): Customer
@@ -39,6 +41,7 @@ trait ManagesCustomers
      * @param  int|null  $after  The lower limit for the version numbers to be included in the response.
      * @param  int|null  $before  The upper limit for the version numbers to be included in the response.
      * @param  bool|null  $deleted  Indicates whether deleted items should be included in the response.
+     *
      * @return CustomerCollection
      */
     public function customers(
@@ -56,6 +59,7 @@ trait ManagesCustomers
      * Deletes the customer with the requested ID.
      *
      * @param  string  $id  Valid customer ID.
+     *
      * @return bool
      */
     public function deleteCustomer(string $id): bool
@@ -69,6 +73,7 @@ trait ManagesCustomers
      *
      * @param  string  $id  Valid customer ID.
      * @param  array  $body  TODO: Could use CustomerBase object.
+     *
      * @return Customer
      */
     public function updateCustomer(string $id, array $body): Customer

@@ -13,6 +13,7 @@ trait ManagesCustomerGroups
      * @param  int|null  $page_size  The maximum number of items to be returned in the response.
      * @param  int|null  $after  The lower limit for the version numbers to be included in the response.
      * @param  int|null  $before  The upper limit for the version numbers to be included in the response.
+     *
      * @return CustomerGroupCollection
      */
     public function customerGroups(

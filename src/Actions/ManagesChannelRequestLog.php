@@ -9,14 +9,29 @@ use SimpleSquid\Vend\Resources\TwoDotZero\RequestLogCollection;
 trait ManagesChannelRequestLog
 {
     /**
-     * List channel records.
-     * Returns a list of configured channels.
+     * Get a single request log.
+     * Returns a single request log entry with a specific ID.
      *
-     * @return ChannelCollection
+     * @param  string  $request_log_id  Valid request log ID.
+     *
+     * @return RequestLog
      */
-    public function channels(): ChannelCollection
+    public function channelRequest(string $request_log_id): RequestLog
     {
-        return $this->collection(ChannelCollection::class, '2.0/channels');
+        return $this->single(RequestLog::class, "2.0/channel_requests/$request_log_id");
+    }
+
+    /**
+     * Get a single request log as text.
+     * Returns a text representation of a single request log entry with a specific ID.
+     *
+     * @param  string  $request_log_id  Valid request log ID.
+     *
+     * @return string
+     */
+    public function channelRequestText(string $request_log_id): string
+    {
+        return $this->get("2.0/channel_requests/$request_log_id.txt");
     }
 
     /**
@@ -30,6 +45,7 @@ trait ManagesChannelRequestLog
      * @param  string|null  $status_code_before  Limit requests to those with status codes less than this value.
      * @param  string|null  $status_code_after  Limit requests to those with status codes greater than this value.
      * @param  string|null  $channel_id  If provided, request logs will be limited to the supplied channel id. If no id is provided, only requests logged with no channel id will be returned. Requests with no channel id indicate requests made during the setup process.
+     *
      * @return RequestLogCollection
      */
     public function channelRequests(
@@ -46,26 +62,13 @@ trait ManagesChannelRequestLog
     }
 
     /**
-     * Get a single request log.
-     * Returns a single request log entry with a specific ID.
+     * List channel records.
+     * Returns a list of configured channels.
      *
-     * @param  string  $request_log_id  Valid request log ID.
-     * @return RequestLog
+     * @return ChannelCollection
      */
-    public function channelRequest(string $request_log_id): RequestLog
+    public function channels(): ChannelCollection
     {
-        return $this->single(RequestLog::class, "2.0/channel_requests/$request_log_id");
-    }
-
-    /**
-     * Get a single request log as text.
-     * Returns a text representation of a single request log entry with a specific ID.
-     *
-     * @param  string  $request_log_id  Valid request log ID.
-     * @return string
-     */
-    public function channelRequestText(string $request_log_id): string
-    {
-        return $this->get("2.0/channel_requests/$request_log_id.txt");
+        return $this->collection(ChannelCollection::class, '2.0/channels');
     }
 }

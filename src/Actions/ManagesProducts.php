@@ -13,6 +13,7 @@ trait ManagesProducts
      * Returns a single product object with a given ID.
      *
      * @param  string  $id  Valid product ID.
+     *
      * @return Product
      */
     public function product(string $id): Product
@@ -28,6 +29,7 @@ trait ManagesProducts
      * @param  int|null  $page_size  The maximum number of items to be returned in the response.
      * @param  int|null  $after  The lower limit for the version numbers to be included in the response.
      * @param  int|null  $before  The upper limit for the version numbers to be included in the response.
+     *
      * @return InventoryCollection
      */
     public function productInventory(
@@ -48,6 +50,7 @@ trait ManagesProducts
      * @param  int|null  $after  The lower limit for the version numbers to be included in the response.
      * @param  int|null  $before  The upper limit for the version numbers to be included in the response.
      * @param  bool|null  $deleted  Indicates whether deleted items should be included in the response.
+     *
      * @return ProductCollection
      */
     public function products(

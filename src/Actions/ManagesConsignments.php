@@ -14,6 +14,7 @@ trait ManagesConsignments
      * Returns a single consignment with the requested ID.
      *
      * @param  string  $id  Valid consignment ID.
+     *
      * @return Consignment
      */
     public function consignment(string $id): Consignment
@@ -29,6 +30,7 @@ trait ManagesConsignments
      * @param  int|null  $page_size  The maximum number of items to be returned in the response.
      * @param  int|null  $after  The lower limit for the version numbers to be included in the response.
      * @param  int|null  $before  The upper limit for the version numbers to be included in the response.
+     *
      * @return InventoryCountItemCollection
      */
     public function consignmentProducts(
@@ -51,6 +53,7 @@ trait ManagesConsignments
      * @param  int|null  $page_size  The maximum number of items to be returned in the response.
      * @param  int|null  $after  The lower limit for the version numbers to be included in the response.
      * @param  int|null  $before  The upper limit for the version numbers to be included in the response.
+     *
      * @return ConsignmentCollection
      */
     public function consignments(
@@ -70,6 +73,7 @@ trait ManagesConsignments
      * Creates a new consignment of type `STOCKTAKE`. Currently, this endpoint only supports creation of inventory counts (stock takes).
      *
      * @param  array  $body  TODO: Could use InventoryCount object.
+     *
      * @return Consignment
      */
     public function createInventoryCount(array $body): Consignment
@@ -82,6 +86,7 @@ trait ManagesConsignments
      * Deletes the consignment with the given ID.
      *
      * @param  string  $id  Valid consignment ID.
+     *
      * @return bool
      */
     public function deleteInventoryCount(string $id): bool
@@ -95,6 +100,7 @@ trait ManagesConsignments
      *
      * @param  string  $consignment_id  Valid consignment (inventory count) ID.
      * @param  string  $product_id  The ID of a product included in the inventory count
+     *
      * @return bool
      */
     public function deleteInventoryCountItem(string $consignment_id, string $product_id): bool
@@ -108,6 +114,7 @@ trait ManagesConsignments
      *
      * @param  string  $id  Valid consignment ID.
      * @param  array  $body  TODO: Could use InventoryCount object.
+     *
      * @return Consignment
      */
     public function updateInventoryCount(string $id, array $body): Consignment
@@ -121,6 +128,7 @@ trait ManagesConsignments
      *
      * @param  string  $consignment_id  Valid consignment ID.
      * @param  array  $body  TODO: Could use InventoryCountItemRequest object.
+     *
      * @return InventoryCountItem
      */
     public function updateInventoryCountItem(string $consignment_id, array $body): InventoryCountItem

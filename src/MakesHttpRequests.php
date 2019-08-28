@@ -77,29 +77,6 @@ trait MakesHttpRequests
     }
 
     /**
-     * Make a GET request to Vend and return the response.
-     *
-     * @param  string  $uri
-     * @param  array  $query
-     * @param  bool  $authorised
-     *
-     * @return mixed
-     *
-     * @throws AuthorisationException
-     * @throws BadRequestException
-     * @throws NotFoundException
-     * @throws RateLimitException
-     * @throws RequestException
-     * @throws TokenExpiredException
-     * @throws UnauthorisedException
-     * @throws UnknownException
-     */
-    private function get(string $uri, array $query = [], bool $authorised = true)
-    {
-        return $this->request('GET', $uri, [], $query, $authorised);
-    }
-
-    /**
      * Make request to Forge servers and return the response.
      *
      * @param  string  $verb
@@ -196,6 +173,29 @@ trait MakesHttpRequests
         }
 
         throw new UnknownException($errors);
+    }
+
+    /**
+     * Make a GET request to Vend and return the response.
+     *
+     * @param  string  $uri
+     * @param  array  $query
+     * @param  bool  $authorised
+     *
+     * @return mixed
+     *
+     * @throws AuthorisationException
+     * @throws BadRequestException
+     * @throws NotFoundException
+     * @throws RateLimitException
+     * @throws RequestException
+     * @throws TokenExpiredException
+     * @throws UnauthorisedException
+     * @throws UnknownException
+     */
+    private function get(string $uri, array $query = [], bool $authorised = true)
+    {
+        return $this->request('GET', $uri, [], $query, $authorised);
     }
 
     /**
