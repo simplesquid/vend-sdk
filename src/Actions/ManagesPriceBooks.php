@@ -23,9 +23,9 @@ trait ManagesPriceBooks
      * List price books.
      * Returns a paginated list of price books.
      *
-     * @param  int|null  $page_size
-     * @param  int|null  $after
-     * @param  int|null  $before
+     * @param  int|null  $page_size  The maximum number of items to be returned in the response.
+     * @param  int|null  $after  The lower limit for the version numbers to be included in the response.
+     * @param  int|null  $before  The upper limit for the version numbers to be included in the response.
      * @return PriceBookCollection
      */
     public function priceBooks(int $page_size = null, int $after = null, int $before = null): PriceBookCollection
