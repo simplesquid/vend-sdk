@@ -11,7 +11,7 @@ trait ManagesPriceBooks
      * Get a single price book.
      * Returns a single price book with a requested ID.
      *
-     * @param  string  $id
+     * @param  string  $id  Valid price book ID.
      * @return PriceBook
      */
     public function priceBook(string $id): PriceBook

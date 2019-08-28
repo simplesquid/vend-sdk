@@ -18,7 +18,8 @@ trait ManagesBrands
      */
     public function brands(int $page_size = null, int $after = null, int $before = null): BrandCollection
     {
-        return $this->collection(BrandCollection::class, "2.0/brands", compact('page_size', 'after', 'before'));
+        return $this->collection(BrandCollection::class, "2.0/brands",
+                                 compact('page_size', 'after', 'before'));
     }
 
     /**
