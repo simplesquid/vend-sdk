@@ -2,7 +2,6 @@
 
 namespace SimpleSquid\Vend\Resources\TwoDotZero;
 
-use Carbon\Carbon;
 use SimpleSquid\Vend\Resources\CastsDates;
 use Spatie\DataTransferObject\DataTransferObject;
 
@@ -32,7 +31,7 @@ class InventoryCountItem extends DataTransferObject
     /**
      * The creation timestamp in UTC.
      *
-     * @var Carbon|null
+     * @var \Carbon\Carbon|null
      */
     public $created_at;
 
@@ -82,7 +81,7 @@ class InventoryCountItem extends DataTransferObject
     /**
      * Last update timestamp in UTC.
      *
-     * @var Carbon|null
+     * @var \Carbon\Carbon|null
      */
     public $updated_at;
 

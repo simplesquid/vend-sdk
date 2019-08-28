@@ -2,7 +2,6 @@
 
 namespace SimpleSquid\Vend\Resources\TwoDotZero;
 
-use Carbon\Carbon;
 use SimpleSquid\Vend\Resources\CastsDates;
 use Spatie\DataTransferObject\DataTransferObject;
 
@@ -18,7 +17,7 @@ class Tax extends DataTransferObject
     /**
      * The deletion timestamp.
      *
-     * @var Carbon|null
+     * @var \Carbon\Carbon|null
      */
     public $deleted_at;
 
@@ -53,7 +52,7 @@ class Tax extends DataTransferObject
     /**
      * Tax Rates.
      *
-     * @var TaxRate[]|null
+     * @var \SimpleSquid\Vend\Resources\TwoDotZero\TaxRate[]|null
      */
     public $rates;
 

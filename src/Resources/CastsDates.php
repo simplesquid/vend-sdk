@@ -5,13 +5,12 @@ namespace SimpleSquid\Vend\Resources;
 use Carbon\Carbon;
 use Exception;
 use ReflectionClass;
-use Spatie\DataTransferObject\Property;
 
 trait CastsDates
 {
     public function __construct(array $parameters)
     {
-        /** @var Property[] $properties */
+        /** @var \SimpleSquid\Vend\Resources\TwoDotZero\Property[] $properties */
         $properties = $this->getPublicProperties(new ReflectionClass(static::class));
 
         foreach ($properties as $property) {
@@ -30,7 +29,7 @@ trait CastsDates
     {
         $array = parent::toArray();
 
-        /** @var Property[] $properties */
+        /** @var \SimpleSquid\Vend\Resources\TwoDotZero\Property[] $properties */
         $properties = $this->getPublicProperties(new ReflectionClass(static::class));
 
         foreach ($properties as $property) {

@@ -2,7 +2,6 @@
 
 namespace SimpleSquid\Vend\Resources\TwoDotZero;
 
-use Carbon\Carbon;
 use SimpleSquid\Vend\Resources\CastsDates;
 use Spatie\DataTransferObject\DataTransferObject;
 
@@ -67,7 +66,7 @@ class CustomerBase extends DataTransferObject
     /**
      * Birthday.
      *
-     * @var Carbon|string|null
+     * @var \Carbon\Carbon|string|null
      */
     public $date_of_birth;
 

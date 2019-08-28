@@ -2,10 +2,8 @@
 
 namespace SimpleSquid\Vend\Resources;
 
-use SimpleSquid\Vend\Resources\TwoDotZero\Version;
-
 trait HasVersions
 {
-    /** @var Version|null */
+    /** @var \SimpleSquid\Vend\Resources\TwoDotZero\Version|null */
     public $version;
 }

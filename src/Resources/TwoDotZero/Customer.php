@@ -2,7 +2,6 @@
 
 namespace SimpleSquid\Vend\Resources\TwoDotZero;
 
-use Carbon\Carbon;
 use SimpleSquid\Vend\Resources\CastsDates;
 use Spatie\DataTransferObject\DataTransferObject;
 
@@ -32,7 +31,7 @@ class Customer extends DataTransferObject
     /**
      * Creation timestamp in UTC.
      *
-     * @var Carbon|null
+     * @var \Carbon\Carbon|null
      */
     public $created_at;
 
@@ -81,14 +80,14 @@ class Customer extends DataTransferObject
     /**
      * Birthday.
      *
-     * @var Carbon|null
+     * @var \Carbon\Carbon|null
      */
     public $date_of_birth;
 
     /**
      * Deletion timestamp in UTC.
      *
-     * @var Carbon|null
+     * @var \Carbon\Carbon|null
      */
     public $deleted_at;
 

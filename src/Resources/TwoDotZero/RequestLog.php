@@ -2,7 +2,6 @@
 
 namespace SimpleSquid\Vend\Resources\TwoDotZero;
 
-use Carbon\Carbon;
 use SimpleSquid\Vend\Resources\CastsDates;
 use Spatie\DataTransferObject\DataTransferObject;
 
@@ -40,7 +39,7 @@ class RequestLog extends DataTransferObject
     /**
      * An RFC3339 representation of the time at which the request was logged.
      *
-     * @var Carbon
+     * @var \Carbon\Carbon
      */
     public $occurred_at;
 

@@ -2,7 +2,6 @@
 
 namespace SimpleSquid\Vend\Resources\TwoDotZero;
 
-use Carbon\Carbon;
 use SimpleSquid\Vend\Resources\CastsDates;
 use Spatie\DataTransferObject\DataTransferObject;
 
@@ -46,7 +45,7 @@ class Register extends DataTransferObject
     /**
      * Deletion timestamp in UTC.
      *
-     * @var Carbon|null
+     * @var \Carbon\Carbon|null
      */
     public $deleted_at;
 
@@ -137,7 +136,7 @@ class Register extends DataTransferObject
     /**
      * Date/time when the register was open. Always in UTC.
      *
-     * @var Carbon|null
+     * @var \Carbon\Carbon|null
      */
     public $register_open_time;
 

@@ -2,7 +2,6 @@
 
 namespace SimpleSquid\Vend\Resources\TwoDotZero;
 
-use Carbon\Carbon;
 use SimpleSquid\Vend\Resources\CastsDates;
 use Spatie\DataTransferObject\DataTransferObject;
 
@@ -46,14 +45,14 @@ class PriceBookBase extends DataTransferObject
     /**
      * The date when the price book becomes valid (active).
      *
-     * @var Carbon|null
+     * @var \Carbon\Carbon|null
      */
     public $valid_from;
 
     /**
      * The date when the price book becomes invalid (inactive).
      *
-     * @var Carbon|null
+     * @var \Carbon\Carbon|null
      */
     public $valid_to;
 

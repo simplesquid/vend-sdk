@@ -2,7 +2,6 @@
 
 namespace SimpleSquid\Vend\Resources\TwoDotZero;
 
-use Carbon\Carbon;
 use Spatie\DataTransferObject\DataTransferObject;
 
 /**
@@ -15,7 +14,7 @@ class Supplier extends DataTransferObject
     /**
      * Deletion timestamp in UTC.
      *
-     * @var Carbon|null
+     * @var \Carbon\Carbon|null
      */
     public $deleted_at;
 
