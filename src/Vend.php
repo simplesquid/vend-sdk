@@ -171,11 +171,11 @@ class Vend
      */
     public function getAccessToken(): string
     {
-        if (isset($this->token->access_token)) {
+        if (!isset($this->token->access_token)) {
             throw new AuthorisationException();
         }
 
-        if (is_null($this->token->expires) || $this->token->expires > Carbon::now()) {
+        if (!is_null($this->token->expires) && $this->token->expires < Carbon::now()) {
             throw new TokenExpiredException();
         }
 
@@ -296,7 +296,7 @@ class Vend
             'client_secret' => $this->clientSecret,
             'grant_type'    => 'authorization_code',
             'redirect_uri'  => $this->redirectURI,
-        ], 'form_params'));
+        ], 'form_params', false));
     }
 
     /**
@@ -320,7 +320,7 @@ class Vend
             'client_id'     => $this->clientID,
             'client_secret' => $this->clientSecret,
             'grant_type'    => 'refresh_token',
-        ], 'form_params'));
+        ], 'form_params', false));
 
         if (is_null($this->token->refresh_token)) {
             $this->token->refresh_token = $refresh_token;
