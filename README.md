@@ -1,5 +1,5 @@
 # Vend SDK (a PHP client)
-An unofficial PHP SDK for Vend POS | https://www.vendhq.com/
+An unofficial PHP SDK for Vend POS | https://docs.vendhq.com/
 
 Contributions, issues and suggestions are very much welcome.
 
