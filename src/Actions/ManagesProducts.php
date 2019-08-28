@@ -9,28 +9,6 @@ use SimpleSquid\Vend\Resources\TwoDotZero\ProductCollection;
 trait ManagesProducts
 {
     /**
-     * Create a new product.
-     *
-     * @param  array  $body
-     * @return Product
-     */
-    public function createProduct(array $body)
-    {
-        return $this->createResource(Product::class, 'products', $body);
-    }
-
-    /**
-     * Delete a product.
-     *
-     * @param  string  $id
-     * @return bool
-     */
-    public function deleteProduct(string $id): bool
-    {
-        return $this->deleteResource("products/$id");
-    }
-
-    /**
      * Get a single product.
      * Returns a single product object with a given ID.
      *
@@ -80,18 +58,6 @@ trait ManagesProducts
     ): ProductCollection {
         return $this->collection(ProductCollection::class, '2.0/products',
                                  compact('page_size', 'after', 'before', 'deleted'));
-    }
-
-    /**
-     * Update a product.
-     *
-     * @param  string  $id
-     * @param  array  $body
-     * @return Product
-     */
-    public function updateProduct(string $id, array $body): Product
-    {
-        return $this->createResource(Product::class, 'products', array_merge($body, compact('id')));
     }
 
 //    /**
