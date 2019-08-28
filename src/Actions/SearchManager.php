@@ -7,8 +7,10 @@ use SimpleSquid\Vend\Resources\TwoDotZero\ProductCollection;
 use SimpleSquid\Vend\Resources\TwoDotZero\SalesCollection;
 use Spatie\DataTransferObject\DataTransferObjectCollection;
 
-trait ManagesSearch
+class SearchManager
 {
+    use ManagesResources;
+
     /**
      * Search for resources.
      * This endpoint allows integrators to search all of the most commonly used resources, **sales**, **products** and **customers**. Each type allowing search by a number of different parameters.
@@ -42,16 +44,25 @@ trait ManagesSearch
      *
      * Unlike other endpoints in the API 2.0, search results from this endpoint can be sorted by any of the attributes above. Because of that, the default pagination mechanism is not appropriate for this endpoint. Instead, this endpoint uses `offset` and `page_size` attributes to handle search results spanning multiple pages.
      *
-     * @param  string  $type  The entity type to search for. One of: `sales`, `products`, `customers`.
-     * @param  array  $query  The search query. TODO: Replace with data object.
-     * @param  int|null  $page_size  The maximum number of objects to be included in the response, currently limited to 10000.
-     * @param  int|null  $offset  The number of objects to be "skipped" for the response. Used for pagination.
-     * @param  string|null  $order_by  The attribute used to sort items returned in the response.
+     * @param  string       $type             The entity type to search for. One of: `sales`, `products`, `customers`.
+     * @param  array        $query            The search query. TODO: Replace with data object.
+     * @param  int|null     $page_size        The maximum number of objects to be included in the response, currently limited to 10000.
+     * @param  int|null     $offset           The number of objects to be "skipped" for the response. Used for pagination.
+     * @param  string|null  $order_by         The attribute used to sort items returned in the response.
      * @param  string|null  $order_direction  Sorting direction. One of: `asc`, `desc`.
      *
      * @return DataTransferObjectCollection
+     *
+     * @throws \SimpleSquid\Vend\Exceptions\AuthorisationException
+     * @throws \SimpleSquid\Vend\Exceptions\BadRequestException
+     * @throws \SimpleSquid\Vend\Exceptions\NotFoundException
+     * @throws \SimpleSquid\Vend\Exceptions\RateLimitException
+     * @throws \SimpleSquid\Vend\Exceptions\RequestException
+     * @throws \SimpleSquid\Vend\Exceptions\TokenExpiredException
+     * @throws \SimpleSquid\Vend\Exceptions\UnauthorisedException
+     * @throws \SimpleSquid\Vend\Exceptions\UnknownException
      */
-    public function search(
+    public function find(
         string $type,
         array $query,
         int $page_size = null,

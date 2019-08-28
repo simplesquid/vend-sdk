@@ -24,10 +24,9 @@ trait MakesHttpRequests
      * Confirm request via callback or fail after x seconds.
      *
      * @param  callable  $callback
-     * @param  int  $timeout
+     * @param  int       $timeout
      *
      * @return mixed
-     *
      * @throws ConfirmationTimeoutException
      */
     public function confirm(callable $callback, int $timeout = null)
@@ -57,11 +56,10 @@ trait MakesHttpRequests
      * Make a DELETE request to Vend and return the response.
      *
      * @param  string  $uri
-     * @param  array  $payload
-     * @param  bool  $authorised
+     * @param  array   $payload
+     * @param  bool    $authorised
      *
      * @return mixed
-     *
      * @throws AuthorisationException
      * @throws BadRequestException
      * @throws NotFoundException
@@ -71,7 +69,7 @@ trait MakesHttpRequests
      * @throws UnauthorisedException
      * @throws UnknownException
      */
-    private function delete(string $uri, array $payload = [], bool $authorised = true)
+    public function delete(string $uri, array $payload = [], bool $authorised = true)
     {
         return $this->request('DELETE', $uri, $payload, [], $authorised);
     }
@@ -81,13 +79,12 @@ trait MakesHttpRequests
      *
      * @param  string  $verb
      * @param  string  $uri
-     * @param  array  $payload
-     * @param  array  $query
-     * @param  bool  $authorised
+     * @param  array   $payload
+     * @param  array   $query
+     * @param  bool    $authorised
      * @param  string  $format  One of `json`, `form_params`, `multipart`.
      *
      * @return mixed
-     *
      * @throws BadRequestException
      * @throws NotFoundException
      * @throws RateLimitException
@@ -142,7 +139,6 @@ trait MakesHttpRequests
      * @param  ResponseInterface  $response
      *
      * @return void
-     *
      * @throws BadRequestException
      * @throws NotFoundException
      * @throws RateLimitException
@@ -179,11 +175,10 @@ trait MakesHttpRequests
      * Make a GET request to Vend and return the response.
      *
      * @param  string  $uri
-     * @param  array  $query
-     * @param  bool  $authorised
+     * @param  array   $query
+     * @param  bool    $authorised
      *
      * @return mixed
-     *
      * @throws AuthorisationException
      * @throws BadRequestException
      * @throws NotFoundException
@@ -193,7 +188,7 @@ trait MakesHttpRequests
      * @throws UnauthorisedException
      * @throws UnknownException
      */
-    private function get(string $uri, array $query = [], bool $authorised = true)
+    public function get(string $uri, array $query = [], bool $authorised = true)
     {
         return $this->request('GET', $uri, [], $query, $authorised);
     }
@@ -202,12 +197,11 @@ trait MakesHttpRequests
      * Make a POST request to Vend and return the response.
      *
      * @param  string  $uri
-     * @param  array  $payload
+     * @param  array   $payload
      * @param  string  $format
-     * @param  bool  $authorised
+     * @param  bool    $authorised
      *
      * @return mixed
-     *
      * @throws AuthorisationException
      * @throws BadRequestException
      * @throws NotFoundException
@@ -217,7 +211,7 @@ trait MakesHttpRequests
      * @throws UnauthorisedException
      * @throws UnknownException
      */
-    private function post(string $uri, array $payload = [], string $format = 'json', bool $authorised = true)
+    public function post(string $uri, array $payload = [], string $format = 'json', bool $authorised = true)
     {
         return $this->request('POST', $uri, $payload, [], $authorised, $format);
     }
@@ -226,11 +220,10 @@ trait MakesHttpRequests
      * Make a PUT request to Vend and return the response.
      *
      * @param  string  $uri
-     * @param  array  $payload
-     * @param  bool  $authorised
+     * @param  array   $payload
+     * @param  bool    $authorised
      *
      * @return mixed
-     *
      * @throws AuthorisationException
      * @throws BadRequestException
      * @throws NotFoundException
@@ -240,7 +233,7 @@ trait MakesHttpRequests
      * @throws UnauthorisedException
      * @throws UnknownException
      */
-    private function put(string $uri, array $payload = [], bool $authorised = true)
+    public function put(string $uri, array $payload = [], bool $authorised = true)
     {
         return $this->request('PUT', $uri, $payload, [], $authorised);
     }

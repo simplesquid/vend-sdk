@@ -93,13 +93,14 @@ To see all the available requests, take a look at traits located in the `Actions
  * List products.
  * Returns a paginated list of products.
  *
- * @param  int|null  $page_size  The maximum number of items to be returned in the response.
- * @param  int|null  $after  The lower limit for the version numbers to be included in the response.
- * @param  int|null  $before  The upper limit for the version numbers to be included in the response.
- * @param  bool|null  $deleted  Indicates whether deleted items should be included in the response.
- * @return ProductCollection
+ * @param  int|null   $page_size  The maximum number of items to be returned in the response.
+ * @param  int|null   $after      The lower limit for the version numbers to be included in the response.
+ * @param  int|null   $before     The upper limit for the version numbers to be included in the response.
+ * @param  bool|null  $deleted    Indicates whether deleted items should be included in the response.
+ *
+ * @return \SimpleSquid\Vend\Resources\TwoDotZero\ProductCollection
  */
-$products = $vend->products($page_size, $after, $before, $deleted);
+$products = $vend->product->get($page_size, $after, $before, $deleted);
 ```
 
 ```php
@@ -108,9 +109,10 @@ $products = $vend->products($page_size, $after, $before, $deleted);
  * Returns a single product object with a given ID.
  *
  * @param  string  $id  Valid product ID.
- * @return Product
+ *
+ * @return \SimpleSquid\Vend\Resources\TwoDotZero\Product
  */
-$product = $vend->product($id);
+$product = $vend->product->find($id);
 ```
 
 _More examples to come..._ 
