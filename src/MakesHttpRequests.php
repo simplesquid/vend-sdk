@@ -58,6 +58,7 @@ trait MakesHttpRequests
      *
      * @param  string  $uri
      * @param  array  $payload
+     * @param  bool  $authorised
      *
      * @return mixed
      *
@@ -70,9 +71,9 @@ trait MakesHttpRequests
      * @throws UnauthorisedException
      * @throws UnknownException
      */
-    private function delete(string $uri, array $payload = [])
+    private function delete(string $uri, array $payload = [], $authorised = true)
     {
-        return $this->request('DELETE', $uri, $payload);
+        return $this->request('DELETE', $uri, $payload, [], $authorised);
     }
 
     /**
@@ -80,6 +81,7 @@ trait MakesHttpRequests
      *
      * @param  string  $uri
      * @param  array  $query
+     * @param  bool  $authorised
      *
      * @return mixed
      *
@@ -92,9 +94,9 @@ trait MakesHttpRequests
      * @throws UnauthorisedException
      * @throws UnknownException
      */
-    private function get(string $uri, array $query = [])
+    private function get(string $uri, array $query = [], $authorised = true)
     {
-        return $this->request('GET', $uri, [], $query);
+        return $this->request('GET', $uri, [], $query, $authorised);
     }
 
     /**
@@ -104,6 +106,7 @@ trait MakesHttpRequests
      * @param  string  $uri
      * @param  array  $payload
      * @param  array  $query
+     * @param  bool  $authorised
      * @param  string  $format  One of `json`, `form_params`, `multipart`.
      *
      * @return mixed
@@ -117,14 +120,20 @@ trait MakesHttpRequests
      * @throws TokenExpiredException
      * @throws AuthorisationException
      */
-    private function request(string $verb, string $uri, array $payload = [], array $query = [], string $format = 'json')
-    {
+    private function request(
+        string $verb,
+        string $uri,
+        array $payload = [],
+        array $query = [],
+        bool $authorised = true,
+        string $format = 'json'
+    ) {
         $options = [
             'timeout' => $this->getRequestTimeout(),
             'query'   => $query,
         ];
 
-        if ($this->isAuthorised()) {
+        if ($authorised) {
             $options['headers']['Authorization'] = 'Bearer ' . $this->getAccessToken();
         }
 
@@ -141,7 +150,7 @@ trait MakesHttpRequests
             throw new RequestException($e);
         }
 
-        if (in_array($response->getStatusCode(), [200, 201, 204])) {
+        if (!in_array($response->getStatusCode(), [200, 201, 204])) {
             $this->handleRequestError($response);
         }
 
@@ -168,19 +177,21 @@ trait MakesHttpRequests
         $body = json_decode((string) $response->getBody(), true);
         $errors = $body['errors'] ?? $body ?? null;
 
-        if ($response->getStatusCode() === 404) {
+        $status = $response->getStatusCode();
+
+        if ($status === 404) {
             throw new NotFoundException($errors);
         }
 
-        if ($response->getStatusCode() === 400) {
+        if ($status === 400) {
             throw new BadRequestException($errors);
         }
 
-        if ($response->getStatusCode() === 401) {
+        if ($status === 401) {
             throw new UnauthorisedException();
         }
 
-        if ($response->getStatusCode() === 429) {
+        if ($status === 429) {
             throw new RateLimitException($body);
         }
 
@@ -193,6 +204,7 @@ trait MakesHttpRequests
      * @param  string  $uri
      * @param  array  $payload
      * @param  string  $format
+     * @param  bool  $authorised
      *
      * @return mixed
      *
@@ -205,9 +217,9 @@ trait MakesHttpRequests
      * @throws UnauthorisedException
      * @throws UnknownException
      */
-    private function post(string $uri, array $payload = [], string $format = 'json')
+    private function post(string $uri, array $payload = [], string $format = 'json', $authorised = true)
     {
-        return $this->request('POST', $uri, $payload, [], $format);
+        return $this->request('POST', $uri, $payload, [], $authorised, $format);
     }
 
     /**
@@ -215,6 +227,7 @@ trait MakesHttpRequests
      *
      * @param  string  $uri
      * @param  array  $payload
+     * @param  bool  $authorised
      *
      * @return mixed
      *
@@ -227,8 +240,8 @@ trait MakesHttpRequests
      * @throws UnauthorisedException
      * @throws UnknownException
      */
-    private function put(string $uri, array $payload = [])
+    private function put(string $uri, array $payload = [], bool $authorised)
     {
-        return $this->request('PUT', $uri, $payload);
+        return $this->request('PUT', $uri, $payload, [], $authorised);
     }
 }
