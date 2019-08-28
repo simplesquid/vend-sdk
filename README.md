@@ -1,18 +1,32 @@
 # Vend SDK (a PHP client)
 An unofficial PHP SDK for Vend POS | https://www.vendhq.com/
 
+Contributions, issues and suggestions are very much welcome.
+
 ## Installation
 
-Still to come.
+To install the SDK in your project you need to require the package via composer:
 
-## How to use
+```bash
+composer require simplesquid/vend-sdk    # Still to come
+```
 
-This outlines a typical sequence of instructions, but is not a complete list of all the functionality of the SDK. Please review the code for more advanced usages.
+Then use Composer's autoload:
+
+```php
+require __DIR__.'/../vendor/autoload.php';
+```
+
+And finally get the instance of the SDK, and optionally set the desired user agent:
 
 ```php
 $vend = Vend::getInstance();
 $vend->makeClient('User Agent');
 ```
+
+## How to use
+
+This outlines a typical sequence of instructions, but is not a complete list of all the functionality of the SDK. Please review the code for more advanced usages. It is also suggested you read the Vend API documentation found here: https://docs.vendhq.com/
 
 ### Authorisation
 
@@ -70,3 +84,31 @@ Again, make sure you store the returned Token object.
 
 ### Requests
 
+To see all the available requests, take a look at traits located in the `Actions` folder. As an example, Products can be managed using the following requests:
+
+```php
+/**
+ * List products.
+ * Returns a paginated list of products.
+ *
+ * @param  int|null  $page_size  The maximum number of items to be returned in the response.
+ * @param  int|null  $after  The lower limit for the version numbers to be included in the response.
+ * @param  int|null  $before  The upper limit for the version numbers to be included in the response.
+ * @param  bool|null  $deleted  Indicates whether deleted items should be included in the response.
+ * @return ProductCollection
+ */
+$products = $vend->products($page_size, $after, $before, $deleted);
+```
+
+```php
+/**
+ * Get a single product.
+ * Returns a single product object with a given ID.
+ *
+ * @param  string  $id  Valid product ID.
+ * @return Product
+ */
+$product = $vend->product($id);
+```
+
+_More examples to come..._ 
