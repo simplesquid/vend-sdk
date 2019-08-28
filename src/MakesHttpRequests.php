@@ -71,7 +71,7 @@ trait MakesHttpRequests
      * @throws UnauthorisedException
      * @throws UnknownException
      */
-    private function delete(string $uri, array $payload = [], $authorised = true)
+    private function delete(string $uri, array $payload = [], bool $authorised = true)
     {
         return $this->request('DELETE', $uri, $payload, [], $authorised);
     }
@@ -94,7 +94,7 @@ trait MakesHttpRequests
      * @throws UnauthorisedException
      * @throws UnknownException
      */
-    private function get(string $uri, array $query = [], $authorised = true)
+    private function get(string $uri, array $query = [], bool $authorised = true)
     {
         return $this->request('GET', $uri, [], $query, $authorised);
     }
@@ -217,7 +217,7 @@ trait MakesHttpRequests
      * @throws UnauthorisedException
      * @throws UnknownException
      */
-    private function post(string $uri, array $payload = [], string $format = 'json', $authorised = true)
+    private function post(string $uri, array $payload = [], string $format = 'json', bool $authorised = true)
     {
         return $this->request('POST', $uri, $payload, [], $authorised, $format);
     }
@@ -240,7 +240,7 @@ trait MakesHttpRequests
      * @throws UnauthorisedException
      * @throws UnknownException
      */
-    private function put(string $uri, array $payload = [], bool $authorised)
+    private function put(string $uri, array $payload = [], bool $authorised = true)
     {
         return $this->request('PUT', $uri, $payload, [], $authorised);
     }

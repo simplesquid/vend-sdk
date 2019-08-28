@@ -7,11 +7,17 @@ use GuzzleHttp\Client;
 use SimpleSquid\Vend\Actions\ManagesBrands;
 use SimpleSquid\Vend\Actions\ManagesChannelRequestLog;
 use SimpleSquid\Vend\Actions\ManagesConsignments;
+use SimpleSquid\Vend\Actions\ManagesCustomerGroups;
+use SimpleSquid\Vend\Actions\ManagesCustomers;
 use SimpleSquid\Vend\Actions\ManagesInventory;
+use SimpleSquid\Vend\Actions\ManagesOutletProductTaxes;
+use SimpleSquid\Vend\Actions\ManagesOutlets;
+use SimpleSquid\Vend\Actions\ManagesPaymentTypes;
 use SimpleSquid\Vend\Actions\ManagesPriceBooks;
 use SimpleSquid\Vend\Actions\ManagesProductImages;
 use SimpleSquid\Vend\Actions\ManagesProducts;
 use SimpleSquid\Vend\Actions\ManagesResources;
+use SimpleSquid\Vend\Actions\ManagesSearch;
 use SimpleSquid\Vend\Exceptions\AuthorisationException;
 use SimpleSquid\Vend\Exceptions\BadRequestException;
 use SimpleSquid\Vend\Exceptions\NotFoundException;
@@ -29,10 +35,16 @@ class Vend
         ManagesBrands,
         ManagesChannelRequestLog,
         ManagesConsignments,
+        ManagesCustomerGroups,
+        ManagesCustomers,
         ManagesInventory,
+        ManagesOutletProductTaxes,
+        ManagesOutlets,
+        ManagesPaymentTypes,
         ManagesPriceBooks,
         ManagesProducts,
-        ManagesProductImages;
+        ManagesProductImages,
+        ManagesSearch;
 
     /**
      * Single instance.

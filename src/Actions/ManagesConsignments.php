@@ -61,7 +61,8 @@ trait ManagesConsignments
         int $after = null,
         int $before = null
     ): ConsignmentCollection {
-        return $this->collection(ConsignmentCollection::class, "2.0/consignments", compact('after', 'before', 'page_size', 'outlet_id', 'type', 'status'));
+        return $this->collection(ConsignmentCollection::class, "2.0/consignments",
+                                 compact('after', 'before', 'page_size', 'outlet_id', 'type', 'status'));
     }
 
     /**
