@@ -2,7 +2,6 @@
 
 namespace SimpleSquid\Vend\Resources\TwoDotZero;
 
-use Carbon\Carbon;
 use SimpleSquid\Vend\Resources\CastsDates;
 use Spatie\DataTransferObject\DataTransferObject;
 
@@ -18,7 +17,7 @@ class PriceBook extends DataTransferObject
     /**
      * Customer Group
      *
-     * @var CustomerGroup|null
+     * @var \SimpleSquid\Vend\Resources\TwoDotZero\CustomerGroup|null
      */
     public $customer_group;
 
@@ -32,7 +31,7 @@ class PriceBook extends DataTransferObject
     /**
      * Deletion timestamp in UTC.
      *
-     * @var Carbon|null
+     * @var \Carbon\Carbon|null
      */
     public $deleted_at;
 
@@ -74,14 +73,14 @@ class PriceBook extends DataTransferObject
     /**
      * The date when the price book becomes valid (active).
      *
-     * @var Carbon|null
+     * @var \Carbon\Carbon|null
      */
     public $valid_from;
 
     /**
      * The date when the price book becomes invalid (inactive).
      *
-     * @var Carbon|null
+     * @var \Carbon\Carbon|null
      */
     public $valid_to;
 

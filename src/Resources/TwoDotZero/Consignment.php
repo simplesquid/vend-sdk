@@ -2,7 +2,6 @@
 
 namespace SimpleSquid\Vend\Resources\TwoDotZero;
 
-use Carbon\Carbon;
 use SimpleSquid\Vend\Resources\CastsDates;
 use Spatie\DataTransferObject\DataTransferObject;
 
@@ -18,28 +17,28 @@ class Consignment extends DataTransferObject
     /**
      * Consignment creation date.
      *
-     * @var Carbon|null
+     * @var \Carbon\Carbon|null
      */
     public $consignment_date;
 
     /**
      * Creation timestamp in UTC.
      *
-     * @var Carbon|null
+     * @var \Carbon\Carbon|null
      */
     public $created_at;
 
     /**
      * Deletion timestamp in UTC.
      *
-     * @var Carbon|null
+     * @var \Carbon\Carbon|null
      */
     public $deleted_at;
 
     /**
      * Due date.
      *
-     * @var Carbon|null
+     * @var \Carbon\Carbon|null
      */
     public $due_at;
 
@@ -67,7 +66,7 @@ class Consignment extends DataTransferObject
     /**
      * The date when consignment was received.
      *
-     * @var Carbon|null
+     * @var \Carbon\Carbon|null
      */
     public $received_at;
 
@@ -146,7 +145,7 @@ class Consignment extends DataTransferObject
     /**
      * Last update timestamp in UTC.
      *
-     * @var Carbon|null
+     * @var \Carbon\Carbon|null
      */
     public $updated_at;
 

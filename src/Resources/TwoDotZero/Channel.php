@@ -2,7 +2,6 @@
 
 namespace SimpleSquid\Vend\Resources\TwoDotZero;
 
-use Carbon\Carbon;
 use SimpleSquid\Vend\Resources\CastsDates;
 use Spatie\DataTransferObject\DataTransferObject;
 
@@ -26,7 +25,7 @@ class Channel extends DataTransferObject
     /**
      * An RFC3339 representation of the time at which the channel was created.
      *
-     * @var Carbon|null
+     * @var \Carbon\Carbon|null
      */
     public $created_at;
 

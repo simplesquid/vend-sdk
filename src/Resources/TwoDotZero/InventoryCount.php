@@ -2,7 +2,6 @@
 
 namespace SimpleSquid\Vend\Resources\TwoDotZero;
 
-use Carbon\Carbon;
 use SimpleSquid\Vend\Resources\CastsDates;
 use Spatie\DataTransferObject\DataTransferObject;
 
@@ -18,14 +17,14 @@ class InventoryCount extends DataTransferObject
     /**
      * The date for which the count is scheduled.
      *
-     * @var Carbon|null
+     * @var \Carbon\Carbon|null
      */
     public $due_at;
 
     /**
      * An array of filter objects. Max 25.
      *
-     * @var InventoryCountFilter[]|null
+     * @var \SimpleSquid\Vend\Resources\TwoDotZero\InventoryCountFilter[]|null
      */
     public $filters;
 

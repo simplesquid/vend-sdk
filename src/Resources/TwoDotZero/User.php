@@ -2,7 +2,6 @@
 
 namespace SimpleSquid\Vend\Resources\TwoDotZero;
 
-use Carbon\Carbon;
 use SimpleSquid\Vend\Resources\CastsDates;
 use Spatie\DataTransferObject\DataTransferObject;
 
@@ -25,14 +24,14 @@ class User extends DataTransferObject
     /**
      * Creation timestamp in UTC.
      *
-     * @var Carbon
+     * @var \Carbon\Carbon
      */
     public $created_at;
 
     /**
      * Deletion timestamp in UTC.
      *
-     * @var Carbon|null
+     * @var \Carbon\Carbon|null
      */
     public $deleted_at;
 
@@ -53,7 +52,7 @@ class User extends DataTransferObject
     /**
      * The timestamp of users email verification.
      *
-     * @var Carbon|null
+     * @var \Carbon\Carbon|null
      */
     public $email_verified_at;
 
@@ -74,7 +73,7 @@ class User extends DataTransferObject
     /**
      * On object containing URLs for different sizes of the user's avatar.
      *
-     * @var UserImage|null
+     * @var \SimpleSquid\Vend\Resources\TwoDotZero\UserImage|null
      */
     public $images;
 
@@ -109,7 +108,7 @@ class User extends DataTransferObject
     /**
      * The timestamp of the user's last activity in the system.
      *
-     * @var Carbon|null
+     * @var \Carbon\Carbon|null
      */
     public $seen_at;
 
@@ -137,7 +136,7 @@ class User extends DataTransferObject
     /**
      * Last update timestamp in UTC.
      *
-     * @var Carbon
+     * @var \Carbon\Carbon
      */
     public $updated_at;
 

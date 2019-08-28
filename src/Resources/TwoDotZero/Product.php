@@ -2,7 +2,6 @@
 
 namespace SimpleSquid\Vend\Resources\TwoDotZero;
 
-use Carbon\Carbon;
 use SimpleSquid\Vend\Resources\CastsDates;
 use Spatie\DataTransferObject\DataTransferObject;
 
@@ -46,7 +45,7 @@ class Product extends DataTransferObject
     /**
      * Brand Sample
      *
-     * @var Brand|null
+     * @var \SimpleSquid\Vend\Resources\TwoDotZero\Brand|null
      */
     public $brand;
 
@@ -67,21 +66,21 @@ class Product extends DataTransferObject
     /**
      * A list of tag objects.
      *
-     * @var Tag[]|null
+     * @var \SimpleSquid\Vend\Resources\TwoDotZero\Tag[]|null
      */
     public $categories;
 
     /**
      * Creation timestamp in UTC.
      *
-     * @var Carbon|null
+     * @var \Carbon\Carbon|null
      */
     public $created_at;
 
     /**
      * Deletion timestamp in UTC.
      *
-     * @var Carbon|null
+     * @var \Carbon\Carbon|null
      */
     public $deleted_at;
 
@@ -137,7 +136,7 @@ class Product extends DataTransferObject
     /**
      * A list of image objects.
      *
-     * @var ImageSample[]|null
+     * @var \SimpleSquid\Vend\Resources\TwoDotZero\ImageSample[]|null
      */
     public $images;
 
@@ -222,7 +221,7 @@ class Product extends DataTransferObject
     /**
      * Supplier Sample
      *
-     * @var Supplier|null
+     * @var \SimpleSquid\Vend\Resources\TwoDotZero\Supplier|null
      */
     public $supplier;
 
@@ -257,14 +256,14 @@ class Product extends DataTransferObject
     /**
      * Product Type Sample
      *
-     * @var ProductType|null
+     * @var \SimpleSquid\Vend\Resources\TwoDotZero\ProductType|null
      */
     public $type;
 
     /**
      * Last update timestamp in UTC.
      *
-     * @var Carbon|null
+     * @var \Carbon\Carbon|null
      */
     public $updated_at;
 
@@ -285,7 +284,7 @@ class Product extends DataTransferObject
     /**
      * A list of variant option objects.
      *
-     * @var VariantOption[]|null
+     * @var \SimpleSquid\Vend\Resources\TwoDotZero\VariantOption[]|null
      */
     public $variant_options;
 

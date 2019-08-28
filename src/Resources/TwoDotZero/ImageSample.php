@@ -21,7 +21,7 @@ class ImageSample extends DataTransferObject
     /**
      * Sizes. **undocumented**
      *
-     * @var ImageSizes|null
+     * @var \SimpleSquid\Vend\Resources\TwoDotZero\ImageSizes|null
      */
     public $sizes;
 

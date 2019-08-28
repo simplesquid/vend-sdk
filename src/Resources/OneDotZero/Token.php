@@ -2,7 +2,6 @@
 
 namespace SimpleSquid\Vend\Resources\OneDotZero;
 
-use Carbon\Carbon;
 use SimpleSquid\Vend\Resources\CastsDates;
 use Spatie\DataTransferObject\DataTransferObject;
 
@@ -25,7 +24,7 @@ class Token extends DataTransferObject
     /**
      * Expires.
      *
-     * @var Carbon|null
+     * @var \Carbon\Carbon|null
      */
     public $expires;
 

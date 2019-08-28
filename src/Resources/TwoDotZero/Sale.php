@@ -2,7 +2,6 @@
 
 namespace SimpleSquid\Vend\Resources\TwoDotZero;
 
-use Carbon\Carbon;
 use SimpleSquid\Vend\Resources\CastsDates;
 use Spatie\DataTransferObject\DataTransferObject;
 
@@ -18,14 +17,14 @@ class Sale extends DataTransferObject
     /**
      * Collection of adjustments.
      *
-     * @var Adjustment[]|null
+     * @var \SimpleSquid\Vend\Resources\TwoDotZero\Adjustment[]|null
      */
     public $adjustments;
 
     /**
      * Creation timestamp in UTC.
      *
-     * @var Carbon|null
+     * @var \Carbon\Carbon|null
      */
     public $created_at;
 
@@ -39,7 +38,7 @@ class Sale extends DataTransferObject
     /**
      * Deletion timestamp in UTC.
      *
-     * @var Carbon|null
+     * @var \Carbon\Carbon|null
      */
     public $deleted_at;
 
@@ -67,7 +66,7 @@ class Sale extends DataTransferObject
     /**
      * Collection of line items.
      *
-     * @var LineItem[]|null
+     * @var \SimpleSquid\Vend\Resources\TwoDotZero\LineItem[]|null
      */
     public $line_items;
 
@@ -88,7 +87,7 @@ class Sale extends DataTransferObject
     /**
      * Collection of payments.
      *
-     * @var Payment[]|null
+     * @var \SimpleSquid\Vend\Resources\TwoDotZero\Payment[]|null
      */
     public $payments;
 
@@ -109,7 +108,7 @@ class Sale extends DataTransferObject
     /**
      * Sale timestamp in UTC.
      *
-     * @var Carbon|null
+     * @var \Carbon\Carbon|null
      */
     public $sale_date;
 
@@ -146,7 +145,7 @@ class Sale extends DataTransferObject
     /**
      * Collection of taxes.
      *
-     * @var SaleTax[]|null
+     * @var \SimpleSquid\Vend\Resources\TwoDotZero\SaleTax[]|null
      */
     public $taxes;
 
@@ -174,7 +173,7 @@ class Sale extends DataTransferObject
     /**
      * Last update timestamp in UTC.
      *
-     * @var Carbon|null
+     * @var \Carbon\Carbon|null
      */
     public $updated_at;
 

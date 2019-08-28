@@ -2,7 +2,6 @@
 
 namespace SimpleSquid\Vend\Resources\TwoDotZero;
 
-use Carbon\Carbon;
 use SimpleSquid\Vend\Resources\CastsDates;
 use Spatie\DataTransferObject\DataTransferObject;
 
@@ -25,14 +24,14 @@ class RateLimit extends DataTransferObject
     /**
      * Limits.
      *
-     * @var Object
+     * @var object
      */
     public $limits;
 
     /**
      * Retry after.
      *
-     * @var Carbon
+     * @var \Carbon\Carbon
      */
     public $retry_after;
 

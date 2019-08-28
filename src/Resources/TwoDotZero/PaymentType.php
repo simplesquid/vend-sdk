@@ -2,7 +2,6 @@
 
 namespace SimpleSquid\Vend\Resources\TwoDotZero;
 
-use Carbon\Carbon;
 use SimpleSquid\Vend\Resources\CastsDates;
 use Spatie\DataTransferObject\DataTransferObject;
 
@@ -18,14 +17,14 @@ class PaymentType extends DataTransferObject
     /**
      * Payment Type Config.
      *
-     * @var PaymentTypeConfig|null
+     * @var \SimpleSquid\Vend\Resources\TwoDotZero\PaymentTypeConfig|null
      */
     public $config;
 
     /**
      * The deletion timestamp.
      *
-     * @var Carbon|null
+     * @var \Carbon\Carbon|null
      */
     public $deleted_at;
 
