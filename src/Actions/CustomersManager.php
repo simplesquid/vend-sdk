@@ -2,32 +2,20 @@
 
 namespace SimpleSquid\Vend\Actions;
 
-use SimpleSquid\Vend\Resources\TwoDotZero\Version;
-use SimpleSquid\Vend\Vend;
+use SimpleSquid\Vend\Resources\TwoDotZero\Customer;
+use SimpleSquid\Vend\Resources\TwoDotZero\CustomerCollection;
 
-trait ManagesResources
+class CustomersManager
 {
-    /**
-     * @var \SimpleSquid\Vend\Vend
-     */
-    private $vend;
+    use ManagesResources;
 
     /**
-     * Resource Manager constructor.
+     * Create a new customer.
+     * Creates a new customer.
      *
-     * @param  \SimpleSquid\Vend\Vend  $vend
-     */
-    public function __construct(Vend $vend)
-    {
-        $this->vend = $vend;
-    }
-
-    /**
-     * @param  string  $collection
-     * @param  string  $endpoint
-     * @param  array   $query
+     * @param  array  $body  TODO: Could use CustomerBase object.
      *
-     * @return mixed
+     * @return Customer
      * @throws \SimpleSquid\Vend\Exceptions\AuthorisationException
      * @throws \SimpleSquid\Vend\Exceptions\BadRequestException
      * @throws \SimpleSquid\Vend\Exceptions\NotFoundException
@@ -37,29 +25,18 @@ trait ManagesResources
      * @throws \SimpleSquid\Vend\Exceptions\UnauthorisedException
      * @throws \SimpleSquid\Vend\Exceptions\UnknownException
      */
-    private function collection(string $collection, string $endpoint, array $query = [])
+    public function create(array $body): Customer
     {
-        $query = array_filter($query, function ($value) {
-            return !is_null($value);
-        });
-
-        $response = $this->vend->get($endpoint, $query);
-
-        $collection = new $collection($response['data']);
-
-        if (property_exists($collection, 'version') && isset($response['version'])) {
-            $collection->version = new Version($response['version']);
-        }
-
-        return $collection;
+        return $this->createResource(Customer::class, "2.0/customers", $body);
     }
 
     /**
-     * @param  string  $resource
-     * @param  string  $endpoint
-     * @param  array   $body
+     * Get a single customer.
+     * Returns a single customer with a requested ID.
      *
-     * @return mixed
+     * @param  string  $id  Valid customer ID.
+     *
+     * @return Customer
      * @throws \SimpleSquid\Vend\Exceptions\AuthorisationException
      * @throws \SimpleSquid\Vend\Exceptions\BadRequestException
      * @throws \SimpleSquid\Vend\Exceptions\NotFoundException
@@ -69,15 +46,45 @@ trait ManagesResources
      * @throws \SimpleSquid\Vend\Exceptions\UnauthorisedException
      * @throws \SimpleSquid\Vend\Exceptions\UnknownException
      */
-    private function createResource(string $resource, string $endpoint, array $body)
+    public function find(string $id): Customer
     {
-        $response = $this->vend->post($endpoint, $body);
-
-        return new $resource($response['product']);
+        return $this->single(Customer::class, "2.0/customers/$id");
     }
 
     /**
-     * @param  string  $endpoint
+     * List customers.
+     * Returns a paginated list of customers.
+     *
+     * @param  int|null   $page_size  The maximum number of items to be returned in the response.
+     * @param  int|null   $after      The lower limit for the version numbers to be included in the response.
+     * @param  int|null   $before     The upper limit for the version numbers to be included in the response.
+     * @param  bool|null  $deleted    Indicates whether deleted items should be included in the response.
+     *
+     * @return CustomerCollection
+     * @throws \SimpleSquid\Vend\Exceptions\AuthorisationException
+     * @throws \SimpleSquid\Vend\Exceptions\BadRequestException
+     * @throws \SimpleSquid\Vend\Exceptions\NotFoundException
+     * @throws \SimpleSquid\Vend\Exceptions\RateLimitException
+     * @throws \SimpleSquid\Vend\Exceptions\RequestException
+     * @throws \SimpleSquid\Vend\Exceptions\TokenExpiredException
+     * @throws \SimpleSquid\Vend\Exceptions\UnauthorisedException
+     * @throws \SimpleSquid\Vend\Exceptions\UnknownException
+     */
+    public function get(
+        int $page_size = null,
+        int $after = null,
+        int $before = null,
+        bool $deleted = null
+    ): CustomerCollection {
+        return $this->collection(CustomerCollection::class, "2.0/customers",
+                                 compact('after', 'before', 'page_size', 'deleted'));
+    }
+
+    /**
+     * Delete a customer.
+     * Deletes the customer with the requested ID.
+     *
+     * @param  string  $id  Valid customer ID.
      *
      * @return bool
      * @throws \SimpleSquid\Vend\Exceptions\AuthorisationException
@@ -89,18 +96,19 @@ trait ManagesResources
      * @throws \SimpleSquid\Vend\Exceptions\UnauthorisedException
      * @throws \SimpleSquid\Vend\Exceptions\UnknownException
      */
-    private function deleteResource(string $endpoint): bool
+    public function delete(string $id): bool
     {
-        $this->vend->delete($endpoint);
-
-        return true;
+        return $this->deleteResource("2.0/customers/$id");
     }
 
     /**
-     * @param  string  $resource
-     * @param  string  $endpoint
+     * Update a customer.
+     * Updates the customer with the requested ID.
      *
-     * @return mixed
+     * @param  string  $id    Valid customer ID.
+     * @param  array   $body  TODO: Could use CustomerBase object.
+     *
+     * @return Customer
      * @throws \SimpleSquid\Vend\Exceptions\AuthorisationException
      * @throws \SimpleSquid\Vend\Exceptions\BadRequestException
      * @throws \SimpleSquid\Vend\Exceptions\NotFoundException
@@ -110,32 +118,9 @@ trait ManagesResources
      * @throws \SimpleSquid\Vend\Exceptions\UnauthorisedException
      * @throws \SimpleSquid\Vend\Exceptions\UnknownException
      */
-    private function single(string $resource, string $endpoint)
+    public function update(string $id, array $body): Customer
     {
-        $response = $this->vend->get($endpoint);
-
-        return new $resource($response['data']);
+        return $this->updateResource(Customer::class, "2.0/customers/$id", $body);
     }
 
-    /**
-     * @param  string  $resource
-     * @param  string  $endpoint
-     * @param  array   $body
-     *
-     * @return mixed
-     * @throws \SimpleSquid\Vend\Exceptions\AuthorisationException
-     * @throws \SimpleSquid\Vend\Exceptions\BadRequestException
-     * @throws \SimpleSquid\Vend\Exceptions\NotFoundException
-     * @throws \SimpleSquid\Vend\Exceptions\RateLimitException
-     * @throws \SimpleSquid\Vend\Exceptions\RequestException
-     * @throws \SimpleSquid\Vend\Exceptions\TokenExpiredException
-     * @throws \SimpleSquid\Vend\Exceptions\UnauthorisedException
-     * @throws \SimpleSquid\Vend\Exceptions\UnknownException
-     */
-    private function updateResource(string $resource, string $endpoint, array $body)
-    {
-        $response = $this->vend->put($endpoint, $body);
-
-        return new $resource($response['product']);
-    }
 }
