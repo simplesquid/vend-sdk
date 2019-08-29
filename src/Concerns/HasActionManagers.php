@@ -10,72 +10,79 @@ use SimpleSquid\Vend\Actions\CustomersManager;
 use SimpleSquid\Vend\Actions\InventoryManager;
 use SimpleSquid\Vend\Actions\OutletProductTaxesManager;
 use SimpleSquid\Vend\Actions\OutletsManager;
+use SimpleSquid\Vend\Actions\PaymentTypesManager;
 use SimpleSquid\Vend\Actions\PriceBooksManager;
 use SimpleSquid\Vend\Actions\ProductImagesManager;
 use SimpleSquid\Vend\Actions\ProductsManager;
+use SimpleSquid\Vend\Actions\RegistersManager;
+use SimpleSquid\Vend\Actions\SalesManager;
 use SimpleSquid\Vend\Actions\SearchManager;
+use SimpleSquid\Vend\Actions\SuppliersManager;
+use SimpleSquid\Vend\Actions\TagsManager;
+use SimpleSquid\Vend\Actions\TaxesManager;
+use SimpleSquid\Vend\Actions\UsersManager;
 
 trait HasActionManagers
 {
-    /**
-     * @var \SimpleSquid\Vend\Actions\BrandsManager
-     */
+    /** @var \SimpleSquid\Vend\Actions\BrandsManager */
     public $brand;
 
-    /**
-     * @var \SimpleSquid\Vend\Actions\ChannelRequestLogManager
-     */
+    /** @var \SimpleSquid\Vend\Actions\ChannelRequestLogManager */
     public $channelRequestLog;
 
-    /**
-     * @var \SimpleSquid\Vend\Actions\ConsignmentsManager
-     */
+    /** @var \SimpleSquid\Vend\Actions\ConsignmentsManager */
     public $consignment;
 
-    /**
-     * @var \SimpleSquid\Vend\Actions\CustomersManager
-     */
+    /** @var \SimpleSquid\Vend\Actions\CustomersManager */
     public $customer;
 
-    /**
-     * @var \SimpleSquid\Vend\Actions\CustomerGroupsManager
-     */
+    /** @var \SimpleSquid\Vend\Actions\CustomerGroupsManager */
     public $customerGroup;
 
-    /**
-     * @var \SimpleSquid\Vend\Actions\InventoryManager
-     */
+    /** @var \SimpleSquid\Vend\Actions\InventoryManager */
     public $inventory;
 
-    /**
-     * @var \SimpleSquid\Vend\Actions\OutletsManager
-     */
+    /** @var \SimpleSquid\Vend\Actions\OutletsManager */
     public $outlet;
 
-    /**
-     * @var \SimpleSquid\Vend\Actions\OutletProductTaxesManager
-     */
+    /** @var \SimpleSquid\Vend\Actions\OutletProductTaxesManager */
     public $outletProductTax;
 
-    /**
-     * @var \SimpleSquid\Vend\Actions\PriceBooksManager
-     */
+    /** @var \SimpleSquid\Vend\Actions\PaymentTypesManager */
+    public $paymentType;
+
+    /** @var \SimpleSquid\Vend\Actions\PriceBooksManager */
     public $priceBook;
 
-    /**
-     * @var \SimpleSquid\Vend\Actions\ProductsManager
-     */
+    /** @var \SimpleSquid\Vend\Actions\ProductsManager */
     public $product;
 
-    /**
-     * @var \SimpleSquid\Vend\Actions\ProductImagesManager
-     */
+    /** @var \SimpleSquid\Vend\Actions\ProductImagesManager */
     public $productImage;
 
-    /**
-     * @var \SimpleSquid\Vend\Actions\SearchManager
-     */
+    /** @var \SimpleSquid\Vend\Actions\PaymentTypesManager */
+    public $productType;
+
+    /** @var \SimpleSquid\Vend\Actions\RegistersManager */
+    public $register;
+
+    /** @var \SimpleSquid\Vend\Actions\SalesManager */
+    public $sale;
+
+    /** @var \SimpleSquid\Vend\Actions\SearchManager */
     public $search;
+
+    /** @var \SimpleSquid\Vend\Actions\SuppliersManager */
+    public $supplier;
+
+    /** @var \SimpleSquid\Vend\Actions\TagsManager */
+    public $tag;
+
+    /** @var \SimpleSquid\Vend\Actions\TaxesManager */
+    public $tax;
+
+    /** @var \SimpleSquid\Vend\Actions\UsersManager */
+    public $user;
 
     /**
      * Vend constructor.
@@ -93,9 +100,17 @@ trait HasActionManagers
         $this->inventory = new InventoryManager($vend);
         $this->outletProductTax = new OutletProductTaxesManager($vend);
         $this->outlet = new OutletsManager($vend);
+        $this->paymentType = new PaymentTypesManager($vend);
         $this->priceBook = new PriceBooksManager($vend);
         $this->productImage = new ProductImagesManager($vend);
         $this->product = new ProductsManager($vend);
+        $this->productType = new PaymentTypesManager($vend);
+        $this->register = new RegistersManager($vend);
+        $this->sale = new SalesManager($vend);
         $this->search = new SearchManager($vend);
+        $this->supplier = new SuppliersManager($vend);
+        $this->tag = new TagsManager($vend);
+        $this->tax = new TaxesManager($vend);
+        $this->user = new UsersManager($vend);
     }
 }

@@ -19,46 +19,22 @@ class Vend
         AuthorisesWithOAuth,
         HasActionManagers;
 
-    /**
-     * Number of seconds a request is retried.
-     *
-     * @var int
-     */
+    /** @var int */
     private $confirmationTimeout = 30;
 
-    /**
-     * Vend domain prefix.
-     *
-     * @var string
-     */
+    /** @var string */
     private $domainPrefix;
 
-    /**
-     * The Guzzle HTTP Client instance.
-     *
-     * @var Client
-     */
+    /** @var Client */
     public $guzzle;
 
-    /**
-     * Single instance.
-     *
-     * @var self
-     */
+    /** @var self */
     private static $instance;
 
-    /**
-     * Number of seconds the request is allowed to run for.
-     *
-     * @var int
-     */
+    /** @var int */
     private $requestTimeout = 2;
 
-    /**
-     * Authorisation token.
-     *
-     * @var Token
-     */
+    /** @var Token */
     private $token;
 
     /**
@@ -83,7 +59,7 @@ class Vend
     }
 
     /**
-     * Get the confirmation timeout.
+     * Get the confirmation timeout in seconds.
      *
      * @return  int
      */
@@ -93,7 +69,7 @@ class Vend
     }
 
     /**
-     * Set a new confirmation timeout.
+     * Set a new confirmation timeout in seconds.
      *
      * @param  int  $confirmationTimeout
      *
@@ -121,7 +97,7 @@ class Vend
     }
 
     /**
-     * Get the request timeout.
+     * Get the request timeout in seconds.
      *
      * @return  int
      */
@@ -131,7 +107,7 @@ class Vend
     }
 
     /**
-     * Set a new request timeout.
+     * Set a new request timeout in seconds.
      *
      * @param  int  $requestTimeout
      *

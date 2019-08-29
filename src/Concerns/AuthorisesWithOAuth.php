@@ -15,25 +15,13 @@ use SimpleSquid\Vend\Vend;
 
 trait AuthorisesWithOAuth
 {
-    /**
-     * OAuth Client ID.
-     *
-     * @var string
-     */
+    /** @var string */
     private $clientID;
 
-    /**
-     * OAuth Client Secret.
-     *
-     * @var string
-     */
+    /** @var string */
     private $clientSecret;
 
-    /**
-     * OAuth Redirect URI.
-     *
-     * @var string
-     */
+    /** @var string */
     private $redirectURI;
 
     /**
