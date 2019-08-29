@@ -4,11 +4,7 @@ namespace SimpleSquid\Vend\Exceptions;
 
 trait HasErrors
 {
-    /**
-     * The array of errors.
-     *
-     * @var array
-     */
+    /** @var array */
     private $errors;
 
     /**

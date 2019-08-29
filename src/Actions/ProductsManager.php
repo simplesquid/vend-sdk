@@ -2,6 +2,7 @@
 
 namespace SimpleSquid\Vend\Actions;
 
+use SimpleSquid\Vend\Resources\TwoDotZero\Image;
 use SimpleSquid\Vend\Resources\TwoDotZero\InventoryCollection;
 use SimpleSquid\Vend\Resources\TwoDotZero\Product;
 use SimpleSquid\Vend\Resources\TwoDotZero\ProductCollection;
@@ -36,10 +37,10 @@ class ProductsManager
      * Get inventory data for a single product.
      * Returns inventory data for a single product in all the outlets.
      *
-     * @param  string    $product_id
-     * @param  int|null  $page_size  The maximum number of items to be returned in the response.
-     * @param  int|null  $after      The lower limit for the version numbers to be included in the response.
-     * @param  int|null  $before     The upper limit for the version numbers to be included in the response.
+     * @param  string    $product_id  Valid product ID.
+     * @param  int|null  $page_size   The maximum number of items to be returned in the response.
+     * @param  int|null  $after       The lower limit for the version numbers to be included in the response.
+     * @param  int|null  $before      The upper limit for the version numbers to be included in the response.
      *
      * @return InventoryCollection
      * @throws \SimpleSquid\Vend\Exceptions\AuthorisationException
@@ -90,19 +91,33 @@ class ProductsManager
                                  compact('page_size', 'after', 'before', 'deleted'));
     }
 
-//    /**
-//     * Upload a product image.
-//     *
-//     * @param  string  $id
-//     * @param  $image
-//     * @return ProductImage
-//     */
-//    public function uploadImage(string $id, $image): ProductImage
-//    {
-//        // TODO: multipart/form-data
-//
-//        $response = $this->post("2.0/products/$id/actions/image_upload", $image);
-//
-//        return new ProductImage($response['data']);
-//    }
+    /**
+     * Upload an image.
+     * Upload a binary file with an image to be used for a product. This request should be encoded as `multipart/form-data`.
+     *
+     * @param  string    $product_id  The ID of the product which the imaged should be associated with.
+     * @param  resource  $image       File to upload. Can be in `jpg` or `png` format. TODO: Check this is correct format.
+     *
+     * @return Image
+     * @throws \SimpleSquid\Vend\Exceptions\AuthorisationException
+     * @throws \SimpleSquid\Vend\Exceptions\BadRequestException
+     * @throws \SimpleSquid\Vend\Exceptions\NotFoundException
+     * @throws \SimpleSquid\Vend\Exceptions\RateLimitException
+     * @throws \SimpleSquid\Vend\Exceptions\RequestException
+     * @throws \SimpleSquid\Vend\Exceptions\TokenExpiredException
+     * @throws \SimpleSquid\Vend\Exceptions\UnauthorisedException
+     * @throws \SimpleSquid\Vend\Exceptions\UnknownException
+     */
+
+    public function image(string $product_id, $image): Image
+    {
+        $response = $this->vend->post("2.0/products/$product_id/actions/image_upload", [
+            [
+                'name'     => 'image',
+                'contents' => $image
+            ]
+        ], 'multipart');
+
+        return new Image($response['product']);
+    }
 }

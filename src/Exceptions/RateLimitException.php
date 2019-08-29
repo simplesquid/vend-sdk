@@ -7,18 +7,9 @@ use SimpleSquid\Vend\Resources\TwoDotZero\RateLimit;
 
 class RateLimitException extends Exception
 {
-    /**
-     * The array of errors.
-     *
-     * @var array
-     */
+    /** @var array */
     private $response;
 
-    /**
-     * Create a new exception instance.
-     *
-     * @param  array|null  $body
-     */
     public function __construct(array $body = null)
     {
         parent::__construct('Your access to the API has been rate limited. Please try again later.');

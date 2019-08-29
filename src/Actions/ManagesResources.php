@@ -7,9 +7,7 @@ use SimpleSquid\Vend\Vend;
 
 trait ManagesResources
 {
-    /**
-     * @var \SimpleSquid\Vend\Vend
-     */
+    /** @var \SimpleSquid\Vend\Vend */
     private $vend;
 
     /**
@@ -23,6 +21,8 @@ trait ManagesResources
     }
 
     /**
+     * Get a collection of resources.
+     *
      * @param  string  $collection
      * @param  string  $endpoint
      * @param  array   $query
@@ -55,6 +55,8 @@ trait ManagesResources
     }
 
     /**
+     * Create a resource.
+     *
      * @param  string  $resource
      * @param  string  $endpoint
      * @param  array   $body
@@ -73,10 +75,12 @@ trait ManagesResources
     {
         $response = $this->vend->post($endpoint, $body);
 
-        return new $resource($response['product']);
+        return new $resource($response['data']);
     }
 
     /**
+     * Delete a resource.
+     *
      * @param  string  $endpoint
      *
      * @return bool
@@ -97,6 +101,8 @@ trait ManagesResources
     }
 
     /**
+     * Get a single resource.
+     *
      * @param  string  $resource
      * @param  string  $endpoint
      *
@@ -118,6 +124,8 @@ trait ManagesResources
     }
 
     /**
+     * Update a resource.
+     *
      * @param  string  $resource
      * @param  string  $endpoint
      * @param  array   $body
@@ -136,6 +144,6 @@ trait ManagesResources
     {
         $response = $this->vend->put($endpoint, $body);
 
-        return new $resource($response['product']);
+        return new $resource($response['data']);
     }
 }
