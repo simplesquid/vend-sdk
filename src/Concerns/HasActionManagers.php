@@ -1,6 +1,6 @@
 <?php
 
-namespace SimpleSquid\Vend;
+namespace SimpleSquid\Vend\Concerns;
 
 use SimpleSquid\Vend\Actions\BrandsManager;
 use SimpleSquid\Vend\Actions\ChannelRequestLogManager;

@@ -4,6 +4,10 @@ namespace SimpleSquid\Vend;
 
 use Carbon\Carbon;
 use GuzzleHttp\Client;
+use SimpleSquid\Vend\Concerns\AuthorisesWithOAuth;
+use SimpleSquid\Vend\Concerns\AuthorisesWithToken;
+use SimpleSquid\Vend\Concerns\HasActionManagers;
+use SimpleSquid\Vend\Concerns\MakesHttpRequests;
 use SimpleSquid\Vend\Exceptions\AuthorisationException;
 use SimpleSquid\Vend\Exceptions\TokenExpiredException;
 use SimpleSquid\Vend\Resources\OneDotZero\Token;
@@ -153,7 +157,7 @@ class Vend
     /**
      * Make the Vend API client.
      *
-     * @param  string  $userAgent
+     * @param  string       $userAgent
      * @param  Client|null  $guzzle
      *
      * @return Vend
