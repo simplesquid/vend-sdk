@@ -1,6 +1,6 @@
 <?php
 
-namespace SimpleSquid\Vend;
+namespace SimpleSquid\Vend\Concerns;
 
 use SimpleSquid\Vend\Exceptions\AuthorisationException;
 use SimpleSquid\Vend\Exceptions\BadRequestException;
@@ -11,6 +11,7 @@ use SimpleSquid\Vend\Exceptions\TokenExpiredException;
 use SimpleSquid\Vend\Exceptions\UnauthorisedException;
 use SimpleSquid\Vend\Exceptions\UnknownException;
 use SimpleSquid\Vend\Resources\OneDotZero\Token;
+use SimpleSquid\Vend\Vend;
 
 trait AuthorisesWithOAuth
 {

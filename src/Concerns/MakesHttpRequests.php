@@ -1,6 +1,6 @@
 <?php
 
-namespace SimpleSquid\Vend;
+namespace SimpleSquid\Vend\Concerns;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
