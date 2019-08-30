@@ -2,20 +2,20 @@
 
 namespace SimpleSquid\Vend\Actions;
 
-use SimpleSquid\Vend\Resources\TwoDotZero\Supplier;
-use SimpleSquid\Vend\Resources\TwoDotZero\SupplierCollection;
+use SimpleSquid\Vend\Resources\ZeroDotNine\Webhook;
+use SimpleSquid\Vend\Resources\ZeroDotNine\WebhookCollection;
 
-class SuppliersManager
+class WebhookManager
 {
     use ManagesResources;
 
     /**
-     * Get a single supplier.
-     * Returns a single supplier with a given ID.
+     * Create a webhook.
+     * Creates and returns a new webhook.
      *
-     * @param  string  $id  Valid supplier ID.
+     * @param  array  $body  TODO: Could be replaced with object.
      *
-     * @return Supplier
+     * @return Webhook
      * @throws \SimpleSquid\Vend\Exceptions\AuthorisationException
      * @throws \SimpleSquid\Vend\Exceptions\BadRequestException
      * @throws \SimpleSquid\Vend\Exceptions\NotFoundException
@@ -25,82 +25,18 @@ class SuppliersManager
      * @throws \SimpleSquid\Vend\Exceptions\UnauthorisedException
      * @throws \SimpleSquid\Vend\Exceptions\UnknownException
      */
-    public function find(string $id): Supplier
+    public function create(array $body): Webhook
     {
-        return $this->single(Supplier::class, "2.0/suppliers/$id");
+        $response = $this->vend->post('webhooks', ['data' => json_encode($body)], 'form_params');
+
+        return new Webhook($response['data']);
     }
 
     /**
-     * List suppliers.
-     * Returns a paginated list of suppliers.
+     * Delete a webhook by ID.
+     * Deletes the webhook with the given ID.
      *
-     * @param  int|null  $page_size  The maximum number of items to be returned in the response.
-     * @param  int|null  $after      The lower limit for the version numbers to be included in the response.
-     * @param  int|null  $before     The upper limit for the version numbers to be included in the response.
-     *
-     * @return SupplierCollection
-     * @throws \SimpleSquid\Vend\Exceptions\AuthorisationException
-     * @throws \SimpleSquid\Vend\Exceptions\BadRequestException
-     * @throws \SimpleSquid\Vend\Exceptions\NotFoundException
-     * @throws \SimpleSquid\Vend\Exceptions\RateLimitException
-     * @throws \SimpleSquid\Vend\Exceptions\RequestException
-     * @throws \SimpleSquid\Vend\Exceptions\TokenExpiredException
-     * @throws \SimpleSquid\Vend\Exceptions\UnauthorisedException
-     * @throws \SimpleSquid\Vend\Exceptions\UnknownException
-     */
-    public function get(int $page_size = null, int $after = null, int $before = null): SupplierCollection
-    {
-        return $this->collection(SupplierCollection::class, "2.0/suppliers", compact('after', 'before', 'page_size'));
-    }
-
-    /**
-     * Create or update a supplier.
-     * Returns a single supplier object.
-     *
-     * @param  array  $body  TODO: Could be SupplierUpdateBase.
-     *
-     * @return \SimpleSquid\Vend\Resources\ZeroDotNine\Supplier
-     * @throws \SimpleSquid\Vend\Exceptions\AuthorisationException
-     * @throws \SimpleSquid\Vend\Exceptions\BadRequestException
-     * @throws \SimpleSquid\Vend\Exceptions\NotFoundException
-     * @throws \SimpleSquid\Vend\Exceptions\RateLimitException
-     * @throws \SimpleSquid\Vend\Exceptions\RequestException
-     * @throws \SimpleSquid\Vend\Exceptions\TokenExpiredException
-     * @throws \SimpleSquid\Vend\Exceptions\UnauthorisedException
-     * @throws \SimpleSquid\Vend\Exceptions\UnknownException
-     */
-    public function create(array $body): \SimpleSquid\Vend\Resources\ZeroDotNine\Supplier
-    {
-        return $this->createResource(\SimpleSquid\Vend\Resources\ZeroDotNine\Supplier::class, 'supplier', $body);
-    }
-
-    /**
-     * Create or update a supplier.
-     * Returns a single supplier object.
-     *
-     * @param  string  $id    A valid supplier ID.
-     * @param  array   $body  TODO: Could be SupplierUpdateBase.
-     *
-     * @return \SimpleSquid\Vend\Resources\ZeroDotNine\Supplier
-     * @throws \SimpleSquid\Vend\Exceptions\AuthorisationException
-     * @throws \SimpleSquid\Vend\Exceptions\BadRequestException
-     * @throws \SimpleSquid\Vend\Exceptions\NotFoundException
-     * @throws \SimpleSquid\Vend\Exceptions\RateLimitException
-     * @throws \SimpleSquid\Vend\Exceptions\RequestException
-     * @throws \SimpleSquid\Vend\Exceptions\TokenExpiredException
-     * @throws \SimpleSquid\Vend\Exceptions\UnauthorisedException
-     * @throws \SimpleSquid\Vend\Exceptions\UnknownException
-     */
-    public function update(string $id, array $body): \SimpleSquid\Vend\Resources\ZeroDotNine\Supplier
-    {
-        return $this->createResource(\SimpleSquid\Vend\Resources\ZeroDotNine\Supplier::class, 'supplier', array_merge(compact('id'), $body));
-    }
-
-    /**
-     * Delete a supplier.
-     * Deletes a single supplier by ID.
-     *
-     * @param  string  $id  The ID of the supplier to be deleted.
+     * @param  string  $id
      *
      * @return bool
      * @throws \SimpleSquid\Vend\Exceptions\AuthorisationException
@@ -114,6 +50,73 @@ class SuppliersManager
      */
     public function delete(string $id): bool
     {
-        return $this->deleteResource("supplier/$id");
+        return $this->deleteResource("webhooks/$id");
     }
+
+    /**
+     * Get a single webhook by ID.
+     * Returns a single webhooks with the given ID.
+     *
+     * @param  string  $id
+     *
+     * @return Webhook
+     * @throws \SimpleSquid\Vend\Exceptions\AuthorisationException
+     * @throws \SimpleSquid\Vend\Exceptions\BadRequestException
+     * @throws \SimpleSquid\Vend\Exceptions\NotFoundException
+     * @throws \SimpleSquid\Vend\Exceptions\RateLimitException
+     * @throws \SimpleSquid\Vend\Exceptions\RequestException
+     * @throws \SimpleSquid\Vend\Exceptions\TokenExpiredException
+     * @throws \SimpleSquid\Vend\Exceptions\UnauthorisedException
+     * @throws \SimpleSquid\Vend\Exceptions\UnknownException
+     */
+    public function find(string $id): Webhook
+    {
+        return $this->single(Webhook::class, "webhooks/$id");
+    }
+
+    /**
+     * List webhooks.
+     * Returns a list of webhooks.
+     * NOTE: This endpoint will only return webhooks created by the application which is making the request.*
+     *
+     * @return WebhookCollection
+     * @throws \SimpleSquid\Vend\Exceptions\AuthorisationException
+     * @throws \SimpleSquid\Vend\Exceptions\BadRequestException
+     * @throws \SimpleSquid\Vend\Exceptions\NotFoundException
+     * @throws \SimpleSquid\Vend\Exceptions\RateLimitException
+     * @throws \SimpleSquid\Vend\Exceptions\RequestException
+     * @throws \SimpleSquid\Vend\Exceptions\TokenExpiredException
+     * @throws \SimpleSquid\Vend\Exceptions\UnauthorisedException
+     * @throws \SimpleSquid\Vend\Exceptions\UnknownException
+     */
+    public function get(): WebhookCollection
+    {
+        return $this->collection(WebhookCollection::class, 'webhooks');
+    }
+
+    /**
+     * Update a webhook by ID.
+     * Updates a webhook with the given `id`.
+     * __NOTE:__ The `Content-Type` header for this request should be set to `application/x-www-form-urlencoded`.
+     *
+     * @param  string  $id    The ID of the webhook to be updated.
+     * @param  string  $body  TODO: Could be replaced with object.
+     *
+     * @return Webhook
+     * @throws \SimpleSquid\Vend\Exceptions\AuthorisationException
+     * @throws \SimpleSquid\Vend\Exceptions\BadRequestException
+     * @throws \SimpleSquid\Vend\Exceptions\NotFoundException
+     * @throws \SimpleSquid\Vend\Exceptions\RateLimitException
+     * @throws \SimpleSquid\Vend\Exceptions\RequestException
+     * @throws \SimpleSquid\Vend\Exceptions\TokenExpiredException
+     * @throws \SimpleSquid\Vend\Exceptions\UnauthorisedException
+     * @throws \SimpleSquid\Vend\Exceptions\UnknownException
+     */
+    public function update(string $id, string $body): Webhook
+    {
+        $response = $this->vend->post("webhooks/$id", ['data' => json_encode($body)], 'form_params');
+
+        return new Webhook($response['data']);
+    }
+
 }
