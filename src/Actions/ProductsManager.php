@@ -12,6 +12,70 @@ class ProductsManager
     use ManagesResources;
 
     /**
+     * Create a product.
+     * Returns a single new product object.
+     *
+     * @param  array  $body  TODO: Could use ProductUpdateBase.
+     *
+     * @return \SimpleSquid\Vend\Resources\ZeroDotNine\Product
+     * @throws \SimpleSquid\Vend\Exceptions\AuthorisationException
+     * @throws \SimpleSquid\Vend\Exceptions\BadRequestException
+     * @throws \SimpleSquid\Vend\Exceptions\NotFoundException
+     * @throws \SimpleSquid\Vend\Exceptions\RateLimitException
+     * @throws \SimpleSquid\Vend\Exceptions\RequestException
+     * @throws \SimpleSquid\Vend\Exceptions\TokenExpiredException
+     * @throws \SimpleSquid\Vend\Exceptions\UnauthorisedException
+     * @throws \SimpleSquid\Vend\Exceptions\UnknownException
+     */
+    public function create(array $body): \SimpleSquid\Vend\Resources\ZeroDotNine\Product
+    {
+        return $this->createResource(\SimpleSquid\Vend\Resources\ZeroDotNine\Product::class, 'products', $body);
+    }
+
+    /**
+     * Update a product.
+     * Returns a single updated product object.
+     *
+     * @param  string  $id    A valid product ID.
+     * @param  array   $body  TODO: Could use ProductUpdateBase.
+     *
+     * @return \SimpleSquid\Vend\Resources\ZeroDotNine\Product
+     * @throws \SimpleSquid\Vend\Exceptions\AuthorisationException
+     * @throws \SimpleSquid\Vend\Exceptions\BadRequestException
+     * @throws \SimpleSquid\Vend\Exceptions\NotFoundException
+     * @throws \SimpleSquid\Vend\Exceptions\RateLimitException
+     * @throws \SimpleSquid\Vend\Exceptions\RequestException
+     * @throws \SimpleSquid\Vend\Exceptions\TokenExpiredException
+     * @throws \SimpleSquid\Vend\Exceptions\UnauthorisedException
+     * @throws \SimpleSquid\Vend\Exceptions\UnknownException
+     */
+    public function update(string $id, array $body): \SimpleSquid\Vend\Resources\ZeroDotNine\Product
+    {
+        return $this->createResource(\SimpleSquid\Vend\Resources\ZeroDotNine\Product::class, 'products', array_merge(compact('id'), $body));
+    }
+
+    /**
+     * Delete a product.
+     * Deleted a product by ID.
+     *
+     * @param  string  $id  The ID of the product to be deleted.
+     *
+     * @return bool
+     * @throws \SimpleSquid\Vend\Exceptions\AuthorisationException
+     * @throws \SimpleSquid\Vend\Exceptions\BadRequestException
+     * @throws \SimpleSquid\Vend\Exceptions\NotFoundException
+     * @throws \SimpleSquid\Vend\Exceptions\RateLimitException
+     * @throws \SimpleSquid\Vend\Exceptions\RequestException
+     * @throws \SimpleSquid\Vend\Exceptions\TokenExpiredException
+     * @throws \SimpleSquid\Vend\Exceptions\UnauthorisedException
+     * @throws \SimpleSquid\Vend\Exceptions\UnknownException
+     */
+    public function delete(string $id): bool
+    {
+        return $this->deleteResource("products/$id");
+    }
+
+    /**
      * Get a single product.
      * Returns a single product object with a given ID.
      *
