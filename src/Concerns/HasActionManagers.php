@@ -14,6 +14,7 @@ use SimpleSquid\Vend\Actions\PaymentTypesManager;
 use SimpleSquid\Vend\Actions\PriceBooksManager;
 use SimpleSquid\Vend\Actions\ProductImagesManager;
 use SimpleSquid\Vend\Actions\ProductsManager;
+use SimpleSquid\Vend\Actions\ProductTypesManager;
 use SimpleSquid\Vend\Actions\RegistersManager;
 use SimpleSquid\Vend\Actions\SalesManager;
 use SimpleSquid\Vend\Actions\SearchManager;
@@ -21,6 +22,7 @@ use SimpleSquid\Vend\Actions\SuppliersManager;
 use SimpleSquid\Vend\Actions\TagsManager;
 use SimpleSquid\Vend\Actions\TaxesManager;
 use SimpleSquid\Vend\Actions\UsersManager;
+use SimpleSquid\Vend\Actions\WebhookManager;
 
 trait HasActionManagers
 {
@@ -84,6 +86,9 @@ trait HasActionManagers
     /** @var \SimpleSquid\Vend\Actions\UsersManager */
     public $user;
 
+    /** @var \SimpleSquid\Vend\Actions\WebhookManager */
+    private $webhook;
+
     /**
      * Vend constructor.
      */
@@ -104,7 +109,7 @@ trait HasActionManagers
         $this->priceBook = new PriceBooksManager($vend);
         $this->productImage = new ProductImagesManager($vend);
         $this->product = new ProductsManager($vend);
-        $this->productType = new PaymentTypesManager($vend);
+        $this->productType = new ProductTypesManager($vend);
         $this->register = new RegistersManager($vend);
         $this->sale = new SalesManager($vend);
         $this->search = new SearchManager($vend);
@@ -112,5 +117,6 @@ trait HasActionManagers
         $this->tag = new TagsManager($vend);
         $this->tax = new TaxesManager($vend);
         $this->user = new UsersManager($vend);
+        $this->webhook = new WebhookManager($vend);
     }
 }

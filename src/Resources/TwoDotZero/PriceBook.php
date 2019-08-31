@@ -91,4 +91,31 @@ class PriceBook extends DataTransferObject
      */
     public $version;
 
+    /**
+     * Outlet. **undocumented**
+     *
+     * @var string|null
+     */
+    public $outlet;
+
+    /**
+     * Updated at. **undocumented**
+     *
+     * @var \Carbon\Carbon|null
+     */
+    public $updated_at;
+
+    /**
+     * Created at. **undocumented**
+     *
+     * @var \Carbon\Carbon|null
+     */
+    public $created_at;
+
+    /**
+     * Type. **undocumented**
+     *
+     * @var string|null
+     */
+    public $type;
 }

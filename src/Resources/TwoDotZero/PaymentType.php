@@ -56,4 +56,31 @@ class PaymentType extends DataTransferObject
      */
     public $version;
 
+    /**
+     * Gateway. **undocumented**
+     *
+     * @var string|null
+     */
+    public $gateway;
+
+    /**
+     * Disabled. **undocumented**
+     *
+     * @var bool|null
+     */
+    public $disabled;
+
+    /**
+     * Internal. **undocumented**
+     *
+     * @var string|null
+     */
+    public $internal;
+
+    /**
+     * Payment type. **undocumented**
+     *
+     * @var string|null
+     */
+    public $payment_type;
 }

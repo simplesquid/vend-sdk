@@ -29,6 +29,27 @@ class User extends DataTransferObject
     public $created_at;
 
     /**
+     * Time until deletion. **undocumented**
+     *
+     * @var \Carbon\Carbon
+     */
+    public $time_until_deletion;
+
+    /**
+     * Enabled. **undocumented**
+     *
+     * @var bool
+     */
+    public $enabled;
+
+    /**
+     * Switch ID. **undocumented**
+     *
+     * @var string
+     */
+    public $switch_id;
+
+    /**
      * Deletion timestamp in UTC.
      *
      * @var \Carbon\Carbon|null

@@ -39,4 +39,11 @@ class TaxRate extends DataTransferObject
      */
     public $rate;
 
+    /**
+     * Rules **undocumented**
+     *
+     * @var array|null
+     */
+    public $rules;
+
 }
