@@ -126,4 +126,18 @@ class Outlet extends DataTransferObject
      */
     public $version;
 
+    /**
+     * Email. **undocumented**
+     *
+     * @var string|null
+     */
+    public $email;
+
+    /**
+     * Attributes. **undocumented**
+     *
+     * @var array|null
+     */
+    public $attributes;
+
 }

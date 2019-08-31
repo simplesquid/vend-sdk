@@ -154,4 +154,25 @@ class Register extends DataTransferObject
      */
     public $version;
 
+    /**
+     * Attributes. **undocumented**
+     *
+     * @var array|null
+     */
+    public $attributes;
+
+    /**
+     * Receipt template ID. **undocumented**
+     *
+     * @var string|null
+     */
+    public $receipt_template_id;
+
+    /**
+     * Is quick keys enabled. **undocumented**
+     *
+     * @var bool|null
+     */
+    public $is_quick_keys_enabled;
+
 }

@@ -22,6 +22,27 @@ class Consignment extends DataTransferObject
     public $consignment_date;
 
     /**
+     * An array of filter objects. Max 25. **undocumented**
+     *
+     * @var \SimpleSquid\Vend\Resources\TwoDotZero\InventoryCountFilter[]|null
+     */
+    public $filters;
+
+    /**
+     * Indicates whether inactive products should be included in the count. **undocumented**
+     *
+     * @var bool|null
+     */
+    public $show_inactive;
+
+    /**
+     * Product count. **undocumented**
+     *
+     * @var int|null
+     */
+    public $product_count;
+
+    /**
      * Creation timestamp in UTC.
      *
      * @var \Carbon\Carbon|null

@@ -137,4 +137,95 @@ class LineItem extends DataTransferObject
      */
     public $tax_total;
 
+    /**
+     * ID **undocumented**
+     *
+     * @var string|null
+     */
+    public $id;
+
+    /**
+     * Gift card number **undocumented**
+     *
+     * @var string|null
+     */
+    public $gift_card_number;
+
+    /**
+     * Promotions **undocumented**
+     *
+     * @var array|null
+     */
+    public $promotions;
+
+    /**
+     * Unit cost **undocumented**
+     *
+     * @var int|double|null
+     */
+    public $unit_cost;
+
+    /**
+     * Unit discount **undocumented**
+     *
+     * @var int|double|null
+     */
+    public $unit_discount;
+
+    /**
+     * Unit loyalty value **undocumented**
+     *
+     * @var int|double|null
+     */
+    public $unit_loyalty_value;
+
+    /**
+     * Unit price **undocumented**
+     *
+     * @var int|double|null
+     */
+    public $unit_price;
+
+    /**
+     * Unit tax **undocumented**
+     *
+     * @var int|double|null
+     */
+    public $unit_tax;
+
+    /**
+     * Total tax **undocumented**
+     *
+     * @var int|double|null
+     */
+    public $total_tax;
+
+    /**
+     * Total cost **undocumented**
+     *
+     * @var int|double|null
+     */
+    public $total_cost;
+
+    /**
+     * Total discount **undocumented**
+     *
+     * @var int|double|null
+     */
+    public $total_discount;
+
+    /**
+     * Total loyalty value **undocumented**
+     *
+     * @var int|double|null
+     */
+    public $total_loyalty_value;
+
+    /**
+     * Total price **undocumented**
+     *
+     * @var int|double|null
+     */
+    public $total_price;
+
 }

@@ -76,4 +76,11 @@ class Inventory extends DataTransferObject
      * @var int|double|null
      */
     public $reorder_point;
+
+    /**
+     * Auto-incrementing object version number. **undocumented**
+     *
+     * @var int
+     */
+    public $version;
 }
