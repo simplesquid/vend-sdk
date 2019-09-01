@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-  "content-hash": "60b28f0b680a146a6fa1194940c889e2",
+  "content-hash": "5834d1ef235918a2846b0ef63cf65911",
     "packages": [
         {
             "name": "guzzlehttp/guzzle",
@@ -195,16 +195,16 @@
         },
         {
           "name": "nesbot/carbon",
-          "version": "2.23.1",
+          "version": "2.24.0",
           "source": {
             "type": "git",
             "url": "https://github.com/briannesbitt/Carbon.git",
-            "reference": "767617a047e5b8b8b3b0b6023a2650847ed7df02"
+            "reference": "934459c5ac0658bc765ad1e53512c7c77adcac29"
           },
           "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/767617a047e5b8b8b3b0b6023a2650847ed7df02",
-            "reference": "767617a047e5b8b8b3b0b6023a2650847ed7df02",
+            "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/934459c5ac0658bc765ad1e53512c7c77adcac29",
+            "reference": "934459c5ac0658bc765ad1e53512c7c77adcac29",
             "shasum": ""
           },
           "require": {
@@ -258,7 +258,7 @@
             "datetime",
             "time"
           ],
-          "time": "2019-08-17T13:57:34+00:00"
+          "time": "2019-08-31T16:37:55+00:00"
         },
       {
             "name": "psr/http-message",
@@ -352,16 +352,16 @@
         },
       {
         "name": "spatie/data-transfer-object",
-        "version": "1.8.0",
+        "version": "1.9.0",
         "source": {
           "type": "git",
           "url": "https://github.com/spatie/data-transfer-object.git",
-          "reference": "06704275d0be83f3891342c5b165aaeacb94e8de"
+          "reference": "4cd6ce67f4e738cb22890b49a8fb9241c3cde472"
         },
         "dist": {
           "type": "zip",
-          "url": "https://api.github.com/repos/spatie/data-transfer-object/zipball/06704275d0be83f3891342c5b165aaeacb94e8de",
-          "reference": "06704275d0be83f3891342c5b165aaeacb94e8de",
+          "url": "https://api.github.com/repos/spatie/data-transfer-object/zipball/4cd6ce67f4e738cb22890b49a8fb9241c3cde472",
+          "reference": "4cd6ce67f4e738cb22890b49a8fb9241c3cde472",
           "shasum": ""
         },
         "require": {
@@ -384,9 +384,9 @@
         "authors": [
           {
             "name": "Brent Roose",
-            "role": "Developer",
             "email": "brent@spatie.be",
-            "homepage": "https://spatie.be"
+            "homepage": "https://spatie.be",
+            "role": "Developer"
           }
         ],
         "description": "Data transfer objects with batteries included",
@@ -395,7 +395,7 @@
           "data-transfer-object",
           "spatie"
         ],
-        "time": "2019-03-18T08:09:17+00:00"
+        "time": "2019-08-30T13:42:39+00:00"
       },
       {
         "name": "symfony/polyfill-mbstring",
@@ -648,6 +648,67 @@
             "time": "2019-03-17T17:37:11+00:00"
         },
         {
+          "name": "filp/whoops",
+          "version": "2.5.0",
+          "source": {
+            "type": "git",
+            "url": "https://github.com/filp/whoops.git",
+            "reference": "cde50e6720a39fdacb240159d3eea6865d51fd96"
+          },
+          "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/filp/whoops/zipball/cde50e6720a39fdacb240159d3eea6865d51fd96",
+            "reference": "cde50e6720a39fdacb240159d3eea6865d51fd96",
+            "shasum": ""
+          },
+          "require": {
+            "php": "^5.5.9 || ^7.0",
+            "psr/log": "^1.0.1"
+          },
+          "require-dev": {
+            "mockery/mockery": "^0.9 || ^1.0",
+            "phpunit/phpunit": "^4.8.35 || ^5.7",
+            "symfony/var-dumper": "^2.6 || ^3.0 || ^4.0"
+          },
+          "suggest": {
+            "symfony/var-dumper": "Pretty print complex values better with var-dumper available",
+            "whoops/soap": "Formats errors as SOAP responses"
+          },
+          "type": "library",
+          "extra": {
+            "branch-alias": {
+              "dev-master": "2.2-dev"
+            }
+          },
+          "autoload": {
+            "psr-4": {
+              "Whoops\\": "src/Whoops/"
+            }
+          },
+          "notification-url": "https://packagist.org/downloads/",
+          "license": [
+            "MIT"
+          ],
+          "authors": [
+            {
+              "name": "Filipe Dobreira",
+              "role": "Developer",
+              "homepage": "https://github.com/filp"
+            }
+          ],
+          "description": "php error handling for cool kids",
+          "homepage": "https://filp.github.io/whoops/",
+          "keywords": [
+            "error",
+            "exception",
+            "handling",
+            "library",
+            "throwable",
+            "whoops"
+          ],
+          "time": "2019-08-07T09:00:00+00:00"
+        },
+      {
             "name": "hamcrest/hamcrest-php",
             "version": "v2.0.0",
             "source": {
@@ -1461,6 +1522,97 @@
             "time": "2019-08-11T06:56:55+00:00"
         },
         {
+          "name": "psr/log",
+          "version": "1.1.0",
+          "source": {
+            "type": "git",
+            "url": "https://github.com/php-fig/log.git",
+            "reference": "6c001f1daafa3a3ac1d8ff69ee4db8e799a654dd"
+          },
+          "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/php-fig/log/zipball/6c001f1daafa3a3ac1d8ff69ee4db8e799a654dd",
+            "reference": "6c001f1daafa3a3ac1d8ff69ee4db8e799a654dd",
+            "shasum": ""
+          },
+          "require": {
+            "php": ">=5.3.0"
+          },
+          "type": "library",
+          "extra": {
+            "branch-alias": {
+              "dev-master": "1.0.x-dev"
+            }
+          },
+          "autoload": {
+            "psr-4": {
+              "Psr\\Log\\": "Psr/Log/"
+            }
+          },
+          "notification-url": "https://packagist.org/downloads/",
+          "license": [
+            "MIT"
+          ],
+          "authors": [
+            {
+              "name": "PHP-FIG",
+              "homepage": "http://www.php-fig.org/"
+            }
+          ],
+          "description": "Common interface for logging libraries",
+          "homepage": "https://github.com/php-fig/log",
+          "keywords": [
+            "log",
+            "psr",
+            "psr-3"
+          ],
+          "time": "2018-11-20T15:27:04+00:00"
+        },
+      {
+        "name": "rdehnhardt/var-dumper",
+        "version": "1.3.0",
+        "source": {
+          "type": "git",
+          "url": "https://github.com/rdehnhardt/var-dumper.git",
+          "reference": "90a0ae50cbf8bdc28cd9bc502c650f09be255d03"
+        },
+        "dist": {
+          "type": "zip",
+          "url": "https://api.github.com/repos/rdehnhardt/var-dumper/zipball/90a0ae50cbf8bdc28cd9bc502c650f09be255d03",
+          "reference": "90a0ae50cbf8bdc28cd9bc502c650f09be255d03",
+          "shasum": ""
+        },
+        "require": {
+          "symfony/var-dumper": "~3.3"
+        },
+        "require-dev": {
+          "fzaninotto/faker": "~1.5",
+          "mockery/mockery": "0.9.*",
+          "phpunit/phpunit": "~5.0"
+        },
+        "type": "library",
+        "autoload": {
+          "files": [
+            "src/helpers.php"
+          ],
+          "psr-4": {
+            "Rdehnhardt\\": "src/"
+          }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+          "MIT"
+        ],
+        "authors": [
+          {
+            "name": "Renato Dehnhardt",
+            "email": "renatotkd@gmail.com"
+          }
+        ],
+        "description": "Dumper based on Laravel for non Laravel projects.",
+        "time": "2018-08-03T11:13:09+00:00"
+      },
+      {
             "name": "sebastian/code-unit-reverse-lookup",
             "version": "1.0.1",
             "source": {
@@ -2134,6 +2286,75 @@
             "time": "2019-08-06T08:03:45+00:00"
         },
         {
+          "name": "symfony/var-dumper",
+          "version": "v3.4.31",
+          "source": {
+            "type": "git",
+            "url": "https://github.com/symfony/var-dumper.git",
+            "reference": "5408ad7194737ee1bc5ab7a9683fb6925f92c3e4"
+          },
+          "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/symfony/var-dumper/zipball/5408ad7194737ee1bc5ab7a9683fb6925f92c3e4",
+            "reference": "5408ad7194737ee1bc5ab7a9683fb6925f92c3e4",
+            "shasum": ""
+          },
+          "require": {
+            "php": "^5.5.9|>=7.0.8",
+            "symfony/polyfill-mbstring": "~1.0"
+          },
+          "conflict": {
+            "phpunit/phpunit": "<4.8.35|<5.4.3,>=5.0"
+          },
+          "require-dev": {
+            "ext-iconv": "*",
+            "twig/twig": "~1.34|~2.4"
+          },
+          "suggest": {
+            "ext-iconv": "To convert non-UTF-8 strings to UTF-8 (or symfony/polyfill-iconv in case ext-iconv cannot be used).",
+            "ext-intl": "To show region name in time zone dump",
+            "ext-symfony_debug": ""
+          },
+          "type": "library",
+          "extra": {
+            "branch-alias": {
+              "dev-master": "3.4-dev"
+            }
+          },
+          "autoload": {
+            "files": [
+              "Resources/functions/dump.php"
+            ],
+            "psr-4": {
+              "Symfony\\Component\\VarDumper\\": ""
+            },
+            "exclude-from-classmap": [
+              "/Tests/"
+            ]
+          },
+          "notification-url": "https://packagist.org/downloads/",
+          "license": [
+            "MIT"
+          ],
+          "authors": [
+            {
+              "name": "Nicolas Grekas",
+              "email": "p@tchwork.com"
+            },
+            {
+              "name": "Symfony Community",
+              "homepage": "https://symfony.com/contributors"
+            }
+          ],
+          "description": "Symfony mechanism for exploring and dumping PHP variables",
+          "homepage": "https://symfony.com",
+          "keywords": [
+            "debug",
+            "dump"
+          ],
+          "time": "2019-08-26T07:50:50+00:00"
+        },
+      {
             "name": "theseer/tokenizer",
             "version": "1.1.3",
             "source": {
