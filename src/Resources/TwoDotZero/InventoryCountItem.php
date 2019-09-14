@@ -38,7 +38,7 @@ class InventoryCountItem extends DataTransferObject
     /**
      * The deletion timestamp in UTC.
      *
-     * @var string
+     * @var \Carbon\Carbon|null
      */
     public $deleted_at;
 

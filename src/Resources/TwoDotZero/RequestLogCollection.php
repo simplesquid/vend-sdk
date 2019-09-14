@@ -3,7 +3,6 @@
 namespace SimpleSquid\Vend\Resources\TwoDotZero;
 
 use SimpleSquid\Vend\Resources\CastsCollection;
-use SimpleSquid\Vend\Resources\HasVersions;
 use Spatie\DataTransferObject\DataTransferObjectCollection;
 
 /**
@@ -13,7 +12,7 @@ use Spatie\DataTransferObject\DataTransferObjectCollection;
  */
 class RequestLogCollection extends DataTransferObjectCollection
 {
-    use CastsCollection, HasVersions;
+    use CastsCollection;
 
     public function current(): RequestLog
     {

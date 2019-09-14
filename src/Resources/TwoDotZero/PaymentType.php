@@ -59,7 +59,7 @@ class PaymentType extends DataTransferObject
     /**
      * Gateway. **undocumented**
      *
-     * @var string|null
+     * @var bool|null
      */
     public $gateway;
 
@@ -73,14 +73,15 @@ class PaymentType extends DataTransferObject
     /**
      * Internal. **undocumented**
      *
-     * @var string|null
+     * @var bool|null
      */
     public $internal;
 
     /**
      * Payment type. **undocumented**
+     * TODO: Replace with an object.
      *
-     * @var string|null
+     * @var array|null
      */
     public $payment_type;
 }
