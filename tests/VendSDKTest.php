@@ -13,6 +13,7 @@ class ForgeSdkTest extends TestCase
         Mockery::close();
     }
 
+    /** @test */
     public function test_handling_404_errors()
     {
         $this->expectException(NotFoundException::class);
@@ -34,6 +35,7 @@ class ForgeSdkTest extends TestCase
         $vend->products();
     }
 
+    /** @test */
     public function test_handling_bad_request_errors()
     {
         $vend = Vend::getInstance();
@@ -59,6 +61,7 @@ class ForgeSdkTest extends TestCase
         $this->assertEquals(['error' => 'Error!'], $e->errors());
     }
 
+    /** @test */
     public function test_making_basic_requests()
     {
         $vend = Vend::getInstance();

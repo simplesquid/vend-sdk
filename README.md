@@ -1,4 +1,8 @@
 # Vend SDK (a PHP client)
+[![Latest Version](https://img.shields.io/github/release/simplesquid/vend-sdk.svg?style=flat-square)](https://github.com/simplesquid/vend-sdk/releases)
+[![MIT Licensed](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
+[![Total Downloads](https://img.shields.io/packagist/dt/simplesquid/vend-sdk.svg?style=flat-square)](https://packagist.org/packages/simplesquid/vend-sdk)
+
 An unofficial PHP SDK for Vend POS | https://docs.vendhq.com/
 
 Contributions, issues and suggestions are very much welcome.
@@ -8,7 +12,7 @@ Contributions, issues and suggestions are very much welcome.
 To install the SDK in your project you need to require the package via composer:
 
 ```bash
-composer require simplesquid/vend-sdk    # Still to come
+composer require simplesquid/vend-sdk
 ```
 
 Then use Composer's autoload:
