@@ -25,4 +25,25 @@ class PaymentTypeConfig extends DataTransferObject
      */
     public $url;
 
+    /**
+     * Algorithm **undocumented**
+     *
+     * @var string|null
+     */
+    public $algorithm;
+
+    /**
+     * Conceal cash totals **undocumented**
+     *
+     * @var bool|null
+     */
+    public $conceal_cash_totals;
+
+    /**
+     * Rounding **undocumented**
+     *
+     * @var string|null
+     */
+    public $rounding;
+
 }

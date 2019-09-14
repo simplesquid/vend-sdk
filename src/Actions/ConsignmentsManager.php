@@ -143,12 +143,12 @@ class ConsignmentsManager
      * List consignments.
      * Returns a paginated list of consignments.
      *
-     * @param  string|null  $outlet_id  The ID of the outlet which the consignment is targeted at.
-     * @param  string|null  $type       The type of consignments to be returned. One of `SUPPLIER`, `OUTLET`, `STOCKTAKE`.
-     * @param  string|null  $status     The status of consignments to be returned. One of `RECEIVED`, `CANCELLED`, `OPEN`, `STOCKTAKE`, `SENT`, `STOCKTAKE_COMPLETE`, `STOCKTAKE_IN_PROGRESS`, `STOCKTAKE_SCHEDULED`, `STOCKTAKE_IN_PROGRESS_PROCESSED`.
      * @param  int|null     $page_size  The maximum number of items to be returned in the response.
      * @param  int|null     $after      The lower limit for the version numbers to be included in the response.
      * @param  int|null     $before     The upper limit for the version numbers to be included in the response.
+     * @param  string|null  $outlet_id  The ID of the outlet which the consignment is targeted at.
+     * @param  string|null  $type       The type of consignments to be returned. One of `SUPPLIER`, `OUTLET`, `STOCKTAKE`.
+     * @param  string|null  $status     The status of consignments to be returned. One of `RECEIVED`, `CANCELLED`, `OPEN`, `STOCKTAKE`, `SENT`, `STOCKTAKE_COMPLETE`, `STOCKTAKE_IN_PROGRESS`, `STOCKTAKE_SCHEDULED`, `STOCKTAKE_IN_PROGRESS_PROCESSED`.
      *
      * @return ConsignmentCollection
      * @throws \SimpleSquid\Vend\Exceptions\AuthorisationException
@@ -161,12 +161,12 @@ class ConsignmentsManager
      * @throws \SimpleSquid\Vend\Exceptions\UnknownException
      */
     public function get(
-        string $outlet_id = null,
-        string $type = null,
-        string $status = null,
         int $page_size = null,
         int $after = null,
-        int $before = null
+        int $before = null,
+        string $outlet_id = null,
+        string $type = null,
+        string $status = null
     ): ConsignmentCollection {
         return $this->collection(ConsignmentCollection::class, "2.0/consignments",
                                  compact('after', 'before', 'page_size', 'outlet_id', 'type', 'status'));

@@ -84,4 +84,11 @@ class PriceBookProduct extends DataTransferObject
      */
     public $updated_at;
 
+    /**
+     * Version **undocumented**
+     *
+     * @var int|null
+     */
+    public $version;
+
 }

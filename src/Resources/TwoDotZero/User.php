@@ -31,7 +31,7 @@ class User extends DataTransferObject
     /**
      * Time until deletion. **undocumented**
      *
-     * @var \Carbon\Carbon
+     * @var \Carbon\Carbon|null
      */
     public $time_until_deletion;
 

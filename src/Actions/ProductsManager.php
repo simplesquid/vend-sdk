@@ -173,7 +173,7 @@ class ProductsManager
      * @throws \SimpleSquid\Vend\Exceptions\UnknownException
      */
 
-    public function image(string $product_id, $image): Image
+    public function uploadImage(string $product_id, $image): Image
     {
         $response = $this->vend->post("2.0/products/$product_id/actions/image_upload", [
             [

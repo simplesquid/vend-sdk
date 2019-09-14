@@ -69,7 +69,7 @@ class ProductImagesManager
      * @throws \SimpleSquid\Vend\Exceptions\UnknownException
      */
 
-    public function image(string $id, array $body): Image
+    public function updatePosition(string $id, array $body): Image
     {
         return $this->updateResource(Image::class, "2.0/product_images/$id", $body);
     }
