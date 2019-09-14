@@ -1,15 +1,19 @@
 {
   "name": "simplesquid/vend-sdk",
   "description": "An unoffical PHP SDK for Vend POS",
+  "type": "library",
   "keywords": [
-    "vend",
-    "sdk"
+    "php",
+    "sdk",
+    "point-of-sale",
+    "vend"
   ],
   "license": "MIT",
   "authors": [
     {
       "name": "Matthew Poulter",
-      "email": "matthew.poulter@simplesquid.co.za"
+      "email": "matthew.poulter@simplesquid.co.za",
+      "role": "Developer"
     }
   ],
   "require": {
@@ -30,5 +34,6 @@
       "SimpleSquid\\Vend\\": "src/"
     }
   },
+  "minimum-stability": "dev",
   "prefer-stable": true
 }
