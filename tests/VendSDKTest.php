@@ -20,7 +20,7 @@ class ForgeSdkTest extends TestCase
 
         $vend = Vend::getInstance();
         $vend->makeClient(null, $http = Mockery::mock('GuzzleHttp\Client'));
-        $vend->setPersonalAccessToken('abc', 'def');
+        $vend->personalAccessToken('abc', 'def');
 
         $http->shouldReceive('request')
              ->once()
@@ -40,7 +40,7 @@ class ForgeSdkTest extends TestCase
     {
         $vend = Vend::getInstance();
         $vend->makeClient(null, $http = Mockery::mock('GuzzleHttp\Client'));
-        $vend->setPersonalAccessToken('abc', 'def');
+        $vend->personalAccessToken('abc', 'def');
 
         $http->shouldReceive('request')
              ->once()
@@ -66,7 +66,7 @@ class ForgeSdkTest extends TestCase
     {
         $vend = Vend::getInstance();
         $vend->makeClient(null, $http = Mockery::mock('GuzzleHttp\Client'))
-             ->setPersonalAccessToken('abc', 'def');
+             ->personalAccessToken('abc', 'def');
 
         $http->shouldReceive('request')
              ->once()

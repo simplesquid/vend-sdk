@@ -32,7 +32,7 @@ trait MakesHttpRequests
     public function confirm(callable $callback, int $timeout = null)
     {
         if (is_null($timeout)) {
-            $timeout = $this->getConfirmationTimeout();
+            $timeout = $this->confirmation_timeout;
         }
 
         $start = time();
@@ -103,8 +103,9 @@ trait MakesHttpRequests
         string $format = 'json'
     ) {
         $options = [
-            'timeout' => $this->getRequestTimeout(),
+            'timeout' => $this->request_timeout,
             'query'   => $query,
+            'headers' => ['User-Agent' => $this->user_agent],
         ];
 
         if ($authorised) {
@@ -119,7 +120,7 @@ trait MakesHttpRequests
         }
 
         try {
-            $response = $this->guzzle->request($verb, "https://$this->domainPrefix.vendhq.com/api/$uri", $options);
+            $response = $this->guzzle->request($verb, "https://$this->domain_prefix.vendhq.com/api/$uri", $options);
         } catch (GuzzleException $e) {
             throw new RequestException($e);
         }
