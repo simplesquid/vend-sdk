@@ -94,6 +94,8 @@ trait AuthorisesWithOAuth
     }
 
     /**
+     * Set client ID.
+     *
      * @param  string  $client_id
      *
      * @return self
@@ -106,6 +108,8 @@ trait AuthorisesWithOAuth
     }
 
     /**
+     * Set client secret.
+     *
      * @param  string  $client_secret
      *
      * @return self
@@ -118,6 +122,8 @@ trait AuthorisesWithOAuth
     }
 
     /**
+     * Set redirect URI.
+     *
      * @param  string  $redirect_uri
      *
      * @return self

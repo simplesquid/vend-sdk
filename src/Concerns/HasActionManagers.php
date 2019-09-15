@@ -94,6 +94,18 @@ trait HasActionManagers
     public $webhook;
 
     /**
+     * Get relevant manager.
+     *
+     * @param $name string
+     *
+     * @return mixed
+     */
+    public function __get($name)
+    {
+        return $this->$name;
+    }
+
+    /**
      * Vend constructor.
      */
     public function __construct()

@@ -132,6 +132,8 @@ class Vend
     }
 
     /**
+     * Set domain prefix.
+     *
      * @param  string  $domain_prefix
      *
      * @return self
@@ -144,6 +146,8 @@ class Vend
     }
 
     /**
+     * Set user agent.
+     *
      * @param  string  $user_agent
      *
      * @return self
