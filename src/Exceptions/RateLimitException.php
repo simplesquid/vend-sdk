@@ -7,7 +7,7 @@ use SimpleSquid\Vend\Resources\TwoDotZero\RateLimit;
 
 class RateLimitException extends Exception
 {
-    /** @var array */
+    /** @var RateLimit */
     private $response;
 
     public function __construct(array $body = null)
@@ -23,7 +23,7 @@ class RateLimitException extends Exception
     /**
      * The array of errors.
      *
-     * @return array
+     * @return RateLimit
      */
     public function response()
     {
