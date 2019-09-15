@@ -20,10 +20,10 @@ class Vend
         HasActionManagers;
 
     /** @var int */
-    private $confirmationTimeout = 30;
+    public $confirmation_timeout = 30;
 
     /** @var string */
-    private $domainPrefix;
+    public $domain_prefix;
 
     /** @var Client */
     public $guzzle;
@@ -32,10 +32,27 @@ class Vend
     private static $instance;
 
     /** @var int */
-    private $requestTimeout = 2;
+    public $request_timeout = 2;
 
     /** @var Token */
-    private $token;
+    public $token;
+
+    /** @var string */
+    public $user_agent = 'Vend PHP SDK';
+
+    /**
+     * Vend constructor.
+     */
+    private function __construct()
+    {
+        $this->guzzle = new Client([
+                                       'http_errors' => false,
+                                       'verify'      => true,
+                                       'headers'     => [
+                                           'Accept' => 'application/json',
+                                       ],
+                                   ]);
+    }
 
     /**
      * Get the current access token.
@@ -59,25 +76,15 @@ class Vend
     }
 
     /**
-     * Get the confirmation timeout in seconds.
-     *
-     * @return  int
-     */
-    public function getConfirmationTimeout(): int
-    {
-        return $this->confirmationTimeout;
-    }
-
-    /**
      * Set a new confirmation timeout in seconds.
      *
-     * @param  int  $confirmationTimeout
+     * @param  int  $confirmation_timeout
      *
      * @return self
      */
-    public function setConfirmationTimeout(int $confirmationTimeout): self
+    public function confirmationTimeout(int $confirmation_timeout): self
     {
-        $this->confirmationTimeout = $confirmationTimeout;
+        $this->confirmation_timeout = $confirmation_timeout;
 
         return $this;
     }
@@ -97,58 +104,53 @@ class Vend
     }
 
     /**
-     * Get the request timeout in seconds.
+     * Sets the authorisation token.
      *
-     * @return  int
-     */
-    public function getRequestTimeout(): int
-    {
-        return $this->requestTimeout;
-    }
-
-    /**
-     * Set a new request timeout in seconds.
-     *
-     * @param  int  $requestTimeout
+     * @param  Token  $token
      *
      * @return self
      */
-    public function setRequestTimeout(int $requestTimeout): self
+    public function authorisationToken(Token $token)
     {
-        $this->requestTimeout = $requestTimeout;
+        $this->token = $token;
 
         return $this;
     }
 
     /**
-     * Checks if the current instance is authorised with an access token.
+     * Set a new request timeout in seconds.
      *
-     * @return bool
+     * @param  int  $request_timeout
+     *
+     * @return self
      */
-    public function isAuthorised(): bool
+    public function requestTimeout(int $request_timeout): self
     {
-        return isset($this->token);
+        $this->request_timeout = $request_timeout;
+
+        return $this;
     }
 
     /**
-     * Make the Vend API client.
+     * @param  string  $domain_prefix
      *
-     * @param  string       $userAgent
-     * @param  Client|null  $guzzle
-     *
-     * @return Vend
+     * @return self
      */
-    public function makeClient(string $userAgent, Client $guzzle = null): self
+    public function domainPrefix(string $domain_prefix): self
     {
-        $this->guzzle = $guzzle ?? new Client([
-                                                  'http_errors' => false,
-                                                  'verify'      => true,
-                                                  'headers'     => [
-                                                      'Accept'     => 'application/json',
-                                                      'User-Agent' => $userAgent,
-                                                  ],
-                                              ]);
+        $this->domain_prefix = $domain_prefix;
 
+        return $this;
+    }
+
+    /**
+     * @param  string  $user_agent
+     *
+     * @return self
+     */
+    public function userAgent(string $user_agent): self
+    {
+        $this->user_agent = $user_agent;
         return $this;
     }
 }

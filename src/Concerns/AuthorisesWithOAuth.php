@@ -11,18 +11,17 @@ use SimpleSquid\Vend\Exceptions\TokenExpiredException;
 use SimpleSquid\Vend\Exceptions\UnauthorisedException;
 use SimpleSquid\Vend\Exceptions\UnknownException;
 use SimpleSquid\Vend\Resources\OneDotZero\Token;
-use SimpleSquid\Vend\Vend;
 
 trait AuthorisesWithOAuth
 {
     /** @var string */
-    private $clientID;
+    public $client_id;
 
     /** @var string */
-    private $clientSecret;
+    public $client_secret;
 
     /** @var string */
-    private $redirectURI;
+    public $redirect_uri;
 
     /**
      * Get the URL to get OAuth 2.0 authorisation.
@@ -33,11 +32,11 @@ trait AuthorisesWithOAuth
      */
     public function getAuthorisationUrl(string $previousURL): string
     {
-        return "https://secure.vendhq.com/connect?response_type=code&client_id=$this->clientID&redirect_uri=$this->redirectURI&state=$previousURL";
+        return "https://secure.vendhq.com/connect?response_type=code&client_id=$this->client_id&redirect_uri=$this->redirect_uri&state=$previousURL";
     }
 
     /**
-     * Sets the OAuth 2.0 authorisation code.
+     * Refreshes the OAuth 2.0 authorisation token.
      *
      * @return Token
      *
@@ -54,8 +53,8 @@ trait AuthorisesWithOAuth
     {
         $this->token = new Token($this->post('1.0/token', [
             'refresh_token' => $refresh_token = $this->token->refresh_token,
-            'client_id'     => $this->clientID,
-            'client_secret' => $this->clientSecret,
+            'client_id'     => $this->client_id,
+            'client_secret' => $this->client_secret,
             'grant_type'    => 'refresh_token',
         ], 'form_params', false));
 
@@ -83,49 +82,49 @@ trait AuthorisesWithOAuth
      * @throws UnknownException
      * @throws TokenExpiredException
      */
-    public function setOAuthAuthorisationCode(string $domainPrefix, string $code)
+    public function oAuthAuthorisationCode(string $code)
     {
-        $this->domainPrefix = $domainPrefix;
-
         return $this->token = new Token($this->post('1.0/token', [
             'code'          => $code,
-            'client_id'     => $this->clientID,
-            'client_secret' => $this->clientSecret,
+            'client_id'     => $this->client_id,
+            'client_secret' => $this->client_secret,
             'grant_type'    => 'authorization_code',
-            'redirect_uri'  => $this->redirectURI,
+            'redirect_uri'  => $this->redirect_uri,
         ], 'form_params', false));
     }
 
     /**
-     * Sets the OAuth 2.0 authorisation code.
+     * @param  string  $client_id
      *
-     * @param  string  $domainPrefix
-     * @param  Token   $token
-     *
-     * @return Vend
+     * @return self
      */
-    public function setOAuthAuthorisationToken(string $domainPrefix, Token $token)
+    public function clientId(string $client_id): self
     {
-        $this->domainPrefix = $domainPrefix;
-        $this->token = $token;
+        $this->client_id = $client_id;
 
         return $this;
     }
 
     /**
-     * Sets the OAuth 2.0 identifiers.
-     *
-     * @param  string  $clientID
-     * @param  string  $clientSecret
-     * @param  string  $redirectURI
+     * @param  string  $client_secret
      *
      * @return self
      */
-    public function setOAuthIdentifiers(string $clientID, string $clientSecret, string $redirectURI): self
+    public function clientSecret(string $client_secret): self
     {
-        $this->clientID = $clientID;
-        $this->clientSecret = $clientSecret;
-        $this->redirectURI = $redirectURI;
+        $this->client_secret = $client_secret;
+
+        return $this;
+    }
+
+    /**
+     * @param  string  $redirect_uri
+     *
+     * @return self
+     */
+    public function redirectUri(string $redirect_uri): self
+    {
+        $this->redirect_uri = $redirect_uri;
 
         return $this;
     }
