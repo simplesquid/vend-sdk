@@ -11,6 +11,27 @@ class SalesManager
     use ManagesResources;
 
     /**
+     * Create a register sale.
+     * Returns a single new register sale object.
+     *
+     * @param  array  $body  TODO: Could be RegisterSaleUpdateBase.
+     *
+     * @return RegisterSale
+     * @throws \SimpleSquid\Vend\Exceptions\AuthorisationException
+     * @throws \SimpleSquid\Vend\Exceptions\BadRequestException
+     * @throws \SimpleSquid\Vend\Exceptions\NotFoundException
+     * @throws \SimpleSquid\Vend\Exceptions\RateLimitException
+     * @throws \SimpleSquid\Vend\Exceptions\RequestException
+     * @throws \SimpleSquid\Vend\Exceptions\TokenExpiredException
+     * @throws \SimpleSquid\Vend\Exceptions\UnauthorisedException
+     * @throws \SimpleSquid\Vend\Exceptions\UnknownException
+     */
+    public function create(array $body): RegisterSale
+    {
+        return $this->createResource(RegisterSale::class, 'register_sales', $body);
+    }
+
+    /**
      * Get a single sale.
      * Returns a single sale with a given ID.
      *
@@ -52,27 +73,6 @@ class SalesManager
     public function get(int $page_size = null, int $after = null, int $before = null): SaleCollection
     {
         return $this->collection(SaleCollection::class, "2.0/sales", compact('after', 'before', 'page_size'));
-    }
-
-    /**
-     * Create a register sale.
-     * Returns a single new register sale object.
-     *
-     * @param  array  $body  TODO: Could be RegisterSaleUpdateBase.
-     *
-     * @return RegisterSale
-     * @throws \SimpleSquid\Vend\Exceptions\AuthorisationException
-     * @throws \SimpleSquid\Vend\Exceptions\BadRequestException
-     * @throws \SimpleSquid\Vend\Exceptions\NotFoundException
-     * @throws \SimpleSquid\Vend\Exceptions\RateLimitException
-     * @throws \SimpleSquid\Vend\Exceptions\RequestException
-     * @throws \SimpleSquid\Vend\Exceptions\TokenExpiredException
-     * @throws \SimpleSquid\Vend\Exceptions\UnauthorisedException
-     * @throws \SimpleSquid\Vend\Exceptions\UnknownException
-     */
-    public function create(array $body): RegisterSale
-    {
-        return $this->createResource(RegisterSale::class, 'register_sales', $body);
     }
 
     /**

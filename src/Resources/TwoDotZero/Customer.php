@@ -78,6 +78,13 @@ class Customer extends DataTransferObject
     public $customer_group_id;
 
     /**
+     * Customer group ids **undocumented**
+     *
+     * @var array|null
+     */
+    public $customer_group_ids;
+
+    /**
      * Birthday.
      *
      * @var \Carbon\Carbon|null
@@ -153,6 +160,13 @@ class Customer extends DataTransferObject
      * @var int|double|null
      */
     public $loyalty_balance;
+
+    /**
+     * Loyalty email sent **undocumented**
+     *
+     * @var bool|null
+     */
+    public $loyalty_email_sent;
 
     /**
      * Mobile phone no.
@@ -281,6 +295,13 @@ class Customer extends DataTransferObject
     public $postal_suburb;
 
     /**
+     * Time until deletion **undocumented**
+     *
+     * @var \Carbon\Carbon|null
+     */
+    public $time_until_deletion;
+
+    /**
      * Twitter handle.
      *
      * @var string|null
@@ -314,26 +335,5 @@ class Customer extends DataTransferObject
      * @var int|double|null
      */
     public $year_to_date;
-
-    /**
-     * Loyalty email sent **undocumented**
-     *
-     * @var bool|null
-     */
-    public $loyalty_email_sent;
-
-    /**
-     * Customer group ids **undocumented**
-     *
-     * @var array|null
-     */
-    public $customer_group_ids;
-
-    /**
-     * Time until deletion **undocumented**
-     *
-     * @var \Carbon\Carbon|null
-     */
-    public $time_until_deletion;
 
 }

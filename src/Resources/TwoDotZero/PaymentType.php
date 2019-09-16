@@ -29,6 +29,20 @@ class PaymentType extends DataTransferObject
     public $deleted_at;
 
     /**
+     * Disabled. **undocumented**
+     *
+     * @var bool|null
+     */
+    public $disabled;
+
+    /**
+     * Gateway. **undocumented**
+     *
+     * @var bool|null
+     */
+    public $gateway;
+
+    /**
      * Auto-generated object ID.
      *
      * @var string
@@ -36,11 +50,26 @@ class PaymentType extends DataTransferObject
     public $id;
 
     /**
+     * Internal. **undocumented**
+     *
+     * @var bool|null
+     */
+    public $internal;
+
+    /**
      * The name of the payment type.
      *
      * @var string
      */
     public $name;
+
+    /**
+     * Payment type. **undocumented**
+     * TODO: Replace with an object.
+     *
+     * @var array|null
+     */
+    public $payment_type;
 
     /**
      * The ID of the global Vend payment type. It shouldn't be used to identify the payment type - there may be multiple payment types with the same `type_id`.
@@ -55,33 +84,4 @@ class PaymentType extends DataTransferObject
      * @var int
      */
     public $version;
-
-    /**
-     * Gateway. **undocumented**
-     *
-     * @var bool|null
-     */
-    public $gateway;
-
-    /**
-     * Disabled. **undocumented**
-     *
-     * @var bool|null
-     */
-    public $disabled;
-
-    /**
-     * Internal. **undocumented**
-     *
-     * @var bool|null
-     */
-    public $internal;
-
-    /**
-     * Payment type. **undocumented**
-     * TODO: Replace with an object.
-     *
-     * @var array|null
-     */
-    public $payment_type;
 }

@@ -22,6 +22,13 @@ class Token extends DataTransferObject
     public $access_token;
 
     /**
+     * Domain prefix.
+     *
+     * @var string|null
+     */
+    public $domain_prefix;
+
+    /**
      * Expires.
      *
      * @var \Carbon\Carbon|null
@@ -48,12 +55,5 @@ class Token extends DataTransferObject
      * @var string|null
      */
     public $token_type;
-
-    /**
-     * Domain prefix.
-     *
-     * @var string|null
-     */
-    public $domain_prefix;
 
 }

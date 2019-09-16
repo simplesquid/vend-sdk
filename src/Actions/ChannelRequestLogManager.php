@@ -11,6 +11,24 @@ class ChannelRequestLogManager
     use ManagesResources;
 
     /**
+     * List channel records.
+     * Returns a list of configured channels.
+     * @return ChannelCollection
+     * @throws \SimpleSquid\Vend\Exceptions\AuthorisationException
+     * @throws \SimpleSquid\Vend\Exceptions\BadRequestException
+     * @throws \SimpleSquid\Vend\Exceptions\NotFoundException
+     * @throws \SimpleSquid\Vend\Exceptions\RateLimitException
+     * @throws \SimpleSquid\Vend\Exceptions\RequestException
+     * @throws \SimpleSquid\Vend\Exceptions\TokenExpiredException
+     * @throws \SimpleSquid\Vend\Exceptions\UnauthorisedException
+     * @throws \SimpleSquid\Vend\Exceptions\UnknownException
+     */
+    public function channels(): ChannelCollection
+    {
+        return $this->collection(ChannelCollection::class, '2.0/channels');
+    }
+
+    /**
      * Get a single request log.
      * Returns a single request log entry with a specific ID.
      *
@@ -85,23 +103,5 @@ class ChannelRequestLogManager
     ): RequestLogCollection {
         return $this->collection(RequestLogCollection::class, "2.0/channel_requests",
                                  compact('status_code', 'request_method', 'occurred_before', 'occurred_after', 'status_code_before', 'status_code_after', 'channel_id'));
-    }
-
-    /**
-     * List channel records.
-     * Returns a list of configured channels.
-     * @return ChannelCollection
-     * @throws \SimpleSquid\Vend\Exceptions\AuthorisationException
-     * @throws \SimpleSquid\Vend\Exceptions\BadRequestException
-     * @throws \SimpleSquid\Vend\Exceptions\NotFoundException
-     * @throws \SimpleSquid\Vend\Exceptions\RateLimitException
-     * @throws \SimpleSquid\Vend\Exceptions\RequestException
-     * @throws \SimpleSquid\Vend\Exceptions\TokenExpiredException
-     * @throws \SimpleSquid\Vend\Exceptions\UnauthorisedException
-     * @throws \SimpleSquid\Vend\Exceptions\UnknownException
-     */
-    public function channels(): ChannelCollection
-    {
-        return $this->collection(ChannelCollection::class, '2.0/channels');
     }
 }

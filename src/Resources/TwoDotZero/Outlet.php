@@ -15,6 +15,13 @@ class Outlet extends DataTransferObject
     use CastsDates;
 
     /**
+     * Attributes. **undocumented**
+     *
+     * @var array|null
+     */
+    public $attributes;
+
+    /**
      * Currency name.
      *
      * @var string|null
@@ -48,6 +55,13 @@ class Outlet extends DataTransferObject
      * @var string|null
      */
     public $display_prices;
+
+    /**
+     * Email. **undocumented**
+     *
+     * @var string|null
+     */
+    public $email;
 
     /**
      * Auto-generated object ID.
@@ -125,19 +139,5 @@ class Outlet extends DataTransferObject
      * @var int|null
      */
     public $version;
-
-    /**
-     * Email. **undocumented**
-     *
-     * @var string|null
-     */
-    public $email;
-
-    /**
-     * Attributes. **undocumented**
-     *
-     * @var array|null
-     */
-    public $attributes;
 
 }
