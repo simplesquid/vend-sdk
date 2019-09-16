@@ -56,6 +56,48 @@ class Vend
     }
 
     /**
+     * Sets the authorisation token.
+     *
+     * @param  Token  $token
+     *
+     * @return self
+     */
+    public function authorisationToken(Token $token)
+    {
+        $this->token = $token;
+
+        return $this;
+    }
+
+    /**
+     * Set a new confirmation timeout in seconds.
+     *
+     * @param  int  $confirmation_timeout
+     *
+     * @return self
+     */
+    public function confirmationTimeout(int $confirmation_timeout): self
+    {
+        $this->confirmation_timeout = $confirmation_timeout;
+
+        return $this;
+    }
+
+    /**
+     * Set domain prefix.
+     *
+     * @param  string  $domain_prefix
+     *
+     * @return self
+     */
+    public function domainPrefix(string $domain_prefix): self
+    {
+        $this->token->domain_prefix = $domain_prefix;
+
+        return $this;
+    }
+
+    /**
      * Get the current access token.
      *
      * @return string
@@ -77,17 +119,13 @@ class Vend
     }
 
     /**
-     * Set a new confirmation timeout in seconds.
+     * Get domain prefix.
      *
-     * @param  int  $confirmation_timeout
-     *
-     * @return self
+     * @return string
      */
-    public function confirmationTimeout(int $confirmation_timeout): self
+    public function getDomainPrefix(): string
     {
-        $this->confirmation_timeout = $confirmation_timeout;
-
-        return $this;
+        return $this->token->domain_prefix;
     }
 
     /**
@@ -105,20 +143,6 @@ class Vend
     }
 
     /**
-     * Sets the authorisation token.
-     *
-     * @param  Token  $token
-     *
-     * @return self
-     */
-    public function authorisationToken(Token $token)
-    {
-        $this->token = $token;
-
-        return $this;
-    }
-
-    /**
      * Set a new request timeout in seconds.
      *
      * @param  int  $request_timeout
@@ -130,30 +154,6 @@ class Vend
         $this->request_timeout = $request_timeout;
 
         return $this;
-    }
-
-    /**
-     * Set domain prefix.
-     *
-     * @param  string  $domain_prefix
-     *
-     * @return self
-     */
-    public function domainPrefix(string $domain_prefix): self
-    {
-        $this->token->domain_prefix = $domain_prefix;
-
-        return $this;
-    }
-
-    /**
-     * Get domain prefix.
-     *
-     * @return string
-     */
-    public function getDomainPrefix(): string
-    {
-        return $this->token->domain_prefix;
     }
 
     /**

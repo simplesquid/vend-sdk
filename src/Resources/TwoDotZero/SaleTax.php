@@ -12,18 +12,18 @@ use Spatie\DataTransferObject\DataTransferObject;
 class SaleTax extends DataTransferObject
 {
     /**
-     * ID **undocumented**
-     *
-     * @var string|null
-     */
-    public $id;
-
-    /**
      * Tax amount.
      *
      * @var int|double|null
      */
     public $amount;
+
+    /**
+     * ID **undocumented**
+     *
+     * @var string|null
+     */
+    public $id;
 
     /**
      * Tax name.

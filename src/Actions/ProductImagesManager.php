@@ -9,27 +9,6 @@ class ProductImagesManager
     use ManagesResources;
 
     /**
-     * Get a single product_image data.
-     * Returns the metadata for a single product image with a given ID. This method is useful for checking the status of an image after it was uploaded.
-     *
-     * @param  string  $id  Valid product image ID.
-     *
-     * @return Image
-     * @throws \SimpleSquid\Vend\Exceptions\AuthorisationException
-     * @throws \SimpleSquid\Vend\Exceptions\BadRequestException
-     * @throws \SimpleSquid\Vend\Exceptions\NotFoundException
-     * @throws \SimpleSquid\Vend\Exceptions\RateLimitException
-     * @throws \SimpleSquid\Vend\Exceptions\RequestException
-     * @throws \SimpleSquid\Vend\Exceptions\TokenExpiredException
-     * @throws \SimpleSquid\Vend\Exceptions\UnauthorisedException
-     * @throws \SimpleSquid\Vend\Exceptions\UnknownException
-     */
-    public function find(string $id): Image
-    {
-        return $this->single(Image::class, "2.0/product_images/$id");
-    }
-
-    /**
      * Delete a product_image.
      * Deletes the product_image with the requested ID.
      *
@@ -49,6 +28,27 @@ class ProductImagesManager
     public function delete(string $id): bool
     {
         return $this->deleteResource("2.0/product_images/$id");
+    }
+
+    /**
+     * Get a single product_image data.
+     * Returns the metadata for a single product image with a given ID. This method is useful for checking the status of an image after it was uploaded.
+     *
+     * @param  string  $id  Valid product image ID.
+     *
+     * @return Image
+     * @throws \SimpleSquid\Vend\Exceptions\AuthorisationException
+     * @throws \SimpleSquid\Vend\Exceptions\BadRequestException
+     * @throws \SimpleSquid\Vend\Exceptions\NotFoundException
+     * @throws \SimpleSquid\Vend\Exceptions\RateLimitException
+     * @throws \SimpleSquid\Vend\Exceptions\RequestException
+     * @throws \SimpleSquid\Vend\Exceptions\TokenExpiredException
+     * @throws \SimpleSquid\Vend\Exceptions\UnauthorisedException
+     * @throws \SimpleSquid\Vend\Exceptions\UnknownException
+     */
+    public function find(string $id): Image
+    {
+        return $this->single(Image::class, "2.0/product_images/$id");
     }
 
     /**

@@ -40,6 +40,20 @@ class LineItem extends DataTransferObject
     public $discount_total;
 
     /**
+     * Gift card number **undocumented**
+     *
+     * @var string|null
+     */
+    public $gift_card_number;
+
+    /**
+     * ID **undocumented**
+     *
+     * @var string|null
+     */
+    public $id;
+
+    /**
      * Indicates whether this line item is a return from another sale (referenced by `return_for` on the main sale object).
      *
      * @var bool|null
@@ -87,6 +101,13 @@ class LineItem extends DataTransferObject
      * @var string|null
      */
     public $product_id;
+
+    /**
+     * Promotions **undocumented**
+     *
+     * @var array|null
+     */
+    public $promotions;
 
     /**
      * Quantity of product units included in the sale.
@@ -138,25 +159,39 @@ class LineItem extends DataTransferObject
     public $tax_total;
 
     /**
-     * ID **undocumented**
+     * Total cost **undocumented**
      *
-     * @var string|null
+     * @var int|double|null
      */
-    public $id;
+    public $total_cost;
 
     /**
-     * Gift card number **undocumented**
+     * Total discount **undocumented**
      *
-     * @var string|null
+     * @var int|double|null
      */
-    public $gift_card_number;
+    public $total_discount;
 
     /**
-     * Promotions **undocumented**
+     * Total loyalty value **undocumented**
      *
-     * @var array|null
+     * @var int|double|null
      */
-    public $promotions;
+    public $total_loyalty_value;
+
+    /**
+     * Total price **undocumented**
+     *
+     * @var int|double|null
+     */
+    public $total_price;
+
+    /**
+     * Total tax **undocumented**
+     *
+     * @var int|double|null
+     */
+    public $total_tax;
 
     /**
      * Unit cost **undocumented**
@@ -192,40 +227,5 @@ class LineItem extends DataTransferObject
      * @var int|double|null
      */
     public $unit_tax;
-
-    /**
-     * Total tax **undocumented**
-     *
-     * @var int|double|null
-     */
-    public $total_tax;
-
-    /**
-     * Total cost **undocumented**
-     *
-     * @var int|double|null
-     */
-    public $total_cost;
-
-    /**
-     * Total discount **undocumented**
-     *
-     * @var int|double|null
-     */
-    public $total_discount;
-
-    /**
-     * Total loyalty value **undocumented**
-     *
-     * @var int|double|null
-     */
-    public $total_loyalty_value;
-
-    /**
-     * Total price **undocumented**
-     *
-     * @var int|double|null
-     */
-    public $total_price;
 
 }

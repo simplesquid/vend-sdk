@@ -29,27 +29,6 @@ class User extends DataTransferObject
     public $created_at;
 
     /**
-     * Time until deletion. **undocumented**
-     *
-     * @var \Carbon\Carbon|null
-     */
-    public $time_until_deletion;
-
-    /**
-     * Enabled. **undocumented**
-     *
-     * @var bool
-     */
-    public $enabled;
-
-    /**
-     * Switch ID. **undocumented**
-     *
-     * @var string
-     */
-    public $switch_id;
-
-    /**
      * Deletion timestamp in UTC.
      *
      * @var \Carbon\Carbon|null
@@ -76,6 +55,13 @@ class User extends DataTransferObject
      * @var \Carbon\Carbon|null
      */
     public $email_verified_at;
+
+    /**
+     * Enabled. **undocumented**
+     *
+     * @var bool
+     */
+    public $enabled;
 
     /**
      * Auto-generated object ID.
@@ -134,6 +120,13 @@ class User extends DataTransferObject
     public $seen_at;
 
     /**
+     * Switch ID. **undocumented**
+     *
+     * @var string
+     */
+    public $switch_id;
+
+    /**
      * Daily sales target for the user.
      *
      * @var int|double|null
@@ -153,6 +146,13 @@ class User extends DataTransferObject
      * @var int|double|null
      */
     public $target_weekly;
+
+    /**
+     * Time until deletion. **undocumented**
+     *
+     * @var \Carbon\Carbon|null
+     */
+    public $time_until_deletion;
 
     /**
      * Last update timestamp in UTC.

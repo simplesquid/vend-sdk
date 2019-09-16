@@ -33,28 +33,6 @@ class ProductsManager
     }
 
     /**
-     * Update a product.
-     * Returns a single updated product object.
-     *
-     * @param  string  $id    A valid product ID.
-     * @param  array   $body  TODO: Could use ProductUpdateBase.
-     *
-     * @return \SimpleSquid\Vend\Resources\ZeroDotNine\Product
-     * @throws \SimpleSquid\Vend\Exceptions\AuthorisationException
-     * @throws \SimpleSquid\Vend\Exceptions\BadRequestException
-     * @throws \SimpleSquid\Vend\Exceptions\NotFoundException
-     * @throws \SimpleSquid\Vend\Exceptions\RateLimitException
-     * @throws \SimpleSquid\Vend\Exceptions\RequestException
-     * @throws \SimpleSquid\Vend\Exceptions\TokenExpiredException
-     * @throws \SimpleSquid\Vend\Exceptions\UnauthorisedException
-     * @throws \SimpleSquid\Vend\Exceptions\UnknownException
-     */
-    public function update(string $id, array $body): \SimpleSquid\Vend\Resources\ZeroDotNine\Product
-    {
-        return $this->createResource(\SimpleSquid\Vend\Resources\ZeroDotNine\Product::class, 'products', array_merge(compact('id'), $body));
-    }
-
-    /**
      * Delete a product.
      * Deleted a product by ID.
      *
@@ -98,6 +76,35 @@ class ProductsManager
     }
 
     /**
+     * List products.
+     * Returns a paginated list of products.
+     *
+     * @param  int|null   $page_size  The maximum number of items to be returned in the response.
+     * @param  int|null   $after      The lower limit for the version numbers to be included in the response.
+     * @param  int|null   $before     The upper limit for the version numbers to be included in the response.
+     * @param  bool|null  $deleted    Indicates whether deleted items should be included in the response.
+     *
+     * @return \SimpleSquid\Vend\Resources\TwoDotZero\ProductCollection
+     * @throws \SimpleSquid\Vend\Exceptions\AuthorisationException
+     * @throws \SimpleSquid\Vend\Exceptions\BadRequestException
+     * @throws \SimpleSquid\Vend\Exceptions\NotFoundException
+     * @throws \SimpleSquid\Vend\Exceptions\RateLimitException
+     * @throws \SimpleSquid\Vend\Exceptions\RequestException
+     * @throws \SimpleSquid\Vend\Exceptions\TokenExpiredException
+     * @throws \SimpleSquid\Vend\Exceptions\UnauthorisedException
+     * @throws \SimpleSquid\Vend\Exceptions\UnknownException
+     */
+    public function get(
+        int $page_size = null,
+        int $after = null,
+        int $before = null,
+        bool $deleted = null
+    ): ProductCollection {
+        return $this->collection(ProductCollection::class, '2.0/products',
+                                 compact('page_size', 'after', 'before', 'deleted'));
+    }
+
+    /**
      * Get inventory data for a single product.
      * Returns inventory data for a single product in all the outlets.
      *
@@ -127,15 +134,13 @@ class ProductsManager
     }
 
     /**
-     * List products.
-     * Returns a paginated list of products.
+     * Update a product.
+     * Returns a single updated product object.
      *
-     * @param  int|null   $page_size  The maximum number of items to be returned in the response.
-     * @param  int|null   $after      The lower limit for the version numbers to be included in the response.
-     * @param  int|null   $before     The upper limit for the version numbers to be included in the response.
-     * @param  bool|null  $deleted    Indicates whether deleted items should be included in the response.
+     * @param  string  $id    A valid product ID.
+     * @param  array   $body  TODO: Could use ProductUpdateBase.
      *
-     * @return \SimpleSquid\Vend\Resources\TwoDotZero\ProductCollection
+     * @return \SimpleSquid\Vend\Resources\ZeroDotNine\Product
      * @throws \SimpleSquid\Vend\Exceptions\AuthorisationException
      * @throws \SimpleSquid\Vend\Exceptions\BadRequestException
      * @throws \SimpleSquid\Vend\Exceptions\NotFoundException
@@ -145,14 +150,9 @@ class ProductsManager
      * @throws \SimpleSquid\Vend\Exceptions\UnauthorisedException
      * @throws \SimpleSquid\Vend\Exceptions\UnknownException
      */
-    public function get(
-        int $page_size = null,
-        int $after = null,
-        int $before = null,
-        bool $deleted = null
-    ): ProductCollection {
-        return $this->collection(ProductCollection::class, '2.0/products',
-                                 compact('page_size', 'after', 'before', 'deleted'));
+    public function update(string $id, array $body): \SimpleSquid\Vend\Resources\ZeroDotNine\Product
+    {
+        return $this->createResource(\SimpleSquid\Vend\Resources\ZeroDotNine\Product::class, 'products', array_merge(compact('id'), $body));
     }
 
     /**

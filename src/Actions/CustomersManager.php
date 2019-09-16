@@ -31,6 +31,27 @@ class CustomersManager
     }
 
     /**
+     * Delete a customer.
+     * Deletes the customer with the requested ID.
+     *
+     * @param  string  $id  Valid customer ID.
+     *
+     * @return bool
+     * @throws \SimpleSquid\Vend\Exceptions\AuthorisationException
+     * @throws \SimpleSquid\Vend\Exceptions\BadRequestException
+     * @throws \SimpleSquid\Vend\Exceptions\NotFoundException
+     * @throws \SimpleSquid\Vend\Exceptions\RateLimitException
+     * @throws \SimpleSquid\Vend\Exceptions\RequestException
+     * @throws \SimpleSquid\Vend\Exceptions\TokenExpiredException
+     * @throws \SimpleSquid\Vend\Exceptions\UnauthorisedException
+     * @throws \SimpleSquid\Vend\Exceptions\UnknownException
+     */
+    public function delete(string $id): bool
+    {
+        return $this->deleteResource("2.0/customers/$id");
+    }
+
+    /**
      * Get a single customer.
      * Returns a single customer with a requested ID.
      *
@@ -78,27 +99,6 @@ class CustomersManager
     ): CustomerCollection {
         return $this->collection(CustomerCollection::class, "2.0/customers",
                                  compact('after', 'before', 'page_size', 'deleted'));
-    }
-
-    /**
-     * Delete a customer.
-     * Deletes the customer with the requested ID.
-     *
-     * @param  string  $id  Valid customer ID.
-     *
-     * @return bool
-     * @throws \SimpleSquid\Vend\Exceptions\AuthorisationException
-     * @throws \SimpleSquid\Vend\Exceptions\BadRequestException
-     * @throws \SimpleSquid\Vend\Exceptions\NotFoundException
-     * @throws \SimpleSquid\Vend\Exceptions\RateLimitException
-     * @throws \SimpleSquid\Vend\Exceptions\RequestException
-     * @throws \SimpleSquid\Vend\Exceptions\TokenExpiredException
-     * @throws \SimpleSquid\Vend\Exceptions\UnauthorisedException
-     * @throws \SimpleSquid\Vend\Exceptions\UnknownException
-     */
-    public function delete(string $id): bool
-    {
-        return $this->deleteResource("2.0/customers/$id");
     }
 
     /**

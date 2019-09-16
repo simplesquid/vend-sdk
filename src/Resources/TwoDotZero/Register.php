@@ -29,6 +29,13 @@ class Register extends DataTransferObject
     public $ask_for_user_on_sale;
 
     /**
+     * Attributes. **undocumented**
+     *
+     * @var array|null
+     */
+    public $attributes;
+
+    /**
      * Register ID.
      *
      * @var string|null
@@ -92,6 +99,13 @@ class Register extends DataTransferObject
     public $is_open;
 
     /**
+     * Is quick keys enabled. **undocumented**
+     *
+     * @var bool|null
+     */
+    public $is_quick_keys_enabled;
+
+    /**
      * The Register name.
      *
      * @var string|null
@@ -118,6 +132,13 @@ class Register extends DataTransferObject
      * @var bool|null
      */
     public $print_receipt;
+
+    /**
+     * Receipt template ID. **undocumented**
+     *
+     * @var string|null
+     */
+    public $receipt_template_id;
 
     /**
      * Date/time when the register was closed. Null if currently open.
@@ -153,26 +174,5 @@ class Register extends DataTransferObject
      * @var int|null
      */
     public $version;
-
-    /**
-     * Attributes. **undocumented**
-     *
-     * @var array|null
-     */
-    public $attributes;
-
-    /**
-     * Receipt template ID. **undocumented**
-     *
-     * @var string|null
-     */
-    public $receipt_template_id;
-
-    /**
-     * Is quick keys enabled. **undocumented**
-     *
-     * @var bool|null
-     */
-    public $is_quick_keys_enabled;
 
 }

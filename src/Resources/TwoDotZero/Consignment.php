@@ -22,27 +22,6 @@ class Consignment extends DataTransferObject
     public $consignment_date;
 
     /**
-     * An array of filter objects. Max 25. **undocumented**
-     *
-     * @var \SimpleSquid\Vend\Resources\TwoDotZero\InventoryCountFilter[]|null
-     */
-    public $filters;
-
-    /**
-     * Indicates whether inactive products should be included in the count. **undocumented**
-     *
-     * @var bool|null
-     */
-    public $show_inactive;
-
-    /**
-     * Product count. **undocumented**
-     *
-     * @var int|null
-     */
-    public $product_count;
-
-    /**
      * Creation timestamp in UTC.
      *
      * @var \Carbon\Carbon|null
@@ -62,6 +41,13 @@ class Consignment extends DataTransferObject
      * @var \Carbon\Carbon|null
      */
     public $due_at;
+
+    /**
+     * An array of filter objects. Max 25. **undocumented**
+     *
+     * @var \SimpleSquid\Vend\Resources\TwoDotZero\InventoryCountFilter[]|null
+     */
+    public $filters;
 
     /**
      * Auto-generated object ID.
@@ -85,6 +71,13 @@ class Consignment extends DataTransferObject
     public $outlet_id;
 
     /**
+     * Product count. **undocumented**
+     *
+     * @var int|null
+     */
+    public $product_count;
+
+    /**
      * The date when consignment was received.
      *
      * @var \Carbon\Carbon|null
@@ -97,6 +90,13 @@ class Consignment extends DataTransferObject
      * @var string|null
      */
     public $reference;
+
+    /**
+     * Indicates whether inactive products should be included in the count. **undocumented**
+     *
+     * @var bool|null
+     */
+    public $show_inactive;
 
     /**
      * A valid ID of an outlet where stock will come from. **stock transfers only**

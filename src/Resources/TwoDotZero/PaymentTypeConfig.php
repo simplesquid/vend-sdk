@@ -12,20 +12,6 @@ use Spatie\DataTransferObject\DataTransferObject;
 class PaymentTypeConfig extends DataTransferObject
 {
     /**
-     * Indicates whether a receipt will be printed.
-     *
-     * @var bool|null
-     */
-    public $print;
-
-    /**
-     * The URL of the gateway.
-     *
-     * @var string|null
-     */
-    public $url;
-
-    /**
      * Algorithm **undocumented**
      *
      * @var string|null
@@ -40,10 +26,24 @@ class PaymentTypeConfig extends DataTransferObject
     public $conceal_cash_totals;
 
     /**
+     * Indicates whether a receipt will be printed.
+     *
+     * @var bool|null
+     */
+    public $print;
+
+    /**
      * Rounding **undocumented**
      *
      * @var string|null
      */
     public $rounding;
+
+    /**
+     * The URL of the gateway.
+     *
+     * @var string|null
+     */
+    public $url;
 
 }

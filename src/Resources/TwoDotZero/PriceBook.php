@@ -15,6 +15,13 @@ class PriceBook extends DataTransferObject
     use CastsDates;
 
     /**
+     * Created at. **undocumented**
+     *
+     * @var \Carbon\Carbon|null
+     */
+    public $created_at;
+
+    /**
      * Customer Group
      *
      * @var \SimpleSquid\Vend\Resources\TwoDotZero\CustomerGroup|null
@@ -50,6 +57,13 @@ class PriceBook extends DataTransferObject
     public $name;
 
     /**
+     * Outlet. **undocumented**
+     *
+     * @var string|null
+     */
+    public $outlet;
+
+    /**
      * The ID of an outlet for which the price book should be used. **internal**
      *
      * @var string|null
@@ -71,6 +85,20 @@ class PriceBook extends DataTransferObject
     public $restrict_to_platform_label;
 
     /**
+     * Type. **undocumented**
+     *
+     * @var string|null
+     */
+    public $type;
+
+    /**
+     * Updated at. **undocumented**
+     *
+     * @var \Carbon\Carbon|null
+     */
+    public $updated_at;
+
+    /**
      * The date when the price book becomes valid (active).
      *
      * @var \Carbon\Carbon|null
@@ -90,32 +118,4 @@ class PriceBook extends DataTransferObject
      * @var int|null
      */
     public $version;
-
-    /**
-     * Outlet. **undocumented**
-     *
-     * @var string|null
-     */
-    public $outlet;
-
-    /**
-     * Updated at. **undocumented**
-     *
-     * @var \Carbon\Carbon|null
-     */
-    public $updated_at;
-
-    /**
-     * Created at. **undocumented**
-     *
-     * @var \Carbon\Carbon|null
-     */
-    public $created_at;
-
-    /**
-     * Type. **undocumented**
-     *
-     * @var string|null
-     */
-    public $type;
 }
