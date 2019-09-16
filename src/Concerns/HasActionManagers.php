@@ -97,10 +97,11 @@ trait HasActionManagers
      * Get relevant manager.
      *
      * @param $name string
+     * @param $arguments
      *
      * @return mixed
      */
-    public function __get($name)
+    public function __call($name, $arguments)
     {
         return $this->$name;
     }

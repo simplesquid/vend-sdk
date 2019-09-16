@@ -26,7 +26,7 @@ And finally get the instance of the SDK, and set the desired user agent:
 ```php
 $vend = Vend::getInstance();
 
-/* Optional configuration */
+/* Optional configuration. */
 $vend->userAgent('Vend SDK')
      ->requestTimeout(2)
      ->confirmationTimeout(30);
