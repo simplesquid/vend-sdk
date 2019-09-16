@@ -17,7 +17,7 @@ class Token extends DataTransferObject
     /**
      * Access token.
      *
-     * @var string
+     * @var string|null
      */
     public $access_token;
 

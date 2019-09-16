@@ -51,6 +51,8 @@ trait AuthorisesWithOAuth
      */
     public function refreshOAuthAuthorisationToken()
     {
+        $domain_prefix = $this->getDomainPrefix();
+
         $this->token = new Token($this->post('1.0/token', [
             'refresh_token' => $refresh_token = $this->token->refresh_token,
             'client_id'     => $this->client_id,
@@ -60,6 +62,10 @@ trait AuthorisesWithOAuth
 
         if (is_null($this->token->refresh_token)) {
             $this->token->refresh_token = $refresh_token;
+        }
+
+        if (is_null($this->token->domain_prefix)) {
+            $this->token->domain_prefix = $domain_prefix;
         }
 
         return $this->token;

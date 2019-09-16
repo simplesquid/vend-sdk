@@ -120,7 +120,7 @@ trait MakesHttpRequests
         }
 
         try {
-            $response = $this->guzzle->request($verb, "https://$this->domain_prefix.vendhq.com/api/$uri", $options);
+            $response = $this->guzzle->request($verb, "https://" . $this->getDomainPrefix() . ".vendhq.com/api/$uri", $options);
         } catch (GuzzleException $e) {
             throw new RequestException($e);
         }
