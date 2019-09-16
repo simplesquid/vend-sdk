@@ -31,7 +31,7 @@ class Token extends DataTransferObject
     /**
      * Expires in (seconds).
      *
-     * @var string|null
+     * @var int|double|null
      */
     public $expires_in;
 
@@ -48,5 +48,12 @@ class Token extends DataTransferObject
      * @var string|null
      */
     public $token_type;
+
+    /**
+     * Domain prefix.
+     *
+     * @var string|null
+     */
+    public $domain_prefix;
 
 }
