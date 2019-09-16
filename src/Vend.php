@@ -52,6 +52,8 @@ class Vend
                                            'Accept' => 'application/json',
                                        ],
                                    ]);
+
+        $this->loadActionManagers();
     }
 
     /**

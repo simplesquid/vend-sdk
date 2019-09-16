@@ -106,10 +106,7 @@ trait HasActionManagers
         return $this->$name;
     }
 
-    /**
-     * Vend constructor.
-     */
-    public function __construct()
+    private function loadActionManagers()
     {
         /** @var \SimpleSquid\Vend\Vend $vend */
         $vend = $this;
