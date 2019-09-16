@@ -22,9 +22,6 @@ class Vend
     /** @var int */
     public $confirmation_timeout = 30;
 
-    /** @var string */
-    public $domain_prefix;
-
     /** @var Client */
     public $guzzle;
 
@@ -52,6 +49,8 @@ class Vend
                                            'Accept' => 'application/json',
                                        ],
                                    ]);
+
+        $this->token = new Token([]);
 
         $this->loadActionManagers();
     }
@@ -142,9 +141,19 @@ class Vend
      */
     public function domainPrefix(string $domain_prefix): self
     {
-        $this->domain_prefix = $domain_prefix;
+        $this->token->domain_prefix = $domain_prefix;
 
         return $this;
+    }
+
+    /**
+     * Get domain prefix.
+     *
+     * @return string
+     */
+    public function getDomainPrefix(): string
+    {
+        return $this->token->domain_prefix;
     }
 
     /**

@@ -83,11 +83,10 @@ Make sure you store the returned Token object and the domain prefix.
 
 ##### Subsequent setup procedure
 
-Once you have received the initial authorisation, you may setup the Vend client using the domain prefix and Token object received during the authorisation process:
+Once you have received the initial authorisation, you may setup the Vend client using the Token object received during the authorisation process:
 
 ```php
-$vend->domainPrefix($domain_prefix)
-     ->authorisationToken($token);
+$vend->authorisationToken($token);
 ```
 
 If a request throws a `\SimpleSquid\Vend\Exceptions\TokenExpiredException`, you can refresh the token like so:
