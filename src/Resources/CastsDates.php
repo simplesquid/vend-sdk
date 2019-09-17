@@ -13,8 +13,8 @@ trait CastsDates
         /** @var \SimpleSquid\Vend\Resources\TwoDotZero\Property[] $properties */
         $properties = $this->getPublicProperties(new ReflectionClass(static::class));
 
-        foreach ($properties as $property) {
-            if (in_array('\Carbon\Carbon', $property->getTypes()) && isset($parameters[$key = $property->getName()])) {
+        foreach ($properties as $key => $property) {
+            if (in_array('\Carbon\Carbon', $property->getTypes()) && isset($parameters[$key])) {
                 try {
                     $parameters[$key] = is_null($parameters[$key]) ? null : new Carbon($parameters[$key]);
                 } catch (Exception $e) {
@@ -29,12 +29,11 @@ trait CastsDates
     {
         $array = parent::toArray();
 
-        /** @var \SimpleSquid\Vend\Resources\TwoDotZero\Property[] $properties */
         $properties = $this->getPublicProperties(new ReflectionClass(static::class));
 
-        foreach ($properties as $property) {
-            if (in_array('\Carbon\Carbon', $property->getTypes()) && isset($parameters[$key = $property->getName()])) {
-                $array[$key] = $array[$key] instanceof Carbon ? (string) $array[$key] : $array[$key];
+        foreach ($properties as $key => $property) {
+            if (in_array('\Carbon\Carbon', $property->getTypes()) && isset($array[$key])) {
+                $array[$key] = $array[$key] instanceof Carbon ? $array[$key]->toRfc3339String() : $array[$key];
             }
         }
 

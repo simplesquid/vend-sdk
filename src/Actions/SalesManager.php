@@ -5,6 +5,7 @@ namespace SimpleSquid\Vend\Actions;
 use SimpleSquid\Vend\Resources\TwoDotZero\Sale;
 use SimpleSquid\Vend\Resources\TwoDotZero\SaleCollection;
 use SimpleSquid\Vend\Resources\ZeroDotNine\RegisterSale;
+use SimpleSquid\Vend\Resources\ZeroDotNine\RegisterSaleUpdateBase;
 
 class SalesManager
 {
@@ -14,7 +15,7 @@ class SalesManager
      * Create a register sale.
      * Returns a single new register sale object.
      *
-     * @param  array  $body  TODO: Could be RegisterSaleUpdateBase.
+     * @param  RegisterSaleUpdateBase|array  $sale
      *
      * @return RegisterSale
      * @throws \SimpleSquid\Vend\Exceptions\AuthorisationException
@@ -26,9 +27,13 @@ class SalesManager
      * @throws \SimpleSquid\Vend\Exceptions\UnauthorisedException
      * @throws \SimpleSquid\Vend\Exceptions\UnknownException
      */
-    public function create(array $body): RegisterSale
+    public function create(array $sale): RegisterSale
     {
-        return $this->createResource(RegisterSale::class, 'register_sales', $body);
+        if ($sale instanceof RegisterSaleUpdateBase) {
+            $sale = $sale->toArray();
+        }
+
+        return $this->createResource(RegisterSale::class, 'register_sales', $sale);
     }
 
     /**
@@ -79,8 +84,8 @@ class SalesManager
      * Update a register sale.
      * Returns a single updated register sale object.
      *
-     * @param  string  $id    A valid register sale ID.
-     * @param  array   $body  TODO: Could be RegisterSaleUpdateBase.
+     * @param  string                        $id  A valid register sale ID.
+     * @param  RegisterSaleUpdateBase|array  $sale
      *
      * @return RegisterSale
      * @throws \SimpleSquid\Vend\Exceptions\AuthorisationException
@@ -92,9 +97,13 @@ class SalesManager
      * @throws \SimpleSquid\Vend\Exceptions\UnauthorisedException
      * @throws \SimpleSquid\Vend\Exceptions\UnknownException
      */
-    public function update(string $id, array $body): RegisterSale
+    public function update(string $id, $sale): RegisterSale
     {
-        return $this->createResource(RegisterSale::class, 'register_sales', array_merge(compact('id'), $body));
+        if ($sale instanceof RegisterSaleUpdateBase) {
+            $sale = $sale->toArray();
+        }
+
+        return $this->createResource(RegisterSale::class, 'register_sales', array_merge(compact('id'), $sale));
     }
 
 }

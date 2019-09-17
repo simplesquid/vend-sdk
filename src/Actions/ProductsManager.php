@@ -6,6 +6,7 @@ use SimpleSquid\Vend\Resources\TwoDotZero\Image;
 use SimpleSquid\Vend\Resources\TwoDotZero\InventoryCollection;
 use SimpleSquid\Vend\Resources\TwoDotZero\Product;
 use SimpleSquid\Vend\Resources\TwoDotZero\ProductCollection;
+use SimpleSquid\Vend\Resources\ZeroDotNine\ProductUpdateBase;
 
 class ProductsManager
 {
@@ -15,7 +16,7 @@ class ProductsManager
      * Create a product.
      * Returns a single new product object.
      *
-     * @param  array  $body  TODO: Could use ProductUpdateBase.
+     * @param  ProductUpdateBase|array  $product
      *
      * @return \SimpleSquid\Vend\Resources\ZeroDotNine\Product
      * @throws \SimpleSquid\Vend\Exceptions\AuthorisationException
@@ -27,9 +28,13 @@ class ProductsManager
      * @throws \SimpleSquid\Vend\Exceptions\UnauthorisedException
      * @throws \SimpleSquid\Vend\Exceptions\UnknownException
      */
-    public function create(array $body): \SimpleSquid\Vend\Resources\ZeroDotNine\Product
+    public function create($product): \SimpleSquid\Vend\Resources\ZeroDotNine\Product
     {
-        return $this->createResource(\SimpleSquid\Vend\Resources\ZeroDotNine\Product::class, 'products', $body);
+        if ($product instanceof ProductUpdateBase) {
+            $product = $product->toArray();
+        }
+
+        return $this->createResource(\SimpleSquid\Vend\Resources\ZeroDotNine\Product::class, 'products', $product);
     }
 
     /**
@@ -137,8 +142,8 @@ class ProductsManager
      * Update a product.
      * Returns a single updated product object.
      *
-     * @param  string  $id    A valid product ID.
-     * @param  array   $body  TODO: Could use ProductUpdateBase.
+     * @param  string                   $id  A valid product ID.
+     * @param  ProductUpdateBase|array  $product
      *
      * @return \SimpleSquid\Vend\Resources\ZeroDotNine\Product
      * @throws \SimpleSquid\Vend\Exceptions\AuthorisationException
@@ -150,9 +155,13 @@ class ProductsManager
      * @throws \SimpleSquid\Vend\Exceptions\UnauthorisedException
      * @throws \SimpleSquid\Vend\Exceptions\UnknownException
      */
-    public function update(string $id, array $body): \SimpleSquid\Vend\Resources\ZeroDotNine\Product
+    public function update(string $id, $product): \SimpleSquid\Vend\Resources\ZeroDotNine\Product
     {
-        return $this->createResource(\SimpleSquid\Vend\Resources\ZeroDotNine\Product::class, 'products', array_merge(compact('id'), $body));
+        if ($product instanceof ProductUpdateBase) {
+            $product = $product->toArray();
+        }
+
+        return $this->createResource(\SimpleSquid\Vend\Resources\ZeroDotNine\Product::class, 'products', array_merge(compact('id'), $product));
     }
 
     /**

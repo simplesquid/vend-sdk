@@ -4,6 +4,7 @@ namespace SimpleSquid\Vend\Actions;
 
 use SimpleSquid\Vend\Resources\TwoDotZero\Supplier;
 use SimpleSquid\Vend\Resources\TwoDotZero\SupplierCollection;
+use SimpleSquid\Vend\Resources\ZeroDotNine\SupplierUpdateBase;
 
 class SuppliersManager
 {
@@ -13,7 +14,7 @@ class SuppliersManager
      * Create or update a supplier.
      * Returns a single supplier object.
      *
-     * @param  array  $body  TODO: Could be SupplierUpdateBase.
+     * @param  SupplierUpdateBase|array  $supplier
      *
      * @return \SimpleSquid\Vend\Resources\ZeroDotNine\Supplier
      * @throws \SimpleSquid\Vend\Exceptions\AuthorisationException
@@ -25,9 +26,13 @@ class SuppliersManager
      * @throws \SimpleSquid\Vend\Exceptions\UnauthorisedException
      * @throws \SimpleSquid\Vend\Exceptions\UnknownException
      */
-    public function create(array $body): \SimpleSquid\Vend\Resources\ZeroDotNine\Supplier
+    public function create($supplier): \SimpleSquid\Vend\Resources\ZeroDotNine\Supplier
     {
-        return $this->createResource(\SimpleSquid\Vend\Resources\ZeroDotNine\Supplier::class, 'supplier', $body);
+        if ($supplier instanceof SupplierUpdateBase) {
+            $supplier = $supplier->toArray();
+        }
+
+        return $this->createResource(\SimpleSquid\Vend\Resources\ZeroDotNine\Supplier::class, 'supplier', $supplier);
     }
 
     /**
@@ -99,8 +104,8 @@ class SuppliersManager
      * Create or update a supplier.
      * Returns a single supplier object.
      *
-     * @param  string  $id    A valid supplier ID.
-     * @param  array   $body  TODO: Could be SupplierUpdateBase.
+     * @param  string                    $id  A valid supplier ID.
+     * @param  SupplierUpdateBase|array  $supplier
      *
      * @return \SimpleSquid\Vend\Resources\ZeroDotNine\Supplier
      * @throws \SimpleSquid\Vend\Exceptions\AuthorisationException
@@ -112,8 +117,12 @@ class SuppliersManager
      * @throws \SimpleSquid\Vend\Exceptions\UnauthorisedException
      * @throws \SimpleSquid\Vend\Exceptions\UnknownException
      */
-    public function update(string $id, array $body): \SimpleSquid\Vend\Resources\ZeroDotNine\Supplier
+    public function update(string $id, $supplier): \SimpleSquid\Vend\Resources\ZeroDotNine\Supplier
     {
-        return $this->createResource(\SimpleSquid\Vend\Resources\ZeroDotNine\Supplier::class, 'supplier', array_merge(compact('id'), $body));
+        if ($supplier instanceof SupplierUpdateBase) {
+            $supplier = $supplier->toArray();
+        }
+
+        return $this->createResource(\SimpleSquid\Vend\Resources\ZeroDotNine\Supplier::class, 'supplier', array_merge(compact('id'), $supplier));
     }
 }

@@ -13,7 +13,7 @@ class WebhookManager
      * Create a webhook.
      * Creates and returns a new webhook.
      *
-     * @param  array  $body  TODO: Could be replaced with object.
+     * @param  Webhook|array  $webhook
      *
      * @return Webhook
      * @throws \SimpleSquid\Vend\Exceptions\AuthorisationException
@@ -25,9 +25,13 @@ class WebhookManager
      * @throws \SimpleSquid\Vend\Exceptions\UnauthorisedException
      * @throws \SimpleSquid\Vend\Exceptions\UnknownException
      */
-    public function create(array $body): Webhook
+    public function create($webhook): Webhook
     {
-        $response = $this->vend->post('webhooks', ['data' => json_encode($body)], 'form_params');
+        if ($webhook instanceof Webhook) {
+            $webhook = $webhook->toArray();
+        }
+
+        $response = $this->vend->post('webhooks', ['data' => json_encode($webhook)], 'form_params');
 
         return new Webhook($response['data']);
     }
@@ -71,7 +75,7 @@ class WebhookManager
      */
     public function find(string $id): Webhook
     {
-        return $this->single(Webhook::class, "webhooks/$id");
+        return $this->single(Webhook::class, "webhooks/$id", 'root');
     }
 
     /**
@@ -91,7 +95,7 @@ class WebhookManager
      */
     public function get(): WebhookCollection
     {
-        return $this->collection(WebhookCollection::class, 'webhooks');
+        return $this->collection(WebhookCollection::class, 'webhooks', [], 'root');
     }
 
     /**
@@ -99,8 +103,8 @@ class WebhookManager
      * Updates a webhook with the given `id`.
      * __NOTE:__ The `Content-Type` header for this request should be set to `application/x-www-form-urlencoded`.
      *
-     * @param  string  $id    The ID of the webhook to be updated.
-     * @param  string  $body  TODO: Could be replaced with object.
+     * @param  string   $id  The ID of the webhook to be updated.
+     * @param  Webhook  $webhook
      *
      * @return Webhook
      * @throws \SimpleSquid\Vend\Exceptions\AuthorisationException
@@ -112,9 +116,13 @@ class WebhookManager
      * @throws \SimpleSquid\Vend\Exceptions\UnauthorisedException
      * @throws \SimpleSquid\Vend\Exceptions\UnknownException
      */
-    public function update(string $id, string $body): Webhook
+    public function update(string $id, $webhook): Webhook
     {
-        $response = $this->vend->post("webhooks/$id", ['data' => json_encode($body)], 'form_params');
+        if ($webhook instanceof Webhook) {
+            $webhook = $webhook->toArray();
+        }
+
+        $response = $this->vend->post("webhooks/$id", ['data' => json_encode($webhook)], 'form_params');
 
         return new Webhook($response['data']);
     }

@@ -4,9 +4,13 @@ namespace SimpleSquid\Vend\Actions;
 
 use SimpleSquid\Vend\Resources\TwoDotZero\Consignment;
 use SimpleSquid\Vend\Resources\TwoDotZero\ConsignmentCollection;
+use SimpleSquid\Vend\Resources\TwoDotZero\InventoryCount;
 use SimpleSquid\Vend\Resources\TwoDotZero\InventoryCountItem;
 use SimpleSquid\Vend\Resources\TwoDotZero\InventoryCountItemCollection;
+use SimpleSquid\Vend\Resources\TwoDotZero\InventoryCountItemRequest;
+use SimpleSquid\Vend\Resources\ZeroDotNine\ConsignmentBase;
 use SimpleSquid\Vend\Resources\ZeroDotNine\ConsignmentProduct;
+use SimpleSquid\Vend\Resources\ZeroDotNine\ConsignmentProductBase;
 
 class ConsignmentsManager
 {
@@ -16,7 +20,7 @@ class ConsignmentsManager
      * Create a consignment product.
      * Adds a new product to a consignment.
      *
-     * @param  array  $body  TODO: Could use ConsignmentProductBase.
+     * @param  ConsignmentProductBase|array  $consignmentProduct
      *
      * @return \SimpleSquid\Vend\Resources\ZeroDotNine\ConsignmentProduct
      * @throws \SimpleSquid\Vend\Exceptions\AuthorisationException
@@ -28,16 +32,20 @@ class ConsignmentsManager
      * @throws \SimpleSquid\Vend\Exceptions\UnauthorisedException
      * @throws \SimpleSquid\Vend\Exceptions\UnknownException
      */
-    public function addProduct(array $body): ConsignmentProduct
+    public function addProduct($consignmentProduct): ConsignmentProduct
     {
-        return $this->createResource(ConsignmentProduct::class, "consignment_product", $body);
+        if ($consignmentProduct instanceof ConsignmentProductBase) {
+            $consignmentProduct = $consignmentProduct->toArray();
+        }
+
+        return $this->createResource(ConsignmentProduct::class, "consignment_product", $consignmentProduct);
     }
 
     /**
      * Create a consignment.
      * Creates a new consignment.
      *
-     * @param  array  $body  TODO: Could use ConsignmentBase.
+     * @param  ConsignmentBase|array  $consignment
      *
      * @return \SimpleSquid\Vend\Resources\ZeroDotNine\Consignment
      * @throws \SimpleSquid\Vend\Exceptions\AuthorisationException
@@ -49,16 +57,20 @@ class ConsignmentsManager
      * @throws \SimpleSquid\Vend\Exceptions\UnauthorisedException
      * @throws \SimpleSquid\Vend\Exceptions\UnknownException
      */
-    public function create(array $body): \SimpleSquid\Vend\Resources\ZeroDotNine\Consignment
+    public function create($consignment): \SimpleSquid\Vend\Resources\ZeroDotNine\Consignment
     {
-        return $this->createResource(\SimpleSquid\Vend\Resources\ZeroDotNine\Consignment::class, "consignment", $body);
+        if ($consignment instanceof ConsignmentBase) {
+            $consignment = $consignment->toArray();
+        }
+
+        return $this->createResource(\SimpleSquid\Vend\Resources\ZeroDotNine\Consignment::class, "consignment", $consignment);
     }
 
     /**
      * Create an inventory count.
      * Creates a new consignment of type `STOCKTAKE`. Currently, this endpoint only supports creation of inventory counts (stock takes).
      *
-     * @param  array  $body  TODO: Could use InventoryCount object.
+     * @param  InventoryCount|array  $inventoryCount
      *
      * @return Consignment
      * @throws \SimpleSquid\Vend\Exceptions\AuthorisationException
@@ -70,9 +82,13 @@ class ConsignmentsManager
      * @throws \SimpleSquid\Vend\Exceptions\UnauthorisedException
      * @throws \SimpleSquid\Vend\Exceptions\UnknownException
      */
-    public function createInventoryCount(array $body): Consignment
+    public function createInventoryCount($inventoryCount): Consignment
     {
-        return $this->createResource(Consignment::class, '2.0/consignments', $body);
+        if ($inventoryCount instanceof InventoryCount) {
+            $inventoryCount = $inventoryCount->toArray();
+        }
+
+        return $this->createResource(Consignment::class, '2.0/consignments', $inventoryCount);
     }
 
     /**
@@ -205,8 +221,8 @@ class ConsignmentsManager
      * Update a consignment.
      * Updates a consignment with the given ID.
      *
-     * @param  string  $id    The ID of the consignment to be updated.
-     * @param  array   $body  TODO: Could use ConsignmentBase.
+     * @param  string                 $id  The ID of the consignment to be updated.
+     * @param  ConsignmentBase|array  $consignment
      *
      * @return \SimpleSquid\Vend\Resources\ZeroDotNine\Consignment
      * @throws \SimpleSquid\Vend\Exceptions\AuthorisationException
@@ -218,17 +234,21 @@ class ConsignmentsManager
      * @throws \SimpleSquid\Vend\Exceptions\UnauthorisedException
      * @throws \SimpleSquid\Vend\Exceptions\UnknownException
      */
-    public function update(string $id, array $body): \SimpleSquid\Vend\Resources\ZeroDotNine\Consignment
+    public function update(string $id, $consignment): \SimpleSquid\Vend\Resources\ZeroDotNine\Consignment
     {
-        return $this->updateResource(\SimpleSquid\Vend\Resources\ZeroDotNine\Consignment::class, "consignment/$id", $body);
+        if ($consignment instanceof ConsignmentBase) {
+            $consignment = $consignment->toArray();
+        }
+
+        return $this->updateResource(\SimpleSquid\Vend\Resources\ZeroDotNine\Consignment::class, "consignment/$id", $consignment);
     }
 
     /**
      * Update an inventory count.
      * Updates the inventory count with requested ID.
      *
-     * @param  string  $id    Valid consignment ID.
-     * @param  array   $body  TODO: Could use InventoryCount object.
+     * @param  string                $id  Valid consignment ID.
+     * @param  InventoryCount|array  $inventoryCount
      *
      * @return Consignment
      * @throws \SimpleSquid\Vend\Exceptions\AuthorisationException
@@ -240,17 +260,21 @@ class ConsignmentsManager
      * @throws \SimpleSquid\Vend\Exceptions\UnauthorisedException
      * @throws \SimpleSquid\Vend\Exceptions\UnknownException
      */
-    public function updateInventoryCount(string $id, array $body): Consignment
+    public function updateInventoryCount(string $id, $inventoryCount): Consignment
     {
-        return $this->updateResource(Consignment::class, "2.0/consignments/$id", $body);
+        if ($inventoryCount instanceof InventoryCount) {
+            $inventoryCount = $inventoryCount->toArray();
+        }
+
+        return $this->updateResource(Consignment::class, "2.0/consignments/$id", $inventoryCount);
     }
 
     /**
      * Adjust the inventory item count.
      * Increases or decreases the count for a specific product within the inventory count.
      *
-     * @param  string  $consignment_id  Valid consignment ID.
-     * @param  array   $body            TODO: Could use InventoryCountItemRequest object.
+     * @param  string                           $consignment_id  Valid consignment ID.
+     * @param  InventoryCountItemRequest|array  $inventoryCountItem
      *
      * @return InventoryCountItem
      * @throws \SimpleSquid\Vend\Exceptions\AuthorisationException
@@ -262,17 +286,21 @@ class ConsignmentsManager
      * @throws \SimpleSquid\Vend\Exceptions\UnauthorisedException
      * @throws \SimpleSquid\Vend\Exceptions\UnknownException
      */
-    public function updateInventoryCountItem(string $consignment_id, array $body): InventoryCountItem
+    public function updateInventoryCountItem(string $consignment_id, array $inventoryCountItem): InventoryCountItem
     {
-        return $this->updateResource(InventoryCountItem::class, "2.0/consignments/$consignment_id/products", $body);
+        if ($inventoryCountItem instanceof InventoryCountItemRequest) {
+            $inventoryCountItem = $inventoryCountItem->toArray();
+        }
+
+        return $this->updateResource(InventoryCountItem::class, "2.0/consignments/$consignment_id/products", $inventoryCountItem);
     }
 
     /**
      * Update a consignment product.
      * Updates an existing consignment product.
      *
-     * @param  string  $consignment_product_id  The ID of the consignment product to be updated.
-     * @param  array   $body                    TODO: Could use ConsignmentProductBase.
+     * @param  string                        $consignment_product_id  The ID of the consignment product to be updated.
+     * @param  ConsignmentProductBase|array  $consignmentProduct
      *
      * @return \SimpleSquid\Vend\Resources\ZeroDotNine\ConsignmentProduct
      * @throws \SimpleSquid\Vend\Exceptions\AuthorisationException
@@ -284,8 +312,12 @@ class ConsignmentsManager
      * @throws \SimpleSquid\Vend\Exceptions\UnauthorisedException
      * @throws \SimpleSquid\Vend\Exceptions\UnknownException
      */
-    public function updateProduct(string $consignment_product_id, array $body): ConsignmentProduct
+    public function updateProduct(string $consignment_product_id, array $consignmentProduct): ConsignmentProduct
     {
-        return $this->updateResource(ConsignmentProduct::class, "consignment_product/$consignment_product_id", $body);
+        if ($consignmentProduct instanceof ConsignmentProductBase) {
+            $consignmentProduct = $consignmentProduct->toArray();
+        }
+
+        return $this->updateResource(ConsignmentProduct::class, "consignment_product/$consignment_product_id", $consignmentProduct);
     }
 }
