@@ -49,14 +49,14 @@ class RegisterSaleUpdateBase extends DataTransferObject
     /**
      * Payments.
      *
-     * @var array|null
+     * @var \SimpleSquid\Vend\Resources\ZeroDotNine\RegisterSalePaymentUpdateBase[]|null
      */
     public $register_sale_payments;
 
     /**
      * Line items.
      *
-     * @var array|null
+     * @var \SimpleSquid\Vend\Resources\ZeroDotNine\RegisterSaleProductUpdateBase[]|null
      */
     public $register_sale_products;
 

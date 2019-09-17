@@ -4,6 +4,7 @@ namespace SimpleSquid\Vend\Actions;
 
 use SimpleSquid\Vend\Resources\TwoDotZero\TaxCollection;
 use SimpleSquid\Vend\Resources\ZeroDotNine\Tax;
+use SimpleSquid\Vend\Resources\ZeroDotNine\TaxBase;
 
 class TaxesManager
 {
@@ -13,7 +14,7 @@ class TaxesManager
      * Create a tax.
      * Creates a new tax.
      *
-     * @param  array  $body  TODO: Could be TaxBase.
+     * @param  TaxBase|array  $tax
      *
      * @return Tax
      * @throws \SimpleSquid\Vend\Exceptions\AuthorisationException
@@ -25,9 +26,13 @@ class TaxesManager
      * @throws \SimpleSquid\Vend\Exceptions\UnauthorisedException
      * @throws \SimpleSquid\Vend\Exceptions\UnknownException
      */
-    public function create(array $body): Tax
+    public function create($tax): Tax
     {
-        return $this->createResource(Tax::class, 'taxes', $body);
+        if ($tax instanceof TaxBase) {
+            $tax = $tax->toArray();
+        }
+
+        return $this->createResource(Tax::class, 'taxes', $tax);
     }
 
     /**
@@ -48,7 +53,7 @@ class TaxesManager
      */
     public function find(string $id): Tax
     {
-        return $this->single(Tax::class, "taxes/$id");
+        return $this->single(Tax::class, "taxes/$id", 'tax');
     }
 
     /**

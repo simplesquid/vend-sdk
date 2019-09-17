@@ -3,6 +3,7 @@
 namespace SimpleSquid\Vend\Actions;
 
 use SimpleSquid\Vend\Resources\TwoDotZero\Image;
+use SimpleSquid\Vend\Resources\TwoDotZero\ImagePosition;
 
 class ProductImagesManager
 {
@@ -55,8 +56,8 @@ class ProductImagesManager
      * Set image position.
      * Allows for changing the image position in the list
      *
-     * @param  string  $id    Valid product image ID.
-     * @param  array   $body  TODO: Could use ImagePosition object.
+     * @param  string               $id  Valid product image ID.
+     * @param  ImagePosition|array  $position
      *
      * @return Image
      * @throws \SimpleSquid\Vend\Exceptions\AuthorisationException
@@ -69,8 +70,12 @@ class ProductImagesManager
      * @throws \SimpleSquid\Vend\Exceptions\UnknownException
      */
 
-    public function updatePosition(string $id, array $body): Image
+    public function updatePosition(string $id, $position): Image
     {
-        return $this->updateResource(Image::class, "2.0/product_images/$id", $body);
+        if ($position instanceof ImagePosition) {
+            $position = $position->toArray();
+        }
+
+        return $this->updateResource(Image::class, "2.0/product_images/$id", $position);
     }
 }

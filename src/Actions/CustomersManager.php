@@ -3,6 +3,7 @@
 namespace SimpleSquid\Vend\Actions;
 
 use SimpleSquid\Vend\Resources\TwoDotZero\Customer;
+use SimpleSquid\Vend\Resources\TwoDotZero\CustomerBase;
 use SimpleSquid\Vend\Resources\TwoDotZero\CustomerCollection;
 
 class CustomersManager
@@ -13,7 +14,7 @@ class CustomersManager
      * Create a new customer.
      * Creates a new customer.
      *
-     * @param  array  $body  TODO: Could use CustomerBase object.
+     * @param  CustomerBase|array  $customer
      *
      * @return Customer
      * @throws \SimpleSquid\Vend\Exceptions\AuthorisationException
@@ -25,9 +26,13 @@ class CustomersManager
      * @throws \SimpleSquid\Vend\Exceptions\UnauthorisedException
      * @throws \SimpleSquid\Vend\Exceptions\UnknownException
      */
-    public function create(array $body): Customer
+    public function create($customer): Customer
     {
-        return $this->createResource(Customer::class, "2.0/customers", $body);
+        if ($customer instanceof CustomerBase) {
+            $customer = $customer->toArray();
+        }
+
+        return $this->createResource(Customer::class, "2.0/customers", $customer);
     }
 
     /**
@@ -105,8 +110,8 @@ class CustomersManager
      * Update a customer.
      * Updates the customer with the requested ID.
      *
-     * @param  string  $id    Valid customer ID.
-     * @param  array   $body  TODO: Could use CustomerBase object.
+     * @param  string              $id  Valid customer ID.
+     * @param  CustomerBase|array  $customer
      *
      * @return Customer
      * @throws \SimpleSquid\Vend\Exceptions\AuthorisationException
@@ -118,9 +123,13 @@ class CustomersManager
      * @throws \SimpleSquid\Vend\Exceptions\UnauthorisedException
      * @throws \SimpleSquid\Vend\Exceptions\UnknownException
      */
-    public function update(string $id, array $body): Customer
+    public function update(string $id, $customer): Customer
     {
-        return $this->updateResource(Customer::class, "2.0/customers/$id", $body);
+        if ($customer instanceof CustomerBase) {
+            $customer = $customer->toArray();
+        }
+
+        return $this->updateResource(Customer::class, "2.0/customers/$id", $customer);
     }
 
 }

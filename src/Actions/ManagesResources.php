@@ -26,6 +26,7 @@ trait ManagesResources
      * @param  string  $collection
      * @param  string  $endpoint
      * @param  array   $query
+     * @param  string  $root
      *
      * @return mixed
      * @throws \SimpleSquid\Vend\Exceptions\AuthorisationException
@@ -37,7 +38,7 @@ trait ManagesResources
      * @throws \SimpleSquid\Vend\Exceptions\UnauthorisedException
      * @throws \SimpleSquid\Vend\Exceptions\UnknownException
      */
-    private function collection(string $collection, string $endpoint, array $query = [])
+    private function collection(string $collection, string $endpoint, array $query = [], string $root = 'data')
     {
         $query = array_filter($query, function ($value) {
             return !is_null($value);
@@ -45,7 +46,7 @@ trait ManagesResources
 
         $response = $this->vend->get($endpoint, $query);
 
-        $collection = new $collection($response['data']);
+        $collection = new $collection($response[$root]);
 
         if (property_exists($collection, 'version') && isset($response['version'])) {
             $collection->version = new Version($response['version']);
@@ -105,6 +106,7 @@ trait ManagesResources
      *
      * @param  string  $resource
      * @param  string  $endpoint
+     * @param  string  $root
      *
      * @return mixed
      * @throws \SimpleSquid\Vend\Exceptions\AuthorisationException
@@ -116,11 +118,11 @@ trait ManagesResources
      * @throws \SimpleSquid\Vend\Exceptions\UnauthorisedException
      * @throws \SimpleSquid\Vend\Exceptions\UnknownException
      */
-    private function single(string $resource, string $endpoint)
+    private function single(string $resource, string $endpoint, string $root = 'data')
     {
         $response = $this->vend->get($endpoint);
 
-        return new $resource($response['data']);
+        return new $resource($response[$root]);
     }
 
     /**

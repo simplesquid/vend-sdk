@@ -5,6 +5,7 @@ namespace SimpleSquid\Vend\Actions;
 use SimpleSquid\Vend\Resources\TwoDotZero\CustomerCollection;
 use SimpleSquid\Vend\Resources\TwoDotZero\ProductCollection;
 use SimpleSquid\Vend\Resources\TwoDotZero\SalesCollection;
+use SimpleSquid\Vend\Resources\TwoDotZero\Search;
 use Spatie\DataTransferObject\DataTransferObjectCollection;
 
 class SearchManager
@@ -44,12 +45,12 @@ class SearchManager
      *
      * Unlike other endpoints in the API 2.0, search results from this endpoint can be sorted by any of the attributes above. Because of that, the default pagination mechanism is not appropriate for this endpoint. Instead, this endpoint uses `offset` and `page_size` attributes to handle search results spanning multiple pages.
      *
-     * @param  string       $type             The entity type to search for. One of: `sales`, `products`, `customers`.
-     * @param  array        $query            The search query. TODO: Replace with data object.
-     * @param  int|null     $page_size        The maximum number of objects to be included in the response, currently limited to 10000.
-     * @param  int|null     $offset           The number of objects to be "skipped" for the response. Used for pagination.
-     * @param  string|null  $order_by         The attribute used to sort items returned in the response.
-     * @param  string|null  $order_direction  Sorting direction. One of: `asc`, `desc`.
+     * @param  string        $type             The entity type to search for. One of: `sales`, `products`, `customers`.
+     * @param  Search|array  $query            The search query.
+     * @param  int|null      $page_size        The maximum number of objects to be included in the response, currently limited to 10000.
+     * @param  int|null      $offset           The number of objects to be "skipped" for the response. Used for pagination.
+     * @param  string|null   $order_by         The attribute used to sort items returned in the response.
+     * @param  string|null   $order_direction  Sorting direction. One of: `asc`, `desc`.
      *
      * @return DataTransferObjectCollection
      *
@@ -64,20 +65,24 @@ class SearchManager
      */
     public function find(
         string $type,
-        array $query,
+        $query,
         int $page_size = null,
         int $offset = null,
         string $order_by = null,
         string $order_direction = null
     ): DataTransferObjectCollection {
-        $collection = DataTransferObjectCollection::class;
-
         if ($type === 'sales') {
             $collection = SalesCollection::class;
         } elseif ($type === 'products') {
             $collection = ProductCollection::class;
         } elseif ($type === 'customers') {
             $collection = CustomerCollection::class;
+        } else {
+            return null;
+        }
+
+        if ($query instanceof Search) {
+            $query = $query->toArray();
         }
 
         return $this->collection($collection, "2.0/search",

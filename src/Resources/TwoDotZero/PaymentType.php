@@ -65,9 +65,8 @@ class PaymentType extends DataTransferObject
 
     /**
      * Payment type. **undocumented**
-     * TODO: Replace with an object.
      *
-     * @var array|null
+     * @var \SimpleSquid\Vend\Resources\TwoDotZero\PaymentTypeDetails|null
      */
     public $payment_type;
 

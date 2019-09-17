@@ -185,6 +185,20 @@ class Sale extends DataTransferObject
     public $user_id;
 
     /**
+     * Receipt number. **undocumented**
+     *
+     * @var string|null
+     */
+    public $receipt_number;
+
+    /**
+     * Total price inclusive. **undocumented**
+     *
+     * @var int|double|null
+     */
+    public $total_price_incl;
+
+    /**
      * Auto-incrementing object version number.
      *
      * @var int|null
