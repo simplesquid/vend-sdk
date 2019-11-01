@@ -38,7 +38,7 @@ class Vend
     public $user_agent = 'Vend PHP SDK';
 
     /**
-     * Vend constructor.
+     * Create a new Vend Instance.
      */
     private function __construct()
     {

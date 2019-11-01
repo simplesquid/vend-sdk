@@ -1,29 +1,30 @@
 # Contributing
 
-Contributions via Pull Requests are welcome and will be fully credited.
+Contributions are welcome and will be fully credited.
 
-## Pull Requests
+Please read and understand the contribution guide before creating an issue or pull request.
 
-1. Fork the project.
+## Procedure
 
-1. `git clone` it and `composer install` the dependencies.
+Before creating an issue:
 
-1. Create a feature branch.
+- Attempt to replicate the problem to ensure that it wasn't something coincidental.
+- Check to make sure your feature suggestion isn't already present within the project.
+- Check the pull requests tab to ensure that the bug doesn't have a fix in progress.
+- Check the pull requests tab to ensure that the feature isn't already in progress.
 
-1. **Add tests!** Your PR won't be accepted if it doesn't have tests.
+Before submitting a pull request:
 
-1. Make the changes you are proposing.
+- Check the codebase to ensure that your feature doesn't already exist.
+- Check the pull requests to ensure that another person hasn't already submitted the feature or fix.
 
-1. Make sure the `README.md` and any other relevant documentation is kept up to date.
+## Requirements
 
-1. Make sure each individual commit in your pull request is meaningful. If you made multiple intermediate commits while developing, please [squash them](http://www.git-scm.com/book/en/v2/Git-Tools-Rewriting-History#Changing-Multiple-Commit-Messages) before submitting.
+- **Tests, tests, tests!**: Your pull request won't be accepted if it doesn't have tests.
+
+- **Document behaviour changes**: Make sure the `README.md` and any other relevant documentation are kept up-to-date.
+
+- **One pull request per feature**: If you want to do more than one thing, send multiple pull requests.
+
+- **Coherent history**: Make sure each individual commit in your pull request is meaningful. If you had to make multiple intermediate commits while developing, please [squash them](https://www.git-scm.com/book/en/v2/Git-Tools-Rewriting-History#Changing-Multiple-Commit-Messages) before submitting.
  
-1. Push to your fork.
-
-1. Open a pull request detailing your changes. **NB: One pull request per feature.**
-
-## Testing
-
-``` bash
-$ phpunit
-```
