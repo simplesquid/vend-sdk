@@ -6,30 +6,28 @@ use SimpleSquid\Vend\Resources\CastsDates;
 use Spatie\DataTransferObject\DataTransferObject;
 
 /**
- * Inventory
- *
- * @package SimpleSquid\Vend\Resources\TwoDotZero
+ * Inventory.
  */
 class Inventory extends DataTransferObject
 {
     use CastsDates;
 
     /**
-     * Average cost. **undocumented**
+     * Average cost. **undocumented**.
      *
-     * @var int|double|null
+     * @var int|float|null
      */
     public $average_cost;
 
     /**
-     * Current amount. **undocumented**
+     * Current amount. **undocumented**.
      *
-     * @var int|double|null
+     * @var int|float|null
      */
     public $current_amount;
 
     /**
-     * Deleted at. **undocumented**
+     * Deleted at. **undocumented**.
      *
      * @var \Carbon\Carbon|null
      */
@@ -45,7 +43,7 @@ class Inventory extends DataTransferObject
     /**
      * Current inventory level.
      *
-     * @var int|double|null
+     * @var int|float|null
      */
     public $inventory_level;
 
@@ -66,19 +64,19 @@ class Inventory extends DataTransferObject
     /**
      * Amount to be added to the automatic stock order.
      *
-     * @var int|double|null
+     * @var int|float|null
      */
     public $reorder_amount;
 
     /**
      * Level at which a product should be automatically included in stock orders.
      *
-     * @var int|double|null
+     * @var int|float|null
      */
     public $reorder_point;
 
     /**
-     * Auto-incrementing object version number. **undocumented**
+     * Auto-incrementing object version number. **undocumented**.
      *
      * @var int
      */

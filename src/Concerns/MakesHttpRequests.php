@@ -120,12 +120,12 @@ trait MakesHttpRequests
         }
 
         try {
-            $response = $this->guzzle->request($verb, "https://" . $this->getDomainPrefix() . ".vendhq.com/api/$uri", $options);
+            $response = $this->guzzle->request($verb, 'https://' . $this->getDomainPrefix() . ".vendhq.com/api/$uri", $options);
         } catch (GuzzleException $e) {
             throw new RequestException($e);
         }
 
-        if (!in_array($response->getStatusCode(), [200, 201, 204])) {
+        if (! in_array($response->getStatusCode(), [200, 201, 204])) {
             $this->handleRequestError($response);
         }
 

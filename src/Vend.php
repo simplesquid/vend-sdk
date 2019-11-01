@@ -107,11 +107,11 @@ class Vend
      */
     public function getAccessToken(): string
     {
-        if (!isset($this->token->access_token)) {
+        if (! isset($this->token->access_token)) {
             throw new AuthorisationException();
         }
 
-        if (!is_null($this->token->expires) && $this->token->expires < Carbon::now()) {
+        if (! is_null($this->token->expires) && $this->token->expires < Carbon::now()) {
             throw new TokenExpiredException();
         }
 
@@ -166,6 +166,7 @@ class Vend
     public function userAgent(string $user_agent): self
     {
         $this->user_agent = $user_agent;
+
         return $this;
     }
 }

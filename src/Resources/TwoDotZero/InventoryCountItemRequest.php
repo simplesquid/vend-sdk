@@ -5,9 +5,7 @@ namespace SimpleSquid\Vend\Resources\TwoDotZero;
 use Spatie\DataTransferObject\DataTransferObject;
 
 /**
- * Inventory Count Item Request
- *
- * @package SimpleSquid\Vend\Resources\TwoDotZero
+ * Inventory Count Item Request.
  */
 class InventoryCountItemRequest extends DataTransferObject
 {
@@ -19,10 +17,9 @@ class InventoryCountItemRequest extends DataTransferObject
     public $product_id;
 
     /**
-     * The adjustment value
+     * The adjustment value.
      *
      * @var string
      */
     public $received;
-
 }

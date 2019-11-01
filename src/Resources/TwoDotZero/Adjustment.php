@@ -9,8 +9,6 @@ use Spatie\DataTransferObject\DataTransferObject;
  * An adjustment contains a modification to the sale price. For example, it can be a service fee (fee when the customer
  * pays by credit card) or a discount. The types defined here are the one used so far, but we reserve the right to add
  * others.
- *
- * @package SimpleSquid\Vend\Resources\TwoDotZero
  */
 class Adjustment extends DataTransferObject
 {
@@ -35,5 +33,4 @@ class Adjustment extends DataTransferObject
      * @var string
      */
     public $value;
-
 }

@@ -6,9 +6,7 @@ use SimpleSquid\Vend\Resources\CastsDates;
 use Spatie\DataTransferObject\DataTransferObject;
 
 /**
- * Register
- *
- * @package SimpleSquid\Vend\Resources\TwoDotZero
+ * Register.
  */
 class Register extends DataTransferObject
 {
@@ -17,7 +15,7 @@ class Register extends DataTransferObject
     /**
      * `0` for **Never**, `1` for **On Save/Layby/Account/Return**, `2` for **Always**.
      *
-     * @var int|double|null
+     * @var int|float|null
      */
     public $ask_for_note_on_save;
 
@@ -29,7 +27,7 @@ class Register extends DataTransferObject
     public $ask_for_user_on_sale;
 
     /**
-     * Attributes. **undocumented**
+     * Attributes. **undocumented**.
      *
      * @var array|null
      */
@@ -43,7 +41,7 @@ class Register extends DataTransferObject
     public $button_layout_id;
 
     /**
-     * The ID of the payment type used for cash management transactions in this register. **internal**
+     * The ID of the payment type used for cash management transactions in this register. **internal**.
      *
      * @var string|null
      */
@@ -80,7 +78,7 @@ class Register extends DataTransferObject
     /**
      * The numeric part of the last issued invoice.
      *
-     * @var int|double|null
+     * @var int|float|null
      */
     public $invoice_sequence;
 
@@ -99,7 +97,7 @@ class Register extends DataTransferObject
     public $is_open;
 
     /**
-     * Is quick keys enabled. **undocumented**
+     * Is quick keys enabled. **undocumented**.
      *
      * @var bool|null
      */
@@ -134,7 +132,7 @@ class Register extends DataTransferObject
     public $print_receipt;
 
     /**
-     * Receipt template ID. **undocumented**
+     * Receipt template ID. **undocumented**.
      *
      * @var string|null
      */
@@ -148,7 +146,7 @@ class Register extends DataTransferObject
     public $register_close_time;
 
     /**
-     * The ID of the current register closure object. **internal**
+     * The ID of the current register closure object. **internal**.
      *
      * @var string|null
      */
@@ -174,5 +172,4 @@ class Register extends DataTransferObject
      * @var int|null
      */
     public $version;
-
 }

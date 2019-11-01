@@ -6,9 +6,7 @@ use SimpleSquid\Vend\Resources\CastsDates;
 use Spatie\DataTransferObject\DataTransferObject;
 
 /**
- * Consignment
- *
- * @package SimpleSquid\Vend\Resources\TwoDotZero
+ * Consignment.
  */
 class Consignment extends DataTransferObject
 {
@@ -43,7 +41,7 @@ class Consignment extends DataTransferObject
     public $due_at;
 
     /**
-     * An array of filter objects. Max 25. **undocumented**
+     * An array of filter objects. Max 25. **undocumented**.
      *
      * @var \SimpleSquid\Vend\Resources\TwoDotZero\InventoryCountFilter[]|null
      */
@@ -71,7 +69,7 @@ class Consignment extends DataTransferObject
     public $outlet_id;
 
     /**
-     * Product count. **undocumented**
+     * Product count. **undocumented**.
      *
      * @var int|null
      */
@@ -92,14 +90,14 @@ class Consignment extends DataTransferObject
     public $reference;
 
     /**
-     * Indicates whether inactive products should be included in the count. **undocumented**
+     * Indicates whether inactive products should be included in the count. **undocumented**.
      *
      * @var bool|null
      */
     public $show_inactive;
 
     /**
-     * A valid ID of an outlet where stock will come from. **stock transfers only**
+     * A valid ID of an outlet where stock will come from. **stock transfers only**.
      *
      * @var string|null
      */
@@ -107,7 +105,7 @@ class Consignment extends DataTransferObject
 
     /**
      * The consignment status.
-     * One of `OPEN`, `RECEIVED`, `SENT`, `STOCKTAKE`, `STOCKTAKE_SCHEDULED`, `STOCKTAKE_IN_PROGRESS`, `STOCKTAKE_IN_PROGRESS_PROCESSED`, `STOCKTAKE_COMPLETE`, `CLOSED`, `CANCELLED`
+     * One of `OPEN`, `RECEIVED`, `SENT`, `STOCKTAKE`, `STOCKTAKE_SCHEDULED`, `STOCKTAKE_IN_PROGRESS`, `STOCKTAKE_IN_PROGRESS_PROCESSED`, `STOCKTAKE_COMPLETE`, `CLOSED`, `CANCELLED`.
      *
      * @var string|null
      */
@@ -130,28 +128,28 @@ class Consignment extends DataTransferObject
     /**
      * The cost of items over the expected level.
      *
-     * @var int|double|null
+     * @var int|float|null
      */
     public $total_cost_gain;
 
     /**
      * The cost of items below the expected level.
      *
-     * @var int|double|null
+     * @var int|float|null
      */
     public $total_cost_loss;
 
     /**
      * The number of items over the expected level.
      *
-     * @var int|double|null
+     * @var int|float|null
      */
     public $total_count_gain;
 
     /**
      * The number of items below the expected level.
      *
-     * @var int|double|null
+     * @var int|float|null
      */
     public $total_count_loss;
 
@@ -176,5 +174,4 @@ class Consignment extends DataTransferObject
      * @var int|null
      */
     public $version;
-
 }

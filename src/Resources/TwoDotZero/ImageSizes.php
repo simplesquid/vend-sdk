@@ -7,8 +7,6 @@ use Spatie\DataTransferObject\DataTransferObject;
 /**
  * Image Sizes **undocumented**
  * An object containing URLs for different sizes of an image.
- *
- * @package SimpleSquid\Vend\Resources\TwoDotZero
  */
 class ImageSizes extends DataTransferObject
 {
@@ -60,5 +58,4 @@ class ImageSizes extends DataTransferObject
      * @var string|null
      */
     public $thumb;
-
 }

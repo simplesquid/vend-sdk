@@ -6,16 +6,14 @@ use SimpleSquid\Vend\Resources\CastsDates;
 use Spatie\DataTransferObject\DataTransferObject;
 
 /**
- * Price Book Base
- *
- * @package SimpleSquid\Vend\Resources\TwoDotZero
+ * Price Book Base.
  */
 class PriceBookBase extends DataTransferObject
 {
     use CastsDates;
 
     /**
-     * The ID of the customer group
+     * The ID of the customer group.
      *
      * @var string
      */
@@ -55,5 +53,4 @@ class PriceBookBase extends DataTransferObject
      * @var \Carbon\Carbon|null
      */
     public $valid_to;
-
 }

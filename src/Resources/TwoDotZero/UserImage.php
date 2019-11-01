@@ -7,8 +7,6 @@ use Spatie\DataTransferObject\DataTransferObject;
 /**
  * User Image
  * An object containing URLs for different sizes of the user’s avatar.
- *
- * @package SimpleSquid\Vend\Resources\TwoDotZero
  */
 class UserImage extends DataTransferObject
 {
@@ -60,5 +58,4 @@ class UserImage extends DataTransferObject
      * @var string|null
      */
     public $thumb;
-
 }

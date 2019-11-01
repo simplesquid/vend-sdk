@@ -5,9 +5,7 @@ namespace SimpleSquid\Vend\Resources\ZeroDotNine;
 use Spatie\DataTransferObject\DataTransferObject;
 
 /**
- * Register Sale Update Base
- *
- * @package SimpleSquid\Vend\Resources\ZeroDotNine
+ * Register Sale Update Base.
  */
 class RegisterSaleUpdateBase extends DataTransferObject
 {
@@ -94,5 +92,4 @@ class RegisterSaleUpdateBase extends DataTransferObject
      * @var string
      */
     public $user_id;
-
 }

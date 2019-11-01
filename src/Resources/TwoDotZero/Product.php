@@ -6,23 +6,21 @@ use SimpleSquid\Vend\Resources\CastsDates;
 use Spatie\DataTransferObject\DataTransferObject;
 
 /**
- * Product
- *
- * @package SimpleSquid\Vend\Resources\TwoDotZero
+ * Product.
  */
 class Product extends DataTransferObject
 {
     use CastsDates;
 
     /**
-     * Account code. **undocumented**
+     * Account code. **undocumented**.
      *
      * @var string|null
      */
     public $account_code;
 
     /**
-     * Account code purchase. **undocumented**
+     * Account code purchase. **undocumented**.
      *
      * @var string|null
      */
@@ -36,28 +34,28 @@ class Product extends DataTransferObject
     public $active;
 
     /**
-     * Attributes. **undocumented**
+     * Attributes. **undocumented**.
      *
      * @var array|null
      */
     public $attributes;
 
     /**
-     * Brand Sample
+     * Brand Sample.
      *
      * @var \SimpleSquid\Vend\Resources\TwoDotZero\Brand|null
      */
     public $brand;
 
     /**
-     * Brand ID. **undocumented**
+     * Brand ID. **undocumented**.
      *
      * @var string|null
      */
     public $brand_id;
 
     /**
-     * Button order. **undocumented**
+     * Button order. **undocumented**.
      *
      * @var int|null
      */
@@ -141,7 +139,7 @@ class Product extends DataTransferObject
     public $images;
 
     /**
-     * Is active. **undocumented**
+     * Is active. **undocumented**.
      *
      * @var bool|null
      */
@@ -155,9 +153,9 @@ class Product extends DataTransferObject
     public $is_composite;
 
     /**
-     * Loyalty amount. **undocumented**
+     * Loyalty amount. **undocumented**.
      *
-     * @var int|double|null
+     * @var int|float|null
      */
     public $loyalty_amount;
 
@@ -169,21 +167,21 @@ class Product extends DataTransferObject
     public $name;
 
     /**
-     * Price excluding tax. **undocumented**
+     * Price excluding tax. **undocumented**.
      *
-     * @var int|double|null
+     * @var int|float|null
      */
     public $price_excluding_tax;
 
     /**
-     * Price including tax. **undocumented**
+     * Price including tax. **undocumented**.
      *
-     * @var int|double|null
+     * @var int|float|null
      */
     public $price_including_tax;
 
     /**
-     * Product type ID. **undocumented**
+     * Product type ID. **undocumented**.
      *
      * @var string|null
      */
@@ -219,7 +217,7 @@ class Product extends DataTransferObject
     public $source_variant_id;
 
     /**
-     * Supplier Sample
+     * Supplier Sample.
      *
      * @var \SimpleSquid\Vend\Resources\TwoDotZero\Supplier|null
      */
@@ -233,28 +231,28 @@ class Product extends DataTransferObject
     public $supplier_code;
 
     /**
-     * Supplier ID. **undocumented**
+     * Supplier ID. **undocumented**.
      *
      * @var string|null
      */
     public $supplier_id;
 
     /**
-     * Default supply price,
+     * Default supply price,.
      *
-     * @var int|double|null
+     * @var int|float|null
      */
     public $supply_price;
 
     /**
-     * Tag IDs. **undocumented**
+     * Tag IDs. **undocumented**.
      *
      * @var array|null
      */
     public $tag_ids;
 
     /**
-     * Product Type Sample
+     * Product Type Sample.
      *
      * @var \SimpleSquid\Vend\Resources\TwoDotZero\ProductType|null
      */
@@ -268,14 +266,14 @@ class Product extends DataTransferObject
     public $updated_at;
 
     /**
-     * Variant count. **undocumented**
+     * Variant count. **undocumented**.
      *
      * @var int|null
      */
     public $variant_count;
 
     /**
-     * Variant name. **undocumented**
+     * Variant name. **undocumented**.
      *
      * @var string|null
      */
@@ -301,5 +299,4 @@ class Product extends DataTransferObject
      * @var int|null
      */
     public $version;
-
 }

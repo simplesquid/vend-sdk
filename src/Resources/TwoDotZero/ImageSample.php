@@ -5,9 +5,7 @@ namespace SimpleSquid\Vend\Resources\TwoDotZero;
 use Spatie\DataTransferObject\DataTransferObject;
 
 /**
- * Image Sample
- *
- * @package SimpleSquid\Vend\Resources\TwoDotZero
+ * Image Sample.
  */
 class ImageSample extends DataTransferObject
 {
@@ -19,7 +17,7 @@ class ImageSample extends DataTransferObject
     public $id;
 
     /**
-     * Sizes. **undocumented**
+     * Sizes. **undocumented**.
      *
      * @var \SimpleSquid\Vend\Resources\TwoDotZero\ImageSizes|null
      */
@@ -38,5 +36,4 @@ class ImageSample extends DataTransferObject
      * @var int|null
      */
     public $version;
-
 }

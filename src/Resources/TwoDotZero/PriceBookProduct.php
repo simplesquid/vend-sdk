@@ -6,9 +6,7 @@ use SimpleSquid\Vend\Resources\CastsDates;
 use Spatie\DataTransferObject\DataTransferObject;
 
 /**
- * Price Book Product
- *
- * @package SimpleSquid\Vend\Resources\TwoDotZero
+ * Price Book Product.
  */
 class PriceBookProduct extends DataTransferObject
 {
@@ -38,28 +36,28 @@ class PriceBookProduct extends DataTransferObject
     /**
      * Price book defined loyalty value.
      *
-     * @var int|double|null
+     * @var int|float|null
      */
     public $loyalty_value;
 
     /**
      * The maximum number of items for which this price will be used.
      *
-     * @var int|double|null
+     * @var int|float|null
      */
     public $max_units;
 
     /**
      * The minimum number of items for which this price will be used.
      *
-     * @var int|double|null
+     * @var int|float|null
      */
     public $min_units;
 
     /**
      * Retail price.
      *
-     * @var int|double|null
+     * @var int|float|null
      */
     public $price;
 
@@ -85,10 +83,9 @@ class PriceBookProduct extends DataTransferObject
     public $updated_at;
 
     /**
-     * Version **undocumented**
+     * Version **undocumented**.
      *
      * @var int|null
      */
     public $version;
-
 }

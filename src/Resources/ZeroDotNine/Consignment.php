@@ -6,9 +6,7 @@ use SimpleSquid\Vend\Resources\CastsDates;
 use Spatie\DataTransferObject\DataTransferObject;
 
 /**
- * Consignment
- *
- * @package SimpleSquid\Vend\Resources\ZeroDotNine
+ * Consignment.
  */
 class Consignment extends DataTransferObject
 {
@@ -36,7 +34,7 @@ class Consignment extends DataTransferObject
     public $due_at;
 
     /**
-     * Auto-generated object ID
+     * Auto-generated object ID.
      *
      * @var string|null
      */
@@ -97,5 +95,4 @@ class Consignment extends DataTransferObject
      * @var string
      */
     public $type;
-
 }

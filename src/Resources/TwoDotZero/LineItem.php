@@ -5,49 +5,47 @@ namespace SimpleSquid\Vend\Resources\TwoDotZero;
 use Spatie\DataTransferObject\DataTransferObject;
 
 /**
- * Line Item
- *
- * @package SimpleSquid\Vend\Resources\TwoDotZero
+ * Line Item.
  */
 class LineItem extends DataTransferObject
 {
     /**
      * Unit cost for the line item.
      *
-     * @var int|double|null
+     * @var int|float|null
      */
     public $cost;
 
     /**
      * Total cost for the line item.
      *
-     * @var int|double|null
+     * @var int|float|null
      */
     public $cost_total;
 
     /**
      * Discount.
      *
-     * @var int|double|null
+     * @var int|float|null
      */
     public $discount;
 
     /**
      * Total discount for the line item.
      *
-     * @var int|double|null
+     * @var int|float|null
      */
     public $discount_total;
 
     /**
-     * Gift card number **undocumented**
+     * Gift card number **undocumented**.
      *
      * @var string|null
      */
     public $gift_card_number;
 
     /**
-     * ID **undocumented**
+     * ID **undocumented**.
      *
      * @var string|null
      */
@@ -63,7 +61,7 @@ class LineItem extends DataTransferObject
     /**
      * The value that should be added to associated customer's loyalty balance.
      *
-     * @var int|double|null
+     * @var int|float|null
      */
     public $loyalty_value;
 
@@ -77,7 +75,7 @@ class LineItem extends DataTransferObject
     /**
      * Unit price for the product.
      *
-     * @var int|double|null
+     * @var int|float|null
      */
     public $price;
 
@@ -91,7 +89,7 @@ class LineItem extends DataTransferObject
     /**
      * Total price for the line item.
      *
-     * @var int|double|null
+     * @var int|float|null
      */
     public $price_total;
 
@@ -103,7 +101,7 @@ class LineItem extends DataTransferObject
     public $product_id;
 
     /**
-     * Promotions **undocumented**
+     * Promotions **undocumented**.
      *
      * @var array|null
      */
@@ -112,14 +110,14 @@ class LineItem extends DataTransferObject
     /**
      * Quantity of product units included in the sale.
      *
-     * @var int|double|null
+     * @var int|float|null
      */
     public $quantity;
 
     /**
      * Order of the line item in the sale.
      *
-     * @var int|double|null
+     * @var int|float|null
      */
     public $sequence;
 
@@ -131,9 +129,9 @@ class LineItem extends DataTransferObject
     public $status;
 
     /**
-     * Unit tax for the line item. **deprecated**
+     * Unit tax for the line item. **deprecated**.
      *
-     * @var int|double|null
+     * @var int|float|null
      */
     public $tax;
 
@@ -154,78 +152,77 @@ class LineItem extends DataTransferObject
     /**
      * Total tax value.
      *
-     * @var int|double|null
+     * @var int|float|null
      */
     public $tax_total;
 
     /**
-     * Total cost **undocumented**
+     * Total cost **undocumented**.
      *
-     * @var int|double|null
+     * @var int|float|null
      */
     public $total_cost;
 
     /**
-     * Total discount **undocumented**
+     * Total discount **undocumented**.
      *
-     * @var int|double|null
+     * @var int|float|null
      */
     public $total_discount;
 
     /**
-     * Total loyalty value **undocumented**
+     * Total loyalty value **undocumented**.
      *
-     * @var int|double|null
+     * @var int|float|null
      */
     public $total_loyalty_value;
 
     /**
-     * Total price **undocumented**
+     * Total price **undocumented**.
      *
-     * @var int|double|null
+     * @var int|float|null
      */
     public $total_price;
 
     /**
-     * Total tax **undocumented**
+     * Total tax **undocumented**.
      *
-     * @var int|double|null
+     * @var int|float|null
      */
     public $total_tax;
 
     /**
-     * Unit cost **undocumented**
+     * Unit cost **undocumented**.
      *
-     * @var int|double|null
+     * @var int|float|null
      */
     public $unit_cost;
 
     /**
-     * Unit discount **undocumented**
+     * Unit discount **undocumented**.
      *
-     * @var int|double|null
+     * @var int|float|null
      */
     public $unit_discount;
 
     /**
-     * Unit loyalty value **undocumented**
+     * Unit loyalty value **undocumented**.
      *
-     * @var int|double|null
+     * @var int|float|null
      */
     public $unit_loyalty_value;
 
     /**
-     * Unit price **undocumented**
+     * Unit price **undocumented**.
      *
-     * @var int|double|null
+     * @var int|float|null
      */
     public $unit_price;
 
     /**
-     * Unit tax **undocumented**
+     * Unit tax **undocumented**.
      *
-     * @var int|double|null
+     * @var int|float|null
      */
     public $unit_tax;
-
 }

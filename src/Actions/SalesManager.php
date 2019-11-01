@@ -77,7 +77,7 @@ class SalesManager
      */
     public function get(int $page_size = null, int $after = null, int $before = null): SaleCollection
     {
-        return $this->collection(SaleCollection::class, "2.0/sales", compact('after', 'before', 'page_size'));
+        return $this->collection(SaleCollection::class, '2.0/sales', compact('after', 'before', 'page_size'));
     }
 
     /**
@@ -105,5 +105,4 @@ class SalesManager
 
         return $this->createResource(RegisterSale::class, 'register_sales', array_merge(compact('id'), $sale));
     }
-
 }

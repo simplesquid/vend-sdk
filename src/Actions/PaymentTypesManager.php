@@ -26,10 +26,9 @@ class PaymentTypesManager
      * @throws \SimpleSquid\Vend\Exceptions\UnauthorisedException
      * @throws \SimpleSquid\Vend\Exceptions\UnknownException
      */
-
     public function get(int $page_size = null, int $after = null, int $before = null): PaymentTypeCollection
     {
-        return $this->collection(PaymentTypeCollection::class, "2.0/payment_types",
+        return $this->collection(PaymentTypeCollection::class, '2.0/payment_types',
                                  compact('after', 'before', 'page_size'));
     }
 }

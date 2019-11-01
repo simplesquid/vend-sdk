@@ -6,9 +6,7 @@ use SimpleSquid\Vend\Resources\CastsDates;
 use Spatie\DataTransferObject\DataTransferObject;
 
 /**
- * Outlet Product Tax
- *
- * @package SimpleSquid\Vend\Resources\TwoDotZero
+ * Outlet Product Tax.
  */
 class OutletTax extends DataTransferObject
 {
@@ -48,5 +46,4 @@ class OutletTax extends DataTransferObject
      * @var int
      */
     public $version;
-
 }

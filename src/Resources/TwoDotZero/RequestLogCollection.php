@@ -6,9 +6,7 @@ use SimpleSquid\Vend\Resources\CastsCollection;
 use Spatie\DataTransferObject\DataTransferObjectCollection;
 
 /**
- * Consignment Collection
- *
- * @package SimpleSquid\Vend\Resources\TwoDotZero
+ * Consignment Collection.
  */
 class RequestLogCollection extends DataTransferObjectCollection
 {
@@ -18,5 +16,4 @@ class RequestLogCollection extends DataTransferObjectCollection
     {
         return parent::current();
     }
-
 }

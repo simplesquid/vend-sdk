@@ -5,21 +5,19 @@ namespace SimpleSquid\Vend\Resources\TwoDotZero;
 use Spatie\DataTransferObject\DataTransferObject;
 
 /**
- * Payment Type Config
- *
- * @package SimpleSquid\Vend\Resources\TwoDotZero
+ * Payment Type Config.
  */
 class PaymentTypeConfig extends DataTransferObject
 {
     /**
-     * Algorithm **undocumented**
+     * Algorithm **undocumented**.
      *
      * @var string|null
      */
     public $algorithm;
 
     /**
-     * Conceal cash totals **undocumented**
+     * Conceal cash totals **undocumented**.
      *
      * @var bool|null
      */
@@ -33,7 +31,7 @@ class PaymentTypeConfig extends DataTransferObject
     public $print;
 
     /**
-     * Rounding **undocumented**
+     * Rounding **undocumented**.
      *
      * @var string|null
      */
@@ -45,5 +43,4 @@ class PaymentTypeConfig extends DataTransferObject
      * @var string|null
      */
     public $url;
-
 }

@@ -7,9 +7,7 @@ use SimpleSquid\Vend\Resources\HasVersions;
 use Spatie\DataTransferObject\DataTransferObjectCollection;
 
 /**
- * Channel Collection
- *
- * @package SimpleSquid\Vend\Resources\TwoDotZero
+ * Channel Collection.
  */
 class ChannelCollection extends DataTransferObjectCollection
 {
@@ -19,5 +17,4 @@ class ChannelCollection extends DataTransferObjectCollection
     {
         return parent::current();
     }
-
 }

@@ -55,6 +55,6 @@ class RegistersManager
         int $before = null,
         bool $deleted = null
     ): RegisterCollection {
-        return $this->collection(RegisterCollection::class, "2.0/registers", compact('after', 'before', 'deleted', 'page_size'));
+        return $this->collection(RegisterCollection::class, '2.0/registers', compact('after', 'before', 'deleted', 'page_size'));
     }
 }

@@ -76,6 +76,6 @@ class TaxesManager
      */
     public function get(int $page_size = null, int $after = null, int $before = null): TaxCollection
     {
-        return $this->collection(TaxCollection::class, "2.0/taxes", compact('after', 'before', 'page_size'));
+        return $this->collection(TaxCollection::class, '2.0/taxes', compact('after', 'before', 'page_size'));
     }
 }

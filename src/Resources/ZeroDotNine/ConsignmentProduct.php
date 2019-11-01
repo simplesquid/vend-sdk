@@ -5,9 +5,7 @@ namespace SimpleSquid\Vend\Resources\ZeroDotNine;
 use Spatie\DataTransferObject\DataTransferObject;
 
 /**
- * Consignment Product
- *
- * @package SimpleSquid\Vend\Resources\ZeroDotNine
+ * Consignment Product.
  */
 class ConsignmentProduct extends DataTransferObject
 {
@@ -33,7 +31,7 @@ class ConsignmentProduct extends DataTransferObject
     public $count;
 
     /**
-     * Auto-generated object ID
+     * Auto-generated object ID.
      *
      * @var string|null
      */
@@ -59,5 +57,4 @@ class ConsignmentProduct extends DataTransferObject
      * @var int|null
      */
     public $sequence_number;
-
 }

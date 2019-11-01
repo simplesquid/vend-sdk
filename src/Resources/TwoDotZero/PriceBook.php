@@ -6,30 +6,28 @@ use SimpleSquid\Vend\Resources\CastsDates;
 use Spatie\DataTransferObject\DataTransferObject;
 
 /**
- * Price Book
- *
- * @package SimpleSquid\Vend\Resources\TwoDotZero
+ * Price Book.
  */
 class PriceBook extends DataTransferObject
 {
     use CastsDates;
 
     /**
-     * Created at. **undocumented**
+     * Created at. **undocumented**.
      *
      * @var \Carbon\Carbon|null
      */
     public $created_at;
 
     /**
-     * Customer Group
+     * Customer Group.
      *
      * @var \SimpleSquid\Vend\Resources\TwoDotZero\CustomerGroup|null
      */
     public $customer_group;
 
     /**
-     * The ID of the customer group
+     * The ID of the customer group.
      *
      * @var string
      */
@@ -57,14 +55,14 @@ class PriceBook extends DataTransferObject
     public $name;
 
     /**
-     * Outlet. **undocumented**
+     * Outlet. **undocumented**.
      *
      * @var string|null
      */
     public $outlet;
 
     /**
-     * The ID of an outlet for which the price book should be used. **internal**
+     * The ID of an outlet for which the price book should be used. **internal**.
      *
      * @var string|null
      */
@@ -85,14 +83,14 @@ class PriceBook extends DataTransferObject
     public $restrict_to_platform_label;
 
     /**
-     * Type. **undocumented**
+     * Type. **undocumented**.
      *
      * @var string|null
      */
     public $type;
 
     /**
-     * Updated at. **undocumented**
+     * Updated at. **undocumented**.
      *
      * @var \Carbon\Carbon|null
      */

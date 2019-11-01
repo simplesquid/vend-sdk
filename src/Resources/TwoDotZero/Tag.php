@@ -5,9 +5,7 @@ namespace SimpleSquid\Vend\Resources\TwoDotZero;
 use Spatie\DataTransferObject\DataTransferObject;
 
 /**
- * Tag
- *
- * @package SimpleSquid\Vend\Resources\TwoDotZero
+ * Tag.
  */
 class Tag extends DataTransferObject
 {
@@ -38,5 +36,4 @@ class Tag extends DataTransferObject
      * @var int|null
      */
     public $version;
-
 }

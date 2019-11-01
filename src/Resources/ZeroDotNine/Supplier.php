@@ -5,14 +5,12 @@ namespace SimpleSquid\Vend\Resources\ZeroDotNine;
 use Spatie\DataTransferObject\DataTransferObject;
 
 /**
- * Supplier
- *
- * @package SimpleSquid\Vend\Resources\ZeroDotNine
+ * Supplier.
  */
 class Supplier extends DataTransferObject
 {
     /**
-     * Generic contact object embedded in other objects like outlet or supplier
+     * Generic contact object embedded in other objects like outlet or supplier.
      *
      * @var \SimpleSquid\Vend\Resources\ZeroDotNine\GenericContact|null
      */
@@ -40,10 +38,9 @@ class Supplier extends DataTransferObject
     public $name;
 
     /**
-     * **internal**
+     * **internal**.
      *
      * @var string|null
      */
     public $source;
-
 }

@@ -6,9 +6,7 @@ use SimpleSquid\Vend\Resources\CastsDates;
 use Spatie\DataTransferObject\DataTransferObject;
 
 /**
- * Customer Base
- *
- * @package SimpleSquid\Vend\Resources\TwoDotZero
+ * Customer Base.
  */
 class CustomerBase extends DataTransferObject
 {
@@ -251,5 +249,4 @@ class CustomerBase extends DataTransferObject
      * @var string|null
      */
     public $website;
-
 }

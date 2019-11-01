@@ -25,7 +25,6 @@ class ProductImagesManager
      * @throws \SimpleSquid\Vend\Exceptions\UnauthorisedException
      * @throws \SimpleSquid\Vend\Exceptions\UnknownException
      */
-
     public function delete(string $id): bool
     {
         return $this->deleteResource("2.0/product_images/$id");
@@ -54,7 +53,7 @@ class ProductImagesManager
 
     /**
      * Set image position.
-     * Allows for changing the image position in the list
+     * Allows for changing the image position in the list.
      *
      * @param  string               $id  Valid product image ID.
      * @param  ImagePosition|array  $position
@@ -69,7 +68,6 @@ class ProductImagesManager
      * @throws \SimpleSquid\Vend\Exceptions\UnauthorisedException
      * @throws \SimpleSquid\Vend\Exceptions\UnknownException
      */
-
     public function updatePosition(string $id, $position): Image
     {
         if ($position instanceof ImagePosition) {
