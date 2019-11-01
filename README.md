@@ -1,27 +1,23 @@
 # Vend SDK (a PHP client)
-[![Latest Version](https://img.shields.io/github/release/simplesquid/vend-sdk.svg?style=flat-square)](https://github.com/simplesquid/vend-sdk/releases)
-[![MIT Licensed](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE)
+
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/simplesquid/vend-sdk.svg?style=flat-square)](https://packagist.org/packages/simplesquid/vend-sdk)
+[![Build Status](https://img.shields.io/travis/simplesquid/vend-sdk/master.svg?style=flat-square)](https://travis-ci.org/simplesquid/vend-sdk)
+[![MIT License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
 [![Total Downloads](https://img.shields.io/packagist/dt/simplesquid/vend-sdk.svg?style=flat-square)](https://packagist.org/packages/simplesquid/vend-sdk)
 
-An unofficial PHP SDK for Vend POS | https://docs.vendhq.com/
-
-Contributions, issues and suggestions are very much welcome.
+An unofficial PHP SDK for the [Vend POS API](https://docs.vendhq.com/).
 
 ## Installation
 
-To install the SDK in your project you need to require the package via composer:
+You can install this package via composer:
 
 ```bash
 composer require simplesquid/vend-sdk
 ```
 
-Then use Composer's autoload:
+## Setup
 
-```php
-require __DIR__.'/../vendor/autoload.php';
-```
-
-And finally get the instance of the SDK, and set the desired user agent:
+To setup, get the instance of the SDK and set the desired user agent and settings:
 
 ```php
 $vend = Vend::getInstance();
@@ -34,9 +30,9 @@ $vend->userAgent('Vend SDK')
 
 It is advisable that you use the client object as a singleton, however, there is no explicit restriction for this.
 
-## How to use
+## Usage
 
-This outlines a typical sequence of instructions, but is not a complete list of all the functionality of the SDK. Please review the code for more advanced usages. It is also suggested you read the Vend API documentation found here: https://docs.vendhq.com/
+This outlines a typical sequence of instructions, but is not a complete list of all the functionality of the SDK. Please review the code for more advanced usages. It is also suggested you read the [Vend API documentation](https://docs.vendhq.com/).
 
 Alternatively, you can see a working authorisation implementation in our [Laravel Vend SDK package](https://github.com/simplesquid/laravel-vend-sdk).
 
@@ -129,4 +125,36 @@ $products = $vend->product->get($page_size, $after, $before, $deleted);
 $product = $vend->product->find($id);
 ```
 
-_More examples to come..._
+
+### Testing
+
+``` bash
+composer test
+```
+
+### Changelog
+
+Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
+
+## Contributing
+
+Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
+
+### Security
+
+If you discover any security related issues, please email security@simplesquid.co.za instead of using the issue tracker.
+
+## Credits
+
+- [Matthew Poulter](https://github.com/mdpoulter)
+- [All Contributors](../../contributors)
+
+Package skeleton based on [spatie/skeleton-php](https://github.com/spatie/skeleton-php).
+
+## About us
+
+SimpleSquid is a small web development and design company based in Cape Town, South Africa.
+
+## License
+
+The MIT License (MIT). Please see [License File](LICENSE.md) for more information.

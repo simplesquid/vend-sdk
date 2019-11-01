@@ -1,8 +1,16 @@
 composer.phar
-/vendor
+composer.lock
+auth.json
+vendor
+
+package-lock.json
+node_modules
 
 phpunit.xml
 .phpunit.*
-phpdox.xml
+build
 
-/.idea
+.idea
+
+.DS_Store
+Thumbs.db
