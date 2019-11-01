@@ -6,9 +6,7 @@ use SimpleSquid\Vend\Resources\CastsDates;
 use Spatie\DataTransferObject\DataTransferObject;
 
 /**
- * Payment Type
- *
- * @package SimpleSquid\Vend\Resources\TwoDotZero
+ * Payment Type.
  */
 class PaymentType extends DataTransferObject
 {
@@ -29,14 +27,14 @@ class PaymentType extends DataTransferObject
     public $deleted_at;
 
     /**
-     * Disabled. **undocumented**
+     * Disabled. **undocumented**.
      *
      * @var bool|null
      */
     public $disabled;
 
     /**
-     * Gateway. **undocumented**
+     * Gateway. **undocumented**.
      *
      * @var bool|null
      */
@@ -50,7 +48,7 @@ class PaymentType extends DataTransferObject
     public $id;
 
     /**
-     * Internal. **undocumented**
+     * Internal. **undocumented**.
      *
      * @var bool|null
      */
@@ -64,7 +62,7 @@ class PaymentType extends DataTransferObject
     public $name;
 
     /**
-     * Payment type. **undocumented**
+     * Payment type. **undocumented**.
      *
      * @var \SimpleSquid\Vend\Resources\TwoDotZero\PaymentTypeDetails|null
      */

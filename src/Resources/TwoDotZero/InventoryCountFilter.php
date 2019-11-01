@@ -5,9 +5,7 @@ namespace SimpleSquid\Vend\Resources\TwoDotZero;
 use Spatie\DataTransferObject\DataTransferObject;
 
 /**
- * Inventory Count Filter
- *
- * @package SimpleSquid\Vend\Resources\TwoDotZero
+ * Inventory Count Filter.
  */
 class InventoryCountFilter extends DataTransferObject
 {
@@ -25,5 +23,4 @@ class InventoryCountFilter extends DataTransferObject
      * @var string
      */
     public $value;
-
 }

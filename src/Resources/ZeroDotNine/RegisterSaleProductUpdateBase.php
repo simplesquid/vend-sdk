@@ -5,9 +5,7 @@ namespace SimpleSquid\Vend\Resources\ZeroDotNine;
 use Spatie\DataTransferObject\DataTransferObject;
 
 /**
- * Register Sale Product Update Base
- *
- * @package SimpleSquid\Vend\Resources\ZeroDotNine
+ * Register Sale Product Update Base.
  */
 class RegisterSaleProductUpdateBase extends DataTransferObject
 {
@@ -19,9 +17,9 @@ class RegisterSaleProductUpdateBase extends DataTransferObject
     public $attributes;
 
     /**
-     * Unit cost of the line item
+     * Unit cost of the line item.
      *
-     * @var int|double|null
+     * @var int|float|null
      */
     public $cost;
 
@@ -42,14 +40,14 @@ class RegisterSaleProductUpdateBase extends DataTransferObject
     /**
      * The value of loyalty that will be incurred by the customer for this line item.
      *
-     * @var int|double|null
+     * @var int|float|null
      */
     public $loyalty_value;
 
     /**
      * Unit price of the line item.
      *
-     * @var int|double
+     * @var int|float
      */
     public $price;
 
@@ -70,7 +68,7 @@ class RegisterSaleProductUpdateBase extends DataTransferObject
     /**
      * Quantity of products for the line item.
      *
-     * @var int|double
+     * @var int|float
      */
     public $quantity;
 
@@ -98,7 +96,7 @@ class RegisterSaleProductUpdateBase extends DataTransferObject
     /**
      * The unit tax value associated with this line item.
      *
-     * @var int|double
+     * @var int|float
      */
     public $tax;
 
@@ -108,5 +106,4 @@ class RegisterSaleProductUpdateBase extends DataTransferObject
      * @var string
      */
     public $tax_id;
-
 }

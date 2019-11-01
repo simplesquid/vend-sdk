@@ -5,9 +5,7 @@ namespace SimpleSquid\Vend\Resources\TwoDotZero;
 use Spatie\DataTransferObject\DataTransferObject;
 
 /**
- * Supplier
- *
- * @package SimpleSquid\Vend\Resources\TwoDotZero
+ * Supplier.
  */
 class Supplier extends DataTransferObject
 {
@@ -19,7 +17,7 @@ class Supplier extends DataTransferObject
     public $deleted_at;
 
     /**
-     * Supplier's description. **deprecated**
+     * Supplier's description. **deprecated**.
      *
      * @var string|null
      */
@@ -40,7 +38,7 @@ class Supplier extends DataTransferObject
     public $name;
 
     /**
-     * **internal** **deprecated**
+     * **internal** **deprecated**.
      *
      * @var string|null
      */

@@ -55,8 +55,7 @@ class OutletsManager
         int $before = null,
         bool $deleted = null
     ): OutletCollection {
-        return $this->collection(OutletCollection::class, "2.0/outlets",
+        return $this->collection(OutletCollection::class, '2.0/outlets',
                                  compact('after', 'before', 'page_size', 'deleted'));
     }
-
 }

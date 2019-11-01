@@ -8,8 +8,6 @@ use Spatie\DataTransferObject\DataTransferObject;
 /**
  * Request Log
  * An object representing a single request and response made to a channel.
- *
- * @package SimpleSquid\Vend\Resources\TwoDotZero
  */
 class RequestLog extends DataTransferObject
 {
@@ -67,8 +65,7 @@ class RequestLog extends DataTransferObject
     /**
      * The HTTP status code received in the response.
      *
-     * @var int|double|null
+     * @var int|float|null
      */
     public $status_code;
-
 }

@@ -105,7 +105,7 @@ class ChannelRequestLogManager
         $occurred_before = is_null($occurred_before) ? null : $occurred_before->toRfc3339String();
         $occurred_after = is_null($occurred_after) ? null : $occurred_after->toRfc3339String();
 
-        return $this->collection(RequestLogCollection::class, "2.0/channel_requests",
+        return $this->collection(RequestLogCollection::class, '2.0/channel_requests',
                                  compact('status_code', 'request_method', 'occurred_before', 'occurred_after', 'status_code_before', 'status_code_after', 'channel_id'));
     }
 }

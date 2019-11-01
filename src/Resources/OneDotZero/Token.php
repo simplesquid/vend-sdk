@@ -6,9 +6,7 @@ use SimpleSquid\Vend\Resources\CastsDates;
 use Spatie\DataTransferObject\DataTransferObject;
 
 /**
- * OAuth Token Response
- *
- * @package SimpleSquid\Vend\Resources\TwoDotZero
+ * OAuth Token Response.
  */
 class Token extends DataTransferObject
 {
@@ -38,7 +36,7 @@ class Token extends DataTransferObject
     /**
      * Expires in (seconds).
      *
-     * @var int|double|null
+     * @var int|float|null
      */
     public $expires_in;
 
@@ -55,5 +53,4 @@ class Token extends DataTransferObject
      * @var string|null
      */
     public $token_type;
-
 }

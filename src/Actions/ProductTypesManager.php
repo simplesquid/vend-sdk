@@ -50,6 +50,6 @@ class ProductTypesManager
      */
     public function get(int $page_size = null, int $after = null, int $before = null): ProductTypeCollection
     {
-        return $this->collection(ProductTypeCollection::class, "2.0/product_types", compact('after', 'before', 'page_size'));
+        return $this->collection(ProductTypeCollection::class, '2.0/product_types', compact('after', 'before', 'page_size'));
     }
 }

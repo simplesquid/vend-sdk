@@ -5,9 +5,7 @@ namespace SimpleSquid\Vend\Resources\ZeroDotNine;
 use Spatie\DataTransferObject\DataTransferObject;
 
 /**
- * Product Update Base
- *
- * @package SimpleSquid\Vend\Resources\ZeroDotNine
+ * Product Update Base.
  */
 class ProductUpdateBase extends DataTransferObject
 {
@@ -85,7 +83,7 @@ class ProductUpdateBase extends DataTransferObject
     /**
      * Retail price for the product. Tax inclusive or exclusive depending on the store settings.
      *
-     * @var int|double
+     * @var int|float
      */
     public $retail_price;
 
@@ -200,5 +198,4 @@ class ProductUpdateBase extends DataTransferObject
      * @var string|null
      */
     public $variant_option_two_value;
-
 }

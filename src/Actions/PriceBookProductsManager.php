@@ -28,6 +28,6 @@ class PriceBookProductsManager
      */
     public function get(int $page_size = null, int $after = null, int $before = null): PriceBookProductCollection
     {
-        return $this->collection(PriceBookProductCollection::class, "2.0/price_book_products", compact('after', 'before', 'page_size'));
+        return $this->collection(PriceBookProductCollection::class, '2.0/price_book_products', compact('after', 'before', 'page_size'));
     }
 }

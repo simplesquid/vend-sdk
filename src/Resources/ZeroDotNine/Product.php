@@ -5,9 +5,7 @@ namespace SimpleSquid\Vend\Resources\ZeroDotNine;
 use Spatie\DataTransferObject\DataTransferObject;
 
 /**
- * Product
- *
- * @package SimpleSquid\Vend\Resources\ZeroDotNine
+ * Product.
  */
 class Product extends DataTransferObject
 {
@@ -126,7 +124,7 @@ class Product extends DataTransferObject
     /**
      * Tax exclusive default price of the product.
      *
-     * @var int|double|null
+     * @var int|float|null
      */
     public $price;
 
@@ -140,7 +138,7 @@ class Product extends DataTransferObject
     /**
      * Retail price for the product. Tax inclusive or exclusive depending on the store settings.
      *
-     * @var int|double
+     * @var int|float
      */
     public $retail_price;
 
@@ -189,7 +187,7 @@ class Product extends DataTransferObject
     /**
      * The name of the default tax for the product.
      *
-     * @var int|double|null
+     * @var int|float|null
      */
     public $tax;
 
@@ -210,7 +208,7 @@ class Product extends DataTransferObject
     /**
      * The default tax rate for the product.
      *
-     * @var int|double|null
+     * @var int|float|null
      */
     public $tax_rate;
 
@@ -297,5 +295,4 @@ class Product extends DataTransferObject
      * @var string|null
      */
     public $variant_source_id;
-
 }

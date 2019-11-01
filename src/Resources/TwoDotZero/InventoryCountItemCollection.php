@@ -7,9 +7,7 @@ use SimpleSquid\Vend\Resources\HasVersions;
 use Spatie\DataTransferObject\DataTransferObjectCollection;
 
 /**
- * Inventory Collection
- *
- * @package SimpleSquid\Vend\Resources\TwoDotZero
+ * Inventory Collection.
  */
 class InventoryCountItemCollection extends DataTransferObjectCollection
 {
@@ -19,5 +17,4 @@ class InventoryCountItemCollection extends DataTransferObjectCollection
     {
         return parent::current();
     }
-
 }

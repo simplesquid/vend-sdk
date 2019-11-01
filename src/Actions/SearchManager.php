@@ -85,7 +85,7 @@ class SearchManager
             $query = $query->toArray();
         }
 
-        return $this->collection($collection, "2.0/search",
+        return $this->collection($collection, '2.0/search',
                                  array_merge($query, compact('type', 'page_size', 'offset', 'order_by', 'order_direction')));
     }
 }

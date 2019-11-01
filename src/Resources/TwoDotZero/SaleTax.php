@@ -5,21 +5,19 @@ namespace SimpleSquid\Vend\Resources\TwoDotZero;
 use Spatie\DataTransferObject\DataTransferObject;
 
 /**
- * Sale Tax
- *
- * @package SimpleSquid\Vend\Resources\TwoDotZero
+ * Sale Tax.
  */
 class SaleTax extends DataTransferObject
 {
     /**
      * Tax amount.
      *
-     * @var int|double|null
+     * @var int|float|null
      */
     public $amount;
 
     /**
-     * ID **undocumented**
+     * ID **undocumented**.
      *
      * @var string|null
      */
@@ -35,8 +33,7 @@ class SaleTax extends DataTransferObject
     /**
      * Tax rate.
      *
-     * @var int|double|null
+     * @var int|float|null
      */
     public $rate;
-
 }

@@ -5,9 +5,7 @@ namespace SimpleSquid\Vend\Resources\TwoDotZero;
 use Spatie\DataTransferObject\DataTransferObject;
 
 /**
- * Tax rate
- *
- * @package SimpleSquid\Vend\Resources\TwoDotZero
+ * Tax rate.
  */
 class TaxRate extends DataTransferObject
 {
@@ -35,15 +33,14 @@ class TaxRate extends DataTransferObject
     /**
      * Tax rate value. `0.1 = 10%`.
      *
-     * @var int|double
+     * @var int|float
      */
     public $rate;
 
     /**
-     * Rules **undocumented**
+     * Rules **undocumented**.
      *
      * @var array|null
      */
     public $rules;
-
 }

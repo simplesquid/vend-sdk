@@ -5,16 +5,14 @@ namespace SimpleSquid\Vend\Resources\ZeroDotNine;
 use Spatie\DataTransferObject\DataTransferObject;
 
 /**
- * Register Sale Payment Update Base
- *
- * @package SimpleSquid\Vend\Resources\ZeroDotNine
+ * Register Sale Payment Update Base.
  */
 class RegisterSalePaymentUpdateBase extends DataTransferObject
 {
     /**
      * Payment amount.
      *
-     * @var int|double
+     * @var int|float
      */
     public $amount;
 
@@ -45,5 +43,4 @@ class RegisterSalePaymentUpdateBase extends DataTransferObject
      * @var string
      */
     public $retailer_payment_type_id;
-
 }

@@ -6,9 +6,7 @@ use SimpleSquid\Vend\Resources\CastsDates;
 use Spatie\DataTransferObject\DataTransferObject;
 
 /**
- * Inventory Count Item
- *
- * @package SimpleSquid\Vend\Resources\TwoDotZero
+ * Inventory Count Item.
  */
 class InventoryCountItem extends DataTransferObject
 {
@@ -91,5 +89,4 @@ class InventoryCountItem extends DataTransferObject
      * @var int
      */
     public $version;
-
 }

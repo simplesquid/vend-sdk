@@ -35,8 +35,7 @@ class OutletProductTaxesManager
         bool $deleted = null,
         string $outlet_id = null
     ): OutletTaxCollection {
-        return $this->collection(OutletTaxCollection::class, "2.0/outlet_taxes",
+        return $this->collection(OutletTaxCollection::class, '2.0/outlet_taxes',
                                  compact('outlet_id', 'after', 'before', 'page_size', 'deleted'));
     }
-
 }

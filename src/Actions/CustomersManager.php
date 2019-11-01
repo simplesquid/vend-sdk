@@ -32,7 +32,7 @@ class CustomersManager
             $customer = $customer->toArray();
         }
 
-        return $this->createResource(Customer::class, "2.0/customers", $customer);
+        return $this->createResource(Customer::class, '2.0/customers', $customer);
     }
 
     /**
@@ -102,7 +102,7 @@ class CustomersManager
         int $before = null,
         bool $deleted = null
     ): CustomerCollection {
-        return $this->collection(CustomerCollection::class, "2.0/customers",
+        return $this->collection(CustomerCollection::class, '2.0/customers',
                                  compact('after', 'before', 'page_size', 'deleted'));
     }
 
@@ -131,5 +131,4 @@ class CustomersManager
 
         return $this->updateResource(Customer::class, "2.0/customers/$id", $customer);
     }
-
 }

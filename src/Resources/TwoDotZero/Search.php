@@ -5,9 +5,7 @@ namespace SimpleSquid\Vend\Resources\TwoDotZero;
 use Spatie\DataTransferObject\DataTransferObject;
 
 /**
- * Search
- *
- * @package SimpleSquid\Vend\Resources\TwoDotZero
+ * Search.
  */
 class Search extends DataTransferObject
 {

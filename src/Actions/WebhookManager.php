@@ -81,7 +81,7 @@ class WebhookManager
     /**
      * List webhooks.
      * Returns a list of webhooks.
-     * NOTE: This endpoint will only return webhooks created by the application which is making the request.*
+     * NOTE: This endpoint will only return webhooks created by the application which is making the request.*.
      *
      * @return WebhookCollection
      * @throws \SimpleSquid\Vend\Exceptions\AuthorisationException
@@ -126,5 +126,4 @@ class WebhookManager
 
         return new Webhook($response['data']);
     }
-
 }

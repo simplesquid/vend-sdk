@@ -5,9 +5,7 @@ namespace SimpleSquid\Vend\Resources\ZeroDotNine;
 use Spatie\DataTransferObject\DataTransferObject;
 
 /**
- * Register Sale
- *
- * @package SimpleSquid\Vend\Resources\ZeroDotNine
+ * Register Sale.
  */
 class RegisterSale extends DataTransferObject
 {
@@ -26,7 +24,7 @@ class RegisterSale extends DataTransferObject
     public $created_at;
 
     /**
-     * Customer object
+     * Customer object.
      *
      * @var \SimpleSquid\Vend\Resources\ZeroDotNine\Customer|null
      */
@@ -147,7 +145,7 @@ class RegisterSale extends DataTransferObject
     /**
      * Total cost of the sale.
      *
-     * @var int|double|null
+     * @var int|float|null
      */
     public $total_cost;
 
@@ -161,12 +159,12 @@ class RegisterSale extends DataTransferObject
     /**
      * Total tax of the sale.
      *
-     * @var int|double|null
+     * @var int|float|null
      */
     public $total_tax;
 
     /**
-     * Register Sale Totals
+     * Register Sale Totals.
      *
      * @var \SimpleSquid\Vend\Resources\ZeroDotNine\RegisterSaleTotals|null
      */
@@ -192,5 +190,4 @@ class RegisterSale extends DataTransferObject
      * @var string|null
      */
     public $user_name;
-
 }
