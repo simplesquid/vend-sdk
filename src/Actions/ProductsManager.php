@@ -181,14 +181,13 @@ class ProductsManager
      * @throws \SimpleSquid\Vend\Exceptions\UnauthorisedException
      * @throws \SimpleSquid\Vend\Exceptions\UnknownException
      */
-
     public function uploadImage(string $product_id, $image): Image
     {
         $response = $this->vend->post("2.0/products/$product_id/actions/image_upload", [
             [
                 'name'     => 'image',
-                'contents' => $image
-            ]
+                'contents' => $image,
+            ],
         ], 'multipart');
 
         return new Image($response['product']);

@@ -5,9 +5,7 @@ namespace SimpleSquid\Vend\Resources\ZeroDotNine;
 use Spatie\DataTransferObject\DataTransferObject;
 
 /**
- * Tax
- *
- * @package SimpleSquid\Vend\Resources\ZeroDotNine
+ * Tax.
  */
 class Tax extends DataTransferObject
 {
@@ -42,7 +40,7 @@ class Tax extends DataTransferObject
     /**
      * Tax rate. `0.1 = 10%`.
      *
-     * @var int|double
+     * @var int|float
      */
     public $rate;
 
@@ -52,5 +50,4 @@ class Tax extends DataTransferObject
      * @var array|null
      */
     public $rates;
-
 }

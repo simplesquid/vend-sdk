@@ -6,9 +6,7 @@ use SimpleSquid\Vend\Resources\CastsDates;
 use Spatie\DataTransferObject\DataTransferObject;
 
 /**
- * Customer
- *
- * @package SimpleSquid\Vend\Resources\TwoDotZero
+ * Customer.
  */
 class Customer extends DataTransferObject
 {
@@ -17,7 +15,7 @@ class Customer extends DataTransferObject
     /**
      * Customer's unpaid balance.
      *
-     * @var int|double|null
+     * @var int|float|null
      */
     public $balance;
 
@@ -78,7 +76,7 @@ class Customer extends DataTransferObject
     public $customer_group_id;
 
     /**
-     * Customer group ids **undocumented**
+     * Customer group ids **undocumented**.
      *
      * @var array|null
      */
@@ -157,12 +155,12 @@ class Customer extends DataTransferObject
     /**
      * Customer's loyalty balance.
      *
-     * @var int|double|null
+     * @var int|float|null
      */
     public $loyalty_balance;
 
     /**
-     * Loyalty email sent **undocumented**
+     * Loyalty email sent **undocumented**.
      *
      * @var bool|null
      */
@@ -176,7 +174,7 @@ class Customer extends DataTransferObject
     public $mobile;
 
     /**
-     * Customers full name. **deprecated**
+     * Customers full name. **deprecated**.
      *
      * @var string|null
      */
@@ -295,7 +293,7 @@ class Customer extends DataTransferObject
     public $postal_suburb;
 
     /**
-     * Time until deletion **undocumented**
+     * Time until deletion **undocumented**.
      *
      * @var \Carbon\Carbon|null
      */
@@ -332,8 +330,7 @@ class Customer extends DataTransferObject
     /**
      * Customer's spending this year.
      *
-     * @var int|double|null
+     * @var int|float|null
      */
     public $year_to_date;
-
 }

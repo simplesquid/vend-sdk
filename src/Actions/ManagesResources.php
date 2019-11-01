@@ -41,7 +41,7 @@ trait ManagesResources
     private function collection(string $collection, string $endpoint, array $query = [], string $root = 'data')
     {
         $query = array_filter($query, function ($value) {
-            return !is_null($value);
+            return ! is_null($value);
         });
 
         $response = $this->vend->get($endpoint, $query);

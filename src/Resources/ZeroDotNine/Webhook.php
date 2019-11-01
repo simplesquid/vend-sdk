@@ -5,9 +5,7 @@ namespace SimpleSquid\Vend\Resources\ZeroDotNine;
 use Spatie\DataTransferObject\DataTransferObject;
 
 /**
- * Webhook
- *
- * @package SimpleSquid\Vend\Resources\ZeroDotNine
+ * Webhook.
  */
 class Webhook extends DataTransferObject
 {
@@ -45,5 +43,4 @@ class Webhook extends DataTransferObject
      * @var string
      */
     public $url;
-
 }

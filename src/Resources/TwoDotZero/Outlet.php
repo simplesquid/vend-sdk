@@ -6,16 +6,14 @@ use SimpleSquid\Vend\Resources\CastsDates;
 use Spatie\DataTransferObject\DataTransferObject;
 
 /**
- * Outlet
- *
- * @package SimpleSquid\Vend\Resources\TwoDotZero
+ * Outlet.
  */
 class Outlet extends DataTransferObject
 {
     use CastsDates;
 
     /**
-     * Attributes. **undocumented**
+     * Attributes. **undocumented**.
      *
      * @var array|null
      */
@@ -36,7 +34,7 @@ class Outlet extends DataTransferObject
     public $currency_symbol;
 
     /**
-     * Default tax id used for sales in this outlet. **deprecated**
+     * Default tax id used for sales in this outlet. **deprecated**.
      *
      * @var string|null
      */
@@ -57,7 +55,7 @@ class Outlet extends DataTransferObject
     public $display_prices;
 
     /**
-     * Email. **undocumented**
+     * Email. **undocumented**.
      *
      * @var string|null
      */
@@ -127,7 +125,7 @@ class Outlet extends DataTransferObject
     public $physical_suburb;
 
     /**
-     * Outlet timezone. **read only**
+     * Outlet timezone. **read only**.
      *
      * @var string|null
      */
@@ -139,5 +137,4 @@ class Outlet extends DataTransferObject
      * @var int|null
      */
     public $version;
-
 }

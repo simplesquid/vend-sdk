@@ -5,9 +5,7 @@ namespace SimpleSquid\Vend\Resources\TwoDotZero;
 use Spatie\DataTransferObject\DataTransferObject;
 
 /**
- * Line Item Tax Component
- *
- * @package SimpleSquid\Vend\Resources\TwoDotZero
+ * Line Item Tax Component.
  */
 class LineItemTaxComponent extends DataTransferObject
 {
@@ -21,8 +19,7 @@ class LineItemTaxComponent extends DataTransferObject
     /**
      * Tax total.
      *
-     * @var int|double
+     * @var int|float
      */
     public $total_tax;
-
 }

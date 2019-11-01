@@ -6,9 +6,7 @@ use SimpleSquid\Vend\Resources\CastsDates;
 use Spatie\DataTransferObject\DataTransferObject;
 
 /**
- * Tax
- *
- * @package SimpleSquid\Vend\Resources\TwoDotZero
+ * Tax.
  */
 class Tax extends DataTransferObject
 {
@@ -62,5 +60,4 @@ class Tax extends DataTransferObject
      * @var int
      */
     public $version;
-
 }

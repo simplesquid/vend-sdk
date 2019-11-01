@@ -6,9 +6,7 @@ use SimpleSquid\Vend\Resources\CastsDates;
 use Spatie\DataTransferObject\DataTransferObject;
 
 /**
- * Inventory Count
- *
- * @package SimpleSquid\Vend\Resources\TwoDotZero
+ * Inventory Count.
  */
 class InventoryCount extends DataTransferObject
 {
@@ -29,7 +27,7 @@ class InventoryCount extends DataTransferObject
     public $filters;
 
     /**
-     * The name of the inventory count
+     * The name of the inventory count.
      *
      * @var string
      */
@@ -58,10 +56,9 @@ class InventoryCount extends DataTransferObject
     public $status;
 
     /**
-     * Consignment type, for inventory counts always `STOCKTAKE`
+     * Consignment type, for inventory counts always `STOCKTAKE`.
      *
      * @var string
      */
     public $type;
-
 }

@@ -5,9 +5,7 @@ namespace SimpleSquid\Vend\Resources\TwoDotZero;
 use Spatie\DataTransferObject\DataTransferObject;
 
 /**
- * Payment Type Details **undocumented**
- *
- * @package SimpleSquid\Vend\Resources\TwoDotZero
+ * Payment Type Details **undocumented**.
  */
 class PaymentTypeDetails extends DataTransferObject
 {

@@ -6,9 +6,7 @@ use SimpleSquid\Vend\Resources\CastsDates;
 use Spatie\DataTransferObject\DataTransferObject;
 
 /**
- * User
- *
- * @package SimpleSquid\Vend\Resources\TwoDotZero
+ * User.
  */
 class User extends DataTransferObject
 {
@@ -57,7 +55,7 @@ class User extends DataTransferObject
     public $email_verified_at;
 
     /**
-     * Enabled. **undocumented**
+     * Enabled. **undocumented**.
      *
      * @var bool
      */
@@ -99,7 +97,7 @@ class User extends DataTransferObject
     public $permissions;
 
     /**
-     * Use the `restricted_outlet_ids` instead. **deprecated**
+     * Use the `restricted_outlet_ids` instead. **deprecated**.
      *
      * @var string|null
      */
@@ -120,7 +118,7 @@ class User extends DataTransferObject
     public $seen_at;
 
     /**
-     * Switch ID. **undocumented**
+     * Switch ID. **undocumented**.
      *
      * @var string
      */
@@ -129,26 +127,26 @@ class User extends DataTransferObject
     /**
      * Daily sales target for the user.
      *
-     * @var int|double|null
+     * @var int|float|null
      */
     public $target_daily;
 
     /**
      * Monthly sales target for the user.
      *
-     * @var int|double|null
+     * @var int|float|null
      */
     public $target_monthly;
 
     /**
      * Weekly sales target for the user.
      *
-     * @var int|double|null
+     * @var int|float|null
      */
     public $target_weekly;
 
     /**
-     * Time until deletion. **undocumented**
+     * Time until deletion. **undocumented**.
      *
      * @var \Carbon\Carbon|null
      */
@@ -174,5 +172,4 @@ class User extends DataTransferObject
      * @var int
      */
     public $version;
-
 }

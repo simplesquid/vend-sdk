@@ -31,7 +31,7 @@ class CustomerGroupsManager
         int $after = null,
         int $before = null
     ): CustomerGroupCollection {
-        return $this->collection(CustomerGroupCollection::class, "2.0/customer_groups",
+        return $this->collection(CustomerGroupCollection::class, '2.0/customer_groups',
                                  compact('page_size', 'after', 'before'));
     }
 }

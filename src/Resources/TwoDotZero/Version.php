@@ -7,8 +7,6 @@ use Spatie\DataTransferObject\DataTransferObject;
 /**
  * Version
  * An object containing the highest and lowest version numbers for all items of the returned collection.
- *
- * @package SimpleSquid\Vend\Resources\TwoDotZero
  */
 class Version extends DataTransferObject
 {
@@ -25,5 +23,4 @@ class Version extends DataTransferObject
      * @var int
      */
     public $min;
-
 }

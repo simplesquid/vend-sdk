@@ -6,9 +6,7 @@ use SimpleSquid\Vend\Resources\CastsDates;
 use Spatie\DataTransferObject\DataTransferObject;
 
 /**
- * Sale
- *
- * @package SimpleSquid\Vend\Resources\TwoDotZero
+ * Sale.
  */
 class Sale extends DataTransferObject
 {
@@ -59,7 +57,7 @@ class Sale extends DataTransferObject
     /**
      * Optionally provided value.
      *
-     * @var int|double|null
+     * @var int|float|null
      */
     public $invoice_sequence;
 
@@ -128,7 +126,7 @@ class Sale extends DataTransferObject
     public $source;
 
     /**
-     * External ID for sales coming from other systems
+     * External ID for sales coming from other systems.
      *
      * @var string|null
      */
@@ -152,21 +150,21 @@ class Sale extends DataTransferObject
     /**
      * Total incurred loyalty.
      *
-     * @var int|double|null
+     * @var int|float|null
      */
     public $total_loyalty;
 
     /**
-     * Total (tax exclusive) price of the sale
+     * Total (tax exclusive) price of the sale.
      *
-     * @var int|double|null
+     * @var int|float|null
      */
     public $total_price;
 
     /**
      * Total tax.
      *
-     * @var int|double|null
+     * @var int|float|null
      */
     public $total_tax;
 
@@ -185,16 +183,16 @@ class Sale extends DataTransferObject
     public $user_id;
 
     /**
-     * Receipt number. **undocumented**
+     * Receipt number. **undocumented**.
      *
      * @var string|null
      */
     public $receipt_number;
 
     /**
-     * Total price inclusive. **undocumented**
+     * Total price inclusive. **undocumented**.
      *
-     * @var int|double|null
+     * @var int|float|null
      */
     public $total_price_incl;
 
@@ -204,5 +202,4 @@ class Sale extends DataTransferObject
      * @var int|null
      */
     public $version;
-
 }

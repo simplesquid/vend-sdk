@@ -97,7 +97,7 @@ class SuppliersManager
      */
     public function get(int $page_size = null, int $after = null, int $before = null): SupplierCollection
     {
-        return $this->collection(SupplierCollection::class, "2.0/suppliers", compact('after', 'before', 'page_size'));
+        return $this->collection(SupplierCollection::class, '2.0/suppliers', compact('after', 'before', 'page_size'));
     }
 
     /**

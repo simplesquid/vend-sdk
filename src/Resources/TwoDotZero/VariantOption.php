@@ -5,14 +5,12 @@ namespace SimpleSquid\Vend\Resources\TwoDotZero;
 use Spatie\DataTransferObject\DataTransferObject;
 
 /**
- * Variant Option
- *
- * @package SimpleSquid\Vend\Resources\TwoDotZero
+ * Variant Option.
  */
 class VariantOption extends DataTransferObject
 {
     /**
-     * The Variant Option ID. **undocumented**
+     * The Variant Option ID. **undocumented**.
      *
      * @var string|null
      */
@@ -31,5 +29,4 @@ class VariantOption extends DataTransferObject
      * @var string|null
      */
     public $value;
-
 }

@@ -50,6 +50,6 @@ class UsersManager
      */
     public function get(int $page_size = null, int $after = null, int $before = null): UserCollection
     {
-        return $this->collection(UserCollection::class, "2.0/users", compact('after', 'before', 'page_size'));
+        return $this->collection(UserCollection::class, '2.0/users', compact('after', 'before', 'page_size'));
     }
 }

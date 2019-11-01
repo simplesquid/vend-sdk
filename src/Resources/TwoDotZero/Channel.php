@@ -8,8 +8,6 @@ use Spatie\DataTransferObject\DataTransferObject;
 /**
  * Channel
  * An object representing a single channel.
- *
- * @package SimpleSquid\Vend\Resources\TwoDotZero
  */
 class Channel extends DataTransferObject
 {
@@ -77,5 +75,4 @@ class Channel extends DataTransferObject
      * @var string
      */
     public $store_url;
-
 }

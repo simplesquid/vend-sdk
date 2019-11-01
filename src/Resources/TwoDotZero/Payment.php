@@ -5,16 +5,14 @@ namespace SimpleSquid\Vend\Resources\TwoDotZero;
 use Spatie\DataTransferObject\DataTransferObject;
 
 /**
- * Payment
- *
- * @package SimpleSquid\Vend\Resources\TwoDotZero
+ * Payment.
  */
 class Payment extends DataTransferObject
 {
     /**
      * Payment amount.
      *
-     * @var int|double|null
+     * @var int|float|null
      */
     public $amount;
 
@@ -33,7 +31,7 @@ class Payment extends DataTransferObject
     public $payment_date;
 
     /**
-     * A payment type associated with the retailer payment type. **deprecated**
+     * A payment type associated with the retailer payment type. **deprecated**.
      *
      * @var string|null
      */
@@ -52,5 +50,4 @@ class Payment extends DataTransferObject
      * @var string|null
      */
     public $retailer_payment_type_id;
-
 }

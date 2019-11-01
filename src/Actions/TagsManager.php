@@ -50,6 +50,6 @@ class TagsManager
      */
     public function get(int $page_size = null, int $after = null, int $before = null): TagCollection
     {
-        return $this->collection(TagCollection::class, "2.0/tags", compact('after', 'before', 'page_size'));
+        return $this->collection(TagCollection::class, '2.0/tags', compact('after', 'before', 'page_size'));
     }
 }

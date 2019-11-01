@@ -5,17 +5,14 @@ namespace SimpleSquid\Vend\Resources\TwoDotZero;
 use Spatie\DataTransferObject\DataTransferObject;
 
 /**
- * Image Position
- *
- * @package SimpleSquid\Vend\Resources\TwoDotZero
+ * Image Position.
  */
 class ImagePosition extends DataTransferObject
 {
     /**
      * New position for the image.
      *
-     * @var int|double
+     * @var int|float
      */
     public $position;
-
 }

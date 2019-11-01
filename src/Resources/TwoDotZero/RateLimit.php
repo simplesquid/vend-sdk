@@ -6,9 +6,7 @@ use SimpleSquid\Vend\Resources\CastsDates;
 use Spatie\DataTransferObject\DataTransferObject;
 
 /**
- * Rate Limit
- *
- * @package SimpleSquid\Vend\Resources\TwoDotZero
+ * Rate Limit.
  */
 class RateLimit extends DataTransferObject
 {
@@ -34,5 +32,4 @@ class RateLimit extends DataTransferObject
      * @var \Carbon\Carbon
      */
     public $retry_after;
-
 }

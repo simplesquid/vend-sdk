@@ -7,9 +7,7 @@ use SimpleSquid\Vend\Resources\HasVersions;
 use Spatie\DataTransferObject\DataTransferObjectCollection;
 
 /**
- * Brand Collection
- *
- * @package SimpleSquid\Vend\Resources\TwoDotZero
+ * Brand Collection.
  */
 class CustomerCollection extends DataTransferObjectCollection
 {
@@ -19,5 +17,4 @@ class CustomerCollection extends DataTransferObjectCollection
     {
         return parent::current();
     }
-
 }

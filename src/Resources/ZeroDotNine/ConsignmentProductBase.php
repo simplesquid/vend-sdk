@@ -5,9 +5,7 @@ namespace SimpleSquid\Vend\Resources\ZeroDotNine;
 use Spatie\DataTransferObject\DataTransferObject;
 
 /**
- * Consignment Product Base
- *
- * @package SimpleSquid\Vend\Resources\ZeroDotNine
+ * Consignment Product Base.
  */
 class ConsignmentProductBase extends DataTransferObject
 {
@@ -52,5 +50,4 @@ class ConsignmentProductBase extends DataTransferObject
      * @var int|null
      */
     public $sequence_number;
-
 }
