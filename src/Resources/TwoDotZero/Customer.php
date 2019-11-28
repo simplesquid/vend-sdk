@@ -27,6 +27,13 @@ class Customer extends DataTransferObject
     public $company_name;
 
     /**
+     * Contact source **undocumented**.
+     *
+     * @var string|null
+     */
+    public $contact_source;
+
+    /**
      * Creation timestamp in UTC.
      *
      * @var \Carbon\Carbon|null

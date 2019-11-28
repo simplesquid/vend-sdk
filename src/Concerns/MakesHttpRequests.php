@@ -77,22 +77,22 @@ trait MakesHttpRequests
     /**
      * Make request to Forge servers and return the response.
      *
-     * @param  string  $verb
-     * @param  string  $uri
-     * @param  array   $payload
-     * @param  array   $query
-     * @param  bool    $authorised
-     * @param  string  $format  One of `json`, `form_params`, `multipart`.
+     * @param  string       $verb
+     * @param  string       $uri
+     * @param  array        $payload
+     * @param  array        $query
+     * @param  bool         $authorised
+     * @param  string       $format  One of `json`, `form_params`, `multipart`.
+     *
+     * @param  string|null  $payload_root
      *
      * @return mixed
-     * @throws BadRequestException
-     * @throws NotFoundException
-     * @throws RateLimitException
-     * @throws RequestException
-     * @throws UnauthorisedException
-     * @throws UnknownException
-     * @throws TokenExpiredException
-     * @throws AuthorisationException
+     * @throws \SimpleSquid\Vend\Exceptions\BadRequestException
+     * @throws \SimpleSquid\Vend\Exceptions\NotFoundException
+     * @throws \SimpleSquid\Vend\Exceptions\RateLimitException
+     * @throws \SimpleSquid\Vend\Exceptions\RequestException
+     * @throws \SimpleSquid\Vend\Exceptions\UnauthorisedException
+     * @throws \SimpleSquid\Vend\Exceptions\UnknownException
      */
     private function request(
         string $verb,
@@ -100,7 +100,8 @@ trait MakesHttpRequests
         array $payload = [],
         array $query = [],
         bool $authorised = true,
-        string $format = 'json'
+        string $format = 'json',
+        string $payload_root = null
     ) {
         $options = [
             'timeout' => $this->request_timeout,
@@ -113,7 +114,11 @@ trait MakesHttpRequests
         }
 
         if ($format === 'json') {
-            $options['json'] = $payload;
+            if (is_null($payload_root)) {
+                $options['json'] = $payload;
+            } else {
+                $options['json'][$payload_root] = $payload;
+            }
             $options['headers']['Content-Type'] = 'application/json';
         } else {
             $options[$format] = $payload;
@@ -125,7 +130,7 @@ trait MakesHttpRequests
             throw new RequestException($e);
         }
 
-        if (! in_array($response->getStatusCode(), [200, 201, 204])) {
+        if (!in_array($response->getStatusCode(), [200, 201, 204])) {
             $this->handleRequestError($response);
         }
 
@@ -197,45 +202,54 @@ trait MakesHttpRequests
     /**
      * Make a POST request to Vend and return the response.
      *
-     * @param  string  $uri
-     * @param  array   $payload
-     * @param  string  $format
-     * @param  bool    $authorised
+     * @param  string       $uri
+     * @param  array        $payload
+     * @param  string       $format
+     * @param  bool         $authorised
+     *
+     * @param  string|null  $payload_root
      *
      * @return mixed
-     * @throws AuthorisationException
-     * @throws BadRequestException
-     * @throws NotFoundException
-     * @throws RateLimitException
-     * @throws RequestException
-     * @throws TokenExpiredException
-     * @throws UnauthorisedException
-     * @throws UnknownException
+     * @throws \SimpleSquid\Vend\Exceptions\AuthorisationException
+     * @throws \SimpleSquid\Vend\Exceptions\BadRequestException
+     * @throws \SimpleSquid\Vend\Exceptions\NotFoundException
+     * @throws \SimpleSquid\Vend\Exceptions\RateLimitException
+     * @throws \SimpleSquid\Vend\Exceptions\RequestException
+     * @throws \SimpleSquid\Vend\Exceptions\TokenExpiredException
+     * @throws \SimpleSquid\Vend\Exceptions\UnauthorisedException
+     * @throws \SimpleSquid\Vend\Exceptions\UnknownException
      */
-    public function post(string $uri, array $payload = [], string $format = 'json', bool $authorised = true)
-    {
-        return $this->request('POST', $uri, $payload, [], $authorised, $format);
+    public function post(
+        string $uri,
+        array $payload = [],
+        string $format = 'json',
+        bool $authorised = true,
+        string $payload_root = null
+    ) {
+        return $this->request('POST', $uri, $payload, [], $authorised, $format, $payload_root);
     }
 
     /**
      * Make a PUT request to Vend and return the response.
      *
-     * @param  string  $uri
-     * @param  array   $payload
-     * @param  bool    $authorised
+     * @param  string       $uri
+     * @param  array        $payload
+     * @param  bool         $authorised
+     *
+     * @param  string|null  $payload_root
      *
      * @return mixed
-     * @throws AuthorisationException
-     * @throws BadRequestException
-     * @throws NotFoundException
-     * @throws RateLimitException
-     * @throws RequestException
-     * @throws TokenExpiredException
-     * @throws UnauthorisedException
-     * @throws UnknownException
+     * @throws \SimpleSquid\Vend\Exceptions\AuthorisationException
+     * @throws \SimpleSquid\Vend\Exceptions\BadRequestException
+     * @throws \SimpleSquid\Vend\Exceptions\NotFoundException
+     * @throws \SimpleSquid\Vend\Exceptions\RateLimitException
+     * @throws \SimpleSquid\Vend\Exceptions\RequestException
+     * @throws \SimpleSquid\Vend\Exceptions\TokenExpiredException
+     * @throws \SimpleSquid\Vend\Exceptions\UnauthorisedException
+     * @throws \SimpleSquid\Vend\Exceptions\UnknownException
      */
-    public function put(string $uri, array $payload = [], bool $authorised = true)
+    public function put(string $uri, array $payload = [], bool $authorised = true, string $payload_root = null)
     {
-        return $this->request('PUT', $uri, $payload, [], $authorised);
+        return $this->request('PUT', $uri, $payload, [], $authorised, 'json', $payload_root);
     }
 }

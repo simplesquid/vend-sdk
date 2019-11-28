@@ -58,9 +58,13 @@ trait ManagesResources
     /**
      * Create a resource.
      *
-     * @param  string  $resource
-     * @param  string  $endpoint
-     * @param  array   $body
+     * @param  string       $resource
+     * @param  string       $endpoint
+     * @param  array        $body
+     *
+     * @param  string       $root
+     *
+     * @param  string|null  $payload_root
      *
      * @return mixed
      * @throws \SimpleSquid\Vend\Exceptions\AuthorisationException
@@ -72,9 +76,15 @@ trait ManagesResources
      * @throws \SimpleSquid\Vend\Exceptions\UnauthorisedException
      * @throws \SimpleSquid\Vend\Exceptions\UnknownException
      */
-    private function createResource(string $resource, string $endpoint, array $body, string $root = 'data')
+    private function createResource(
+        string $resource,
+        string $endpoint,
+        array $body,
+        string $root = 'data',
+        string $payload_root = null
+    )
     {
-        $response = $this->vend->post($endpoint, $body);
+        $response = $this->vend->post($endpoint, $body, $payload_root);
 
         return new $resource($response[$root]);
     }
@@ -128,9 +138,13 @@ trait ManagesResources
     /**
      * Update a resource.
      *
-     * @param  string  $resource
-     * @param  string  $endpoint
-     * @param  array   $body
+     * @param  string       $resource
+     * @param  string       $endpoint
+     * @param  array        $body
+     *
+     * @param  string       $root
+     *
+     * @param  string|null  $payload_root
      *
      * @return mixed
      * @throws \SimpleSquid\Vend\Exceptions\AuthorisationException
@@ -142,9 +156,15 @@ trait ManagesResources
      * @throws \SimpleSquid\Vend\Exceptions\UnauthorisedException
      * @throws \SimpleSquid\Vend\Exceptions\UnknownException
      */
-    private function updateResource(string $resource, string $endpoint, array $body, string $root = 'data')
+    private function updateResource(
+        string $resource,
+        string $endpoint,
+        array $body,
+        string $root = 'data',
+        string $payload_root = null
+    )
     {
-        $response = $this->vend->put($endpoint, $body);
+        $response = $this->vend->put($endpoint, $body, true, $payload_root);
 
         return new $resource($response[$root]);
     }

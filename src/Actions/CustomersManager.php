@@ -32,7 +32,7 @@ class CustomersManager
             $customer = $customer->toArray();
         }
 
-        return $this->createResource(Customer::class, '2.0/customers', $customer);
+        return $this->createResource(Customer::class, '2.0/customers', $customer, 'data', 'data');
     }
 
     /**
@@ -129,6 +129,6 @@ class CustomersManager
             $customer = $customer->toArray();
         }
 
-        return $this->updateResource(Customer::class, "2.0/customers/$id", $customer);
+        return $this->updateResource(Customer::class, "2.0/customers/$id", $customer, 'data', 'data');
     }
 }

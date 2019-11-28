@@ -73,6 +73,13 @@ class RegisterSaleUpdateBase extends DataTransferObject
     public $short_code;
 
     /**
+     * Source **undocumented**.
+     *
+     * @var string|null
+     */
+    public $source;
+
+    /**
      * The ID of the sale on the client side or another system where the sale was originally created.
      *
      * @var string|null

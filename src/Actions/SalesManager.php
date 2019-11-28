@@ -33,7 +33,7 @@ class SalesManager
             $sale = $sale->toArray();
         }
 
-        return $this->createResource(RegisterSale::class, 'register_sales', $sale);
+        return $this->createResource(RegisterSale::class, 'register_sales', $sale, 'register_sale');
     }
 
     /**
@@ -103,6 +103,6 @@ class SalesManager
             $sale = $sale->toArray();
         }
 
-        return $this->createResource(RegisterSale::class, 'register_sales', array_merge(compact('id'), $sale));
+        return $this->createResource(RegisterSale::class, 'register_sales', array_merge(compact('id'), $sale), 'register_sale');
     }
 }
