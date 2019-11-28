@@ -50,4 +50,39 @@ class Payment extends DataTransferObject
      * @var string|null
      */
     public $retailer_payment_type_id;
+
+    /**
+     * **undocumented**
+     *
+     * @var mixed|null
+     */
+    public $id;
+
+    /**
+     * **undocumented**
+     *
+     * @var mixed|null
+     */
+    public $outlet_id;
+
+    /**
+     * **undocumented**
+     *
+     * @var mixed|null
+     */
+    public $deleted_at;
+
+    /**
+     * **undocumented**
+     *
+     * @var mixed|null
+     */
+    public $external_attributes;
+
+    /**
+     * **undocumented**
+     *
+     * @var mixed|null
+     */
+    public $source_id;
 }
