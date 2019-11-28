@@ -25,8 +25,9 @@ class RegisterSale extends DataTransferObject
 
     /**
      * Customer object.
+     * TODO: Change to Customer object.
      *
-     * @var \SimpleSquid\Vend\Resources\ZeroDotNine\Customer|null
+     * @var array|null
      */
     public $customer;
 
@@ -57,6 +58,13 @@ class RegisterSale extends DataTransferObject
      * @var string|null
      */
     public $invoice_number;
+
+    /**
+     * Market ID **undocumented**.
+     *
+     * @var mixed|null
+     */
+    public $market_id;
 
     /**
      * A note on the sale entered by the cashier.
@@ -152,7 +160,7 @@ class RegisterSale extends DataTransferObject
     /**
      * Total price of the sale.
      *
-     * @var int|null
+     * @var int|float|null
      */
     public $total_price;
 
@@ -165,8 +173,9 @@ class RegisterSale extends DataTransferObject
 
     /**
      * Register Sale Totals.
+     * TODO: Change to Totals object.
      *
-     * @var \SimpleSquid\Vend\Resources\ZeroDotNine\RegisterSaleTotals|null
+     * @var array|null
      */
     public $totals;
 
