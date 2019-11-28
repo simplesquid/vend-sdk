@@ -26,7 +26,7 @@ class RegisterSaleProductUpdateBase extends DataTransferObject
     /**
      * Discount value of the line item.
      *
-     * @var int|null
+     * @var int|float|null
      */
     public $discount;
 
