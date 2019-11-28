@@ -38,7 +38,7 @@ class ConsignmentsManager
             $consignmentProduct = $consignmentProduct->toArray();
         }
 
-        return $this->createResource(ConsignmentProduct::class, 'consignment_product', $consignmentProduct);
+        return $this->createResource(ConsignmentProduct::class, 'consignment_product', $consignmentProduct, null);
     }
 
     /**
@@ -318,6 +318,6 @@ class ConsignmentsManager
             $consignmentProduct = $consignmentProduct->toArray();
         }
 
-        return $this->updateResource(ConsignmentProduct::class, "consignment_product/$consignment_product_id", $consignmentProduct);
+        return $this->updateResource(ConsignmentProduct::class, "consignment_product/$consignment_product_id", $consignmentProduct, null);
     }
 }
