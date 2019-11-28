@@ -72,11 +72,11 @@ trait ManagesResources
      * @throws \SimpleSquid\Vend\Exceptions\UnauthorisedException
      * @throws \SimpleSquid\Vend\Exceptions\UnknownException
      */
-    private function createResource(string $resource, string $endpoint, array $body)
+    private function createResource(string $resource, string $endpoint, array $body, string $root = 'data')
     {
         $response = $this->vend->post($endpoint, $body);
 
-        return new $resource($response['data']);
+        return new $resource($response[$root]);
     }
 
     /**
@@ -142,10 +142,10 @@ trait ManagesResources
      * @throws \SimpleSquid\Vend\Exceptions\UnauthorisedException
      * @throws \SimpleSquid\Vend\Exceptions\UnknownException
      */
-    private function updateResource(string $resource, string $endpoint, array $body)
+    private function updateResource(string $resource, string $endpoint, array $body, string $root = 'data')
     {
         $response = $this->vend->put($endpoint, $body);
 
-        return new $resource($response['data']);
+        return new $resource($response[$root]);
     }
 }
