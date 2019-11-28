@@ -63,7 +63,7 @@ class ConsignmentsManager
             $consignment = $consignment->toArray();
         }
 
-        return $this->createResource(\SimpleSquid\Vend\Resources\ZeroDotNine\Consignment::class, 'consignment', $consignment);
+        return $this->createResource(\SimpleSquid\Vend\Resources\ZeroDotNine\Consignment::class, 'consignment', $consignment, null);
     }
 
     /**
@@ -240,7 +240,7 @@ class ConsignmentsManager
             $consignment = $consignment->toArray();
         }
 
-        return $this->updateResource(\SimpleSquid\Vend\Resources\ZeroDotNine\Consignment::class, "consignment/$id", $consignment);
+        return $this->updateResource(\SimpleSquid\Vend\Resources\ZeroDotNine\Consignment::class, "consignment/$id", $consignment, null);
     }
 
     /**

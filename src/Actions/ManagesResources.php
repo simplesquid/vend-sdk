@@ -62,7 +62,7 @@ trait ManagesResources
      * @param  string       $endpoint
      * @param  array        $body
      *
-     * @param  string       $root
+     * @param  string|null  $root
      *
      * @param  string|null  $payload_root
      *
@@ -80,10 +80,14 @@ trait ManagesResources
         string $resource,
         string $endpoint,
         array $body,
-        string $root = 'data',
-        string $payload_root = null
+        $root = 'data',
+        $payload_root = null
     ) {
         $response = $this->vend->post($endpoint, $body, 'json', true, $payload_root);
+
+        if (is_null($root)) {
+            return new $resource($response);
+        }
 
         return new $resource($response[$root]);
     }
@@ -141,7 +145,7 @@ trait ManagesResources
      * @param  string       $endpoint
      * @param  array        $body
      *
-     * @param  string       $root
+     * @param  string|null  $root
      *
      * @param  string|null  $payload_root
      *
@@ -159,10 +163,14 @@ trait ManagesResources
         string $resource,
         string $endpoint,
         array $body,
-        string $root = 'data',
-        string $payload_root = null
+        $root = 'data',
+        $payload_root = null
     ) {
         $response = $this->vend->put($endpoint, $body, true, $payload_root);
+
+        if (is_null($root)) {
+            return new $resource($response);
+        }
 
         return new $resource($response[$root]);
     }
