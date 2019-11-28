@@ -114,6 +114,10 @@ trait MakesHttpRequests
         }
 
         if ($format === 'json') {
+            $payload = array_filter($payload, function ($value) {
+                return !is_null($value);
+            });
+
             if (is_null($payload_root)) {
                 $options['json'] = $payload;
             } else {
