@@ -13,14 +13,14 @@ class Version extends DataTransferObject
     /**
      * Highest version number of the payload.
      *
-     * @var int
+     * @var int|null
      */
     public $max;
 
     /**
      * Lowest version number of the payload.
      *
-     * @var int
+     * @var int|null
      */
     public $min;
 }
