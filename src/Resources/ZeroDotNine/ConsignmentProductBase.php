@@ -19,7 +19,7 @@ class ConsignmentProductBase extends DataTransferObject
     /**
      * Supply cost of the item for this consignment.
      *
-     * @var int|null
+     * @var int|float|null
      */
     public $cost;
 
