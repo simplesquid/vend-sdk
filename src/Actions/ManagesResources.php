@@ -41,7 +41,7 @@ trait ManagesResources
     private function collection(string $collection, string $endpoint, array $query = [], string $root = 'data')
     {
         $query = array_filter($query, function ($value) {
-            return ! is_null($value);
+            return !is_null($value);
         });
 
         $response = $this->vend->get($endpoint, $query);
@@ -82,9 +82,8 @@ trait ManagesResources
         array $body,
         string $root = 'data',
         string $payload_root = null
-    )
-    {
-        $response = $this->vend->post($endpoint, $body, $payload_root);
+    ) {
+        $response = $this->vend->post($endpoint, $body, 'json', true, $payload_root);
 
         return new $resource($response[$root]);
     }
@@ -162,8 +161,7 @@ trait ManagesResources
         array $body,
         string $root = 'data',
         string $payload_root = null
-    )
-    {
+    ) {
         $response = $this->vend->put($endpoint, $body, true, $payload_root);
 
         return new $resource($response[$root]);
