@@ -85,4 +85,11 @@ class Payment extends DataTransferObject
      * @var mixed|null
      */
     public $source_id;
+
+    /**
+     * **undocumented**
+     *
+     * @var mixed|null
+     */
+    public $register_open_sequence_id;
 }
