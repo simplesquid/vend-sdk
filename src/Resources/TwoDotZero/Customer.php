@@ -340,4 +340,11 @@ class Customer extends DataTransferObject
      * @var int|float|null
      */
     public $year_to_date;
+
+    /**
+     * **undocumented**
+     *
+     * @var mixed|null
+     */
+    public $source_unique_id;
 }
