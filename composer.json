@@ -22,7 +22,7 @@
         "php": "^7.3",
         "ext-json": "*",
         "guzzlehttp/guzzle": "^6.3",
-        "spatie/data-transfer-object": "^1.8",
+        "spatie/data-transfer-object": "~1.11.0",
         "nesbot/carbon": "^2.23"
     },
     "require-dev": {
