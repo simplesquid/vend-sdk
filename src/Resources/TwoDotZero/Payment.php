@@ -52,49 +52,49 @@ class Payment extends DataTransferObject
     public $retailer_payment_type_id;
 
     /**
-     * **undocumented**
+     * **undocumented**.
      *
      * @var mixed|null
      */
     public $id;
 
     /**
-     * **undocumented**
+     * **undocumented**.
      *
      * @var mixed|null
      */
     public $outlet_id;
 
     /**
-     * **undocumented**
+     * **undocumented**.
      *
      * @var mixed|null
      */
     public $deleted_at;
 
     /**
-     * **undocumented**
+     * **undocumented**.
      *
      * @var mixed|null
      */
     public $external_attributes;
 
     /**
-     * **undocumented**
+     * **undocumented**.
      *
      * @var mixed|null
      */
     public $source_id;
 
     /**
-     * **undocumented**
+     * **undocumented**.
      *
      * @var mixed|null
      */
     public $register_open_sequence_id;
 
     /**
-     * **undocumented**
+     * **undocumented**.
      *
      * @var mixed|null
      */

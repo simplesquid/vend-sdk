@@ -342,7 +342,7 @@ class Customer extends DataTransferObject
     public $year_to_date;
 
     /**
-     * **undocumented**
+     * **undocumented**.
      *
      * @var mixed|null
      */
