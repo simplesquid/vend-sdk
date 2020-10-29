@@ -147,6 +147,7 @@ If you discover any security related issues, please email security@simplesquid.c
 ## Credits
 
 - [Matthew Poulter](https://github.com/mdpoulter)
+- [Chun-Sheng, Li](https://github.com/peter279k)
 - [All Contributors](../../contributors)
 
 Package skeleton based on [spatie/skeleton-php](https://github.com/spatie/skeleton-php).
