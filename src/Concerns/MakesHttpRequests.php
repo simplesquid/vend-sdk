@@ -115,7 +115,7 @@ trait MakesHttpRequests
 
         if ($format === 'json') {
             $payload = array_filter($payload, function ($value) {
-                return !is_null($value);
+                return ! is_null($value);
             });
 
             if (is_null($payload_root)) {
@@ -134,7 +134,7 @@ trait MakesHttpRequests
             throw new RequestException($e);
         }
 
-        if (!in_array($response->getStatusCode(), [200, 201, 204])) {
+        if (! in_array($response->getStatusCode(), [200, 201, 204])) {
             $this->handleRequestError($response);
         }
 

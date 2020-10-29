@@ -301,7 +301,7 @@ class Product extends DataTransferObject
     public $version;
 
     /**
-     * **undocumented**
+     * **undocumented**.
      *
      * @var mixed|null
      */

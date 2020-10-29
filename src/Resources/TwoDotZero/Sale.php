@@ -204,7 +204,7 @@ class Sale extends DataTransferObject
     public $version;
 
     /**
-     * **undocumented**
+     * **undocumented**.
      *
      * @var mixed|null
      */

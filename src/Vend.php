@@ -43,11 +43,11 @@ class Vend
     private function __construct()
     {
         $this->guzzle = new Client([
-                                       'http_errors' => false,
-                                       'verify'      => true,
-                                       'headers'     => [
-                                           'Accept' => 'application/json',
-                                       ],
+            'http_errors' => false,
+            'verify'      => true,
+            'headers'     => [
+                'Accept' => 'application/json',
+            ],
                                    ]);
 
         $this->token = new Token([]);
