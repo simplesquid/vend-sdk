@@ -209,7 +209,7 @@ class Sale extends DataTransferObject
      * @var mixed|null
      */
     public $accounts_transaction_id;
-    
+
     /**
      * **undocumented**.
      *
