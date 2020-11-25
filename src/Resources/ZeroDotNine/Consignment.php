@@ -95,4 +95,11 @@ class Consignment extends DataTransferObject
      * @var string
      */
     public $type;
+
+    /**
+     * **undocumented**.
+     *
+     * @var mixed|null
+     */
+    public $product_count;
 }
