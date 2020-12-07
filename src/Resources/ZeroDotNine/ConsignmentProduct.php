@@ -57,4 +57,11 @@ class ConsignmentProduct extends DataTransferObject
      * @var int|null
      */
     public $sequence_number;
+
+    /**
+     * **undocumented**.
+     *
+     * @var mixed|null
+     */
+    public $deleted_at;
 }
