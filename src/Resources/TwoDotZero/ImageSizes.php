@@ -58,4 +58,11 @@ class ImageSizes extends DataTransferObject
      * @var string|null
      */
     public $thumb;
+    
+    /**
+     * undocumented
+     *
+     * @var mixed|null
+     */
+    public $raw;
 }
