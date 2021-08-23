@@ -306,4 +306,11 @@ class Product extends DataTransferObject
      * @var mixed|null
      */
     public $product_codes;
+    
+    /**
+     * **undocumented**.
+     *
+     * @var mixed|null
+     */
+    public $packaging;
 }
