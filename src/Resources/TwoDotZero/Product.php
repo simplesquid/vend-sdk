@@ -313,4 +313,11 @@ class Product extends DataTransferObject
      * @var mixed|null
      */
     public $packaging;
+    
+    /**
+     * **undocumented**.
+     *
+     * @var mixed|null
+     */
+    public $skuImages;
 }
