@@ -320,4 +320,11 @@ class Product extends DataTransferObject
      * @var mixed|null
      */
     public $skuImages;
+    
+    /**
+     * **undocumented**.
+     *
+     * @var mixed|null
+     */
+    public $ecwid_enabled_webstore;
 }
