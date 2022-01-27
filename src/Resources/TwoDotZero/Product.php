@@ -327,4 +327,12 @@ class Product extends DataTransferObject
      * @var mixed|null
      */
     public $ecwid_enabled_webstore;
+    
+    
+    /**
+     * **undocumented**.
+     *
+     * @var mixed|null
+     */
+    public $product_suppliers
 }
