@@ -334,5 +334,5 @@ class Product extends DataTransferObject
      *
      * @var mixed|null
      */
-    public $product_suppliers
+    public $product_suppliers;
 }
