@@ -327,12 +327,53 @@ class Product extends DataTransferObject
      * @var mixed|null
      */
     public $ecwid_enabled_webstore;
-    
-    
+
     /**
      * **undocumented**.
      *
      * @var mixed|null
      */
     public $product_suppliers;
+
+    /**
+     * **undocumented**.
+     *
+     * @var mixed|null
+     */
+    public $weight;
+
+    /**
+     * **undocumented**.
+     *
+     * @var mixed|null
+     */
+    public $weight_unit;
+
+    /**
+     * **undocumented**.
+     *
+     * @var mixed|null
+     */
+    public $length;
+
+    /**
+     * **undocumented**.
+     *
+     * @var mixed|null
+     */
+    public $width;
+
+    /**
+     * **undocumented**.
+     *
+     * @var mixed|null
+     */
+    public $height;
+
+    /**
+     * **undocumented**.
+     *
+     * @var mixed|null
+     */
+    public $dimensions_unit;
 }
