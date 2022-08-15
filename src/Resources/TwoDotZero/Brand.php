@@ -39,4 +39,11 @@ class Brand extends DataTransferObject
      * @var int|null
      */
     public $version;
+
+    /**
+     * **undocumented**.
+     *
+     * @var mixed|null
+     */
+    public $description;
 }
