@@ -347,4 +347,11 @@ class Customer extends DataTransferObject
      * @var mixed|null
      */
     public $source_unique_id;
+    
+    /**
+     * **undocumented**.
+     *
+     * @var mixed|null
+     */
+    public $on_account_limit;
 }
