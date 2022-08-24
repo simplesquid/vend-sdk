@@ -225,4 +225,11 @@ class LineItem extends DataTransferObject
      * @var int|float|null
      */
     public $unit_tax;
+    
+    /**
+     * **undocumented**.
+     *
+     * @var mixed|null
+     */
+    public $user_id;
 }
