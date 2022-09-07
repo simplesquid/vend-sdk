@@ -232,4 +232,11 @@ class LineItem extends DataTransferObject
      * @var mixed|null
      */
     public $user_id;
+    
+    /**
+     * **undocumented**.
+     *
+     * @var mixed|null
+     */
+    public $salesperson_id;
 }
