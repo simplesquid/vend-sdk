@@ -376,4 +376,11 @@ class Product extends DataTransferObject
      * @var mixed|null
      */
     public $dimensions_unit;
+    
+    /**
+     * **undocumented**.
+     *
+     * @var mixed|null
+     */
+    public $product_category;
 }
