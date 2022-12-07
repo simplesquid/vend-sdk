@@ -20,13 +20,15 @@
         }
     ],
     "require": {
-        "php": "^8.0"
+        "php": "^8.0",
+        "sammyjo20/saloon": "v2.x-dev"
     },
     "require-dev": {
         "laravel/pint": "^1.2",
         "mockery/mockery": "^1.4.4",
-        "nunomaduro/collision": "^6.1",
-        "phpunit/phpunit": "^9.5.10",
+        "pestphp/pest": "^1.22",
+        "phpstan/phpstan": "^1.9",
+        "spatie/ray": "^1.28",
         "symfony/var-dumper": "^6.0"
     },
     "autoload": {
@@ -40,9 +42,16 @@
         }
     },
     "scripts": {
-        "test": "vendor/bin/phpunit --colors=always"
+        "analyse": "./vendor/bin/phpstan analyse",
+        "lint": "./vendor/bin/pint",
+        "test": "./vendor/bin/pest"
     },
     "config": {
-        "sort-packages": true
-    }
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }

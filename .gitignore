@@ -1,10 +1,6 @@
-composer.phar
 composer.lock
 auth.json
 vendor
-
-package-lock.json
-node_modules
 
 phpunit.xml
 .phpunit.*
@@ -12,6 +8,7 @@ build
 coverage
 
 .idea
+ray.php
 
 .DS_Store
 Thumbs.db
