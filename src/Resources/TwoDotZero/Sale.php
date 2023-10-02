@@ -223,18 +223,25 @@ class Sale extends DataTransferObject
      * @var mixed|null
      */
     public $return_ids;
-    
+
     /**
      * **undocumented**.
      *
      * @var mixed|null
      */
     public $has_unsynced_on_account_payments;
-    
+
     /**
      * **undocumented**.
      *
      * @var mixed|null
      */
     public $complete_open_sequence_id;
+
+    /**
+     * **undocumented**.
+     *
+     * @var mixed|null
+     */
+    public $attributes;
 }
