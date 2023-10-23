@@ -199,4 +199,11 @@ class RegisterSale extends DataTransferObject
      * @var string|null
      */
     public $user_name;
+
+    /**
+     * **undocumented**.
+     *
+     * @var mixed|null
+     */
+    public $register_sale_attributes;
 }
