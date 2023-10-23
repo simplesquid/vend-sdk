@@ -20,15 +20,15 @@
         }
     ],
     "require": {
-        "php": "^8.0",
-        "sammyjo20/saloon": "v2.x-dev"
+        "php": "^8.2",
+        "sammyjo20/saloon": "^3.0"
     },
     "require-dev": {
-        "laravel/pint": "^1.2",
+        "laravel/pint": "^1.13",
         "mockery/mockery": "^1.4.4",
-        "pestphp/pest": "^1.22",
-        "phpstan/phpstan": "^1.9",
-        "spatie/ray": "^1.28",
+        "pestphp/pest": "^1.23",
+        "phpstan/phpstan": "^1.10",
+        "spatie/ray": "^1.39",
         "symfony/var-dumper": "^6.0"
     },
     "autoload": {
