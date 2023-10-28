@@ -2,7 +2,6 @@
 
 namespace SimpleSquid\Vend\TwoZero\Requests\ProductTypes;
 
-use DateTime;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
@@ -13,20 +12,18 @@ use Saloon\Http\Request;
  */
 class GetProductTypeById extends Request
 {
-	protected Method $method = Method::GET;
+    protected Method $method = Method::GET;
 
+    public function resolveEndpoint(): string
+    {
+        return "/product_types/{$this->productTypeId}";
+    }
 
-	public function resolveEndpoint(): string
-	{
-		return "/product_types/{$this->productTypeId}";
-	}
-
-
-	/**
-	 * @param string $productTypeId The product type id
-	 */
-	public function __construct(
-		protected string $productTypeId,
-	) {
-	}
+    /**
+     * @param  string  $productTypeId The product type id
+     */
+    public function __construct(
+        protected string $productTypeId,
+    ) {
+    }
 }

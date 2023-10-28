@@ -12,41 +12,28 @@ use SimpleSquid\Vend\TwoZeroBeta\Resource;
 
 class Webhooks extends Resource
 {
-	/**
-	 * @param string $webhookId
-	 */
-	public function getWebhooksId(string $webhookId): Response
-	{
-		return $this->connector->send(new GetWebhooksId($webhookId));
-	}
+    public function getWebhooksId(string $webhookId): Response
+    {
+        return $this->connector->send(new GetWebhooksId($webhookId));
+    }
 
+    public function putWebhooksId(string $webhookId): Response
+    {
+        return $this->connector->send(new PutWebhooksId($webhookId));
+    }
 
-	/**
-	 * @param string $webhookId
-	 */
-	public function putWebhooksId(string $webhookId): Response
-	{
-		return $this->connector->send(new PutWebhooksId($webhookId));
-	}
+    public function deleteWebhooksWebhookId(string $webhookId): Response
+    {
+        return $this->connector->send(new DeleteWebhooksWebhookId($webhookId));
+    }
 
+    public function getWebhooks(): Response
+    {
+        return $this->connector->send(new GetWebhooks());
+    }
 
-	/**
-	 * @param string $webhookId
-	 */
-	public function deleteWebhooksWebhookId(string $webhookId): Response
-	{
-		return $this->connector->send(new DeleteWebhooksWebhookId($webhookId));
-	}
-
-
-	public function getWebhooks(): Response
-	{
-		return $this->connector->send(new GetWebhooks());
-	}
-
-
-	public function postWebhooks(): Response
-	{
-		return $this->connector->send(new PostWebhooks());
-	}
+    public function postWebhooks(): Response
+    {
+        return $this->connector->send(new PostWebhooks());
+    }
 }

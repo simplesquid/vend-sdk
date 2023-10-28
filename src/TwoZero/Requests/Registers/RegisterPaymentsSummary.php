@@ -2,7 +2,6 @@
 
 namespace SimpleSquid\Vend\TwoZero\Requests\Registers;
 
-use DateTime;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
@@ -14,20 +13,18 @@ use Saloon\Http\Request;
  */
 class RegisterPaymentsSummary extends Request
 {
-	protected Method $method = Method::GET;
+    protected Method $method = Method::GET;
 
+    public function resolveEndpoint(): string
+    {
+        return "/registers/{$this->registerId}/payments_summary";
+    }
 
-	public function resolveEndpoint(): string
-	{
-		return "/registers/{$this->registerId}/payments_summary";
-	}
-
-
-	/**
-	 * @param string $registerId The register id
-	 */
-	public function __construct(
-		protected string $registerId,
-	) {
-	}
+    /**
+     * @param  string  $registerId The register id
+     */
+    public function __construct(
+        protected string $registerId,
+    ) {
+    }
 }

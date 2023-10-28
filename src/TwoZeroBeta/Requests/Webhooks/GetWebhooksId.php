@@ -2,7 +2,6 @@
 
 namespace SimpleSquid\Vend\TwoZeroBeta\Requests\Webhooks;
 
-use DateTime;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
@@ -13,20 +12,15 @@ use Saloon\Http\Request;
  */
 class GetWebhooksId extends Request
 {
-	protected Method $method = Method::GET;
+    protected Method $method = Method::GET;
 
+    public function resolveEndpoint(): string
+    {
+        return "/webhooks/{$this->webhookId}";
+    }
 
-	public function resolveEndpoint(): string
-	{
-		return "/webhooks/{$this->webhookId}";
-	}
-
-
-	/**
-	 * @param string $webhookId
-	 */
-	public function __construct(
-		protected string $webhookId,
-	) {
-	}
+    public function __construct(
+        protected string $webhookId,
+    ) {
+    }
 }

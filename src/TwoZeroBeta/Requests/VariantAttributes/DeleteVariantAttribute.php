@@ -2,7 +2,6 @@
 
 namespace SimpleSquid\Vend\TwoZeroBeta\Requests\VariantAttributes;
 
-use DateTime;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
@@ -13,20 +12,18 @@ use Saloon\Http\Request;
  */
 class DeleteVariantAttribute extends Request
 {
-	protected Method $method = Method::DELETE;
+    protected Method $method = Method::DELETE;
 
+    public function resolveEndpoint(): string
+    {
+        return "/variant_attributes/{$this->attributeId}";
+    }
 
-	public function resolveEndpoint(): string
-	{
-		return "/variant_attributes/{$this->attributeId}";
-	}
-
-
-	/**
-	 * @param string $attributeId The object identifier of the Variant Attribute to delete.
-	 */
-	public function __construct(
-		protected string $attributeId,
-	) {
-	}
+    /**
+     * @param  string  $attributeId The object identifier of the Variant Attribute to delete.
+     */
+    public function __construct(
+        protected string $attributeId,
+    ) {
+    }
 }

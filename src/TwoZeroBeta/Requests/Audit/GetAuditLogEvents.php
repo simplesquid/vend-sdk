@@ -2,7 +2,6 @@
 
 namespace SimpleSquid\Vend\TwoZeroBeta\Requests\Audit;
 
-use DateTime;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
@@ -47,46 +46,43 @@ use Saloon\Http\Request;
  */
 class GetAuditLogEvents extends Request
 {
-	protected Method $method = Method::GET;
+    protected Method $method = Method::GET;
 
+    public function resolveEndpoint(): string
+    {
+        return '/auditlog_events';
+    }
 
-	public function resolveEndpoint(): string
-	{
-		return "/auditlog_events";
-	}
+    /**
+     * @param  null|string  $pageSize The size for a single page of results. By default 100 events will be returned.
+     * @param  null|string  $offset The number of objects to skip.
+     * @param  null|string  $from The lower limit for the `occurred_at` attribute. to be included in the response. The date and time from needs to be in isoformat.
+     * @param  null|string  $to The upper limit for the `occurred_at` attribute. to be included in the response. The date and time from needs to be in isoformat.
+     * @param  null|string  $order The sorting order for the results. Sorting is done by the `occurred_at` parameter. The default order is descending.
+     * @param  null|string  $userId The `id` of the user to filter the events by.
+     * @param  null|string  $type The `type` of the events to be filtered for the response.
+     */
+    public function __construct(
+        protected ?string $pageSize = null,
+        protected ?string $offset = null,
+        protected ?string $from = null,
+        protected ?string $to = null,
+        protected ?string $order = null,
+        protected ?string $userId = null,
+        protected ?string $type = null,
+    ) {
+    }
 
-
-	/**
-	 * @param null|string $pageSize The size for a single page of results. By default 100 events will be returned.
-	 * @param null|string $offset The number of objects to skip.
-	 * @param null|string $from The lower limit for the `occurred_at` attribute. to be included in the response. The date and time from needs to be in isoformat.
-	 * @param null|string $to The upper limit for the `occurred_at` attribute. to be included in the response. The date and time from needs to be in isoformat.
-	 * @param null|string $order The sorting order for the results. Sorting is done by the `occurred_at` parameter. The default order is descending.
-	 * @param null|string $userId The `id` of the user to filter the events by.
-	 * @param null|string $type The `type` of the events to be filtered for the response.
-	 */
-	public function __construct(
-		protected ?string $pageSize = null,
-		protected ?string $offset = null,
-		protected ?string $from = null,
-		protected ?string $to = null,
-		protected ?string $order = null,
-		protected ?string $userId = null,
-		protected ?string $type = null,
-	) {
-	}
-
-
-	public function defaultQuery(): array
-	{
-		return array_filter([
-			'page_size' => $this->pageSize,
-			'offset' => $this->offset,
-			'from' => $this->from,
-			'to' => $this->to,
-			'order' => $this->order,
-			'user_id' => $this->userId,
-			'type' => $this->type,
-		]);
-	}
+    public function defaultQuery(): array
+    {
+        return array_filter([
+            'page_size' => $this->pageSize,
+            'offset' => $this->offset,
+            'from' => $this->from,
+            'to' => $this->to,
+            'order' => $this->order,
+            'user_id' => $this->userId,
+            'type' => $this->type,
+        ]);
+    }
 }

@@ -2,7 +2,6 @@
 
 namespace SimpleSquid\Vend\TwoZero\Requests\PriceBooks;
 
-use DateTime;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -22,22 +21,20 @@ use Saloon\Traits\Body\HasJsonBody;
  */
 class UpdatePriceBookProducts extends Request implements HasBody
 {
-	use HasJsonBody;
+    use HasJsonBody;
 
-	protected Method $method = Method::PATCH;
+    protected Method $method = Method::PATCH;
 
+    public function resolveEndpoint(): string
+    {
+        return "/price_books/{$this->priceBookId}/products";
+    }
 
-	public function resolveEndpoint(): string
-	{
-		return "/price_books/{$this->priceBookId}/products";
-	}
-
-
-	/**
-	 * @param string $priceBookId The price book id
-	 */
-	public function __construct(
-		protected string $priceBookId,
-	) {
-	}
+    /**
+     * @param  string  $priceBookId The price book id
+     */
+    public function __construct(
+        protected string $priceBookId,
+    ) {
+    }
 }

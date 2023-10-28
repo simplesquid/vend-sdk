@@ -12,14 +12,13 @@ use SimpleSquid\Vend\TwoOneBeta\Resource\Products;
  */
 class VendTwoOneBeta extends Connector
 {
-	public function resolveBaseUrl(): string
-	{
-		return 'https://domain_prefix.vendhq.com/api/2.1';
-	}
+    public function resolveBaseUrl(): string
+    {
+        return 'https://domain_prefix.vendhq.com/api/2.1';
+    }
 
-
-	public function products(): Products
-	{
-		return new Products($this);
-	}
+    public function products(): Products
+    {
+        return new Products($this);
+    }
 }

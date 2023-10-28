@@ -2,7 +2,6 @@
 
 namespace SimpleSquid\Vend\TwoZero\Requests\Brands;
 
-use DateTime;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
@@ -13,20 +12,18 @@ use Saloon\Http\Request;
  */
 class GetBrandById extends Request
 {
-	protected Method $method = Method::GET;
+    protected Method $method = Method::GET;
 
+    public function resolveEndpoint(): string
+    {
+        return "/brands/{$this->brandId}";
+    }
 
-	public function resolveEndpoint(): string
-	{
-		return "/brands/{$this->brandId}";
-	}
-
-
-	/**
-	 * @param string $brandId The brand id
-	 */
-	public function __construct(
-		protected string $brandId,
-	) {
-	}
+    /**
+     * @param  string  $brandId The brand id
+     */
+    public function __construct(
+        protected string $brandId,
+    ) {
+    }
 }

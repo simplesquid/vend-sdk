@@ -2,7 +2,6 @@
 
 namespace SimpleSquid\Vend\TwoZero\Requests\Promotions;
 
-use DateTime;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
@@ -24,30 +23,27 @@ use Saloon\Http\Request;
  */
 class ListPromotions extends Request
 {
-	protected Method $method = Method::GET;
+    protected Method $method = Method::GET;
 
+    public function resolveEndpoint(): string
+    {
+        return '/promotions';
+    }
 
-	public function resolveEndpoint(): string
-	{
-		return "/promotions";
-	}
+    /**
+     * @param  null|string  $endTimeTo Upper limit for the promotion end date as UTC timestamp. Format: `2020-08-08T12:00:00Z`.
+     * @param  null|string  $endTimeFrom Lower limit for the promotion end date as UTC timestamp. Format: `2020-08-08T12:00:00Z`.
+     * @param  null|int  $pageSize The maximum number of items to be returned in the response.
+     */
+    public function __construct(
+        protected ?string $endTimeTo = null,
+        protected ?string $endTimeFrom = null,
+        protected ?int $pageSize = null,
+    ) {
+    }
 
-
-	/**
-	 * @param null|string $endTimeTo Upper limit for the promotion end date as UTC timestamp. Format: `2020-08-08T12:00:00Z`.
-	 * @param null|string $endTimeFrom Lower limit for the promotion end date as UTC timestamp. Format: `2020-08-08T12:00:00Z`.
-	 * @param null|int $pageSize The maximum number of items to be returned in the response.
-	 */
-	public function __construct(
-		protected ?string $endTimeTo = null,
-		protected ?string $endTimeFrom = null,
-		protected ?int $pageSize = null,
-	) {
-	}
-
-
-	public function defaultQuery(): array
-	{
-		return array_filter(['end_time_to' => $this->endTimeTo, 'end_time_from' => $this->endTimeFrom, 'page_size' => $this->pageSize]);
-	}
+    public function defaultQuery(): array
+    {
+        return array_filter(['end_time_to' => $this->endTimeTo, 'end_time_from' => $this->endTimeFrom, 'page_size' => $this->pageSize]);
+    }
 }

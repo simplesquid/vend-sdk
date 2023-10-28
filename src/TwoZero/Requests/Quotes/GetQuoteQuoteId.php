@@ -2,7 +2,6 @@
 
 namespace SimpleSquid\Vend\TwoZero\Requests\Quotes;
 
-use DateTime;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
@@ -13,20 +12,18 @@ use Saloon\Http\Request;
  */
 class GetQuoteQuoteId extends Request
 {
-	protected Method $method = Method::GET;
+    protected Method $method = Method::GET;
 
+    public function resolveEndpoint(): string
+    {
+        return "/quotes/{$this->quoteId}";
+    }
 
-	public function resolveEndpoint(): string
-	{
-		return "/quotes/{$this->quoteId}";
-	}
-
-
-	/**
-	 * @param string $quoteId ID of the quote to get
-	 */
-	public function __construct(
-		protected string $quoteId,
-	) {
-	}
+    /**
+     * @param  string  $quoteId ID of the quote to get
+     */
+    public function __construct(
+        protected string $quoteId,
+    ) {
+    }
 }

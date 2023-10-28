@@ -2,7 +2,6 @@
 
 namespace SimpleSquid\Vend\TwoZero\Requests\PriceBooks;
 
-use DateTime;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
@@ -19,20 +18,18 @@ use Saloon\Http\Request;
  */
 class DeletePriceBookProducts extends Request
 {
-	protected Method $method = Method::DELETE;
+    protected Method $method = Method::DELETE;
 
+    public function resolveEndpoint(): string
+    {
+        return "/price_books/{$this->priceBookId}/products";
+    }
 
-	public function resolveEndpoint(): string
-	{
-		return "/price_books/{$this->priceBookId}/products";
-	}
-
-
-	/**
-	 * @param string $priceBookId The price book id
-	 */
-	public function __construct(
-		protected string $priceBookId,
-	) {
-	}
+    /**
+     * @param  string  $priceBookId The price book id
+     */
+    public function __construct(
+        protected string $priceBookId,
+    ) {
+    }
 }

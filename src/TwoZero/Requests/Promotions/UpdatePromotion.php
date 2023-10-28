@@ -2,7 +2,6 @@
 
 namespace SimpleSquid\Vend\TwoZero\Requests\Promotions;
 
-use DateTime;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
@@ -20,20 +19,18 @@ use Saloon\Http\Request;
  */
 class UpdatePromotion extends Request
 {
-	protected Method $method = Method::PUT;
+    protected Method $method = Method::PUT;
 
+    public function resolveEndpoint(): string
+    {
+        return "/promotions/{$this->promotionId}";
+    }
 
-	public function resolveEndpoint(): string
-	{
-		return "/promotions/{$this->promotionId}";
-	}
-
-
-	/**
-	 * @param string $promotionId The promotion id
-	 */
-	public function __construct(
-		protected string $promotionId,
-	) {
-	}
+    /**
+     * @param  string  $promotionId The promotion id
+     */
+    public function __construct(
+        protected string $promotionId,
+    ) {
+    }
 }

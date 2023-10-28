@@ -2,7 +2,6 @@
 
 namespace SimpleSquid\Vend\TwoZeroBeta\Requests\GiftCards;
 
-use DateTime;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
@@ -14,20 +13,18 @@ use Saloon\Http\Request;
  */
 class FindGiftCardByTransactionId extends Request
 {
-	protected Method $method = Method::GET;
+    protected Method $method = Method::GET;
 
+    public function resolveEndpoint(): string
+    {
+        return "/gift_cards/transactions/{$this->transactionId}";
+    }
 
-	public function resolveEndpoint(): string
-	{
-		return "/gift_cards/transactions/{$this->transactionId}";
-	}
-
-
-	/**
-	 * @param string $transactionId The transaction id of the gift card transaction to find.
-	 */
-	public function __construct(
-		protected string $transactionId,
-	) {
-	}
+    /**
+     * @param  string  $transactionId The transaction id of the gift card transaction to find.
+     */
+    public function __construct(
+        protected string $transactionId,
+    ) {
+    }
 }

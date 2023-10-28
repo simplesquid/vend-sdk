@@ -11,38 +11,32 @@ use SimpleSquid\Vend\TwoZero\Resource;
 
 class ServiceOrders extends Resource
 {
-	/**
-	 * @param int $limit The maximum number of items to be returned in the response.
-	 */
-	public function listServices(?int $limit): Response
-	{
-		return $this->connector->send(new ListServices($limit));
-	}
+    /**
+     * @param  int  $limit The maximum number of items to be returned in the response.
+     */
+    public function listServices(?int $limit): Response
+    {
+        return $this->connector->send(new ListServices($limit));
+    }
 
+    /**
+     * @param  int  $limit The maximum number of items to be returned in the response.
+     */
+    public function listServiceItems(?int $limit): Response
+    {
+        return $this->connector->send(new ListServiceItems($limit));
+    }
 
-	/**
-	 * @param int $limit The maximum number of items to be returned in the response.
-	 */
-	public function listServiceItems(?int $limit): Response
-	{
-		return $this->connector->send(new ListServiceItems($limit));
-	}
+    /**
+     * @param  string  $serviceId ID of the service to get
+     */
+    public function getService(string $serviceId): Response
+    {
+        return $this->connector->send(new GetService($serviceId));
+    }
 
-
-	/**
-	 * @param string $serviceId ID of the service to get
-	 */
-	public function getService(string $serviceId): Response
-	{
-		return $this->connector->send(new GetService($serviceId));
-	}
-
-
-	/**
-	 * @param string $outletId
-	 */
-	public function getAgendaOutletId(string $outletId): Response
-	{
-		return $this->connector->send(new GetAgendaOutletId($outletId));
-	}
+    public function getAgendaOutletId(string $outletId): Response
+    {
+        return $this->connector->send(new GetAgendaOutletId($outletId));
+    }
 }

@@ -2,7 +2,6 @@
 
 namespace SimpleSquid\Vend\TwoZeroBeta\Requests\GiftCards;
 
-use DateTime;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -32,22 +31,20 @@ use Saloon\Traits\Body\HasJsonBody;
  */
 class CreateGiftCardTransaction extends Request implements HasBody
 {
-	use HasJsonBody;
+    use HasJsonBody;
 
-	protected Method $method = Method::POST;
+    protected Method $method = Method::POST;
 
+    public function resolveEndpoint(): string
+    {
+        return "/gift_cards/{$this->number}/transactions";
+    }
 
-	public function resolveEndpoint(): string
-	{
-		return "/gift_cards/{$this->number}/transactions";
-	}
-
-
-	/**
-	 * @param string $number The number of the gift card to add the transaction to.
-	 */
-	public function __construct(
-		protected string $number,
-	) {
-	}
+    /**
+     * @param  string  $number The number of the gift card to add the transaction to.
+     */
+    public function __construct(
+        protected string $number,
+    ) {
+    }
 }

@@ -2,7 +2,6 @@
 
 namespace SimpleSquid\Vend\TwoZeroBeta\Requests\VariantAttributes;
 
-use DateTime;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
@@ -13,26 +12,23 @@ use Saloon\Http\Request;
  */
 class ListVariantAttributes extends Request
 {
-	protected Method $method = Method::GET;
+    protected Method $method = Method::GET;
 
+    public function resolveEndpoint(): string
+    {
+        return '/variant_attributes';
+    }
 
-	public function resolveEndpoint(): string
-	{
-		return "/variant_attributes";
-	}
+    /**
+     * @param  null|bool  $deleted Indicates whether deleted items should be included in the response.
+     */
+    public function __construct(
+        protected ?bool $deleted = null,
+    ) {
+    }
 
-
-	/**
-	 * @param null|bool $deleted Indicates whether deleted items should be included in the response.
-	 */
-	public function __construct(
-		protected ?bool $deleted = null,
-	) {
-	}
-
-
-	public function defaultQuery(): array
-	{
-		return array_filter(['deleted' => $this->deleted]);
-	}
+    public function defaultQuery(): array
+    {
+        return array_filter(['deleted' => $this->deleted]);
+    }
 }

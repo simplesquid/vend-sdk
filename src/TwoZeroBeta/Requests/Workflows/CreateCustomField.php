@@ -2,7 +2,6 @@
 
 namespace SimpleSquid\Vend\TwoZeroBeta\Requests\Workflows;
 
-use DateTime;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -15,18 +14,12 @@ use Saloon\Traits\Body\HasJsonBody;
  */
 class CreateCustomField extends Request implements HasBody
 {
-	use HasJsonBody;
+    use HasJsonBody;
 
-	protected Method $method = Method::POST;
+    protected Method $method = Method::POST;
 
-
-	public function resolveEndpoint(): string
-	{
-		return "/workflows/custom_fields";
-	}
-
-
-	public function __construct()
-	{
-	}
+    public function resolveEndpoint(): string
+    {
+        return '/workflows/custom_fields';
+    }
 }

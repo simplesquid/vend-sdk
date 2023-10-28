@@ -2,7 +2,6 @@
 
 namespace SimpleSquid\Vend\TwoZero\Requests\Sales;
 
-use DateTime;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
@@ -14,20 +13,18 @@ use Saloon\Http\Request;
  */
 class InitReturnSale extends Request
 {
-	protected Method $method = Method::PUT;
+    protected Method $method = Method::PUT;
 
+    public function resolveEndpoint(): string
+    {
+        return "/sales/{$this->saleId}/actions/return";
+    }
 
-	public function resolveEndpoint(): string
-	{
-		return "/sales/{$this->saleId}/actions/return";
-	}
-
-
-	/**
-	 * @param string $saleId A completed sale ID - a valid sale with status of `CLOSED`, `ONACCOUNT_CLOSED` or `LAYBY_CLOSED`.
-	 */
-	public function __construct(
-		protected string $saleId,
-	) {
-	}
+    /**
+     * @param  string  $saleId A completed sale ID - a valid sale with status of `CLOSED`, `ONACCOUNT_CLOSED` or `LAYBY_CLOSED`.
+     */
+    public function __construct(
+        protected string $saleId,
+    ) {
+    }
 }

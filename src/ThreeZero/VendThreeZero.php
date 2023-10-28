@@ -12,14 +12,13 @@ use SimpleSquid\Vend\ThreeZero\Resource\PriceBooks;
  */
 class VendThreeZero extends Connector
 {
-	public function resolveBaseUrl(): string
-	{
-		return 'https://domain_prefix.vendhq.com/api/3.0';
-	}
+    public function resolveBaseUrl(): string
+    {
+        return 'https://domain_prefix.vendhq.com/api/3.0';
+    }
 
-
-	public function priceBooks(): PriceBooks
-	{
-		return new PriceBooks($this);
-	}
+    public function priceBooks(): PriceBooks
+    {
+        return new PriceBooks($this);
+    }
 }

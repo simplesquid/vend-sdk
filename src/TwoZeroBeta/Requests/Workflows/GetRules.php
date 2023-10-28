@@ -2,7 +2,6 @@
 
 namespace SimpleSquid\Vend\TwoZeroBeta\Requests\Workflows;
 
-use DateTime;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
@@ -13,16 +12,10 @@ use Saloon\Http\Request;
  */
 class GetRules extends Request
 {
-	protected Method $method = Method::GET;
+    protected Method $method = Method::GET;
 
-
-	public function resolveEndpoint(): string
-	{
-		return "/workflows/rules";
-	}
-
-
-	public function __construct()
-	{
-	}
+    public function resolveEndpoint(): string
+    {
+        return '/workflows/rules';
+    }
 }

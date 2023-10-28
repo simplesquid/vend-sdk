@@ -18,50 +18,43 @@ use SimpleSquid\Vend\TwoZeroBeta\Resource\Workflows;
  */
 class VendTwoZeroBeta extends Connector
 {
-	public function resolveBaseUrl(): string
-	{
-		return 'https://domain_prefix.vendhq.com/api/2.0';
-	}
+    public function resolveBaseUrl(): string
+    {
+        return 'https://domain_prefix.vendhq.com/api/2.0';
+    }
 
+    public function audit(): Audit
+    {
+        return new Audit($this);
+    }
 
-	public function audit(): Audit
-	{
-		return new Audit($this);
-	}
+    public function giftCards(): GiftCards
+    {
+        return new GiftCards($this);
+    }
 
+    public function partnerBilling(): PartnerBilling
+    {
+        return new PartnerBilling($this);
+    }
 
-	public function giftCards(): GiftCards
-	{
-		return new GiftCards($this);
-	}
+    public function storeCredits(): StoreCredits
+    {
+        return new StoreCredits($this);
+    }
 
+    public function variantAttributes(): VariantAttributes
+    {
+        return new VariantAttributes($this);
+    }
 
-	public function partnerBilling(): PartnerBilling
-	{
-		return new PartnerBilling($this);
-	}
+    public function webhooks(): Webhooks
+    {
+        return new Webhooks($this);
+    }
 
-
-	public function storeCredits(): StoreCredits
-	{
-		return new StoreCredits($this);
-	}
-
-
-	public function variantAttributes(): VariantAttributes
-	{
-		return new VariantAttributes($this);
-	}
-
-
-	public function webhooks(): Webhooks
-	{
-		return new Webhooks($this);
-	}
-
-
-	public function workflows(): Workflows
-	{
-		return new Workflows($this);
-	}
+    public function workflows(): Workflows
+    {
+        return new Workflows($this);
+    }
 }

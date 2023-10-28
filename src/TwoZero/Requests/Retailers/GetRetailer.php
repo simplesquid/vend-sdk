@@ -2,7 +2,6 @@
 
 namespace SimpleSquid\Vend\TwoZero\Requests\Retailers;
 
-use DateTime;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
@@ -13,16 +12,10 @@ use Saloon\Http\Request;
  */
 class GetRetailer extends Request
 {
-	protected Method $method = Method::GET;
+    protected Method $method = Method::GET;
 
-
-	public function resolveEndpoint(): string
-	{
-		return "/retailer";
-	}
-
-
-	public function __construct()
-	{
-	}
+    public function resolveEndpoint(): string
+    {
+        return '/retailer';
+    }
 }

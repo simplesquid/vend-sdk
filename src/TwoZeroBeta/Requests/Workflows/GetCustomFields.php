@@ -2,7 +2,6 @@
 
 namespace SimpleSquid\Vend\TwoZeroBeta\Requests\Workflows;
 
-use DateTime;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
@@ -13,26 +12,23 @@ use Saloon\Http\Request;
  */
 class GetCustomFields extends Request
 {
-	protected Method $method = Method::GET;
+    protected Method $method = Method::GET;
 
+    public function resolveEndpoint(): string
+    {
+        return '/workflows/custom_fields';
+    }
 
-	public function resolveEndpoint(): string
-	{
-		return "/workflows/custom_fields";
-	}
+    /**
+     * @param  string  $entity The entity type.
+     */
+    public function __construct(
+        protected string $entity,
+    ) {
+    }
 
-
-	/**
-	 * @param string $entity The entity type.
-	 */
-	public function __construct(
-		protected string $entity,
-	) {
-	}
-
-
-	public function defaultQuery(): array
-	{
-		return array_filter(['entity' => $this->entity]);
-	}
+    public function defaultQuery(): array
+    {
+        return array_filter(['entity' => $this->entity]);
+    }
 }

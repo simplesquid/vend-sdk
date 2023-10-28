@@ -2,7 +2,6 @@
 
 namespace SimpleSquid\Vend\ZeroNine\Requests\ConsignmentProducts;
 
-use DateTime;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -17,18 +16,12 @@ use Saloon\Traits\Body\HasJsonBody;
  */
 class NewConsignmentProduct extends Request implements HasBody
 {
-	use HasJsonBody;
+    use HasJsonBody;
 
-	protected Method $method = Method::POST;
+    protected Method $method = Method::POST;
 
-
-	public function resolveEndpoint(): string
-	{
-		return "/consignment_product";
-	}
-
-
-	public function __construct()
-	{
-	}
+    public function resolveEndpoint(): string
+    {
+        return '/consignment_product';
+    }
 }

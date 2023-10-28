@@ -9,17 +9,16 @@ use SimpleSquid\Vend\TwoOneBeta\Resource;
 
 class Products extends Resource
 {
-	/**
-	 * @param string $productId The object identifier of the Product to update.
-	 */
-	public function updateProduct(string $productId): Response
-	{
-		return $this->connector->send(new UpdateProduct($productId));
-	}
+    /**
+     * @param  string  $productId The object identifier of the Product to update.
+     */
+    public function updateProduct(string $productId): Response
+    {
+        return $this->connector->send(new UpdateProduct($productId));
+    }
 
-
-	public function addSingleVariant(): Response
-	{
-		return $this->connector->send(new AddSingleVariant());
-	}
+    public function addSingleVariant(): Response
+    {
+        return $this->connector->send(new AddSingleVariant());
+    }
 }

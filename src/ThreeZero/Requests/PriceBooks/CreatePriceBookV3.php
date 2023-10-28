@@ -2,7 +2,6 @@
 
 namespace SimpleSquid\Vend\ThreeZero\Requests\PriceBooks;
 
-use DateTime;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -15,18 +14,12 @@ use Saloon\Traits\Body\HasJsonBody;
  */
 class CreatePriceBookV3 extends Request implements HasBody
 {
-	use HasJsonBody;
+    use HasJsonBody;
 
-	protected Method $method = Method::POST;
+    protected Method $method = Method::POST;
 
-
-	public function resolveEndpoint(): string
-	{
-		return "/price_books";
-	}
-
-
-	public function __construct()
-	{
-	}
+    public function resolveEndpoint(): string
+    {
+        return '/price_books';
+    }
 }

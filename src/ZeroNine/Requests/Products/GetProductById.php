@@ -2,7 +2,6 @@
 
 namespace SimpleSquid\Vend\ZeroNine\Requests\Products;
 
-use DateTime;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
@@ -15,20 +14,18 @@ use Saloon\Http\Request;
  */
 class GetProductById extends Request
 {
-	protected Method $method = Method::GET;
+    protected Method $method = Method::GET;
 
+    public function resolveEndpoint(): string
+    {
+        return "/products/{$this->productId}";
+    }
 
-	public function resolveEndpoint(): string
-	{
-		return "/products/{$this->productId}";
-	}
-
-
-	/**
-	 * @param string $productId An ID of an existing product.
-	 */
-	public function __construct(
-		protected string $productId,
-	) {
-	}
+    /**
+     * @param  string  $productId An ID of an existing product.
+     */
+    public function __construct(
+        protected string $productId,
+    ) {
+    }
 }

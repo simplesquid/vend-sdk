@@ -9,14 +9,13 @@ use SimpleSquid\Vend\TwoZero\Resource;
 
 class PromoCode extends Resource
 {
-	public function getActivePromoCodesBulk(): Response
-	{
-		return $this->connector->send(new GetActivePromoCodesBulk());
-	}
+    public function getActivePromoCodesBulk(): Response
+    {
+        return $this->connector->send(new GetActivePromoCodesBulk());
+    }
 
-
-	public function deletePromoCodesBulk(): Response
-	{
-		return $this->connector->send(new DeletePromoCodesBulk());
-	}
+    public function deletePromoCodesBulk(): Response
+    {
+        return $this->connector->send(new DeletePromoCodesBulk());
+    }
 }

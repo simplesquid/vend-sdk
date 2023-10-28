@@ -2,7 +2,6 @@
 
 namespace SimpleSquid\Vend\TwoZero\Requests\CustomerGroups;
 
-use DateTime;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -15,22 +14,20 @@ use Saloon\Traits\Body\HasJsonBody;
  */
 class AddCustomersToCustomerGroup extends Request implements HasBody
 {
-	use HasJsonBody;
+    use HasJsonBody;
 
-	protected Method $method = Method::POST;
+    protected Method $method = Method::POST;
 
+    public function resolveEndpoint(): string
+    {
+        return "/customer_groups/{$this->customerGroupId}/customers";
+    }
 
-	public function resolveEndpoint(): string
-	{
-		return "/customer_groups/{$this->customerGroupId}/customers";
-	}
-
-
-	/**
-	 * @param string $customerGroupId The customer group id
-	 */
-	public function __construct(
-		protected string $customerGroupId,
-	) {
-	}
+    /**
+     * @param  string  $customerGroupId The customer group id
+     */
+    public function __construct(
+        protected string $customerGroupId,
+    ) {
+    }
 }

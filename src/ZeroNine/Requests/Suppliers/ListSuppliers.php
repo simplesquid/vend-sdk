@@ -2,7 +2,6 @@
 
 namespace SimpleSquid\Vend\ZeroNine\Requests\Suppliers;
 
-use DateTime;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
@@ -15,28 +14,25 @@ use Saloon\Http\Request;
  */
 class ListSuppliers extends Request
 {
-	protected Method $method = Method::GET;
+    protected Method $method = Method::GET;
 
+    public function resolveEndpoint(): string
+    {
+        return '/supplier';
+    }
 
-	public function resolveEndpoint(): string
-	{
-		return "/supplier";
-	}
+    /**
+     * @param  null|float|int  $page The number of the page of results to be returned.
+     * @param  null|float|int  $pageSize The size of the page of results to be returned.
+     */
+    public function __construct(
+        protected float|int|null $page = null,
+        protected float|int|null $pageSize = null,
+    ) {
+    }
 
-
-	/**
-	 * @param null|float|int $page The number of the page of results to be returned.
-	 * @param null|float|int $pageSize The size of the page of results to be returned.
-	 */
-	public function __construct(
-		protected float|int|null $page = null,
-		protected float|int|null $pageSize = null,
-	) {
-	}
-
-
-	public function defaultQuery(): array
-	{
-		return array_filter(['page' => $this->page, 'page_size' => $this->pageSize]);
-	}
+    public function defaultQuery(): array
+    {
+        return array_filter(['page' => $this->page, 'page_size' => $this->pageSize]);
+    }
 }

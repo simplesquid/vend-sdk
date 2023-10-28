@@ -2,7 +2,6 @@
 
 namespace SimpleSquid\Vend\TwoZero\Requests\Outlets;
 
-use DateTime;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
@@ -13,20 +12,18 @@ use Saloon\Http\Request;
  */
 class GetOutletById extends Request
 {
-	protected Method $method = Method::GET;
+    protected Method $method = Method::GET;
 
+    public function resolveEndpoint(): string
+    {
+        return "/outlets/{$this->outletId}";
+    }
 
-	public function resolveEndpoint(): string
-	{
-		return "/outlets/{$this->outletId}";
-	}
-
-
-	/**
-	 * @param string $outletId The outlet id
-	 */
-	public function __construct(
-		protected string $outletId,
-	) {
-	}
+    /**
+     * @param  string  $outletId The outlet id
+     */
+    public function __construct(
+        protected string $outletId,
+    ) {
+    }
 }

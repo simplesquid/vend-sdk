@@ -2,7 +2,6 @@
 
 namespace SimpleSquid\Vend\ZeroNine\Requests\Webhooks;
 
-use DateTime;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
@@ -15,20 +14,18 @@ use Saloon\Http\Request;
  */
 class UpdateWebhook extends Request
 {
-	protected Method $method = Method::PUT;
+    protected Method $method = Method::PUT;
 
+    public function resolveEndpoint(): string
+    {
+        return "/webhooks/{$this->webhookId}";
+    }
 
-	public function resolveEndpoint(): string
-	{
-		return "/webhooks/{$this->webhookId}";
-	}
-
-
-	/**
-	 * @param string $webhookId The ID of the webhook to be updated.
-	 */
-	public function __construct(
-		protected string $webhookId,
-	) {
-	}
+    /**
+     * @param  string  $webhookId The ID of the webhook to be updated.
+     */
+    public function __construct(
+        protected string $webhookId,
+    ) {
+    }
 }

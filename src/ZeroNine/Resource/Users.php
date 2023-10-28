@@ -8,8 +8,8 @@ use SimpleSquid\Vend\ZeroNine\Resource;
 
 class Users extends Resource
 {
-	public function listUsers(): Response
-	{
-		return $this->connector->send(new ListUsers());
-	}
+    public function listUsers(): Response
+    {
+        return $this->connector->send(new ListUsers());
+    }
 }

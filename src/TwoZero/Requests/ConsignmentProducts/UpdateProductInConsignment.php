@@ -2,7 +2,6 @@
 
 namespace SimpleSquid\Vend\TwoZero\Requests\ConsignmentProducts;
 
-use DateTime;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
@@ -29,22 +28,20 @@ use Saloon\Http\Request;
  */
 class UpdateProductInConsignment extends Request
 {
-	protected Method $method = Method::PUT;
+    protected Method $method = Method::PUT;
 
+    public function resolveEndpoint(): string
+    {
+        return "/consignments/{$this->consignmentId}/products/{$this->productId}";
+    }
 
-	public function resolveEndpoint(): string
-	{
-		return "/consignments/{$this->consignmentId}/products/{$this->productId}";
-	}
-
-
-	/**
-	 * @param string $consignmentId The consignment id to be updated.
-	 * @param string $productId The product id of the product to be added to the consignment.
-	 */
-	public function __construct(
-		protected string $consignmentId,
-		protected string $productId,
-	) {
-	}
+    /**
+     * @param  string  $consignmentId The consignment id to be updated.
+     * @param  string  $productId The product id of the product to be added to the consignment.
+     */
+    public function __construct(
+        protected string $consignmentId,
+        protected string $productId,
+    ) {
+    }
 }

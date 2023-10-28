@@ -2,7 +2,6 @@
 
 namespace SimpleSquid\Vend\TwoZeroBeta\Requests\StoreCredits;
 
-use DateTime;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -33,22 +32,20 @@ use Saloon\Traits\Body\HasJsonBody;
  */
 class CreateStoreCreditTransaction extends Request implements HasBody
 {
-	use HasJsonBody;
+    use HasJsonBody;
 
-	protected Method $method = Method::POST;
+    protected Method $method = Method::POST;
 
+    public function resolveEndpoint(): string
+    {
+        return "/store_credits/{$this->customerId}/transactions";
+    }
 
-	public function resolveEndpoint(): string
-	{
-		return "/store_credits/{$this->customerId}/transactions";
-	}
-
-
-	/**
-	 * @param string $customerId The customer id to apply the store transaction to.
-	 */
-	public function __construct(
-		protected string $customerId,
-	) {
-	}
+    /**
+     * @param  string  $customerId The customer id to apply the store transaction to.
+     */
+    public function __construct(
+        protected string $customerId,
+    ) {
+    }
 }

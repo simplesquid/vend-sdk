@@ -2,7 +2,6 @@
 
 namespace SimpleSquid\Vend\TwoZero\Requests\Users;
 
-use DateTime;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
@@ -13,20 +12,18 @@ use Saloon\Http\Request;
  */
 class GetUserById extends Request
 {
-	protected Method $method = Method::GET;
+    protected Method $method = Method::GET;
 
+    public function resolveEndpoint(): string
+    {
+        return "/users/{$this->userId}";
+    }
 
-	public function resolveEndpoint(): string
-	{
-		return "/users/{$this->userId}";
-	}
-
-
-	/**
-	 * @param string $userId A valid user id
-	 */
-	public function __construct(
-		protected string $userId,
-	) {
-	}
+    /**
+     * @param  string  $userId A valid user id
+     */
+    public function __construct(
+        protected string $userId,
+    ) {
+    }
 }

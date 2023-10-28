@@ -2,7 +2,6 @@
 
 namespace SimpleSquid\Vend\TwoZero\Requests\Products;
 
-use DateTime;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
@@ -13,20 +12,18 @@ use Saloon\Http\Request;
  */
 class GetPriceBooksForProduct extends Request
 {
-	protected Method $method = Method::GET;
+    protected Method $method = Method::GET;
 
+    public function resolveEndpoint(): string
+    {
+        return "/products/{$this->productId}/price_book_products";
+    }
 
-	public function resolveEndpoint(): string
-	{
-		return "/products/{$this->productId}/price_book_products";
-	}
-
-
-	/**
-	 * @param string $productId The product id to find in the Price Books
-	 */
-	public function __construct(
-		protected string $productId,
-	) {
-	}
+    /**
+     * @param  string  $productId The product id to find in the Price Books
+     */
+    public function __construct(
+        protected string $productId,
+    ) {
+    }
 }

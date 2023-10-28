@@ -8,8 +8,8 @@ use SimpleSquid\Vend\TwoZero\Resource;
 
 class Audit extends Resource
 {
-	public function getSecurityEvents(): Response
-	{
-		return $this->connector->send(new GetSecurityEvents());
-	}
+    public function getSecurityEvents(): Response
+    {
+        return $this->connector->send(new GetSecurityEvents());
+    }
 }

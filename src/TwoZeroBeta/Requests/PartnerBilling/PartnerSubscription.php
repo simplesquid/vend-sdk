@@ -2,7 +2,6 @@
 
 namespace SimpleSquid\Vend\TwoZeroBeta\Requests\PartnerBilling;
 
-use DateTime;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
@@ -13,20 +12,15 @@ use Saloon\Http\Request;
  */
 class PartnerSubscription extends Request
 {
-	protected Method $method = Method::GET;
+    protected Method $method = Method::GET;
 
+    public function resolveEndpoint(): string
+    {
+        return "/partner/billing/subscriptions/{$this->subscriptionId}";
+    }
 
-	public function resolveEndpoint(): string
-	{
-		return "/partner/billing/subscriptions/{$this->subscriptionId}";
-	}
-
-
-	/**
-	 * @param string $subscriptionId
-	 */
-	public function __construct(
-		protected string $subscriptionId,
-	) {
-	}
+    public function __construct(
+        protected string $subscriptionId,
+    ) {
+    }
 }

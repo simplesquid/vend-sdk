@@ -2,7 +2,6 @@
 
 namespace SimpleSquid\Vend\ZeroNine\Requests\RegisterSales;
 
-use DateTime;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
@@ -15,20 +14,18 @@ use Saloon\Http\Request;
  */
 class GetRegisterSaleById extends Request
 {
-	protected Method $method = Method::GET;
+    protected Method $method = Method::GET;
 
+    public function resolveEndpoint(): string
+    {
+        return "/register_sales/{$this->saleId}";
+    }
 
-	public function resolveEndpoint(): string
-	{
-		return "/register_sales/{$this->saleId}";
-	}
-
-
-	/**
-	 * @param string $saleId An ID of an existing sale
-	 */
-	public function __construct(
-		protected string $saleId,
-	) {
-	}
+    /**
+     * @param  string  $saleId An ID of an existing sale
+     */
+    public function __construct(
+        protected string $saleId,
+    ) {
+    }
 }

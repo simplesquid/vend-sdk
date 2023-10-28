@@ -8,8 +8,8 @@ use SimpleSquid\Vend\ZeroNine\Resource;
 
 class PaymentTypes extends Resource
 {
-	public function listPaymentTypes(): Response
-	{
-		return $this->connector->send(new ListPaymentTypes());
-	}
+    public function listPaymentTypes(): Response
+    {
+        return $this->connector->send(new ListPaymentTypes());
+    }
 }

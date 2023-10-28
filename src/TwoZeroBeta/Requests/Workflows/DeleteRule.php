@@ -2,7 +2,6 @@
 
 namespace SimpleSquid\Vend\TwoZeroBeta\Requests\Workflows;
 
-use DateTime;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
@@ -13,20 +12,18 @@ use Saloon\Http\Request;
  */
 class DeleteRule extends Request
 {
-	protected Method $method = Method::DELETE;
+    protected Method $method = Method::DELETE;
 
+    public function resolveEndpoint(): string
+    {
+        return "/workflows/rules/{$this->ruleId}";
+    }
 
-	public function resolveEndpoint(): string
-	{
-		return "/workflows/rules/{$this->ruleId}";
-	}
-
-
-	/**
-	 * @param string $ruleId The ID of the business rules that you want deleted.
-	 */
-	public function __construct(
-		protected string $ruleId,
-	) {
-	}
+    /**
+     * @param  string  $ruleId The ID of the business rules that you want deleted.
+     */
+    public function __construct(
+        protected string $ruleId,
+    ) {
+    }
 }

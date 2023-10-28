@@ -8,8 +8,8 @@ use SimpleSquid\Vend\TwoZero\Resource;
 
 class Retailers extends Resource
 {
-	public function getRetailer(): Response
-	{
-		return $this->connector->send(new GetRetailer());
-	}
+    public function getRetailer(): Response
+    {
+        return $this->connector->send(new GetRetailer());
+    }
 }

@@ -9,20 +9,19 @@ use SimpleSquid\Vend\TwoZero\Resource;
 
 class Quotes extends Resource
 {
-	/**
-	 * @param string $quoteId ID of the quote to get
-	 */
-	public function getQuoteQuoteId(string $quoteId): Response
-	{
-		return $this->connector->send(new GetQuoteQuoteId($quoteId));
-	}
+    /**
+     * @param  string  $quoteId ID of the quote to get
+     */
+    public function getQuoteQuoteId(string $quoteId): Response
+    {
+        return $this->connector->send(new GetQuoteQuoteId($quoteId));
+    }
 
-
-	/**
-	 * @param int $limit The maximum number of items to be returned in the response.
-	 */
-	public function getQuotes(?int $limit): Response
-	{
-		return $this->connector->send(new GetQuotes($limit));
-	}
+    /**
+     * @param  int  $limit The maximum number of items to be returned in the response.
+     */
+    public function getQuotes(?int $limit): Response
+    {
+        return $this->connector->send(new GetQuotes($limit));
+    }
 }

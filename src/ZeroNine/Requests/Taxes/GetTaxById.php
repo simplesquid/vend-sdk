@@ -2,7 +2,6 @@
 
 namespace SimpleSquid\Vend\ZeroNine\Requests\Taxes;
 
-use DateTime;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
@@ -13,20 +12,18 @@ use Saloon\Http\Request;
  */
 class GetTaxById extends Request
 {
-	protected Method $method = Method::GET;
+    protected Method $method = Method::GET;
 
+    public function resolveEndpoint(): string
+    {
+        return "/taxes/{$this->taxId}";
+    }
 
-	public function resolveEndpoint(): string
-	{
-		return "/taxes/{$this->taxId}";
-	}
-
-
-	/**
-	 * @param string $taxId An ID of an existing tax object.
-	 */
-	public function __construct(
-		protected string $taxId,
-	) {
-	}
+    /**
+     * @param  string  $taxId An ID of an existing tax object.
+     */
+    public function __construct(
+        protected string $taxId,
+    ) {
+    }
 }

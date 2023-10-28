@@ -12,14 +12,13 @@ use SimpleSquid\Vend\ThreeZeroBeta\Resource\Products;
  */
 class VendThreeZeroBeta extends Connector
 {
-	public function resolveBaseUrl(): string
-	{
-		return 'https://domain_prefix.vendhq.com/api/3.0';
-	}
+    public function resolveBaseUrl(): string
+    {
+        return 'https://domain_prefix.vendhq.com/api/3.0';
+    }
 
-
-	public function products(): Products
-	{
-		return new Products($this);
-	}
+    public function products(): Products
+    {
+        return new Products($this);
+    }
 }

@@ -2,7 +2,6 @@
 
 namespace SimpleSquid\Vend\ZeroNine\Requests\Registers;
 
-use DateTime;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
@@ -15,26 +14,23 @@ use Saloon\Http\Request;
  */
 class ListRegisters extends Request
 {
-	protected Method $method = Method::GET;
+    protected Method $method = Method::GET;
 
+    public function resolveEndpoint(): string
+    {
+        return '/registers';
+    }
 
-	public function resolveEndpoint(): string
-	{
-		return "/registers";
-	}
+    /**
+     * @param  null|bool  $deleted Indicates whether deleted items should be included in the result.
+     */
+    public function __construct(
+        protected ?bool $deleted = null,
+    ) {
+    }
 
-
-	/**
-	 * @param null|bool $deleted Indicates whether deleted items should be included in the result.
-	 */
-	public function __construct(
-		protected ?bool $deleted = null,
-	) {
-	}
-
-
-	public function defaultQuery(): array
-	{
-		return array_filter(['deleted' => $this->deleted]);
-	}
+    public function defaultQuery(): array
+    {
+        return array_filter(['deleted' => $this->deleted]);
+    }
 }

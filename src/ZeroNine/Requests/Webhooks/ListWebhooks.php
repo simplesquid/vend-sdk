@@ -2,7 +2,6 @@
 
 namespace SimpleSquid\Vend\ZeroNine\Requests\Webhooks;
 
-use DateTime;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
@@ -14,16 +13,10 @@ use Saloon\Http\Request;
  */
 class ListWebhooks extends Request
 {
-	protected Method $method = Method::GET;
+    protected Method $method = Method::GET;
 
-
-	public function resolveEndpoint(): string
-	{
-		return "/webhooks";
-	}
-
-
-	public function __construct()
-	{
-	}
+    public function resolveEndpoint(): string
+    {
+        return '/webhooks';
+    }
 }

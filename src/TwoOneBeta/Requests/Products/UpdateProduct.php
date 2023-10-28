@@ -2,7 +2,6 @@
 
 namespace SimpleSquid\Vend\TwoOneBeta\Requests\Products;
 
-use DateTime;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
@@ -11,20 +10,18 @@ use Saloon\Http\Request;
  */
 class UpdateProduct extends Request
 {
-	protected Method $method = Method::PUT;
+    protected Method $method = Method::PUT;
 
+    public function resolveEndpoint(): string
+    {
+        return "/products/{$this->productId}";
+    }
 
-	public function resolveEndpoint(): string
-	{
-		return "/products/{$this->productId}";
-	}
-
-
-	/**
-	 * @param string $productId The object identifier of the Product to update.
-	 */
-	public function __construct(
-		protected string $productId,
-	) {
-	}
+    /**
+     * @param  string  $productId The object identifier of the Product to update.
+     */
+    public function __construct(
+        protected string $productId,
+    ) {
+    }
 }

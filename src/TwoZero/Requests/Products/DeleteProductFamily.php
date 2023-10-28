@@ -2,7 +2,6 @@
 
 namespace SimpleSquid\Vend\TwoZero\Requests\Products;
 
-use DateTime;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
@@ -13,20 +12,18 @@ use Saloon\Http\Request;
  */
 class DeleteProductFamily extends Request
 {
-	protected Method $method = Method::DELETE;
+    protected Method $method = Method::DELETE;
 
+    public function resolveEndpoint(): string
+    {
+        return "/products/{$this->productId}/all";
+    }
 
-	public function resolveEndpoint(): string
-	{
-		return "/products/{$this->productId}/all";
-	}
-
-
-	/**
-	 * @param string $productId The product id of a family member
-	 */
-	public function __construct(
-		protected string $productId,
-	) {
-	}
+    /**
+     * @param  string  $productId The product id of a family member
+     */
+    public function __construct(
+        protected string $productId,
+    ) {
+    }
 }

@@ -2,7 +2,6 @@
 
 namespace SimpleSquid\Vend\TwoZeroBeta\Requests\Workflows;
 
-use DateTime;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
@@ -13,20 +12,18 @@ use Saloon\Http\Request;
  */
 class DeleteCustomField extends Request
 {
-	protected Method $method = Method::DELETE;
+    protected Method $method = Method::DELETE;
 
+    public function resolveEndpoint(): string
+    {
+        return "/workflows/custom_fields/{$this->customFieldId}";
+    }
 
-	public function resolveEndpoint(): string
-	{
-		return "/workflows/custom_fields/{$this->customFieldId}";
-	}
-
-
-	/**
-	 * @param string $customFieldId The ID of the custom field that you want deleted.
-	 */
-	public function __construct(
-		protected string $customFieldId,
-	) {
-	}
+    /**
+     * @param  string  $customFieldId The ID of the custom field that you want deleted.
+     */
+    public function __construct(
+        protected string $customFieldId,
+    ) {
+    }
 }

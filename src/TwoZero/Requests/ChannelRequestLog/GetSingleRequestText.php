@@ -2,7 +2,6 @@
 
 namespace SimpleSquid\Vend\TwoZero\Requests\ChannelRequestLog;
 
-use DateTime;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
@@ -13,20 +12,18 @@ use Saloon\Http\Request;
  */
 class GetSingleRequestText extends Request
 {
-	protected Method $method = Method::GET;
+    protected Method $method = Method::GET;
 
+    public function resolveEndpoint(): string
+    {
+        return "/channel_requests/{$this->requestLogIdTxt}";
+    }
 
-	public function resolveEndpoint(): string
-	{
-		return "/channel_requests/{$this->requestLogIdTxt}";
-	}
-
-
-	/**
-	 * @param string $requestLogId The request log id
-	 */
-	public function __construct(
-		protected string $requestLogId,
-	) {
-	}
+    /**
+     * @param  string  $requestLogId The request log id
+     */
+    public function __construct(
+        protected string $requestLogId,
+    ) {
+    }
 }
