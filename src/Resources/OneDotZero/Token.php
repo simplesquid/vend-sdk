@@ -53,4 +53,11 @@ class Token extends DataTransferObject
      * @var string|null
      */
     public $token_type;
+
+    /**
+     * **undocumented**.
+     *
+     * @var mixed|null
+     */
+    public $scope;
 }
