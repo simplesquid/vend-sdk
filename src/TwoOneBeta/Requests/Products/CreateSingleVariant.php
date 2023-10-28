@@ -2,19 +2,20 @@
 
 namespace SimpleSquid\Vend\TwoOneBeta\Requests\Products;
 
+use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Traits\Body\HasJsonBody;
 
-class UpdateProduct extends Request
+class CreateSingleVariant extends Request implements HasBody
 {
     use HasJsonBody;
 
-    protected Method $method = Method::PUT;
+    protected Method $method = Method::POST;
 
     public function resolveEndpoint(): string
     {
-        return "/products/{$this->id}";
+        return '/products';
     }
 
     /**
@@ -22,7 +23,6 @@ class UpdateProduct extends Request
      * @param  array<string, mixed>  $details
      */
     public function __construct(
-        protected string $id,
         protected array $common,
         protected array $details,
     ) {
