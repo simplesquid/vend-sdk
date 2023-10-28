@@ -5,26 +5,20 @@ namespace SimpleSquid\Vend\ZeroNine\Resource;
 use Saloon\Http\Response;
 use SimpleSquid\Vend\Common\Resource;
 use SimpleSquid\Vend\ZeroNine\Requests\Taxes\CreateTax;
-use SimpleSquid\Vend\ZeroNine\Requests\Taxes\GetTaxById;
-use SimpleSquid\Vend\ZeroNine\Requests\Taxes\ListTaxes;
+use SimpleSquid\Vend\ZeroNine\Requests\Taxes\GetTax;
 
 class Taxes extends Resource
 {
-    public function listTaxes(): Response
-    {
-        return $this->connector->send(new ListTaxes());
+    public function createTax(
+        string $name,
+        float $rate,
+    ): Response {
+        return $this->connector->send(new CreateTax($name, $rate));
     }
 
-    public function createTax(): Response
-    {
-        return $this->connector->send(new CreateTax());
-    }
-
-    /**
-     * @param  string  $taxId An ID of an existing tax object.
-     */
-    public function getTaxById(string $taxId): Response
-    {
-        return $this->connector->send(new GetTaxById($taxId));
+    public function getTax(
+        string $id
+    ): Response {
+        return $this->connector->send(new GetTax($id));
     }
 }

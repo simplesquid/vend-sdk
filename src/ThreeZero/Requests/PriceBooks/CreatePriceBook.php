@@ -32,7 +32,7 @@ class CreatePriceBook extends Request implements HasBody
     ) {
     }
 
-    public function defaultQuery(): array
+    public function defaultBody(): array
     {
         return array_filter([
             'name' => $this->name,

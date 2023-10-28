@@ -4,9 +4,12 @@ namespace SimpleSquid\Vend\ThreeZero\Requests\PriceBooks;
 
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Saloon\Traits\Body\HasJsonBody;
 
 class UpdatePriceBook extends Request
 {
+    use HasJsonBody;
+
     protected Method $method = Method::PUT;
 
     public function resolveEndpoint(): string
@@ -29,7 +32,7 @@ class UpdatePriceBook extends Request
     ) {
     }
 
-    public function defaultQuery(): array
+    public function defaultBody(): array
     {
         return array_filter([
             'name' => $this->name,

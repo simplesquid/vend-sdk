@@ -7,11 +7,6 @@ use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Traits\Body\HasJsonBody;
 
-/**
- * CreateUpdateSupplier
- *
- * Returns a single supplier object.
- */
 class CreateUpdateSupplier extends Request implements HasBody
 {
     use HasJsonBody;
@@ -21,5 +16,26 @@ class CreateUpdateSupplier extends Request implements HasBody
     public function resolveEndpoint(): string
     {
         return '/supplier';
+    }
+
+    /**
+     * @param  array<string, string>|null  $contact
+     */
+    public function __construct(
+        protected ?string $id = null,
+        protected ?string $name = null,
+        protected ?string $description = null,
+        protected ?array $contact = null,
+    ) {
+    }
+
+    public function defaultBody(): array
+    {
+        return array_filter([
+            'id' => $this->id,
+            'name' => $this->name,
+            'description' => $this->description,
+            'contact' => $this->contact,
+        ]);
     }
 }
