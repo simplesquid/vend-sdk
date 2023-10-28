@@ -2,24 +2,17 @@
 
 namespace SimpleSquid\Vend\ThreeZero\Resource;
 
-use Saloon\Contracts\Response;
-use SimpleSquid\Vend\ThreeZero\Requests\PriceBooks\CreatePriceBookV3;
-use SimpleSquid\Vend\ThreeZero\Requests\PriceBooks\GetPriceBookByIdv3;
-use SimpleSquid\Vend\ThreeZero\Requests\PriceBooks\ListPriceBooksV3;
-use SimpleSquid\Vend\ThreeZero\Requests\PriceBooks\UpdatePriceBookV3;
-use SimpleSquid\Vend\ThreeZero\Resource;
+use Saloon\Http\Response;
+use SimpleSquid\Vend\Common\Resource;
+use SimpleSquid\Vend\ThreeZero\Requests\PriceBooks\CreatePriceBook;
+use SimpleSquid\Vend\ThreeZero\Requests\PriceBooks\GetPriceBook;
+use SimpleSquid\Vend\ThreeZero\Requests\PriceBooks\ListPriceBooks;
+use SimpleSquid\Vend\ThreeZero\Requests\PriceBooks\UpdatePriceBook;
 
 class PriceBooks extends Resource
 {
-    /**
-     * @param  int  $before The upper limit for the version numbers to be included in the response.
-     * @param  int  $pageSize The maximum number of items to be returned in the response.
-     * @param  string  $order Field used to sort the results.
-     * @param  string  $direction Sort results direction. ASC or DESC.
-     * @param  bool  $deleted Include (true) or exclude (false) deleted price books. Default value is false.
-     * @param  string  $customerGroupId Filter the list and show only price books linked to the specified Customer Group.
-     */
-    public function listPriceBooksV3(
+    public function listPriceBooks(
+        ?int $after,
         ?int $before,
         ?int $pageSize,
         ?string $order,
@@ -27,27 +20,43 @@ class PriceBooks extends Resource
         ?bool $deleted,
         ?string $customerGroupId,
     ): Response {
-        return $this->connector->send(new ListPriceBooksV3($before, $pageSize, $order, $direction, $deleted, $customerGroupId));
-    }
-
-    public function createPriceBookV3(): Response
-    {
-        return $this->connector->send(new CreatePriceBookV3());
+        return $this->connector->send(new ListPriceBooks($after, $before, $pageSize, $order, $direction, $deleted, $customerGroupId));
     }
 
     /**
-     * @param  string  $id The price book id
+     * @param  string[]  $customerGroupIds
+     * @param  string[]  $outletIds
      */
-    public function getPriceBookByIdv3(string $id): Response
-    {
-        return $this->connector->send(new GetPriceBookByIdv3($id));
+    public function createPriceBook(
+        string $name,
+        array $customerGroupIds,
+        array $outletIds,
+        string $validFrom = null,
+        string $validTo = null,
+        string $restrictToPlatform = null,
+    ): Response {
+        return $this->connector->send(new CreatePriceBook($name, $customerGroupIds, $outletIds, $validFrom, $validTo, $restrictToPlatform));
+    }
+
+    public function getPriceBook(
+        string $id
+    ): Response {
+        return $this->connector->send(new GetPriceBook($id));
     }
 
     /**
-     * @param  string  $id The price book id
+     * @param  string[]  $customerGroupIds
+     * @param  ?string[]  $outletIds
      */
-    public function updatePriceBookV3(string $id): Response
-    {
-        return $this->connector->send(new UpdatePriceBookV3($id));
+    public function updatePriceBook(
+        string $id,
+        string $name,
+        array $customerGroupIds,
+        array $outletIds = null,
+        string $validFrom = null,
+        string $validTo = null,
+        string $restrictToPlatform = null,
+    ): Response {
+        return $this->connector->send(new UpdatePriceBook($id, $name, $customerGroupIds, $outletIds, $validFrom, $validTo, $restrictToPlatform));
     }
 }

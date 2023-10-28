@@ -3,11 +3,11 @@
 namespace SimpleSquid\Vend\TwoZero\Resource;
 
 use Saloon\Contracts\Response;
+use SimpleSquid\Vend\Common\Resource;
 use SimpleSquid\Vend\TwoZero\Requests\ChannelRequestLog\GetSingleRequest;
 use SimpleSquid\Vend\TwoZero\Requests\ChannelRequestLog\GetSingleRequestText;
 use SimpleSquid\Vend\TwoZero\Requests\ChannelRequestLog\ListChannels;
 use SimpleSquid\Vend\TwoZero\Requests\ChannelRequestLog\ListRequests;
-use SimpleSquid\Vend\TwoZero\Resource;
 
 class ChannelRequestLog extends Resource
 {

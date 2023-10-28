@@ -5,12 +5,7 @@ namespace SimpleSquid\Vend\ThreeZero\Requests\PriceBooks;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
-/**
- * GetPriceBookByIDV3
- *
- * Returns a single price book with a requested ID
- */
-class GetPriceBookByIdv3 extends Request
+class GetPriceBook extends Request
 {
     protected Method $method = Method::GET;
 
@@ -19,9 +14,6 @@ class GetPriceBookByIdv3 extends Request
         return "/price_books/{$this->id}";
     }
 
-    /**
-     * @param  string  $id The price book id
-     */
     public function __construct(
         protected string $id,
     ) {

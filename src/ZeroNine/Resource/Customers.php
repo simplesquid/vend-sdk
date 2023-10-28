@@ -3,9 +3,9 @@
 namespace SimpleSquid\Vend\ZeroNine\Resource;
 
 use Saloon\Contracts\Response;
+use SimpleSquid\Vend\Common\Resource;
 use SimpleSquid\Vend\ZeroNine\Requests\Customers\CreateUpdateCustomer;
 use SimpleSquid\Vend\ZeroNine\Requests\Customers\ListCustomers;
-use SimpleSquid\Vend\ZeroNine\Resource;
 
 class Customers extends Resource
 {

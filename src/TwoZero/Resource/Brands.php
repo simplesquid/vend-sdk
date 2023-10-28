@@ -3,10 +3,10 @@
 namespace SimpleSquid\Vend\TwoZero\Resource;
 
 use Saloon\Contracts\Response;
+use SimpleSquid\Vend\Common\Resource;
 use SimpleSquid\Vend\TwoZero\Requests\Brands\CreateBrand;
 use SimpleSquid\Vend\TwoZero\Requests\Brands\GetBrandById;
 use SimpleSquid\Vend\TwoZero\Requests\Brands\ListBrands;
-use SimpleSquid\Vend\TwoZero\Resource;
 
 class Brands extends Resource
 {

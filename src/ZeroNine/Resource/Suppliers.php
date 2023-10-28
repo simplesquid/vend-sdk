@@ -3,11 +3,11 @@
 namespace SimpleSquid\Vend\ZeroNine\Resource;
 
 use Saloon\Contracts\Response;
+use SimpleSquid\Vend\Common\Resource;
 use SimpleSquid\Vend\ZeroNine\Requests\Suppliers\CreateUpdateSupplier;
 use SimpleSquid\Vend\ZeroNine\Requests\Suppliers\DeleteSupplier;
 use SimpleSquid\Vend\ZeroNine\Requests\Suppliers\GetSupplierById;
 use SimpleSquid\Vend\ZeroNine\Requests\Suppliers\ListSuppliers;
-use SimpleSquid\Vend\ZeroNine\Resource;
 
 class Suppliers extends Resource
 {

@@ -3,9 +3,9 @@
 namespace SimpleSquid\Vend\TwoZero\Resource;
 
 use Saloon\Contracts\Response;
+use SimpleSquid\Vend\Common\Resource;
 use SimpleSquid\Vend\TwoZero\Requests\Users\GetUserById;
 use SimpleSquid\Vend\TwoZero\Requests\Users\ListUsers;
-use SimpleSquid\Vend\TwoZero\Resource;
 
 class Users extends Resource
 {

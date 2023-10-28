@@ -3,10 +3,10 @@
 namespace SimpleSquid\Vend\TwoZero\Resource;
 
 use Saloon\Contracts\Response;
+use SimpleSquid\Vend\Common\Resource;
 use SimpleSquid\Vend\TwoZero\Requests\ProductImages\DeleteProductImageById;
 use SimpleSquid\Vend\TwoZero\Requests\ProductImages\GetProductImageDataById;
 use SimpleSquid\Vend\TwoZero\Requests\ProductImages\SetImagePosition;
-use SimpleSquid\Vend\TwoZero\Resource;
 
 class ProductImages extends Resource
 {

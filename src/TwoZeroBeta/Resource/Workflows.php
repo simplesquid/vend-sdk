@@ -3,6 +3,7 @@
 namespace SimpleSquid\Vend\TwoZeroBeta\Resource;
 
 use Saloon\Contracts\Response;
+use SimpleSquid\Vend\Common\Resource;
 use SimpleSquid\Vend\TwoZeroBeta\Requests\Workflows\CreateCustomField;
 use SimpleSquid\Vend\TwoZeroBeta\Requests\Workflows\CreateRemoteRule;
 use SimpleSquid\Vend\TwoZeroBeta\Requests\Workflows\CreateRule;
@@ -15,7 +16,6 @@ use SimpleSquid\Vend\TwoZeroBeta\Requests\Workflows\GetRemoteRules;
 use SimpleSquid\Vend\TwoZeroBeta\Requests\Workflows\GetRules;
 use SimpleSquid\Vend\TwoZeroBeta\Requests\Workflows\SetCustomFieldValues;
 use SimpleSquid\Vend\TwoZeroBeta\Requests\Workflows\UpdateCustomField;
-use SimpleSquid\Vend\TwoZeroBeta\Resource;
 
 class Workflows extends Resource
 {

@@ -3,12 +3,12 @@
 namespace SimpleSquid\Vend\TwoZeroBeta\Resource;
 
 use Saloon\Contracts\Response;
+use SimpleSquid\Vend\Common\Resource;
 use SimpleSquid\Vend\TwoZeroBeta\Requests\VariantAttributes\CreateVariantAttribute;
 use SimpleSquid\Vend\TwoZeroBeta\Requests\VariantAttributes\DeleteVariantAttribute;
 use SimpleSquid\Vend\TwoZeroBeta\Requests\VariantAttributes\GetVariantAttributes;
 use SimpleSquid\Vend\TwoZeroBeta\Requests\VariantAttributes\ListVariantAttributes;
 use SimpleSquid\Vend\TwoZeroBeta\Requests\VariantAttributes\UpdateVariantAttribute;
-use SimpleSquid\Vend\TwoZeroBeta\Resource;
 
 class VariantAttributes extends Resource
 {

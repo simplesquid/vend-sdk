@@ -3,12 +3,12 @@
 namespace SimpleSquid\Vend\TwoZeroBeta\Resource;
 
 use Saloon\Contracts\Response;
+use SimpleSquid\Vend\Common\Resource;
 use SimpleSquid\Vend\TwoZeroBeta\Requests\Webhooks\DeleteWebhooksWebhookId;
 use SimpleSquid\Vend\TwoZeroBeta\Requests\Webhooks\GetWebhooks;
 use SimpleSquid\Vend\TwoZeroBeta\Requests\Webhooks\GetWebhooksId;
 use SimpleSquid\Vend\TwoZeroBeta\Requests\Webhooks\PostWebhooks;
 use SimpleSquid\Vend\TwoZeroBeta\Requests\Webhooks\PutWebhooksId;
-use SimpleSquid\Vend\TwoZeroBeta\Resource;
 
 class Webhooks extends Resource
 {

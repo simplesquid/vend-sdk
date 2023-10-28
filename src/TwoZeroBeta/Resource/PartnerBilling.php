@@ -3,12 +3,12 @@
 namespace SimpleSquid\Vend\TwoZeroBeta\Resource;
 
 use Saloon\Contracts\Response;
+use SimpleSquid\Vend\Common\Resource;
 use SimpleSquid\Vend\TwoZeroBeta\Requests\PartnerBilling\PartnerSubscription;
 use SimpleSquid\Vend\TwoZeroBeta\Requests\PartnerBilling\PartnerSubscriptions;
 use SimpleSquid\Vend\TwoZeroBeta\Requests\PartnerBilling\PartnerToken;
 use SimpleSquid\Vend\TwoZeroBeta\Requests\PartnerBilling\PartnerTokenGet;
 use SimpleSquid\Vend\TwoZeroBeta\Requests\PartnerBilling\PartnerUpdateSubscriptionToken;
-use SimpleSquid\Vend\TwoZeroBeta\Resource;
 
 class PartnerBilling extends Resource
 {

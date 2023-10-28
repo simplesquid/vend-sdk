@@ -3,6 +3,7 @@
 namespace SimpleSquid\Vend\TwoZero\Resource;
 
 use Saloon\Contracts\Response;
+use SimpleSquid\Vend\Common\Resource;
 use SimpleSquid\Vend\TwoZero\Requests\Products\CreateProduct;
 use SimpleSquid\Vend\TwoZero\Requests\Products\DeleteProduct;
 use SimpleSquid\Vend\TwoZero\Requests\Products\DeleteProductFamily;
@@ -11,7 +12,6 @@ use SimpleSquid\Vend\TwoZero\Requests\Products\GetPriceBooksForProduct;
 use SimpleSquid\Vend\TwoZero\Requests\Products\GetProductById;
 use SimpleSquid\Vend\TwoZero\Requests\Products\ListProducts;
 use SimpleSquid\Vend\TwoZero\Requests\Products\UploadImage;
-use SimpleSquid\Vend\TwoZero\Resource;
 
 class Products extends Resource
 {

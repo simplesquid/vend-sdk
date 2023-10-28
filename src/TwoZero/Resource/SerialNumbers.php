@@ -3,11 +3,11 @@
 namespace SimpleSquid\Vend\TwoZero\Resource;
 
 use Saloon\Contracts\Response;
+use SimpleSquid\Vend\Common\Resource;
 use SimpleSquid\Vend\TwoZero\Requests\SerialNumbers\CreateSerialnumber;
 use SimpleSquid\Vend\TwoZero\Requests\SerialNumbers\DeleteSerialnumber;
 use SimpleSquid\Vend\TwoZero\Requests\SerialNumbers\GetSerialnumber;
 use SimpleSquid\Vend\TwoZero\Requests\SerialNumbers\GetSerialnumbers;
-use SimpleSquid\Vend\TwoZero\Resource;
 
 class SerialNumbers extends Resource
 {

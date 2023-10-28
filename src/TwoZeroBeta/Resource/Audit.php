@@ -3,8 +3,8 @@
 namespace SimpleSquid\Vend\TwoZeroBeta\Resource;
 
 use Saloon\Contracts\Response;
+use SimpleSquid\Vend\Common\Resource;
 use SimpleSquid\Vend\TwoZeroBeta\Requests\Audit\GetAuditLogEvents;
-use SimpleSquid\Vend\TwoZeroBeta\Resource;
 
 class Audit extends Resource
 {

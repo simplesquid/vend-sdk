@@ -3,8 +3,8 @@
 namespace SimpleSquid\Vend\TwoZero\Resource;
 
 use Saloon\Contracts\Response;
+use SimpleSquid\Vend\Common\Resource;
 use SimpleSquid\Vend\TwoZero\Requests\OutletProductTaxes\ListOutletProductTaxes;
-use SimpleSquid\Vend\TwoZero\Resource;
 
 class OutletProductTaxes extends Resource
 {

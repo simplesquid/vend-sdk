@@ -2,7 +2,6 @@
 
 namespace SimpleSquid\Vend\ThreeZero;
 
-use Saloon\Http\Connector;
 use SimpleSquid\Vend\ThreeZero\Resource\PriceBooks;
 use SimpleSquid\Vend\VendConnector;
 

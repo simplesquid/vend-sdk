@@ -3,6 +3,7 @@
 namespace SimpleSquid\Vend\TwoZeroBeta\Resource;
 
 use Saloon\Contracts\Response;
+use SimpleSquid\Vend\Common\Resource;
 use SimpleSquid\Vend\TwoZeroBeta\Requests\GiftCards\CreateGiftCard;
 use SimpleSquid\Vend\TwoZeroBeta\Requests\GiftCards\CreateGiftCardTransaction;
 use SimpleSquid\Vend\TwoZeroBeta\Requests\GiftCards\FindGiftCard;
@@ -10,7 +11,6 @@ use SimpleSquid\Vend\TwoZeroBeta\Requests\GiftCards\FindGiftCardByTransactionId;
 use SimpleSquid\Vend\TwoZeroBeta\Requests\GiftCards\ListGiftCards;
 use SimpleSquid\Vend\TwoZeroBeta\Requests\GiftCards\ReverseGiftCardTransaction;
 use SimpleSquid\Vend\TwoZeroBeta\Requests\GiftCards\VoidGiftCard;
-use SimpleSquid\Vend\TwoZeroBeta\Resource;
 
 class GiftCards extends Resource
 {

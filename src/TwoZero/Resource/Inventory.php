@@ -3,8 +3,8 @@
 namespace SimpleSquid\Vend\TwoZero\Resource;
 
 use Saloon\Contracts\Response;
+use SimpleSquid\Vend\Common\Resource;
 use SimpleSquid\Vend\TwoZero\Requests\Inventory\ListInventoryRecords;
-use SimpleSquid\Vend\TwoZero\Resource;
 
 class Inventory extends Resource
 {

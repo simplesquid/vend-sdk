@@ -2,7 +2,6 @@
 
 namespace SimpleSquid\Vend\ZeroNine;
 
-use Saloon\Http\Connector;
 use SimpleSquid\Vend\VendConnector;
 use SimpleSquid\Vend\ZeroNine\Resource\ConsignmentProducts;
 use SimpleSquid\Vend\ZeroNine\Resource\Consignments;

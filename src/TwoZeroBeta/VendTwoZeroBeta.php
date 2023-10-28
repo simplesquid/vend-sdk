@@ -2,7 +2,6 @@
 
 namespace SimpleSquid\Vend\TwoZeroBeta;
 
-use Saloon\Http\Connector;
 use SimpleSquid\Vend\TwoZeroBeta\Resource\Audit;
 use SimpleSquid\Vend\TwoZeroBeta\Resource\GiftCards;
 use SimpleSquid\Vend\TwoZeroBeta\Resource\PartnerBilling;

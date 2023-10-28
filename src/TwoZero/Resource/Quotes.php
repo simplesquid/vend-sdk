@@ -3,9 +3,9 @@
 namespace SimpleSquid\Vend\TwoZero\Resource;
 
 use Saloon\Contracts\Response;
+use SimpleSquid\Vend\Common\Resource;
 use SimpleSquid\Vend\TwoZero\Requests\Quotes\GetQuoteQuoteId;
 use SimpleSquid\Vend\TwoZero\Requests\Quotes\GetQuotes;
-use SimpleSquid\Vend\TwoZero\Resource;
 
 class Quotes extends Resource
 {

@@ -3,6 +3,7 @@
 namespace SimpleSquid\Vend\TwoZero\Resource;
 
 use Saloon\Contracts\Response;
+use SimpleSquid\Vend\Common\Resource;
 use SimpleSquid\Vend\TwoZero\Requests\CustomerGroups\AddCustomersToCustomerGroup;
 use SimpleSquid\Vend\TwoZero\Requests\CustomerGroups\CreateCustomerGroup;
 use SimpleSquid\Vend\TwoZero\Requests\CustomerGroups\DeleteCustomerGroup;
@@ -11,7 +12,6 @@ use SimpleSquid\Vend\TwoZero\Requests\CustomerGroups\GetCustomerGroupById;
 use SimpleSquid\Vend\TwoZero\Requests\CustomerGroups\GetCustomerGroupCustomers;
 use SimpleSquid\Vend\TwoZero\Requests\CustomerGroups\ListCustomerGroups;
 use SimpleSquid\Vend\TwoZero\Requests\CustomerGroups\UpdateCustomerGroup;
-use SimpleSquid\Vend\TwoZero\Resource;
 
 class CustomerGroups extends Resource
 {

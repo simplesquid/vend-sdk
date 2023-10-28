@@ -3,6 +3,7 @@
 namespace SimpleSquid\Vend\TwoZero\Resource;
 
 use Saloon\Contracts\Response;
+use SimpleSquid\Vend\Common\Resource;
 use SimpleSquid\Vend\TwoZero\Requests\Promotions\ApplyDiscount;
 use SimpleSquid\Vend\TwoZero\Requests\Promotions\CreatePromotion;
 use SimpleSquid\Vend\TwoZero\Requests\Promotions\GetPromotionById;
@@ -11,7 +12,6 @@ use SimpleSquid\Vend\TwoZero\Requests\Promotions\GetPromotionPromoCodes;
 use SimpleSquid\Vend\TwoZero\Requests\Promotions\ListPromotions;
 use SimpleSquid\Vend\TwoZero\Requests\Promotions\SearchPromotions;
 use SimpleSquid\Vend\TwoZero\Requests\Promotions\UpdatePromotion;
-use SimpleSquid\Vend\TwoZero\Resource;
 
 class Promotions extends Resource
 {

@@ -3,12 +3,12 @@
 namespace SimpleSquid\Vend\TwoZeroBeta\Resource;
 
 use Saloon\Contracts\Response;
+use SimpleSquid\Vend\Common\Resource;
 use SimpleSquid\Vend\TwoZeroBeta\Requests\StoreCredits\BulkStoreCreditList;
 use SimpleSquid\Vend\TwoZeroBeta\Requests\StoreCredits\CreateStoreCreditTransaction;
 use SimpleSquid\Vend\TwoZeroBeta\Requests\StoreCredits\ListStoreCredit;
 use SimpleSquid\Vend\TwoZeroBeta\Requests\StoreCredits\ListStoreCreditForCustomer;
 use SimpleSquid\Vend\TwoZeroBeta\Requests\StoreCredits\StoreCreditReport;
-use SimpleSquid\Vend\TwoZeroBeta\Resource;
 
 class StoreCredits extends Resource
 {

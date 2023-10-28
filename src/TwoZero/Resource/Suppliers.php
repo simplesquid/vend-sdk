@@ -3,9 +3,9 @@
 namespace SimpleSquid\Vend\TwoZero\Resource;
 
 use Saloon\Contracts\Response;
+use SimpleSquid\Vend\Common\Resource;
 use SimpleSquid\Vend\TwoZero\Requests\Suppliers\GetSupplierById;
 use SimpleSquid\Vend\TwoZero\Requests\Suppliers\ListSuppliers;
-use SimpleSquid\Vend\TwoZero\Resource;
 
 class Suppliers extends Resource
 {

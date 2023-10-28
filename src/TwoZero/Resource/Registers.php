@@ -3,12 +3,12 @@
 namespace SimpleSquid\Vend\TwoZero\Resource;
 
 use Saloon\Contracts\Response;
+use SimpleSquid\Vend\Common\Resource;
 use SimpleSquid\Vend\TwoZero\Requests\Registers\CloseRegister;
 use SimpleSquid\Vend\TwoZero\Requests\Registers\GetRegisterById;
 use SimpleSquid\Vend\TwoZero\Requests\Registers\ListRegisters;
 use SimpleSquid\Vend\TwoZero\Requests\Registers\OpenRegister;
 use SimpleSquid\Vend\TwoZero\Requests\Registers\RegisterPaymentsSummary;
-use SimpleSquid\Vend\TwoZero\Resource;
 
 class Registers extends Resource
 {

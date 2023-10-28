@@ -3,12 +3,12 @@
 namespace SimpleSquid\Vend\ZeroNine\Resource;
 
 use Saloon\Contracts\Response;
+use SimpleSquid\Vend\Common\Resource;
 use SimpleSquid\Vend\ZeroNine\Requests\ConsignmentProducts\DeleteConsignmentProduct;
 use SimpleSquid\Vend\ZeroNine\Requests\ConsignmentProducts\GetConsignmentProductById;
 use SimpleSquid\Vend\ZeroNine\Requests\ConsignmentProducts\ListConsignmentProducts;
 use SimpleSquid\Vend\ZeroNine\Requests\ConsignmentProducts\NewConsignmentProduct;
 use SimpleSquid\Vend\ZeroNine\Requests\ConsignmentProducts\UpdateConsignmentProduct;
-use SimpleSquid\Vend\ZeroNine\Resource;
 
 class ConsignmentProducts extends Resource
 {

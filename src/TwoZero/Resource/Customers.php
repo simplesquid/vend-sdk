@@ -3,12 +3,12 @@
 namespace SimpleSquid\Vend\TwoZero\Resource;
 
 use Saloon\Contracts\Response;
+use SimpleSquid\Vend\Common\Resource;
 use SimpleSquid\Vend\TwoZero\Requests\Customers\CreateCustomer;
 use SimpleSquid\Vend\TwoZero\Requests\Customers\DeleteCustomerById;
 use SimpleSquid\Vend\TwoZero\Requests\Customers\GetCustomerById;
 use SimpleSquid\Vend\TwoZero\Requests\Customers\ListCustomers;
 use SimpleSquid\Vend\TwoZero\Requests\Customers\UpdateCustomerById;
-use SimpleSquid\Vend\TwoZero\Resource;
 
 class Customers extends Resource
 {

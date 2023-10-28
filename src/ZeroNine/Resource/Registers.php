@@ -3,8 +3,8 @@
 namespace SimpleSquid\Vend\ZeroNine\Resource;
 
 use Saloon\Contracts\Response;
+use SimpleSquid\Vend\Common\Resource;
 use SimpleSquid\Vend\ZeroNine\Requests\Registers\ListRegisters;
-use SimpleSquid\Vend\ZeroNine\Resource;
 
 class Registers extends Resource
 {

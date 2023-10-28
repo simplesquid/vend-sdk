@@ -3,9 +3,9 @@
 namespace SimpleSquid\Vend\TwoOneBeta\Resource;
 
 use Saloon\Contracts\Response;
+use SimpleSquid\Vend\Common\Resource;
 use SimpleSquid\Vend\TwoOneBeta\Requests\Products\AddSingleVariant;
 use SimpleSquid\Vend\TwoOneBeta\Requests\Products\UpdateProduct;
-use SimpleSquid\Vend\TwoOneBeta\Resource;
 
 class Products extends Resource
 {

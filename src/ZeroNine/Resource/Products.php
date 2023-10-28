@@ -3,10 +3,10 @@
 namespace SimpleSquid\Vend\ZeroNine\Resource;
 
 use Saloon\Contracts\Response;
+use SimpleSquid\Vend\Common\Resource;
 use SimpleSquid\Vend\ZeroNine\Requests\Products\CreateUpdateProduct;
 use SimpleSquid\Vend\ZeroNine\Requests\Products\GetProductById;
 use SimpleSquid\Vend\ZeroNine\Requests\Products\ListProducts;
-use SimpleSquid\Vend\ZeroNine\Resource;
 
 class Products extends Resource
 {

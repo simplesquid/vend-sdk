@@ -3,10 +3,10 @@
 namespace SimpleSquid\Vend\ZeroNine\Resource;
 
 use Saloon\Contracts\Response;
+use SimpleSquid\Vend\Common\Resource;
 use SimpleSquid\Vend\ZeroNine\Requests\RegisterSales\CreateUpdateRegisterSale;
 use SimpleSquid\Vend\ZeroNine\Requests\RegisterSales\GetRegisterSaleById;
 use SimpleSquid\Vend\ZeroNine\Requests\RegisterSales\ListRegisterSales;
-use SimpleSquid\Vend\ZeroNine\Resource;
 
 class RegisterSales extends Resource
 {

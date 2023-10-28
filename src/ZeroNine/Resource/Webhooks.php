@@ -3,12 +3,12 @@
 namespace SimpleSquid\Vend\ZeroNine\Resource;
 
 use Saloon\Contracts\Response;
+use SimpleSquid\Vend\Common\Resource;
 use SimpleSquid\Vend\ZeroNine\Requests\Webhooks\CreateWebhook;
 use SimpleSquid\Vend\ZeroNine\Requests\Webhooks\DeleteWebhook;
 use SimpleSquid\Vend\ZeroNine\Requests\Webhooks\GetWebhookById;
 use SimpleSquid\Vend\ZeroNine\Requests\Webhooks\ListWebhooks;
 use SimpleSquid\Vend\ZeroNine\Requests\Webhooks\UpdateWebhook;
-use SimpleSquid\Vend\ZeroNine\Resource;
 
 class Webhooks extends Resource
 {

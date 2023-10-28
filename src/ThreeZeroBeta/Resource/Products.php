@@ -3,9 +3,9 @@
 namespace SimpleSquid\Vend\ThreeZeroBeta\Resource;
 
 use Saloon\Contracts\Response;
+use SimpleSquid\Vend\Common\Resource;
 use SimpleSquid\Vend\ThreeZeroBeta\Requests\Products\GetProduct;
 use SimpleSquid\Vend\ThreeZeroBeta\Requests\Products\ListProducts;
-use SimpleSquid\Vend\ThreeZeroBeta\Resource;
 
 class Products extends Resource
 {

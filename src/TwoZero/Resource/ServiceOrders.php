@@ -3,11 +3,11 @@
 namespace SimpleSquid\Vend\TwoZero\Resource;
 
 use Saloon\Contracts\Response;
+use SimpleSquid\Vend\Common\Resource;
 use SimpleSquid\Vend\TwoZero\Requests\ServiceOrders\GetAgendaOutletId;
 use SimpleSquid\Vend\TwoZero\Requests\ServiceOrders\GetService;
 use SimpleSquid\Vend\TwoZero\Requests\ServiceOrders\ListServiceItems;
 use SimpleSquid\Vend\TwoZero\Requests\ServiceOrders\ListServices;
-use SimpleSquid\Vend\TwoZero\Resource;
 
 class ServiceOrders extends Resource
 {

@@ -3,10 +3,10 @@
 namespace SimpleSquid\Vend\TwoZero\Resource;
 
 use Saloon\Contracts\Response;
+use SimpleSquid\Vend\Common\Resource;
 use SimpleSquid\Vend\TwoZero\Requests\Sales\GetSaleById;
 use SimpleSquid\Vend\TwoZero\Requests\Sales\InitReturnSale;
 use SimpleSquid\Vend\TwoZero\Requests\Sales\ListSales;
-use SimpleSquid\Vend\TwoZero\Resource;
 
 class Sales extends Resource
 {

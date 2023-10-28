@@ -3,8 +3,8 @@
 namespace SimpleSquid\Vend\TwoZero\Resource;
 
 use Saloon\Contracts\Response;
+use SimpleSquid\Vend\Common\Resource;
 use SimpleSquid\Vend\TwoZero\Requests\Search\Search as SearchRequest;
-use SimpleSquid\Vend\TwoZero\Resource;
 
 class Search extends Resource
 {

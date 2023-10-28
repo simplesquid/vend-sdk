@@ -2,7 +2,6 @@
 
 namespace SimpleSquid\Vend\ThreeZeroBeta;
 
-use Saloon\Http\Connector;
 use SimpleSquid\Vend\ThreeZeroBeta\Resource\Products;
 use SimpleSquid\Vend\VendConnector;
 

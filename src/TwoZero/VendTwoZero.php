@@ -2,7 +2,6 @@
 
 namespace SimpleSquid\Vend\TwoZero;
 
-use Saloon\Http\Connector;
 use SimpleSquid\Vend\TwoZero\Resource\Audit;
 use SimpleSquid\Vend\TwoZero\Resource\Brands;
 use SimpleSquid\Vend\TwoZero\Resource\ChannelRequestLog;

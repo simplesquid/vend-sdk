@@ -3,10 +3,10 @@
 namespace SimpleSquid\Vend\ZeroNine\Resource;
 
 use Saloon\Contracts\Response;
+use SimpleSquid\Vend\Common\Resource;
 use SimpleSquid\Vend\ZeroNine\Requests\Taxes\CreateTax;
 use SimpleSquid\Vend\ZeroNine\Requests\Taxes\GetTaxById;
 use SimpleSquid\Vend\ZeroNine\Requests\Taxes\ListTaxes;
-use SimpleSquid\Vend\ZeroNine\Resource;
 
 class Taxes extends Resource
 {

@@ -3,9 +3,9 @@
 namespace SimpleSquid\Vend\TwoZero\Resource;
 
 use Saloon\Contracts\Response;
+use SimpleSquid\Vend\Common\Resource;
 use SimpleSquid\Vend\TwoZero\Requests\PromoCode\DeletePromoCodesBulk;
 use SimpleSquid\Vend\TwoZero\Requests\PromoCode\GetActivePromoCodesBulk;
-use SimpleSquid\Vend\TwoZero\Resource;
 
 class PromoCode extends Resource
 {

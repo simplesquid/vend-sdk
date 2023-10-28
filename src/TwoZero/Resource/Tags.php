@@ -3,9 +3,9 @@
 namespace SimpleSquid\Vend\TwoZero\Resource;
 
 use Saloon\Contracts\Response;
+use SimpleSquid\Vend\Common\Resource;
 use SimpleSquid\Vend\TwoZero\Requests\Tags\GetTagById;
 use SimpleSquid\Vend\TwoZero\Requests\Tags\ListTags;
-use SimpleSquid\Vend\TwoZero\Resource;
 
 class Tags extends Resource
 {

@@ -3,6 +3,7 @@
 namespace SimpleSquid\Vend\TwoZero\Resource;
 
 use Saloon\Contracts\Response;
+use SimpleSquid\Vend\Common\Resource;
 use SimpleSquid\Vend\TwoZero\Requests\PriceBooks\AddPriceBookProducts;
 use SimpleSquid\Vend\TwoZero\Requests\PriceBooks\CreatePriceBook;
 use SimpleSquid\Vend\TwoZero\Requests\PriceBooks\DeletePriceBook;
@@ -14,7 +15,6 @@ use SimpleSquid\Vend\TwoZero\Requests\PriceBooks\ListPriceBooks;
 use SimpleSquid\Vend\TwoZero\Requests\PriceBooks\UpdatePriceBook;
 use SimpleSquid\Vend\TwoZero\Requests\PriceBooks\UpdatePriceBookProducts;
 use SimpleSquid\Vend\TwoZero\Requests\PriceBooks\UpdatePriceBookProductsWithPutOp;
-use SimpleSquid\Vend\TwoZero\Resource;
 
 class PriceBooks extends Resource
 {

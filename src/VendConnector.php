@@ -13,19 +13,19 @@ abstract class VendConnector extends Connector
     use AuthorizationCodeGrant;
 
     public function __construct(
-        ?string $clientId = null,
-        ?string $clientSecret = null,
-        ?string $redirectUri = null,
-        ?string $personalToken = null,
+        string $clientId = null,
+        string $clientSecret = null,
+        string $redirectUri = null,
+        string $personalToken = null,
         protected ?string $domainPrefix = null
     ) {
-        if(!is_null($personalToken)) {
+        if (! is_null($personalToken)) {
             $this->withTokenAuth($personalToken);
 
             return;
         }
 
-        if(!is_null($clientId) && !is_null($clientSecret) && !is_null($redirectUri)) {
+        if (! is_null($clientId) && ! is_null($clientSecret) && ! is_null($redirectUri)) {
             $this->oauthConfig()
                 ->setClientId($clientId)
                 ->setClientSecret($clientSecret)
