@@ -21,6 +21,7 @@
     ],
     "require": {
         "php": "^8.2",
+        "saloonphp/pagination-plugin": "^2.0",
         "sammyjo20/saloon": "^3.0"
     },
     "require-dev": {
