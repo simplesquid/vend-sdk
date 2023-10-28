@@ -2,7 +2,7 @@
 
 namespace SimpleSquid\Vend\TwoZero\Resource;
 
-use Saloon\Contracts\Response;
+use Saloon\Http\Response;
 use SimpleSquid\Vend\Common\Resource;
 use SimpleSquid\Vend\TwoZero\Requests\Tags\GetTagById;
 use SimpleSquid\Vend\TwoZero\Requests\Tags\ListTags;

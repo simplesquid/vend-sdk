@@ -2,7 +2,7 @@
 
 namespace SimpleSquid\Vend\ZeroNine\Resource;
 
-use Saloon\Contracts\Response;
+use Saloon\Http\Response;
 use SimpleSquid\Vend\Common\Resource;
 use SimpleSquid\Vend\ZeroNine\Requests\Taxes\CreateTax;
 use SimpleSquid\Vend\ZeroNine\Requests\Taxes\GetTaxById;

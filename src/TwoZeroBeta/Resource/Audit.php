@@ -2,7 +2,7 @@
 
 namespace SimpleSquid\Vend\TwoZeroBeta\Resource;
 
-use Saloon\Contracts\Response;
+use Saloon\Http\Response;
 use SimpleSquid\Vend\Common\Resource;
 use SimpleSquid\Vend\TwoZeroBeta\Requests\Audit\GetAuditLogEvents;
 

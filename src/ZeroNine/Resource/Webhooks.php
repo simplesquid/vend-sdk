@@ -2,7 +2,7 @@
 
 namespace SimpleSquid\Vend\ZeroNine\Resource;
 
-use Saloon\Contracts\Response;
+use Saloon\Http\Response;
 use SimpleSquid\Vend\Common\Resource;
 use SimpleSquid\Vend\ZeroNine\Requests\Webhooks\CreateWebhook;
 use SimpleSquid\Vend\ZeroNine\Requests\Webhooks\DeleteWebhook;

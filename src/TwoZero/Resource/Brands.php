@@ -2,7 +2,7 @@
 
 namespace SimpleSquid\Vend\TwoZero\Resource;
 
-use Saloon\Contracts\Response;
+use Saloon\Http\Response;
 use SimpleSquid\Vend\Common\Resource;
 use SimpleSquid\Vend\TwoZero\Requests\Brands\CreateBrand;
 use SimpleSquid\Vend\TwoZero\Requests\Brands\GetBrandById;

@@ -2,7 +2,7 @@
 
 namespace SimpleSquid\Vend\TwoOneBeta\Resource;
 
-use Saloon\Contracts\Response;
+use Saloon\Http\Response;
 use SimpleSquid\Vend\Common\Resource;
 use SimpleSquid\Vend\TwoOneBeta\Requests\Products\AddSingleVariant;
 use SimpleSquid\Vend\TwoOneBeta\Requests\Products\UpdateProduct;
