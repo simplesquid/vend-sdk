@@ -4,17 +4,18 @@ namespace SimpleSquid\Vend\ThreeZeroBeta;
 
 use Saloon\Http\Connector;
 use SimpleSquid\Vend\ThreeZeroBeta\Resource\Products;
+use SimpleSquid\Vend\VendConnector;
 
 /**
- * API 3.0 - BETA
+ * API 3.0 Beta
  *
- * BETA endpoints for version 3.0 of the Vend API.
+ * Beta endpoints for version 3.0 of the Vend API.
  */
-class VendThreeZeroBeta extends Connector
+class VendThreeZeroBeta extends VendConnector
 {
     public function resolveBaseUrl(): string
     {
-        return 'https://domain_prefix.vendhq.com/api/3.0';
+        return parent::resolveBaseUrl().'/3.0';
     }
 
     public function products(): Products

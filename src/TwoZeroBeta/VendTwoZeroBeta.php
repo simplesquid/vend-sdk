@@ -10,17 +10,18 @@ use SimpleSquid\Vend\TwoZeroBeta\Resource\StoreCredits;
 use SimpleSquid\Vend\TwoZeroBeta\Resource\VariantAttributes;
 use SimpleSquid\Vend\TwoZeroBeta\Resource\Webhooks;
 use SimpleSquid\Vend\TwoZeroBeta\Resource\Workflows;
+use SimpleSquid\Vend\VendConnector;
 
 /**
- * API 2.0 - BETA
+ * API 2.0 Beta
  *
- * BETA endpoints for version 2.0 of the Vend API.
+ * Beta endpoints for version 2.0 of the Vend API.
  */
-class VendTwoZeroBeta extends Connector
+class VendTwoZeroBeta extends VendConnector
 {
     public function resolveBaseUrl(): string
     {
-        return 'https://domain_prefix.vendhq.com/api/2.0';
+        return parent::resolveBaseUrl().'/2.0';
     }
 
     public function audit(): Audit

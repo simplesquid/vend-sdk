@@ -4,17 +4,18 @@ namespace SimpleSquid\Vend\TwoOneBeta;
 
 use Saloon\Http\Connector;
 use SimpleSquid\Vend\TwoOneBeta\Resource\Products;
+use SimpleSquid\Vend\VendConnector;
 
 /**
- * API 2.1 - BETA
+ * API 2.1 Beta
  *
- * BETA endpoints for version 2.1 of the Vend API.
+ * Beta endpoints for version 2.1 of the Vend API.
  */
-class VendTwoOneBeta extends Connector
+class VendTwoOneBeta extends VendConnector
 {
     public function resolveBaseUrl(): string
     {
-        return 'https://domain_prefix.vendhq.com/api/2.1';
+        return parent::resolveBaseUrl().'/2.1';
     }
 
     public function products(): Products

@@ -3,6 +3,7 @@
 namespace SimpleSquid\Vend\ZeroNine;
 
 use Saloon\Http\Connector;
+use SimpleSquid\Vend\VendConnector;
 use SimpleSquid\Vend\ZeroNine\Resource\ConsignmentProducts;
 use SimpleSquid\Vend\ZeroNine\Resource\Consignments;
 use SimpleSquid\Vend\ZeroNine\Resource\Customers;
@@ -19,15 +20,10 @@ use SimpleSquid\Vend\ZeroNine\Resource\Webhooks;
 /**
  * API 0.9
  *
- * The current state of the original Vend API.
+ * Endpoints for version 0.9 of the Vend API.
  */
-class VendZeroNine extends Connector
+class VendZeroNine extends VendConnector
 {
-    public function resolveBaseUrl(): string
-    {
-        return 'https://domain_prefix.vendhq.com/api';
-    }
-
     public function consignmentProducts(): ConsignmentProducts
     {
         return new ConsignmentProducts($this);

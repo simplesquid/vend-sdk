@@ -4,17 +4,18 @@ namespace SimpleSquid\Vend\ThreeZero;
 
 use Saloon\Http\Connector;
 use SimpleSquid\Vend\ThreeZero\Resource\PriceBooks;
+use SimpleSquid\Vend\VendConnector;
 
 /**
  * API 3.0
  *
  * Endpoints for version 3.0 of the Vend API.
  */
-class VendThreeZero extends Connector
+class VendThreeZero extends VendConnector
 {
     public function resolveBaseUrl(): string
     {
-        return 'https://domain_prefix.vendhq.com/api/3.0';
+        return parent::resolveBaseUrl().'/3.0';
     }
 
     public function priceBooks(): PriceBooks

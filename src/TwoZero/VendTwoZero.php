@@ -32,17 +32,18 @@ use SimpleSquid\Vend\TwoZero\Resource\Suppliers;
 use SimpleSquid\Vend\TwoZero\Resource\Tags;
 use SimpleSquid\Vend\TwoZero\Resource\Taxes;
 use SimpleSquid\Vend\TwoZero\Resource\Users;
+use SimpleSquid\Vend\VendConnector;
 
 /**
  * API 2.0
  *
- * Early release of version 2.0 of the Vend API.
+ * Endpoints for version 2.0 of the Vend API.
  */
-class VendTwoZero extends Connector
+class VendTwoZero extends VendConnector
 {
     public function resolveBaseUrl(): string
     {
-        return 'https://domain_prefix.vendhq.com/api/2.0';
+        return parent::resolveBaseUrl().'/2.0';
     }
 
     public function audit(): Audit
