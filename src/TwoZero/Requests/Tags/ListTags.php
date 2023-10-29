@@ -27,6 +27,6 @@ class ListTags extends Request
             'before' => $this->before,
             'page_size' => $this->pageSize,
             'deleted' => $this->deleted,
-            ]);
+        ]);
     }
 }

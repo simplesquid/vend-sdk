@@ -10,9 +10,9 @@ use SimpleSquid\Vend\ThreeZeroBeta\Requests\Products\ListProducts;
 class Products extends Resource
 {
     public function listProducts(
-        int $sinceVersion = null,
-        int $pageSize = null,
-        bool $includeDeleted = null,
+        ?int $sinceVersion = null,
+        ?int $pageSize = null,
+        ?bool $includeDeleted = null,
     ): Response {
         return $this->connector->send(new ListProducts($sinceVersion, $pageSize, $includeDeleted));
     }

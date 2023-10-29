@@ -24,7 +24,7 @@ class ListSuppliers extends Request
     {
         return array_filter([
             'before' => $this->before,
-            'page_size' => $this->pageSize
+            'page_size' => $this->pageSize,
         ]);
     }
 }

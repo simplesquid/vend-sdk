@@ -13,15 +13,13 @@ class Tags extends Resource
         ?int $before,
         ?int $pageSize,
         ?bool $deleted,
-    ): Response
-    {
+    ): Response {
         return $this->connector->send(new ListTags($before, $pageSize, $deleted));
     }
 
     public function getTag(
         string $id,
-    ): Response
-    {
+    ): Response {
         return $this->connector->send(new GetTag($id));
     }
 }

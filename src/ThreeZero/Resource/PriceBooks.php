@@ -12,13 +12,13 @@ use SimpleSquid\Vend\ThreeZero\Requests\PriceBooks\UpdatePriceBook;
 class PriceBooks extends Resource
 {
     public function listPriceBooks(
-        int $after = null,
-        int $before = null,
-        int $pageSize = null,
-        string $order = null,
-        string $direction = null,
-        bool $deleted = null,
-        string $customerGroupId = null,
+        ?int $after = null,
+        ?int $before = null,
+        ?int $pageSize = null,
+        ?string $order = null,
+        ?string $direction = null,
+        ?bool $deleted = null,
+        ?string $customerGroupId = null,
     ): Response {
         return $this->connector->send(new ListPriceBooks($after, $before, $pageSize, $order, $direction, $deleted, $customerGroupId));
     }

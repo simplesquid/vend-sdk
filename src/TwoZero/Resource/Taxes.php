@@ -11,8 +11,7 @@ class Taxes extends Resource
     public function listTaxes(
         ?int $before,
         ?int $pageSize,
-    ): Response
-    {
+    ): Response {
         return $this->connector->send(new ListTaxes($before, $pageSize));
     }
 }

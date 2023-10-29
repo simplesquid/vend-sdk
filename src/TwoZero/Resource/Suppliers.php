@@ -12,15 +12,13 @@ class Suppliers extends Resource
     public function listSuppliers(
         ?int $before,
         ?int $pageSize,
-    ): Response
-    {
+    ): Response {
         return $this->connector->send(new ListSuppliers($before, $pageSize));
     }
 
     public function getSupplier(
         string $id,
-    ): Response
-    {
+    ): Response {
         return $this->connector->send(new GetSupplier($id));
     }
 }

@@ -16,10 +16,10 @@ abstract class VendConnector extends Connector
     protected ?string $response = VendResponse::class;
 
     public function __construct(
-        string $clientId = null,
-        string $clientSecret = null,
-        string $redirectUri = null,
-        string $personalToken = null,
+        ?string $clientId = null,
+        ?string $clientSecret = null,
+        ?string $redirectUri = null,
+        ?string $personalToken = null,
         protected ?string $domainPrefix = null
     ) {
         if (! is_null($personalToken)) {
