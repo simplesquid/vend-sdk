@@ -19,28 +19,15 @@ class CreatePriceBook extends Request implements HasBody
     }
 
     /**
-     * @param  string[]  $customerGroupIds
-     * @param  string[]  $outletIds
+     * @param  array<string, mixed>  $payload
      */
     public function __construct(
-        protected string $name,
-        protected array $customerGroupIds,
-        protected array $outletIds,
-        protected ?string $validFrom = null,
-        protected ?string $validTo = null,
-        protected ?string $restrictToPlatform = null,
+        protected array $payload = [],
     ) {
     }
 
     public function defaultBody(): array
     {
-        return array_filter([
-            'name' => $this->name,
-            'customer_group_ids' => $this->customerGroupIds,
-            'outlet_ids' => $this->outletIds,
-            'valid_from' => $this->validFrom,
-            'valid_to' => $this->validTo,
-            'restrict_to_platform' => $this->restrictToPlatform,
-        ]);
+        return $this->payload;
     }
 }

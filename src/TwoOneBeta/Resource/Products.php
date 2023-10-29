@@ -10,25 +10,21 @@ use SimpleSquid\Vend\TwoOneBeta\Requests\Products\UpdateProduct;
 class Products extends Resource
 {
     /**
-     * @param  array<string, mixed>  $common
-     * @param  array<string, mixed>  $details
+     * @param  array<string, mixed>  $payload
      */
     public function updateProduct(
         string $id,
-        array $common,
-        array $details,
+        array $payload,
     ): Response {
-        return $this->connector->send(new UpdateProduct($id, $common, $details));
+        return $this->connector->send(new UpdateProduct($id, $payload));
     }
 
     /**
-     * @param  array<string, mixed>  $common
-     * @param  array<string, mixed>  $details
+     * @param  array<string, mixed>  $payload
      */
     public function createSingleVariant(
-        array $common,
-        array $details,
+        array $payload,
     ): Response {
-        return $this->connector->send(new CreateSingleVariant($common, $details));
+        return $this->connector->send(new CreateSingleVariant($payload));
     }
 }

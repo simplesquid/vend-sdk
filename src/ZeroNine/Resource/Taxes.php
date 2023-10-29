@@ -9,11 +9,13 @@ use SimpleSquid\Vend\ZeroNine\Requests\Taxes\GetTax;
 
 class Taxes extends Resource
 {
+    /**
+     * @param  array<string, mixed>  $payload
+     */
     public function createTax(
-        string $name,
-        float $rate,
+        array $payload,
     ): Response {
-        return $this->connector->send(new CreateTax($name, $rate));
+        return $this->connector->send(new CreateTax($payload));
     }
 
     public function getTax(

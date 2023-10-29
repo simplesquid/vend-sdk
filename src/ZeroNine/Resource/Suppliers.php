@@ -10,15 +10,12 @@ use SimpleSquid\Vend\ZeroNine\Requests\Suppliers\DeleteSupplier;
 class Suppliers extends Resource
 {
     /**
-     * @param  array<string, string>|null  $contact
+     * @param  array<string, mixed>  $payload
      */
     public function createUpdateSupplier(
-        string $id = null,
-        string $name = null,
-        string $description = null,
-        array $contact = null,
+        array $payload,
     ): Response {
-        return $this->connector->send(new CreateUpdateSupplier($id, $name, $description, $contact));
+        return $this->connector->send(new CreateUpdateSupplier($payload));
     }
 
     public function deleteSupplier(

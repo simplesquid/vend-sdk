@@ -19,23 +19,15 @@ class CreateUpdateSupplier extends Request implements HasBody
     }
 
     /**
-     * @param  array<string, string>|null  $contact
+     * @param  array<string, mixed>  $payload
      */
     public function __construct(
-        protected ?string $id = null,
-        protected ?string $name = null,
-        protected ?string $description = null,
-        protected ?array $contact = null,
+        protected ?array $payload = [],
     ) {
     }
 
     public function defaultBody(): array
     {
-        return array_filter([
-            'id' => $this->id,
-            'name' => $this->name,
-            'description' => $this->description,
-            'contact' => $this->contact,
-        ]);
+        return $this->payload;
     }
 }

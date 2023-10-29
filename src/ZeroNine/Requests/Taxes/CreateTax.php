@@ -18,17 +18,16 @@ class CreateTax extends Request implements HasBody
         return '/taxes';
     }
 
+    /**
+     * @param  array<string, mixed>  $payload
+     */
     public function __construct(
-        protected string $name,
-        protected float $rate,
+        protected ?array $payload = [],
     ) {
     }
 
     public function defaultBody(): array
     {
-        return [
-            'name' => $this->name,
-            'rate' => $this->rate,
-        ];
+        return $this->payload;
     }
 }

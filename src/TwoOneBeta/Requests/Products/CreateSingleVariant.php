@@ -19,20 +19,15 @@ class CreateSingleVariant extends Request implements HasBody
     }
 
     /**
-     * @param  array<string, mixed>  $common
-     * @param  array<string, mixed>  $details
+     * @param  array<string, mixed>  $payload
      */
     public function __construct(
-        protected array $common,
-        protected array $details,
+        protected array $payload = [],
     ) {
     }
 
     public function defaultBody(): array
     {
-        return [
-            'common' => $this->common,
-            'details' => $this->details,
-        ];
+        return $this->payload;
     }
 }

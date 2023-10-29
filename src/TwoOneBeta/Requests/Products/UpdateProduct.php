@@ -18,21 +18,16 @@ class UpdateProduct extends Request
     }
 
     /**
-     * @param  array<string, mixed>  $common
-     * @param  array<string, mixed>  $details
+     * @param  array<string, mixed>  $payload
      */
     public function __construct(
         protected string $id,
-        protected array $common,
-        protected array $details,
+        protected array $payload = [],
     ) {
     }
 
     public function defaultBody(): array
     {
-        return [
-            'common' => $this->common,
-            'details' => $this->details,
-        ];
+        return $this->payload;
     }
 }
