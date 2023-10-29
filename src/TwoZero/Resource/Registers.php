@@ -21,26 +21,26 @@ class Registers extends Resource
     }
 
     public function getRegister(
-        string $id,
+        string $registerId,
     ): Response {
-        return $this->connector->send(new GetRegister($id));
+        return $this->connector->send(new GetRegister($registerId));
     }
 
     public function openRegister(
-        string $id,
+        string $registerId,
     ): Response {
-        return $this->connector->send(new OpenRegister($id));
+        return $this->connector->send(new OpenRegister($registerId));
     }
 
     public function closeRegister(
-        string $id,
+        string $registerId,
     ): Response {
-        return $this->connector->send(new CloseRegister($id));
+        return $this->connector->send(new CloseRegister($registerId));
     }
 
     public function registerPaymentsSummary(
-        string $id,
+        string $registerId,
     ): Response {
-        return $this->connector->send(new RegisterPaymentsSummary($id));
+        return $this->connector->send(new RegisterPaymentsSummary($registerId));
     }
 }

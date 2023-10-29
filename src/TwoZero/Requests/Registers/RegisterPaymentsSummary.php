@@ -11,11 +11,11 @@ class RegisterPaymentsSummary extends Request
 
     public function resolveEndpoint(): string
     {
-        return "/registers/{$this->id}/payments_summary";
+        return "/registers/{$this->registerId}/payments_summary";
     }
 
     public function __construct(
-        protected string $id,
+        protected string $registerId,
     ) {
     }
 }

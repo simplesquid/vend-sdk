@@ -7,7 +7,7 @@ use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Traits\Body\HasJsonBody;
 
-class CreateOrUpdateConsignmentProducts extends Request implements HasBody
+class BulkUpdateProductsInConsignment extends Request implements HasBody
 {
     use HasJsonBody;
 

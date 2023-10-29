@@ -18,8 +18,8 @@ class Tags extends Resource
     }
 
     public function getTag(
-        string $id,
+        string $tagId,
     ): Response {
-        return $this->connector->send(new GetTag($id));
+        return $this->connector->send(new GetTag($tagId));
     }
 }

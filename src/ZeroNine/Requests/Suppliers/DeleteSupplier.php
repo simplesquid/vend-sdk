@@ -11,11 +11,11 @@ class DeleteSupplier extends Request
 
     public function resolveEndpoint(): string
     {
-        return "/supplier/{$this->id}";
+        return "/supplier/{$this->supplierId}";
     }
 
     public function __construct(
-        protected string $id,
+        protected string $supplierId,
     ) {
     }
 }

@@ -23,14 +23,14 @@ class ChannelRequestLog extends Resource
         return $this->connector->send(new ListRequests($statusCode, $requestMethod, $occurredBefore, $occurredAfter, $statusCodeBefore, $statusCodeAfter, $channelId));
     }
 
-    public function getRequest(string $id): Response
+    public function getRequest(string $requestId): Response
     {
-        return $this->connector->send(new GetRequest($id));
+        return $this->connector->send(new GetRequest($requestId));
     }
 
-    public function getRequestText(string $id): Response
+    public function getRequestText(string $requestId): Response
     {
-        return $this->connector->send(new GetRequestText($id));
+        return $this->connector->send(new GetRequestText($requestId));
     }
 
     public function listChannels(): Response

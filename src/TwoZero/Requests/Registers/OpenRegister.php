@@ -11,11 +11,11 @@ class OpenRegister extends Request
 
     public function resolveEndpoint(): string
     {
-        return "/registers/{$this->id}/actions/open";
+        return "/registers/{$this->registerId}/actions/open";
     }
 
     public function __construct(
-        protected string $id,
+        protected string $registerId,
     ) {
     }
 }

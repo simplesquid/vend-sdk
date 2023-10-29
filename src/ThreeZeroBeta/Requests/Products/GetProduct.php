@@ -11,11 +11,11 @@ class GetProduct extends Request
 
     public function resolveEndpoint(): string
     {
-        return "/products/{$this->id}";
+        return "/products/{$this->productId}";
     }
 
     public function __construct(
-        protected string $id,
+        protected string $productId,
     ) {
     }
 }

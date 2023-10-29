@@ -33,18 +33,18 @@ class PriceBooks extends Resource
     }
 
     public function getPriceBook(
-        string $id,
+        string $priceBookId,
     ): Response {
-        return $this->connector->send(new GetPriceBook($id));
+        return $this->connector->send(new GetPriceBook($priceBookId));
     }
 
     /**
      * @param  array<string, mixed>  $payload
      */
     public function updatePriceBook(
-        string $id,
+        string $priceBookId,
         array $payload,
     ): Response {
-        return $this->connector->send(new UpdatePriceBook($id, $payload));
+        return $this->connector->send(new UpdatePriceBook($priceBookId, $payload));
     }
 }

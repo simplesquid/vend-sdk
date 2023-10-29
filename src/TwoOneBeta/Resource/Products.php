@@ -13,10 +13,10 @@ class Products extends Resource
      * @param  array<string, mixed>  $payload
      */
     public function updateProduct(
-        string $id,
+        string $productId,
         array $payload,
     ): Response {
-        return $this->connector->send(new UpdateProduct($id, $payload));
+        return $this->connector->send(new UpdateProduct($productId, $payload));
     }
 
     /**

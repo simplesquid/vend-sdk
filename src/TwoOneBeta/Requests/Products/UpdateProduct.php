@@ -14,14 +14,14 @@ class UpdateProduct extends Request
 
     public function resolveEndpoint(): string
     {
-        return "/products/{$this->id}";
+        return "/products/{$this->productId}";
     }
 
     /**
      * @param  array<string, mixed>  $payload
      */
     public function __construct(
-        protected string $id,
+        protected string $productId,
         protected array $payload = [],
     ) {
     }

@@ -17,8 +17,8 @@ class Users extends Resource
     }
 
     public function getUser(
-        string $id,
+        string $userId,
     ): Response {
-        return $this->connector->send(new GetUser($id));
+        return $this->connector->send(new GetUser($userId));
     }
 }

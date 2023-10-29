@@ -11,11 +11,11 @@ class GetTag extends Request
 
     public function resolveEndpoint(): string
     {
-        return "/tags/{$this->id}";
+        return "/tags/{$this->tagId}";
     }
 
     public function __construct(
-        protected string $id,
+        protected string $tagId,
     ) {
     }
 }

@@ -14,14 +14,14 @@ class UpdatePriceBook extends Request
 
     public function resolveEndpoint(): string
     {
-        return "/price_books/{$this->id}";
+        return "/price_books/{$this->priceBookId}";
     }
 
     /**
      * @param  array<string, mixed>  $payload
      */
     public function __construct(
-        protected string $id,
+        protected string $priceBookId,
         protected array $payload = [],
     ) {
     }

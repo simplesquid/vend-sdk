@@ -5,13 +5,13 @@ namespace SimpleSquid\Vend\TwoZero\Requests\Consignments;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
-class DeleteConsignmentById extends Request
+class GetConsignmentTotals extends Request
 {
-    protected Method $method = Method::DELETE;
+    protected Method $method = Method::GET;
 
     public function resolveEndpoint(): string
     {
-        return "/consignments/{$this->consignmentId}";
+        return "/consignments/{$this->consignmentId}/totals";
     }
 
     public function __construct(

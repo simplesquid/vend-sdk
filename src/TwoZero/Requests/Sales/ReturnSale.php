@@ -11,11 +11,11 @@ class ReturnSale extends Request
 
     public function resolveEndpoint(): string
     {
-        return "/sales/{$this->id}/actions/return";
+        return "/sales/{$this->saleId}/actions/return";
     }
 
     public function __construct(
-        protected string $id,
+        protected string $saleId,
     ) {
     }
 }

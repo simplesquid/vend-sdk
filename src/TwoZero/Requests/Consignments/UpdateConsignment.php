@@ -5,7 +5,7 @@ namespace SimpleSquid\Vend\TwoZero\Requests\Consignments;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
-class UpdateConsignmentById extends Request
+class UpdateConsignment extends Request
 {
     protected Method $method = Method::PUT;
 

@@ -11,11 +11,11 @@ class GetUser extends Request
 
     public function resolveEndpoint(): string
     {
-        return "/users/{$this->id}";
+        return "/users/{$this->userId}";
     }
 
     public function __construct(
-        protected string $id,
+        protected string $userId,
     ) {
     }
 }

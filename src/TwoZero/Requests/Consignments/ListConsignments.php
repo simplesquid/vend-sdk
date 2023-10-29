@@ -1,21 +1,20 @@
 <?php
 
-namespace SimpleSquid\Vend\TwoZero\Requests\ConsignmentProducts;
+namespace SimpleSquid\Vend\TwoZero\Requests\Consignments;
 
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
-class ListProductsByConsignmentId extends Request
+class ListConsignments extends Request
 {
     protected Method $method = Method::GET;
 
     public function resolveEndpoint(): string
     {
-        return "/consignments/{$this->consignmentId}/products";
+        return '/consignments';
     }
 
     public function __construct(
-        protected string $consignmentId,
         protected ?int $before = null,
         protected ?int $pageSize = null,
     ) {
@@ -23,6 +22,9 @@ class ListProductsByConsignmentId extends Request
 
     public function defaultQuery(): array
     {
-        return array_filter(['before' => $this->before, 'page_size' => $this->pageSize]);
+        return array_filter([
+            'before' => $this->before,
+            'page_size' => $this->pageSize,
+        ]);
     }
 }

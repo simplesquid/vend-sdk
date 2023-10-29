@@ -17,8 +17,8 @@ class Suppliers extends Resource
     }
 
     public function getSupplier(
-        string $id,
+        string $supplierId,
     ): Response {
-        return $this->connector->send(new GetSupplier($id));
+        return $this->connector->send(new GetSupplier($supplierId));
     }
 }

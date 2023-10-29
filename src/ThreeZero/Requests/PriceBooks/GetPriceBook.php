@@ -11,11 +11,11 @@ class GetPriceBook extends Request
 
     public function resolveEndpoint(): string
     {
-        return "/price_books/{$this->id}";
+        return "/price_books/{$this->priceBookId}";
     }
 
     public function __construct(
-        protected string $id,
+        protected string $priceBookId,
     ) {
     }
 }

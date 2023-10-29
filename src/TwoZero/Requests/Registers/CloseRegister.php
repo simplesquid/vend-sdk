@@ -11,11 +11,11 @@ class CloseRegister extends Request
 
     public function resolveEndpoint(): string
     {
-        return "/registers/{$this->id}/actions/close";
+        return "/registers/{$this->registerId}/actions/close";
     }
 
     public function __construct(
-        protected string $id,
+        protected string $registerId,
     ) {
     }
 }

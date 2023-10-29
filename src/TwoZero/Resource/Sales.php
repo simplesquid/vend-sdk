@@ -18,14 +18,14 @@ class Sales extends Resource
     }
 
     public function getSale(
-        string $id,
+        string $saleId,
     ): Response {
-        return $this->connector->send(new GetSale($id));
+        return $this->connector->send(new GetSale($saleId));
     }
 
     public function returnSale(
-        string $id,
+        string $saleId,
     ): Response {
-        return $this->connector->send(new ReturnSale($id));
+        return $this->connector->send(new ReturnSale($saleId));
     }
 }

@@ -11,11 +11,11 @@ class GetRequest extends Request
 
     public function resolveEndpoint(): string
     {
-        return "/channel_requests/{$this->id}";
+        return "/channel_requests/{$this->requestId}";
     }
 
     public function __construct(
-        protected string $id,
+        protected string $requestId,
     ) {
     }
 }

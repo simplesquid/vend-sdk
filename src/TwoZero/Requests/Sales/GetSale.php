@@ -11,11 +11,11 @@ class GetSale extends Request
 
     public function resolveEndpoint(): string
     {
-        return "/sales/{$this->id}";
+        return "/sales/{$this->saleId}";
     }
 
     public function __construct(
-        protected string $id,
+        protected string $saleId,
     ) {
     }
 }

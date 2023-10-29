@@ -11,11 +11,11 @@ class GetQuote extends Request
 
     public function resolveEndpoint(): string
     {
-        return "/quotes/{$this->id}";
+        return "/quotes/{$this->quoteId}";
     }
 
     public function __construct(
-        protected string $id,
+        protected string $quoteId,
     ) {
     }
 }

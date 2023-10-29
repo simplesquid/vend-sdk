@@ -11,11 +11,11 @@ class GetSupplier extends Request
 
     public function resolveEndpoint(): string
     {
-        return "/suppliers/{$this->id}";
+        return "/suppliers/{$this->supplierId}";
     }
 
     public function __construct(
-        protected string $id,
+        protected string $supplierId,
     ) {
     }
 }

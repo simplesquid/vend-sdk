@@ -11,11 +11,11 @@ class GetRequestText extends Request
 
     public function resolveEndpoint(): string
     {
-        return "/channel_requests/{$this->id}.txt";
+        return "/channel_requests/{$this->requestId}.txt";
     }
 
     public function __construct(
-        protected string $id,
+        protected string $requestId,
     ) {
     }
 }

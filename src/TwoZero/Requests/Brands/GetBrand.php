@@ -11,11 +11,11 @@ class GetBrand extends Request
 
     public function resolveEndpoint(): string
     {
-        return "/brands/{$this->id}";
+        return "/brands/{$this->brandId}";
     }
 
     public function __construct(
-        protected string $id,
+        protected string $brandId,
     ) {
     }
 }

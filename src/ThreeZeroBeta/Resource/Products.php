@@ -18,8 +18,8 @@ class Products extends Resource
     }
 
     public function getProduct(
-        string $id,
+        string $productId,
     ): Response {
-        return $this->connector->send(new GetProduct($id));
+        return $this->connector->send(new GetProduct($productId));
     }
 }

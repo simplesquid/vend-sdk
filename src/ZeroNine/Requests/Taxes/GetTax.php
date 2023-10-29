@@ -11,11 +11,11 @@ class GetTax extends Request
 
     public function resolveEndpoint(): string
     {
-        return "/taxes/{$this->id}";
+        return "/taxes/{$this->taxId}";
     }
 
     public function __construct(
-        protected string $id,
+        protected string $taxId,
     ) {
     }
 }

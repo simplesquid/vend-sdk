@@ -19,8 +19,8 @@ class Suppliers extends Resource
     }
 
     public function deleteSupplier(
-        string $id,
+        string $supplierId,
     ): Response {
-        return $this->connector->send(new DeleteSupplier($id));
+        return $this->connector->send(new DeleteSupplier($supplierId));
     }
 }

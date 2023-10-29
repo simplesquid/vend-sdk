@@ -28,14 +28,14 @@ class SerialNumbers extends Resource
     }
 
     public function getSerialNumber(
-        string $id,
+        string $serialNumberId,
     ): Response {
-        return $this->connector->send(new GetSerialNumber($id));
+        return $this->connector->send(new GetSerialNumber($serialNumberId));
     }
 
     public function deleteSerialNumber(
-        string $id,
+        string $serialNumberId,
     ): Response {
-        return $this->connector->send(new DeleteSerialNumber($id));
+        return $this->connector->send(new DeleteSerialNumber($serialNumberId));
     }
 }

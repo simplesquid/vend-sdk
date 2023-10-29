@@ -24,9 +24,9 @@ class ServiceOrders extends Resource
     }
 
     public function getService(
-        string $id,
+        string $serviceId,
     ): Response {
-        return $this->connector->send(new GetService($id));
+        return $this->connector->send(new GetService($serviceId));
     }
 
     public function getOutletServicesAgenda(

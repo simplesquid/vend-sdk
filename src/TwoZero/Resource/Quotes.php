@@ -9,9 +9,9 @@ use SimpleSquid\Vend\TwoZero\Requests\Quotes\ListQuotes;
 
 class Quotes extends Resource
 {
-    public function getQuote(string $id): Response
+    public function getQuote(string $quoteId): Response
     {
-        return $this->connector->send(new GetQuote($id));
+        return $this->connector->send(new GetQuote($quoteId));
     }
 
     public function listQuotes(?int $limit): Response

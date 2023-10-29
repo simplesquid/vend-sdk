@@ -23,8 +23,8 @@ class Brands extends Resource
     }
 
     public function getBrand(
-        string $id,
+        string $brandId,
     ): Response {
-        return $this->connector->send(new GetBrand($id));
+        return $this->connector->send(new GetBrand($brandId));
     }
 }

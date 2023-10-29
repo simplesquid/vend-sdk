@@ -11,11 +11,11 @@ class GetSerialNumber extends Request
 
     public function resolveEndpoint(): string
     {
-        return "/serialnumbers/{$this->id}";
+        return "/serialnumbers/{$this->serialNumberId}";
     }
 
     public function __construct(
-        protected string $id,
+        protected string $serialNumberId,
     ) {
     }
 }

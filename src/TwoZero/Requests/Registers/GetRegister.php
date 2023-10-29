@@ -11,11 +11,11 @@ class GetRegister extends Request
 
     public function resolveEndpoint(): string
     {
-        return "/registers/{$this->id}";
+        return "/registers/{$this->registerId}";
     }
 
     public function __construct(
-        protected string $id,
+        protected string $registerId,
     ) {
     }
 }
