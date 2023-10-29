@@ -7,11 +7,6 @@ use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Traits\Body\HasJsonBody;
 
-/**
- * CreateCustomField
- *
- * Create a new custom field definition for a given entity type.
- */
 class CreateCustomField extends Request implements HasBody
 {
     use HasJsonBody;

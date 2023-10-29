@@ -4,39 +4,38 @@ namespace SimpleSquid\Vend\TwoZeroBeta\Resource;
 
 use Saloon\Http\Response;
 use SimpleSquid\Vend\Common\Resource;
-use SimpleSquid\Vend\TwoZeroBeta\Requests\PartnerBilling\PartnerSubscription;
-use SimpleSquid\Vend\TwoZeroBeta\Requests\PartnerBilling\PartnerSubscriptions;
-use SimpleSquid\Vend\TwoZeroBeta\Requests\PartnerBilling\PartnerToken;
-use SimpleSquid\Vend\TwoZeroBeta\Requests\PartnerBilling\PartnerTokenGet;
-use SimpleSquid\Vend\TwoZeroBeta\Requests\PartnerBilling\PartnerUpdateSubscriptionToken;
+use SimpleSquid\Vend\TwoZeroBeta\Requests\PartnerBilling\CreatePartnerSubscriptionToken;
+use SimpleSquid\Vend\TwoZeroBeta\Requests\PartnerBilling\CreatePartnerSubscriptionTokenForUpdate;
+use SimpleSquid\Vend\TwoZeroBeta\Requests\PartnerBilling\GetPartnerSubcriptionByToken;
+use SimpleSquid\Vend\TwoZeroBeta\Requests\PartnerBilling\GetPartnerSubscription;
+use SimpleSquid\Vend\TwoZeroBeta\Requests\PartnerBilling\ListPartnerSubscriptions;
 
 class PartnerBilling extends Resource
 {
-    public function partnerSubscriptions(): Response
+    public function listPartnerSubscriptions(): Response
     {
-        return $this->connector->send(new PartnerSubscriptions());
+        return $this->connector->send(new ListPartnerSubscriptions());
     }
 
-    public function partnerSubscription(string $subscriptionId): Response
-    {
-        return $this->connector->send(new PartnerSubscription($subscriptionId));
+    public function getPartnerSubscription(
+        string $partnerSubscriptionId,
+    ): Response {
+        return $this->connector->send(new GetPartnerSubscription($partnerSubscriptionId));
     }
 
-    public function partnerToken(): Response
+    public function createPartnerSubscriptionToken(): Response
     {
-        return $this->connector->send(new PartnerToken());
+        return $this->connector->send(new CreatePartnerSubscriptionToken());
     }
 
-    /**
-     * @param  string  $partnerSubscriptionToken The partner subscription token
-     */
-    public function partnerTokenGet(string $partnerSubscriptionToken): Response
-    {
-        return $this->connector->send(new PartnerTokenGet($partnerSubscriptionToken));
+    public function getPartnerSubcriptionByToken(
+        string $partnerSubscriptionToken,
+    ): Response {
+        return $this->connector->send(new GetPartnerSubcriptionByToken($partnerSubscriptionToken));
     }
 
-    public function partnerUpdateSubscriptionToken(): Response
+    public function createPartnerSubscriptionTokenForUpdate(): Response
     {
-        return $this->connector->send(new PartnerUpdateSubscriptionToken());
+        return $this->connector->send(new CreatePartnerSubscriptionTokenForUpdate());
     }
 }

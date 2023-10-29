@@ -5,11 +5,6 @@ namespace SimpleSquid\Vend\TwoZeroBeta\Requests\VariantAttributes;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
-/**
- * ListVariantAttributes
- *
- * Retrieve all Variant Attributes.
- */
 class ListVariantAttributes extends Request
 {
     protected Method $method = Method::GET;
@@ -19,9 +14,6 @@ class ListVariantAttributes extends Request
         return '/variant_attributes';
     }
 
-    /**
-     * @param  null|bool  $deleted Indicates whether deleted items should be included in the response.
-     */
     public function __construct(
         protected ?bool $deleted = null,
     ) {
@@ -29,6 +21,8 @@ class ListVariantAttributes extends Request
 
     public function defaultQuery(): array
     {
-        return array_filter(['deleted' => $this->deleted]);
+        return array_filter([
+            'deleted' => $this->deleted,
+        ]);
     }
 }

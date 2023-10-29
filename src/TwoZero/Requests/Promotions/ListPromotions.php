@@ -23,6 +23,10 @@ class ListPromotions extends Request
 
     public function defaultQuery(): array
     {
-        return array_filter(['end_time_to' => $this->endTimeTo, 'end_time_from' => $this->endTimeFrom, 'page_size' => $this->pageSize]);
+        return array_filter([
+            'end_time_to' => $this->endTimeTo,
+            'end_time_from' => $this->endTimeFrom,
+            'page_size' => $this->pageSize,
+        ]);
     }
 }

@@ -4,24 +4,27 @@ namespace SimpleSquid\Vend\TwoZero\Resource;
 
 use Saloon\Http\Response;
 use SimpleSquid\Vend\Common\Resource;
-use SimpleSquid\Vend\TwoZero\Requests\ProductImages\DeleteProductImageById;
-use SimpleSquid\Vend\TwoZero\Requests\ProductImages\GetProductImageDataById;
+use SimpleSquid\Vend\TwoZero\Requests\ProductImages\DeleteProductImage;
+use SimpleSquid\Vend\TwoZero\Requests\ProductImages\GetProductImageData;
 use SimpleSquid\Vend\TwoZero\Requests\ProductImages\SetImagePosition;
 
 class ProductImages extends Resource
 {
-    public function getProductImageDataById(string $productImageId): Response
-    {
-        return $this->connector->send(new GetProductImageDataById($productImageId));
+    public function getProductImageData(
+        string $productImageId,
+    ): Response {
+        return $this->connector->send(new GetProductImageData($productImageId));
     }
 
-    public function setImagePosition(string $productImageId): Response
-    {
+    public function setImagePosition(
+        string $productImageId,
+    ): Response {
         return $this->connector->send(new SetImagePosition($productImageId));
     }
 
-    public function deleteProductImageById(string $productImageId): Response
-    {
-        return $this->connector->send(new DeleteProductImageById($productImageId));
+    public function deleteProductImage(
+        string $productImageId,
+    ): Response {
+        return $this->connector->send(new DeleteProductImage($productImageId));
     }
 }

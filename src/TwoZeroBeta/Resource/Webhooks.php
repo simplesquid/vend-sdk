@@ -4,36 +4,39 @@ namespace SimpleSquid\Vend\TwoZeroBeta\Resource;
 
 use Saloon\Http\Response;
 use SimpleSquid\Vend\Common\Resource;
-use SimpleSquid\Vend\TwoZeroBeta\Requests\Webhooks\DeleteWebhooksWebhookId;
-use SimpleSquid\Vend\TwoZeroBeta\Requests\Webhooks\GetWebhooks;
-use SimpleSquid\Vend\TwoZeroBeta\Requests\Webhooks\GetWebhooksId;
-use SimpleSquid\Vend\TwoZeroBeta\Requests\Webhooks\PostWebhooks;
-use SimpleSquid\Vend\TwoZeroBeta\Requests\Webhooks\PutWebhooksId;
+use SimpleSquid\Vend\TwoZeroBeta\Requests\Webhooks\CreateWebhook;
+use SimpleSquid\Vend\TwoZeroBeta\Requests\Webhooks\DeleteWebhook;
+use SimpleSquid\Vend\TwoZeroBeta\Requests\Webhooks\GetWebhook;
+use SimpleSquid\Vend\TwoZeroBeta\Requests\Webhooks\ListWebhooks;
+use SimpleSquid\Vend\TwoZeroBeta\Requests\Webhooks\UpdateWebhook;
 
 class Webhooks extends Resource
 {
-    public function getWebhooksId(string $webhookId): Response
-    {
-        return $this->connector->send(new GetWebhooksId($webhookId));
+    public function getWebhook(
+        string $webhookId,
+    ): Response {
+        return $this->connector->send(new GetWebhook($webhookId));
     }
 
-    public function putWebhooksId(string $webhookId): Response
-    {
-        return $this->connector->send(new PutWebhooksId($webhookId));
+    public function updateWebhook(
+        string $webhookId,
+    ): Response {
+        return $this->connector->send(new UpdateWebhook($webhookId));
     }
 
-    public function deleteWebhooksWebhookId(string $webhookId): Response
-    {
-        return $this->connector->send(new DeleteWebhooksWebhookId($webhookId));
+    public function deleteWebhook(
+        string $webhookId,
+    ): Response {
+        return $this->connector->send(new DeleteWebhook($webhookId));
     }
 
-    public function getWebhooks(): Response
+    public function listWebhooks(): Response
     {
-        return $this->connector->send(new GetWebhooks());
+        return $this->connector->send(new ListWebhooks());
     }
 
-    public function postWebhooks(): Response
+    public function createWebhook(): Response
     {
-        return $this->connector->send(new PostWebhooks());
+        return $this->connector->send(new CreateWebhook());
     }
 }

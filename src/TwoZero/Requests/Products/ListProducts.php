@@ -23,6 +23,10 @@ class ListProducts extends Request
 
     public function defaultQuery(): array
     {
-        return array_filter(['before' => $this->before, 'deleted' => $this->deleted, 'page_size' => $this->pageSize]);
+        return array_filter([
+            'before' => $this->before,
+            'deleted' => $this->deleted,
+            'page_size' => $this->pageSize,
+        ]);
     }
 }

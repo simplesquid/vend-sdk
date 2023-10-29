@@ -13,6 +13,8 @@ use SimpleSquid\Vend\VendConnector;
  * API 3.0 Beta
  *
  * Beta endpoints for version 3.0 of the Vend API.
+ *
+ * These may be subject to breaking changes.
  */
 class VendThreeZeroBeta extends VendConnector implements HasPagination
 {

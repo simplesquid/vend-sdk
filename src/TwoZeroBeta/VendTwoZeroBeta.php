@@ -2,6 +2,10 @@
 
 namespace SimpleSquid\Vend\TwoZeroBeta;
 
+use Saloon\Http\Request;
+use Saloon\PaginationPlugin\Contracts\HasPagination;
+use Saloon\PaginationPlugin\Paginator;
+use SimpleSquid\Vend\Common\Paginators\VendCursorPaginator;
 use SimpleSquid\Vend\TwoZeroBeta\Resource\Audit;
 use SimpleSquid\Vend\TwoZeroBeta\Resource\GiftCards;
 use SimpleSquid\Vend\TwoZeroBeta\Resource\PartnerBilling;
@@ -11,16 +15,16 @@ use SimpleSquid\Vend\TwoZeroBeta\Resource\Webhooks;
 use SimpleSquid\Vend\TwoZeroBeta\Resource\Workflows;
 use SimpleSquid\Vend\VendConnector;
 
-/**
- * API 2.0 Beta
- *
- * Beta endpoints for version 2.0 of the Vend API.
- */
-class VendTwoZeroBeta extends VendConnector
+class VendTwoZeroBeta extends VendConnector implements HasPagination
 {
     public function resolveBaseUrl(): string
     {
         return parent::resolveBaseUrl().'/2.0';
+    }
+
+    public function paginate(Request $request): Paginator
+    {
+        return new VendCursorPaginator($this, $request);
     }
 
     public function audit(): Audit

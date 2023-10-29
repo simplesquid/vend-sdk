@@ -7,11 +7,6 @@ use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Traits\Body\HasJsonBody;
 
-/**
- * create-remote-rule
- *
- * Register a new remote rule for the retailer.
- */
 class CreateRemoteRule extends Request implements HasBody
 {
     use HasJsonBody;

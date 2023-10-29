@@ -4,18 +4,18 @@ namespace SimpleSquid\Vend\TwoZero\Resource;
 
 use Saloon\Http\Response;
 use SimpleSquid\Vend\Common\Resource;
-use SimpleSquid\Vend\TwoZero\Requests\PromoCode\DeletePromoCodesBulk;
-use SimpleSquid\Vend\TwoZero\Requests\PromoCode\GetActivePromoCodesBulk;
+use SimpleSquid\Vend\TwoZero\Requests\PromoCode\DeletePromoCodes;
+use SimpleSquid\Vend\TwoZero\Requests\PromoCode\GetActivePromoCodes;
 
 class PromoCode extends Resource
 {
-    public function getActivePromoCodesBulk(): Response
+    public function getActivePromoCodes(): Response
     {
-        return $this->connector->send(new GetActivePromoCodesBulk());
+        return $this->connector->send(new GetActivePromoCodes());
     }
 
-    public function deletePromoCodesBulk(): Response
+    public function deletePromoCodes(): Response
     {
-        return $this->connector->send(new DeletePromoCodesBulk());
+        return $this->connector->send(new DeletePromoCodes());
     }
 }
