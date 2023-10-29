@@ -4,14 +4,14 @@ namespace SimpleSquid\Vend\TwoZero\Resource;
 
 use Saloon\Http\Response;
 use SimpleSquid\Vend\Common\Resource;
-use SimpleSquid\Vend\TwoZero\Requests\ChannelRequestLog\GetRequest;
-use SimpleSquid\Vend\TwoZero\Requests\ChannelRequestLog\GetRequestText;
+use SimpleSquid\Vend\TwoZero\Requests\ChannelRequestLog\GetRequestLog;
+use SimpleSquid\Vend\TwoZero\Requests\ChannelRequestLog\GetRequestLogText;
 use SimpleSquid\Vend\TwoZero\Requests\ChannelRequestLog\ListChannels;
-use SimpleSquid\Vend\TwoZero\Requests\ChannelRequestLog\ListRequests;
+use SimpleSquid\Vend\TwoZero\Requests\ChannelRequestLog\ListRequestLogs;
 
 class ChannelRequestLog extends Resource
 {
-    public function listRequests(
+    public function listRequestLogs(
         ?string $statusCode,
         ?string $requestMethod,
         ?string $occurredBefore,
@@ -20,17 +20,19 @@ class ChannelRequestLog extends Resource
         ?string $statusCodeAfter,
         ?string $channelId,
     ): Response {
-        return $this->connector->send(new ListRequests($statusCode, $requestMethod, $occurredBefore, $occurredAfter, $statusCodeBefore, $statusCodeAfter, $channelId));
+        return $this->connector->send(new ListRequestLogs($statusCode, $requestMethod, $occurredBefore, $occurredAfter, $statusCodeBefore, $statusCodeAfter, $channelId));
     }
 
-    public function getRequest(string $requestId): Response
-    {
-        return $this->connector->send(new GetRequest($requestId));
+    public function getRequestLog(
+        string $requestLogId,
+    ): Response {
+        return $this->connector->send(new GetRequestLog($requestLogId));
     }
 
-    public function getRequestText(string $requestId): Response
-    {
-        return $this->connector->send(new GetRequestText($requestId));
+    public function getRequestLogText(
+        string $requestLogId,
+    ): Response {
+        return $this->connector->send(new GetRequestLogText($requestLogId));
     }
 
     public function listChannels(): Response

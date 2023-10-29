@@ -7,21 +7,22 @@ use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Traits\Body\HasJsonBody;
 
-class CreateBrand extends Request implements HasBody
+class UpdateBrand extends Request implements HasBody
 {
     use HasJsonBody;
 
-    protected Method $method = Method::POST;
+    protected Method $method = Method::PUT;
 
     public function resolveEndpoint(): string
     {
-        return '/brands';
+        return "/brands/{$this->brandId}";
     }
 
     /**
      * @param  array<string, mixed>  $payload
      */
     public function __construct(
+        protected string $brandId,
         protected array $payload = [],
     ) {
     }

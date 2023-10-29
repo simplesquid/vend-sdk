@@ -5,7 +5,7 @@ namespace SimpleSquid\Vend\TwoZero\Requests\ChannelRequestLog;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
-class ListRequests extends Request
+class ListRequestLogs extends Request
 {
     protected Method $method = Method::GET;
 
