@@ -1,21 +1,21 @@
 <?php
 
-namespace SimpleSquid\Vend\TwoZero\Requests\Outlets;
+namespace SimpleSquid\Vend\TwoZero\Requests\Fulfillment;
 
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
-class GetOutletById extends Request
+class ListSaleFulfillments extends Request
 {
     protected Method $method = Method::GET;
 
     public function resolveEndpoint(): string
     {
-        return "/outlets/{$this->outletId}";
+        return "/sales/{$this->saleId}/fulfillments";
     }
 
     public function __construct(
-        protected string $outletId,
+        protected string $saleId,
     ) {
     }
 }

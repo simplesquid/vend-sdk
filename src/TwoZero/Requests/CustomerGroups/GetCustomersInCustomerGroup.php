@@ -5,7 +5,7 @@ namespace SimpleSquid\Vend\TwoZero\Requests\CustomerGroups;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
-class GetCustomerGroupCustomers extends Request
+class GetCustomersInCustomerGroup extends Request
 {
     protected Method $method = Method::GET;
 
@@ -23,6 +23,9 @@ class GetCustomerGroupCustomers extends Request
 
     public function defaultQuery(): array
     {
-        return array_filter(['before' => $this->before, 'page_size' => $this->pageSize]);
+        return array_filter([
+            'before' => $this->before,
+            'page_size' => $this->pageSize,
+        ]);
     }
 }

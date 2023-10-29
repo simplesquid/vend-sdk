@@ -5,9 +5,9 @@ namespace SimpleSquid\Vend\TwoZero\Requests\Customers;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
-class DeleteCustomerById extends Request
+class GetCustomer extends Request
 {
-    protected Method $method = Method::DELETE;
+    protected Method $method = Method::GET;
 
     public function resolveEndpoint(): string
     {

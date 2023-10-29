@@ -23,6 +23,10 @@ class ListCustomers extends Request
 
     public function defaultQuery(): array
     {
-        return array_filter(['before' => $this->before, 'page_size' => $this->pageSize, 'deleted' => $this->deleted]);
+        return array_filter([
+            'before' => $this->before,
+            'page_size' => $this->pageSize,
+            'deleted' => $this->deleted,
+        ]);
     }
 }

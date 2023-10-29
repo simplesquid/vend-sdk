@@ -5,7 +5,7 @@ namespace SimpleSquid\Vend\TwoZero\Requests\OutletProductTaxes;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
-class ListOutletProductTaxes extends Request
+class ListProductTaxesForOutlet extends Request
 {
     protected Method $method = Method::GET;
 

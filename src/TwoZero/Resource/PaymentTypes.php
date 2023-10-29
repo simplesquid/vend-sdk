@@ -8,8 +8,10 @@ use SimpleSquid\Vend\TwoZero\Requests\PaymentTypes\ListPaymentTypes;
 
 class PaymentTypes extends Resource
 {
-    public function listPaymentTypes(?int $before, ?int $pageSize): Response
-    {
+    public function listPaymentTypes(
+        ?int $before,
+        ?int $pageSize,
+    ): Response {
         return $this->connector->send(new ListPaymentTypes($before, $pageSize));
     }
 }
