@@ -5,11 +5,6 @@ namespace SimpleSquid\Vend\TwoZero\Requests\ServiceOrders;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
-/**
- * ListServices
- *
- * Returns a paginated list of services.
- */
 class ListServices extends Request
 {
     protected Method $method = Method::GET;
@@ -19,9 +14,6 @@ class ListServices extends Request
         return '/services';
     }
 
-    /**
-     * @param  null|int  $limit The maximum number of items to be returned in the response.
-     */
     public function __construct(
         protected ?int $limit = null,
     ) {

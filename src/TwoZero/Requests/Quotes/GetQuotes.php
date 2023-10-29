@@ -5,11 +5,6 @@ namespace SimpleSquid\Vend\TwoZero\Requests\Quotes;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
-/**
- * get-quotes
- *
- * Returns a paginated list of quotes.
- */
 class GetQuotes extends Request
 {
     protected Method $method = Method::GET;
@@ -19,9 +14,6 @@ class GetQuotes extends Request
         return '/quotes';
     }
 
-    /**
-     * @param  null|int  $limit The maximum number of items to be returned in the response.
-     */
     public function __construct(
         protected ?int $limit = null,
     ) {

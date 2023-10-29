@@ -4,12 +4,12 @@ namespace SimpleSquid\Vend\TwoZero\Resource;
 
 use Saloon\Http\Response;
 use SimpleSquid\Vend\Common\Resource;
-use SimpleSquid\Vend\TwoZero\Requests\Audit\GetSecurityEvents;
+use SimpleSquid\Vend\TwoZero\Requests\Audit\ListSecurityEvents;
 
 class Audit extends Resource
 {
-    public function getSecurityEvents(): Response
+    public function listSecurityEvents(): Response
     {
-        return $this->connector->send(new GetSecurityEvents());
+        return $this->connector->send(new ListSecurityEvents());
     }
 }

@@ -5,14 +5,6 @@ namespace SimpleSquid\Vend\TwoZero\Requests\PriceBooks;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
-/**
- * DeletePriceBook
- *
- * Delete a price book by ID
- *
- * **Note**: The products associated with this price book will be
- * automatically deleted when you delete the price book.
- */
 class DeletePriceBook extends Request
 {
     protected Method $method = Method::DELETE;
@@ -22,9 +14,6 @@ class DeletePriceBook extends Request
         return "/price_books/{$this->priceBookId}";
     }
 
-    /**
-     * @param  string  $priceBookId Valid Price Book ID.
-     */
     public function __construct(
         protected string $priceBookId,
     ) {

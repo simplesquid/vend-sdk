@@ -7,13 +7,6 @@ use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Traits\Body\HasJsonBody;
 
-/**
- * UpdatePriceBook
- *
- * **DEPRECATED** This endpoint has a 3.0 equivalent. We recommend using that instead, which now uses
- * PUT method.
- * Update a price book by ID
- */
 class UpdatePriceBook extends Request implements HasBody
 {
     use HasJsonBody;
@@ -25,9 +18,6 @@ class UpdatePriceBook extends Request implements HasBody
         return "/price_books/{$this->priceBookId}";
     }
 
-    /**
-     * @param  string  $priceBookId The price book id
-     */
     public function __construct(
         protected string $priceBookId,
     ) {

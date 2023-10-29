@@ -5,25 +5,17 @@ namespace SimpleSquid\Vend\TwoZero\Requests\Users;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
-/**
- * GetUserByID
- *
- * Returns a single user with the requested ID.
- */
-class GetUserById extends Request
+class GetUser extends Request
 {
     protected Method $method = Method::GET;
 
     public function resolveEndpoint(): string
     {
-        return "/users/{$this->userId}";
+        return "/users/{$this->id}";
     }
 
-    /**
-     * @param  string  $userId A valid user id
-     */
     public function __construct(
-        protected string $userId,
+        protected string $id,
     ) {
     }
 }

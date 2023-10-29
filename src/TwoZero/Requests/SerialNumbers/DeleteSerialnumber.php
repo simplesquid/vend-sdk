@@ -5,11 +5,6 @@ namespace SimpleSquid\Vend\TwoZero\Requests\SerialNumbers;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
-/**
- * delete-serialnumber
- *
- * Deletes a serial number.
- */
 class DeleteSerialnumber extends Request
 {
     protected Method $method = Method::DELETE;
@@ -19,9 +14,6 @@ class DeleteSerialnumber extends Request
         return "/serialnumbers/{$this->serialnumberId}";
     }
 
-    /**
-     * @param  string  $serialnumberId The serial number id
-     */
     public function __construct(
         protected string $serialnumberId,
     ) {

@@ -7,11 +7,6 @@ use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Traits\Body\HasJsonBody;
 
-/**
- * CreateCustomerGroup
- *
- * Create a new customer group
- */
 class CreateCustomerGroup extends Request implements HasBody
 {
     use HasJsonBody;

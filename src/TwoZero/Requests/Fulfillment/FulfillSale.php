@@ -7,11 +7,6 @@ use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Traits\Body\HasJsonBody;
 
-/**
- * FulfillSale
- *
- * Fulfil an unfulfilled sale.
- */
 class FulfillSale extends Request implements HasBody
 {
     use HasJsonBody;
@@ -23,9 +18,6 @@ class FulfillSale extends Request implements HasBody
         return "/sales/{$this->saleId}/fulfill";
     }
 
-    /**
-     * @param  string  $saleId The sale id
-     */
     public function __construct(
         protected string $saleId,
     ) {

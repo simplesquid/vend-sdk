@@ -5,11 +5,6 @@ namespace SimpleSquid\Vend\TwoZero\Requests\Promotions;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
-/**
- * GetPromotionByID
- *
- * This will retrieve a single promotion using the given ID.
- */
 class GetPromotionById extends Request
 {
     protected Method $method = Method::GET;
@@ -19,9 +14,6 @@ class GetPromotionById extends Request
         return "/promotions/{$this->promotionId}";
     }
 
-    /**
-     * @param  string  $promotionId The promotion id
-     */
     public function __construct(
         protected string $promotionId,
     ) {

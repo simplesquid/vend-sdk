@@ -5,11 +5,6 @@ namespace SimpleSquid\Vend\TwoZero\Requests\CustomerGroups;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
-/**
- * UpdateCustomerGroup
- *
- * Update the given Customer Group
- */
 class UpdateCustomerGroup extends Request
 {
     protected Method $method = Method::PUT;
@@ -19,9 +14,6 @@ class UpdateCustomerGroup extends Request
         return "/customer_groups/{$this->customerGroupId}";
     }
 
-    /**
-     * @param  string  $customerGroupId The customer group id
-     */
     public function __construct(
         protected string $customerGroupId,
     ) {

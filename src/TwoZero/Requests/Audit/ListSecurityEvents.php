@@ -1,16 +1,16 @@
 <?php
 
-namespace SimpleSquid\Vend\TwoZero\Requests\Retailers;
+namespace SimpleSquid\Vend\TwoZero\Requests\Audit;
 
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
-class GetRetailer extends Request
+class ListSecurityEvents extends Request
 {
     protected Method $method = Method::GET;
 
     public function resolveEndpoint(): string
     {
-        return '/retailer';
+        return '/security_events';
     }
 }

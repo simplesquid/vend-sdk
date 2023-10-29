@@ -7,11 +7,6 @@ use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Traits\Body\HasJsonBody;
 
-/**
- * AddCustomersToCustomerGroup
- *
- * Associates one or more customers with the given customer group
- */
 class AddCustomersToCustomerGroup extends Request implements HasBody
 {
     use HasJsonBody;
@@ -23,9 +18,6 @@ class AddCustomersToCustomerGroup extends Request implements HasBody
         return "/customer_groups/{$this->customerGroupId}/customers";
     }
 
-    /**
-     * @param  string  $customerGroupId The customer group id
-     */
     public function __construct(
         protected string $customerGroupId,
     ) {

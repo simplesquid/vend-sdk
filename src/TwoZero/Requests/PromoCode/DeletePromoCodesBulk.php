@@ -5,11 +5,6 @@ namespace SimpleSquid\Vend\TwoZero\Requests\PromoCode;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
-/**
- * DeletePromoCodesBulk
- *
- * Delete promo codes, by promocode IDs
- */
 class DeletePromoCodesBulk extends Request
 {
     protected Method $method = Method::DELETE;

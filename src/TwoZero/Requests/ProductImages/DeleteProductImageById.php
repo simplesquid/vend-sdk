@@ -5,11 +5,6 @@ namespace SimpleSquid\Vend\TwoZero\Requests\ProductImages;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
-/**
- * DeleteProductImageByID
- *
- * Deletes the product image with the requested ID.
- */
 class DeleteProductImageById extends Request
 {
     protected Method $method = Method::DELETE;
@@ -19,9 +14,6 @@ class DeleteProductImageById extends Request
         return "/product_images/{$this->productImageId}";
     }
 
-    /**
-     * @param  string  $productImageId The product image id
-     */
     public function __construct(
         protected string $productImageId,
     ) {

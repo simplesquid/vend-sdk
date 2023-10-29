@@ -7,11 +7,6 @@ use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Traits\Body\HasJsonBody;
 
-/**
- * CreateBrand
- *
- * Creates a new brand.
- */
 class CreateBrand extends Request implements HasBody
 {
     use HasJsonBody;

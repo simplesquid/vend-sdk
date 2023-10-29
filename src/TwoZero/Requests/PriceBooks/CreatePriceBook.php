@@ -7,13 +7,6 @@ use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Traits\Body\HasJsonBody;
 
-/**
- * CreatePriceBook
- *
- * **DEPRECATED** This endpoint has a 3.0 equivalent. We recommend using that instead.
- * Create a price
- * book
- */
 class CreatePriceBook extends Request implements HasBody
 {
     use HasJsonBody;

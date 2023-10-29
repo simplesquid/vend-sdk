@@ -5,11 +5,6 @@ namespace SimpleSquid\Vend\TwoZero\Requests\Registers;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
-/**
- * OpenRegister
- *
- * Opens a single register with the requested ID.
- */
 class OpenRegister extends Request
 {
     protected Method $method = Method::PUT;
@@ -19,9 +14,6 @@ class OpenRegister extends Request
         return "/registers/{$this->registerId}/actions/open";
     }
 
-    /**
-     * @param  string  $registerId The register id
-     */
     public function __construct(
         protected string $registerId,
     ) {

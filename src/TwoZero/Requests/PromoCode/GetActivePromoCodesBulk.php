@@ -7,11 +7,6 @@ use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Traits\Body\HasJsonBody;
 
-/**
- * GetActivePromoCodesBulk
- *
- * Get promo codes, with their associated promotions.
- */
 class GetActivePromoCodesBulk extends Request implements HasBody
 {
     use HasJsonBody;
