@@ -11,11 +11,11 @@ class GetService extends Request
 
     public function resolveEndpoint(): string
     {
-        return "/services/{$this->serviceId}";
+        return "/services/{$this->id}";
     }
 
     public function __construct(
-        protected string $serviceId,
+        protected string $id,
     ) {
     }
 }

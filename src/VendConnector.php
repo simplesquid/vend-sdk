@@ -20,7 +20,7 @@ abstract class VendConnector extends Connector
         ?string $clientSecret = null,
         ?string $redirectUri = null,
         ?string $personalToken = null,
-        protected ?string $domainPrefix = null
+        protected ?string $domainPrefix = null,
     ) {
         if (! is_null($personalToken)) {
             $this->withTokenAuth($personalToken);

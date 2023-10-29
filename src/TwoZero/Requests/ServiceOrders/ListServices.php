@@ -21,6 +21,8 @@ class ListServices extends Request
 
     public function defaultQuery(): array
     {
-        return array_filter(['limit' => $this->limit]);
+        return array_filter([
+            'limit' => $this->limit,
+        ]);
     }
 }

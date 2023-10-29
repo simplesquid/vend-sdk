@@ -4,18 +4,18 @@ namespace SimpleSquid\Vend\TwoZero\Resource;
 
 use Saloon\Http\Response;
 use SimpleSquid\Vend\Common\Resource;
-use SimpleSquid\Vend\TwoZero\Requests\Quotes\GetQuoteQuoteId;
-use SimpleSquid\Vend\TwoZero\Requests\Quotes\GetQuotes;
+use SimpleSquid\Vend\TwoZero\Requests\Quotes\GetQuote;
+use SimpleSquid\Vend\TwoZero\Requests\Quotes\ListQuotes;
 
 class Quotes extends Resource
 {
-    public function getQuoteQuoteId(string $quoteId): Response
+    public function getQuote(string $id): Response
     {
-        return $this->connector->send(new GetQuoteQuoteId($quoteId));
+        return $this->connector->send(new GetQuote($id));
     }
 
-    public function getQuotes(?int $limit): Response
+    public function listQuotes(?int $limit): Response
     {
-        return $this->connector->send(new GetQuotes($limit));
+        return $this->connector->send(new ListQuotes($limit));
     }
 }

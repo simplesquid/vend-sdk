@@ -1,21 +1,21 @@
 <?php
 
-namespace SimpleSquid\Vend\TwoZero\Requests\ServiceOrders;
+namespace SimpleSquid\Vend\TwoZero\Requests\Quotes;
 
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
-class GetAgendaOutletId extends Request
+class GetQuote extends Request
 {
     protected Method $method = Method::GET;
 
     public function resolveEndpoint(): string
     {
-        return "/services_agenda/outlet/{$this->outletId}";
+        return "/quotes/{$this->id}";
     }
 
     public function __construct(
-        protected string $outletId,
+        protected string $id,
     ) {
     }
 }

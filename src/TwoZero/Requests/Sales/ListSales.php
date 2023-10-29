@@ -22,6 +22,9 @@ class ListSales extends Request
 
     public function defaultQuery(): array
     {
-        return array_filter(['before' => $this->before, 'page_size' => $this->pageSize]);
+        return array_filter([
+            'before' => $this->before,
+            'page_size' => $this->pageSize,
+        ]);
     }
 }

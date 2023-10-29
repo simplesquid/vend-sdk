@@ -19,7 +19,7 @@ class Taxes extends Resource
     }
 
     public function getTax(
-        string $id
+        string $id,
     ): Response {
         return $this->connector->send(new GetTax($id));
     }

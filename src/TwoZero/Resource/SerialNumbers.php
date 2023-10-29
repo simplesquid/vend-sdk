@@ -4,14 +4,14 @@ namespace SimpleSquid\Vend\TwoZero\Resource;
 
 use Saloon\Http\Response;
 use SimpleSquid\Vend\Common\Resource;
-use SimpleSquid\Vend\TwoZero\Requests\SerialNumbers\CreateSerialnumber;
-use SimpleSquid\Vend\TwoZero\Requests\SerialNumbers\DeleteSerialnumber;
-use SimpleSquid\Vend\TwoZero\Requests\SerialNumbers\GetSerialnumber;
-use SimpleSquid\Vend\TwoZero\Requests\SerialNumbers\GetSerialnumbers;
+use SimpleSquid\Vend\TwoZero\Requests\SerialNumbers\CreateSerialNumber;
+use SimpleSquid\Vend\TwoZero\Requests\SerialNumbers\DeleteSerialNumber;
+use SimpleSquid\Vend\TwoZero\Requests\SerialNumbers\GetSerialNumber;
+use SimpleSquid\Vend\TwoZero\Requests\SerialNumbers\ListSerialNumbers;
 
 class SerialNumbers extends Resource
 {
-    public function getSerialnumbers(
+    public function listSerialNumbers(
         ?string $productId,
         ?string $outletId,
         ?string $saleId,
@@ -19,21 +19,23 @@ class SerialNumbers extends Resource
         ?int $before,
         ?int $pageSize,
     ): Response {
-        return $this->connector->send(new GetSerialnumbers($productId, $outletId, $saleId, $lineItemId, $before, $pageSize));
+        return $this->connector->send(new ListSerialNumbers($productId, $outletId, $saleId, $lineItemId, $before, $pageSize));
     }
 
-    public function createSerialnumber(): Response
+    public function createSerialNumber(): Response
     {
-        return $this->connector->send(new CreateSerialnumber());
+        return $this->connector->send(new CreateSerialNumber());
     }
 
-    public function getSerialnumber(string $serialnumberId): Response
-    {
-        return $this->connector->send(new GetSerialnumber($serialnumberId));
+    public function getSerialNumber(
+        string $id,
+    ): Response {
+        return $this->connector->send(new GetSerialNumber($id));
     }
 
-    public function deleteSerialnumber(string $serialnumberId): Response
-    {
-        return $this->connector->send(new DeleteSerialnumber($serialnumberId));
+    public function deleteSerialNumber(
+        string $id,
+    ): Response {
+        return $this->connector->send(new DeleteSerialNumber($id));
     }
 }

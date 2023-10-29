@@ -1,17 +1,17 @@
 <?php
 
-namespace SimpleSquid\Vend\TwoZero\Requests\Registers;
+namespace SimpleSquid\Vend\TwoZero\Requests\Sales;
 
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
-class CloseRegister extends Request
+class ReturnSale extends Request
 {
     protected Method $method = Method::PUT;
 
     public function resolveEndpoint(): string
     {
-        return "/registers/{$this->id}/actions/close";
+        return "/sales/{$this->id}/actions/return";
     }
 
     public function __construct(

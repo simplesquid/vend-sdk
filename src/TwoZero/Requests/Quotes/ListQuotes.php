@@ -5,17 +5,24 @@ namespace SimpleSquid\Vend\TwoZero\Requests\Quotes;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
-class GetQuoteQuoteId extends Request
+class ListQuotes extends Request
 {
     protected Method $method = Method::GET;
 
     public function resolveEndpoint(): string
     {
-        return "/quotes/{$this->quoteId}";
+        return '/quotes';
     }
 
     public function __construct(
-        protected string $quoteId,
+        protected ?int $limit = null,
     ) {
+    }
+
+    public function defaultQuery(): array
+    {
+        return array_filter([
+            'limit' => $this->limit,
+        ]);
     }
 }

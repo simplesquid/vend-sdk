@@ -1,21 +1,21 @@
 <?php
 
-namespace SimpleSquid\Vend\TwoZero\Requests\Sales;
+namespace SimpleSquid\Vend\TwoZero\Requests\SerialNumbers;
 
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
-class GetSaleById extends Request
+class GetSerialNumber extends Request
 {
     protected Method $method = Method::GET;
 
     public function resolveEndpoint(): string
     {
-        return "/sales/{$this->saleId}";
+        return "/serialnumbers/{$this->id}";
     }
 
     public function __construct(
-        protected string $saleId,
+        protected string $id,
     ) {
     }
 }

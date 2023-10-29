@@ -4,7 +4,7 @@ namespace SimpleSquid\Vend\TwoZero\Resource;
 
 use Saloon\Http\Response;
 use SimpleSquid\Vend\Common\Resource;
-use SimpleSquid\Vend\TwoZero\Requests\ServiceOrders\GetAgendaOutletId;
+use SimpleSquid\Vend\TwoZero\Requests\ServiceOrders\GetOutletServicesAgenda;
 use SimpleSquid\Vend\TwoZero\Requests\ServiceOrders\GetService;
 use SimpleSquid\Vend\TwoZero\Requests\ServiceOrders\ListServiceItems;
 use SimpleSquid\Vend\TwoZero\Requests\ServiceOrders\ListServices;
@@ -23,13 +23,15 @@ class ServiceOrders extends Resource
         return $this->connector->send(new ListServiceItems($limit));
     }
 
-    public function getService(string $serviceId): Response
-    {
-        return $this->connector->send(new GetService($serviceId));
+    public function getService(
+        string $id,
+    ): Response {
+        return $this->connector->send(new GetService($id));
     }
 
-    public function getAgendaOutletId(string $outletId): Response
-    {
-        return $this->connector->send(new GetAgendaOutletId($outletId));
+    public function getOutletServicesAgenda(
+        string $outletId,
+    ): Response {
+        return $this->connector->send(new GetOutletServicesAgenda($outletId));
     }
 }

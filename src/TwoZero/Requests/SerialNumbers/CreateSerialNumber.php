@@ -7,7 +7,7 @@ use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Traits\Body\HasJsonBody;
 
-class CreateSerialnumber extends Request implements HasBody
+class CreateSerialNumber extends Request implements HasBody
 {
     use HasJsonBody;
 

@@ -5,7 +5,7 @@ namespace SimpleSquid\Vend\TwoZero\Requests\SerialNumbers;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
-class GetSerialnumbers extends Request
+class ListSerialNumbers extends Request
 {
     protected Method $method = Method::GET;
 
