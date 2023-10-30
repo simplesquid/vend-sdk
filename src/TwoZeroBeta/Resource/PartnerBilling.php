@@ -23,9 +23,13 @@ class PartnerBilling extends Resource
         return $this->connector->send(new GetPartnerSubscription($partnerSubscriptionId));
     }
 
-    public function createPartnerSubscriptionToken(): Response
-    {
-        return $this->connector->send(new CreatePartnerSubscriptionToken());
+    /**
+     * @param  array<string, mixed>  $payload
+     */
+    public function createPartnerSubscriptionToken(
+        array $payload,
+    ): Response {
+        return $this->connector->send(new CreatePartnerSubscriptionToken($payload));
     }
 
     public function getPartnerSubcriptionByToken(
@@ -34,8 +38,12 @@ class PartnerBilling extends Resource
         return $this->connector->send(new GetPartnerSubcriptionByToken($partnerSubscriptionToken));
     }
 
-    public function createPartnerSubscriptionTokenForUpdate(): Response
-    {
-        return $this->connector->send(new CreatePartnerSubscriptionTokenForUpdate());
+    /**
+     * @param  array<string, mixed>  $payload
+     */
+    public function createPartnerSubscriptionTokenForUpdate(
+        array $payload,
+    ): Response {
+        return $this->connector->send(new CreatePartnerSubscriptionTokenForUpdate($payload));
     }
 }

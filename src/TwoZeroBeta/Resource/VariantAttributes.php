@@ -18,9 +18,13 @@ class VariantAttributes extends Resource
         return $this->connector->send(new ListVariantAttributes($deleted));
     }
 
-    public function createVariantAttribute(): Response
-    {
-        return $this->connector->send(new CreateVariantAttribute());
+    /**
+     * @param  array<string, mixed>  $payload
+     */
+    public function createVariantAttribute(
+        array $payload,
+    ): Response {
+        return $this->connector->send(new CreateVariantAttribute($payload));
     }
 
     public function getVariantAttribute(
@@ -30,10 +34,14 @@ class VariantAttributes extends Resource
         return $this->connector->send(new GetVariantAttribute($attributeId, $deleted));
     }
 
+    /**
+     * @param  array<string, mixed>  $payload
+     */
     public function updateVariantAttribute(
         string $attributeId,
+        array $payload,
     ): Response {
-        return $this->connector->send(new UpdateVariantAttribute($attributeId));
+        return $this->connector->send(new UpdateVariantAttribute($attributeId, $payload));
     }
 
     public function deleteVariantAttribute(

@@ -18,8 +18,17 @@ class CreateStoreCreditTransaction extends Request implements HasBody
         return "/store_credits/{$this->customerId}/transactions";
     }
 
+    /**
+     * @param  array<string, mixed>  $payload
+     */
     public function __construct(
         protected string $customerId,
+        protected array $payload = [],
     ) {
+    }
+
+    public function defaultBody(): array
+    {
+        return $this->payload;
     }
 }

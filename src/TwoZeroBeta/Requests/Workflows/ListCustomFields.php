@@ -21,8 +21,8 @@ class ListCustomFields extends Request
 
     public function defaultQuery(): array
     {
-        return array_filter([
+        return [
             'entity' => $this->entity,
-        ]);
+        ];
     }
 }

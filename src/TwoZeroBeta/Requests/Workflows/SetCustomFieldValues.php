@@ -17,4 +17,17 @@ class SetCustomFieldValues extends Request implements HasBody
     {
         return '/workflows/custom_fields/values';
     }
+
+    /**
+     * @param  array<string, mixed>  $payload
+     */
+    public function __construct(
+        protected array $payload = [],
+    ) {
+    }
+
+    public function defaultBody(): array
+    {
+        return $this->payload;
+    }
 }

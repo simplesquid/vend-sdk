@@ -16,16 +16,21 @@ class GiftCards extends Resource
 {
     public function listGiftCards(
         ?string $before,
+        ?string $after,
         ?int $pageSize,
         ?string $cardNumber,
         ?string $status,
     ): Response {
-        return $this->connector->send(new ListGiftCards($before, $pageSize, $cardNumber, $status));
+        return $this->connector->send(new ListGiftCards($before, $after, $pageSize, $cardNumber, $status));
     }
 
-    public function createGiftCard(): Response
-    {
-        return $this->connector->send(new CreateGiftCard());
+    /**
+     * @param  array<string, mixed>  $payload
+     */
+    public function createGiftCard(
+        array $payload,
+    ): Response {
+        return $this->connector->send(new CreateGiftCard($payload));
     }
 
     public function findGiftCard(
@@ -40,10 +45,14 @@ class GiftCards extends Resource
         return $this->connector->send(new VoidGiftCard($number));
     }
 
+    /**
+     * @param  array<string, mixed>  $payload
+     */
     public function createGiftCardTransaction(
         string $number,
+        array $payload,
     ): Response {
-        return $this->connector->send(new CreateGiftCardTransaction($number));
+        return $this->connector->send(new CreateGiftCardTransaction($number, $payload));
     }
 
     public function findGiftCardFromTransaction(

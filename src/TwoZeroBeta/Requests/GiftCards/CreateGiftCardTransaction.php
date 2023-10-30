@@ -18,8 +18,17 @@ class CreateGiftCardTransaction extends Request implements HasBody
         return "/gift_cards/{$this->number}/transactions";
     }
 
+    /**
+     * @param  array<string, mixed>  $payload
+     */
     public function __construct(
         protected string $number,
+        protected array $payload = [],
     ) {
+    }
+
+    public function defaultBody(): array
+    {
+        return $this->payload;
     }
 }

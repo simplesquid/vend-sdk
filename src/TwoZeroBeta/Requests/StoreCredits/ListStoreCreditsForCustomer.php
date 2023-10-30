@@ -14,16 +14,19 @@ class ListStoreCreditsForCustomer extends Request
         return "/store_credits/{$this->customerId}";
     }
 
+    /**
+     * @param  null|string[]  $includes
+     */
     public function __construct(
         protected string $customerId,
-        protected ?string $includes = null,
+        protected ?array $includes = null,
     ) {
     }
 
     public function defaultQuery(): array
     {
         return array_filter([
-            'includes[]' => $this->includes,
+            'includes' => $this->includes,
         ]);
     }
 }

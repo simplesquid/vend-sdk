@@ -14,9 +14,12 @@ class ListStoreCredits extends Request
         return '/store_credits';
     }
 
+    /**
+     * @param  null|string[]  $includes
+     */
     public function __construct(
         protected ?int $pageSize = null,
-        protected ?string $includes = null,
+        protected ?array $includes = null,
     ) {
     }
 
@@ -24,7 +27,7 @@ class ListStoreCredits extends Request
     {
         return array_filter([
             'page_size' => $this->pageSize,
-            'includes[]' => $this->includes,
+            'includes' => $this->includes,
         ]);
     }
 }

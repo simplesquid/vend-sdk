@@ -17,4 +17,17 @@ class CreatePartnerSubscriptionToken extends Request implements HasBody
     {
         return '/partner/billing/token';
     }
+
+    /**
+     * @param  array<string, mixed>  $payload
+     */
+    public function __construct(
+        protected array $payload = [],
+    ) {
+    }
+
+    public function defaultBody(): array
+    {
+        return $this->payload;
+    }
 }

@@ -17,4 +17,17 @@ class CreateWebhook extends Request implements HasBody
     {
         return '/webhooks';
     }
+
+    /**
+     * @param  array<string, mixed>  $payload
+     */
+    public function __construct(
+        protected array $payload = [],
+    ) {
+    }
+
+    public function defaultBody(): array
+    {
+        return $this->payload;
+    }
 }

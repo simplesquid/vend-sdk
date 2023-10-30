@@ -25,9 +25,13 @@ class Workflows extends Resource
         return $this->connector->send(new ListCustomFields($entity));
     }
 
-    public function createCustomField(): Response
-    {
-        return $this->connector->send(new CreateCustomField());
+    /**
+     * @param  array<string, mixed>  $payload
+     */
+    public function createCustomField(
+        array $payload,
+    ): Response {
+        return $this->connector->send(new CreateCustomField($payload));
     }
 
     public function updateCustomField(
@@ -49,9 +53,13 @@ class Workflows extends Resource
         return $this->connector->send(new GetCustomFieldValues($entity, $entityId));
     }
 
-    public function setCustomFieldValues(): Response
-    {
-        return $this->connector->send(new SetCustomFieldValues());
+    /**
+     * @param  array<string, mixed>  $payload
+     */
+    public function setCustomFieldValues(
+        array $payload,
+    ): Response {
+        return $this->connector->send(new SetCustomFieldValues($payload));
     }
 
     public function listRemoteRules(): Response
@@ -59,9 +67,13 @@ class Workflows extends Resource
         return $this->connector->send(new ListRemoteRules());
     }
 
-    public function createRemoteRule(): Response
-    {
-        return $this->connector->send(new CreateRemoteRule());
+    /**
+     * @param  array<string, mixed>  $payload
+     */
+    public function createRemoteRule(
+        array $payload,
+    ): Response {
+        return $this->connector->send(new CreateRemoteRule($payload));
     }
 
     public function deleteRemoteRule(
@@ -75,9 +87,13 @@ class Workflows extends Resource
         return $this->connector->send(new ListRules());
     }
 
-    public function createRule(): Response
-    {
-        return $this->connector->send(new CreateRule());
+    /**
+     * @param  array<string, mixed>  $payload
+     */
+    public function createRule(
+        array $payload,
+    ): Response {
+        return $this->connector->send(new CreateRule($payload));
     }
 
     public function deleteRule(

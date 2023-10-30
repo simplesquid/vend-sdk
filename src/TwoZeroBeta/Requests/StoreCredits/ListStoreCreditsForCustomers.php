@@ -17,4 +17,17 @@ class ListStoreCreditsForCustomers extends Request implements HasBody
     {
         return '/store_credits/bulk';
     }
+
+    /**
+     * @param  string[]  $customerIds
+     */
+    public function __construct(
+        protected array $customerIds,
+    ) {
+    }
+
+    public function defaultBody(): array
+    {
+        return $this->customerIds;
+    }
 }

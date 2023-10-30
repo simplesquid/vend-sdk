@@ -14,8 +14,17 @@ class UpdateWebhook extends Request
         return "/webhooks/{$this->webhookId}";
     }
 
+    /**
+     * @param  array<string, mixed>  $payload
+     */
     public function __construct(
         protected string $webhookId,
+        protected array $payload = [],
     ) {
+    }
+
+    public function defaultBody(): array
+    {
+        return $this->payload;
     }
 }

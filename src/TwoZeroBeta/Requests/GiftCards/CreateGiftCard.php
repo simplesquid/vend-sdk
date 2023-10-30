@@ -17,4 +17,17 @@ class CreateGiftCard extends Request implements HasBody
     {
         return '/gift_cards';
     }
+
+    /**
+     * @param  array<string, mixed>  $payload
+     */
+    public function __construct(
+        protected array $payload = [],
+    ) {
+    }
+
+    public function defaultBody(): array
+    {
+        return $this->payload;
+    }
 }

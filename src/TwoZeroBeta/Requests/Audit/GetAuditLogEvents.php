@@ -3,9 +3,13 @@
 namespace SimpleSquid\Vend\TwoZeroBeta\Requests\Audit;
 
 use Saloon\Enums\Method;
+use Saloon\Http\Connector;
 use Saloon\Http\Request;
+use Saloon\PaginationPlugin\Contracts\HasRequestPagination;
+use Saloon\PaginationPlugin\Paginator;
+use SimpleSquid\Vend\Common\Paginators\VendOffsetPaginator;
 
-class GetAuditLogEvents extends Request
+class GetAuditLogEvents extends Request implements HasRequestPagination
 {
     protected Method $method = Method::GET;
 
@@ -36,5 +40,10 @@ class GetAuditLogEvents extends Request
             'user_id' => $this->userId,
             'type' => $this->type,
         ]);
+    }
+
+    public function paginate(Connector $connector): Paginator
+    {
+        return new VendOffsetPaginator($connector, $this);
     }
 }

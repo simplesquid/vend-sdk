@@ -18,10 +18,14 @@ class Webhooks extends Resource
         return $this->connector->send(new GetWebhook($webhookId));
     }
 
+    /**
+     * @param  array<string, mixed>  $payload
+     */
     public function updateWebhook(
         string $webhookId,
+        array $payload,
     ): Response {
-        return $this->connector->send(new UpdateWebhook($webhookId));
+        return $this->connector->send(new UpdateWebhook($webhookId, $payload));
     }
 
     public function deleteWebhook(
@@ -35,8 +39,12 @@ class Webhooks extends Resource
         return $this->connector->send(new ListWebhooks());
     }
 
-    public function createWebhook(): Response
-    {
-        return $this->connector->send(new CreateWebhook());
+    /**
+     * @param  array<string, mixed>  $payload
+     */
+    public function createWebhook(
+        array $payload,
+    ): Response {
+        return $this->connector->send(new CreateWebhook($payload));
     }
 }

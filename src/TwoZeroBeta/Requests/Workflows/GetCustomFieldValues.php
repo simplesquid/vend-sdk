@@ -22,9 +22,9 @@ class GetCustomFieldValues extends Request
 
     public function defaultQuery(): array
     {
-        return array_filter([
+        return [
             'entity' => $this->entity,
             'entity_id' => $this->entityId,
-        ]);
+        ];
     }
 }
