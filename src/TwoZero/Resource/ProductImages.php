@@ -10,6 +10,12 @@ use SimpleSquid\Vend\TwoZero\Requests\ProductImages\SetImagePosition;
 
 class ProductImages extends Resource
 {
+    public function deleteProductImage(
+        string $productImageId,
+    ): Response {
+        return $this->connector->send(new DeleteProductImage($productImageId));
+    }
+
     public function getProductImageData(
         string $productImageId,
     ): Response {
@@ -20,11 +26,5 @@ class ProductImages extends Resource
         string $productImageId,
     ): Response {
         return $this->connector->send(new SetImagePosition($productImageId));
-    }
-
-    public function deleteProductImage(
-        string $productImageId,
-    ): Response {
-        return $this->connector->send(new DeleteProductImage($productImageId));
     }
 }

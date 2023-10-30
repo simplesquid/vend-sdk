@@ -12,6 +12,27 @@ use SimpleSquid\Vend\TwoZero\Requests\Brands\UpdateBrand;
 
 class Brands extends Resource
 {
+    /**
+     * @param  array<string, mixed>  $payload
+     */
+    public function createBrand(
+        array $payload,
+    ): Response {
+        return $this->connector->send(new CreateBrand($payload));
+    }
+
+    public function deleteBrand(
+        string $brandId,
+    ): Response {
+        return $this->connector->send(new DeleteBrand($brandId));
+    }
+
+    public function getBrand(
+        string $brandId,
+    ): Response {
+        return $this->connector->send(new GetBrand($brandId));
+    }
+
     public function listBrands(
         ?int $before,
         ?int $pageSize,
@@ -22,31 +43,10 @@ class Brands extends Resource
     /**
      * @param  array<string, mixed>  $payload
      */
-    public function createBrand(
-        array $payload,
-    ): Response {
-        return $this->connector->send(new CreateBrand($payload));
-    }
-
-    public function getBrand(
-        string $brandId,
-    ): Response {
-        return $this->connector->send(new GetBrand($brandId));
-    }
-
-    /**
-     * @param  array<string, mixed>  $payload
-     */
     public function updateBrand(
         string $brandId,
         array $payload,
     ): Response {
         return $this->connector->send(new UpdateBrand($brandId, $payload));
-    }
-
-    public function deleteBrand(
-        string $brandId,
-    ): Response {
-        return $this->connector->send(new DeleteBrand($brandId));
     }
 }

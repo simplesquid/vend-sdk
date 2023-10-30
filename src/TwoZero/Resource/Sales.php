@@ -10,17 +10,17 @@ use SimpleSquid\Vend\TwoZero\Requests\Sales\ReturnSale;
 
 class Sales extends Resource
 {
+    public function getSale(
+        string $saleId,
+    ): Response {
+        return $this->connector->send(new GetSale($saleId));
+    }
+
     public function listSales(
         ?int $before,
         ?int $pageSize,
     ): Response {
         return $this->connector->send(new ListSales($before, $pageSize));
-    }
-
-    public function getSale(
-        string $saleId,
-    ): Response {
-        return $this->connector->send(new GetSale($saleId));
     }
 
     public function returnSale(

@@ -12,17 +12,6 @@ use SimpleSquid\Vend\TwoZeroBeta\Requests\PartnerBilling\ListPartnerSubscription
 
 class PartnerBilling extends Resource
 {
-    public function listPartnerSubscriptions(): Response
-    {
-        return $this->connector->send(new ListPartnerSubscriptions());
-    }
-
-    public function getPartnerSubscription(
-        string $partnerSubscriptionId,
-    ): Response {
-        return $this->connector->send(new GetPartnerSubscription($partnerSubscriptionId));
-    }
-
     /**
      * @param  array<string, mixed>  $payload
      */
@@ -32,12 +21,6 @@ class PartnerBilling extends Resource
         return $this->connector->send(new CreatePartnerSubscriptionToken($payload));
     }
 
-    public function getPartnerSubcriptionByToken(
-        string $partnerSubscriptionToken,
-    ): Response {
-        return $this->connector->send(new GetPartnerSubcriptionByToken($partnerSubscriptionToken));
-    }
-
     /**
      * @param  array<string, mixed>  $payload
      */
@@ -45,5 +28,22 @@ class PartnerBilling extends Resource
         array $payload,
     ): Response {
         return $this->connector->send(new CreatePartnerSubscriptionTokenForUpdate($payload));
+    }
+
+    public function getPartnerSubcriptionByToken(
+        string $partnerSubscriptionToken,
+    ): Response {
+        return $this->connector->send(new GetPartnerSubcriptionByToken($partnerSubscriptionToken));
+    }
+
+    public function getPartnerSubscription(
+        string $partnerSubscriptionId,
+    ): Response {
+        return $this->connector->send(new GetPartnerSubscription($partnerSubscriptionId));
+    }
+
+    public function listPartnerSubscriptions(): Response
+    {
+        return $this->connector->send(new ListPartnerSubscriptions());
     }
 }

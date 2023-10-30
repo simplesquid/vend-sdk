@@ -15,12 +15,10 @@ use SimpleSquid\Vend\TwoZero\Requests\CustomerGroups\UpdateCustomerGroup;
 
 class CustomerGroups extends Resource
 {
-    public function listCustomerGroups(
-        ?int $before,
-        ?int $pageSize,
-        ?bool $deleted,
+    public function addCustomersToCustomerGroup(
+        string $customerGroupId,
     ): Response {
-        return $this->connector->send(new ListCustomerGroups($before, $pageSize, $deleted));
+        return $this->connector->send(new AddCustomersToCustomerGroup($customerGroupId));
     }
 
     public function createCustomerGroup(): Response
@@ -28,20 +26,21 @@ class CustomerGroups extends Resource
         return $this->connector->send(new CreateCustomerGroup());
     }
 
-    public function getCustomerGroup(string $customerGroupId): Response
-    {
-        return $this->connector->send(new GetCustomerGroup($customerGroupId));
-    }
-
-    public function updateCustomerGroup(string $customerGroupId): Response
-    {
-        return $this->connector->send(new UpdateCustomerGroup($customerGroupId));
-    }
-
     public function deleteCustomerGroup(
         string $customerGroupId,
     ): Response {
         return $this->connector->send(new DeleteCustomerGroup($customerGroupId));
+    }
+
+    public function deleteCustomersFromCustomerGroup(
+        string $customerGroupId,
+    ): Response {
+        return $this->connector->send(new DeleteCustomersFromCustomerGroup($customerGroupId));
+    }
+
+    public function getCustomerGroup(string $customerGroupId): Response
+    {
+        return $this->connector->send(new GetCustomerGroup($customerGroupId));
     }
 
     public function getCustomersInCustomerGroup(
@@ -52,15 +51,16 @@ class CustomerGroups extends Resource
         return $this->connector->send(new GetCustomersInCustomerGroup($customerGroupId, $before, $pageSize));
     }
 
-    public function addCustomersToCustomerGroup(
-        string $customerGroupId,
+    public function listCustomerGroups(
+        ?int $before,
+        ?int $pageSize,
+        ?bool $deleted,
     ): Response {
-        return $this->connector->send(new AddCustomersToCustomerGroup($customerGroupId));
+        return $this->connector->send(new ListCustomerGroups($before, $pageSize, $deleted));
     }
 
-    public function deleteCustomersFromCustomerGroup(
-        string $customerGroupId,
-    ): Response {
-        return $this->connector->send(new DeleteCustomersFromCustomerGroup($customerGroupId));
+    public function updateCustomerGroup(string $customerGroupId): Response
+    {
+        return $this->connector->send(new UpdateCustomerGroup($customerGroupId));
     }
 }

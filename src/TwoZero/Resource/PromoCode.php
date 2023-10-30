@@ -9,13 +9,13 @@ use SimpleSquid\Vend\TwoZero\Requests\PromoCode\GetActivePromoCodes;
 
 class PromoCode extends Resource
 {
-    public function getActivePromoCodes(): Response
-    {
-        return $this->connector->send(new GetActivePromoCodes());
-    }
-
     public function deletePromoCodes(): Response
     {
         return $this->connector->send(new DeletePromoCodes());
+    }
+
+    public function getActivePromoCodes(): Response
+    {
+        return $this->connector->send(new GetActivePromoCodes());
     }
 }

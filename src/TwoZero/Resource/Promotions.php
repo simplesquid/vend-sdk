@@ -20,42 +20,9 @@ class Promotions extends Resource
         return $this->connector->send(new ApplyDiscount());
     }
 
-    public function searchPromotions(
-        ?string $scope,
-        ?string $name,
-        ?string $startDate,
-        ?string $endDate,
-        ?array $outletId,
-        ?string $direction,
-        ?int $offset,
-        ?int $pageSize,
-    ): Response {
-        return $this->connector->send(new SearchPromotions($scope, $name, $startDate, $endDate, $outletId, $direction, $offset, $pageSize));
-    }
-
-    public function listPromotions(
-        ?string $endTimeTo,
-        ?string $endTimeFrom,
-        ?int $pageSize,
-    ): Response {
-        return $this->connector->send(new ListPromotions($endTimeTo, $endTimeFrom, $pageSize));
-    }
-
     public function createPromotion(): Response
     {
         return $this->connector->send(new CreatePromotion());
-    }
-
-    public function getPromotion(
-        string $promotionId,
-    ): Response {
-        return $this->connector->send(new GetPromotion($promotionId));
-    }
-
-    public function updatePromotion(
-        string $promotionId,
-    ): Response {
-        return $this->connector->send(new UpdatePromotion($promotionId));
     }
 
     public function getProductsInPromotion(
@@ -68,5 +35,39 @@ class Promotions extends Resource
         string $promotionId,
     ): Response {
         return $this->connector->send(new GetPromoCodesForPromotion($promotionId));
+    }
+
+    public function getPromotion(
+        string $promotionId,
+    ): Response {
+        return $this->connector->send(new GetPromotion($promotionId));
+    }
+
+    public function listPromotions(
+        ?string $endTimeTo,
+        ?string $endTimeFrom,
+        ?int $pageSize,
+    ): Response {
+        return $this->connector->send(new ListPromotions($endTimeTo, $endTimeFrom, $pageSize));
+    }
+
+    public function searchPromotions(
+        ?string $scope,
+        ?string $name,
+        ?string $startDate,
+        ?string $endDate,
+        ?array $outletId,
+        ?string $direction,
+        ?int $offset,
+        ?int $pageSize,
+    ): Response {
+        return $this->connector->send(new SearchPromotions($scope, $name, $startDate, $endDate, $outletId, $direction,
+            $offset, $pageSize));
+    }
+
+    public function updatePromotion(
+        string $promotionId,
+    ): Response {
+        return $this->connector->send(new UpdatePromotion($promotionId));
     }
 }

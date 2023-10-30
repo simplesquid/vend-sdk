@@ -13,6 +13,16 @@ use SimpleSquid\Vend\TwoZeroBeta\Requests\StoreCredits\StoreCreditReport;
 class StoreCredits extends Resource
 {
     /**
+     * @param  array<string, mixed>  $payload
+     */
+    public function createStoreCreditTransaction(
+        string $customerId,
+        array $payload,
+    ): Response {
+        return $this->connector->send(new CreateStoreCreditTransaction($customerId, $payload));
+    }
+
+    /**
      * @param  null|string[]  $includes
      */
     public function listStoreCredits(
@@ -39,16 +49,6 @@ class StoreCredits extends Resource
         array $customerIds,
     ): Response {
         return $this->connector->send(new ListStoreCreditsForCustomers($customerIds));
-    }
-
-    /**
-     * @param  array<string, mixed>  $payload
-     */
-    public function createStoreCreditTransaction(
-        string $customerId,
-        array $payload,
-    ): Response {
-        return $this->connector->send(new CreateStoreCreditTransaction($customerId, $payload));
     }
 
     public function storeCreditReport(): Response

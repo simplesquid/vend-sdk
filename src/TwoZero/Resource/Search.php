@@ -36,6 +36,9 @@ class Search extends Resource
         ?string $mobile,
         ?string $phone,
     ): Response {
-        return $this->connector->send(new SearchRequest($type, $orderDirection, $pageSize, $offset, $id, $id, $deleted, $status, $invoiceNumber, $customerId, $userId, $outletId, $dateFrom, $dateTo, $sku, $sku, $supplierId, $supplierId, $brandId, $brandId, $tagId, $tagId, $productTypeId, $productTypeId, $variantParentId, $variantParentId, $customerCode, $email, $firstName, $lastName, $companyName, $mobile, $phone));
+        return $this->connector->send(new SearchRequest($type, $orderDirection, $pageSize, $offset, $id, $id, $deleted,
+            $status, $invoiceNumber, $customerId, $userId, $outletId, $dateFrom, $dateTo, $sku, $sku, $supplierId,
+            $supplierId, $brandId, $brandId, $tagId, $tagId, $productTypeId, $productTypeId, $variantParentId,
+            $variantParentId, $customerCode, $email, $firstName, $lastName, $companyName, $mobile, $phone));
     }
 }

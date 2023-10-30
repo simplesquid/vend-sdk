@@ -12,19 +12,19 @@ class Products extends Resource
     /**
      * @param  array<string, mixed>  $payload
      */
-    public function updateProduct(
-        string $productId,
+    public function createSingleVariant(
         array $payload,
     ): Response {
-        return $this->connector->send(new UpdateProduct($productId, $payload));
+        return $this->connector->send(new CreateSingleVariant($payload));
     }
 
     /**
      * @param  array<string, mixed>  $payload
      */
-    public function createSingleVariant(
+    public function updateProduct(
+        string $productId,
         array $payload,
     ): Response {
-        return $this->connector->send(new CreateSingleVariant($payload));
+        return $this->connector->send(new UpdateProduct($productId, $payload));
     }
 }

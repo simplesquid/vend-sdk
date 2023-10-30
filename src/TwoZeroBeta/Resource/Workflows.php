@@ -19,12 +19,6 @@ use SimpleSquid\Vend\TwoZeroBeta\Requests\Workflows\UpdateCustomField;
 
 class Workflows extends Resource
 {
-    public function listCustomFields(
-        string $entity,
-    ): Response {
-        return $this->connector->send(new ListCustomFields($entity));
-    }
-
     /**
      * @param  array<string, mixed>  $payload
      */
@@ -32,39 +26,6 @@ class Workflows extends Resource
         array $payload,
     ): Response {
         return $this->connector->send(new CreateCustomField($payload));
-    }
-
-    public function updateCustomField(
-        string $customFieldId,
-    ): Response {
-        return $this->connector->send(new UpdateCustomField($customFieldId));
-    }
-
-    public function deleteCustomField(
-        string $customFieldId,
-    ): Response {
-        return $this->connector->send(new DeleteCustomField($customFieldId));
-    }
-
-    public function getCustomFieldValues(
-        string $entity,
-        string $entityId,
-    ): Response {
-        return $this->connector->send(new GetCustomFieldValues($entity, $entityId));
-    }
-
-    /**
-     * @param  array<string, mixed>  $payload
-     */
-    public function setCustomFieldValues(
-        array $payload,
-    ): Response {
-        return $this->connector->send(new SetCustomFieldValues($payload));
-    }
-
-    public function listRemoteRules(): Response
-    {
-        return $this->connector->send(new ListRemoteRules());
     }
 
     /**
@@ -76,10 +37,49 @@ class Workflows extends Resource
         return $this->connector->send(new CreateRemoteRule($payload));
     }
 
+    /**
+     * @param  array<string, mixed>  $payload
+     */
+    public function createRule(
+        array $payload,
+    ): Response {
+        return $this->connector->send(new CreateRule($payload));
+    }
+
+    public function deleteCustomField(
+        string $customFieldId,
+    ): Response {
+        return $this->connector->send(new DeleteCustomField($customFieldId));
+    }
+
     public function deleteRemoteRule(
         string $remoteRuleId,
     ): Response {
         return $this->connector->send(new DeleteRemoteRule($remoteRuleId));
+    }
+
+    public function deleteRule(
+        string $ruleId,
+    ): Response {
+        return $this->connector->send(new DeleteRule($ruleId));
+    }
+
+    public function getCustomFieldValues(
+        string $entity,
+        string $entityId,
+    ): Response {
+        return $this->connector->send(new GetCustomFieldValues($entity, $entityId));
+    }
+
+    public function listCustomFields(
+        string $entity,
+    ): Response {
+        return $this->connector->send(new ListCustomFields($entity));
+    }
+
+    public function listRemoteRules(): Response
+    {
+        return $this->connector->send(new ListRemoteRules());
     }
 
     public function listRules(): Response
@@ -90,15 +90,15 @@ class Workflows extends Resource
     /**
      * @param  array<string, mixed>  $payload
      */
-    public function createRule(
+    public function setCustomFieldValues(
         array $payload,
     ): Response {
-        return $this->connector->send(new CreateRule($payload));
+        return $this->connector->send(new SetCustomFieldValues($payload));
     }
 
-    public function deleteRule(
-        string $ruleId,
+    public function updateCustomField(
+        string $customFieldId,
     ): Response {
-        return $this->connector->send(new DeleteRule($ruleId));
+        return $this->connector->send(new UpdateCustomField($customFieldId));
     }
 }

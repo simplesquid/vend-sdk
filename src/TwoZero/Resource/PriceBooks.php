@@ -13,11 +13,10 @@ use SimpleSquid\Vend\TwoZero\Requests\PriceBooks\UpdateProductsInPriceBook;
 
 class PriceBooks extends Resource
 {
-    public function listPriceBookProducts(
-        ?int $before,
-        ?int $pageSize,
+    public function addProductsToPriceBook(
+        string $priceBookId,
     ): Response {
-        return $this->connector->send(new ListPriceBookProducts($before, $pageSize));
+        return $this->connector->send(new AddProductsToPriceBook($priceBookId));
     }
 
     public function deletePriceBook(
@@ -26,23 +25,24 @@ class PriceBooks extends Resource
         return $this->connector->send(new DeletePriceBook($priceBookId));
     }
 
+    public function deleteProductsFromPriceBook(
+        string $priceBookId,
+    ): Response {
+        return $this->connector->send(new DeleteProductsFromPriceBook($priceBookId));
+    }
+
+    public function listPriceBookProducts(
+        ?int $before,
+        ?int $pageSize,
+    ): Response {
+        return $this->connector->send(new ListPriceBookProducts($before, $pageSize));
+    }
+
     public function listProductsInPriceBook(
         string $priceBookId,
         ?string $productIds,
     ): Response {
         return $this->connector->send(new ListProductsInPriceBook($priceBookId, $productIds));
-    }
-
-    public function addProductsToPriceBook(
-        string $priceBookId,
-    ): Response {
-        return $this->connector->send(new AddProductsToPriceBook($priceBookId));
-    }
-
-    public function deleteProductsFromPriceBook(
-        string $priceBookId,
-    ): Response {
-        return $this->connector->send(new DeleteProductsFromPriceBook($priceBookId));
     }
 
     public function updateProductsInPriceBook(

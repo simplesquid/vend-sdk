@@ -9,15 +9,15 @@ use SimpleSquid\Vend\TwoZero\Requests\Fulfillment\ListSaleFulfillments;
 
 class Fulfillment extends Resource
 {
-    public function listSaleFulfillments(
-        string $saleId,
-    ): Response {
-        return $this->connector->send(new ListSaleFulfillments($saleId));
-    }
-
     public function fulfillSale(
         string $saleId,
     ): Response {
         return $this->connector->send(new FulfillSale($saleId));
+    }
+
+    public function listSaleFulfillments(
+        string $saleId,
+    ): Response {
+        return $this->connector->send(new ListSaleFulfillments($saleId));
     }
 }

@@ -11,18 +11,6 @@ use SimpleSquid\Vend\TwoZero\Requests\ChannelRequestLog\ListRequestLogs;
 
 class ChannelRequestLog extends Resource
 {
-    public function listRequestLogs(
-        ?string $statusCode,
-        ?string $requestMethod,
-        ?string $occurredBefore,
-        ?string $occurredAfter,
-        ?string $statusCodeBefore,
-        ?string $statusCodeAfter,
-        ?string $channelId,
-    ): Response {
-        return $this->connector->send(new ListRequestLogs($statusCode, $requestMethod, $occurredBefore, $occurredAfter, $statusCodeBefore, $statusCodeAfter, $channelId));
-    }
-
     public function getRequestLog(
         string $requestLogId,
     ): Response {
@@ -38,5 +26,18 @@ class ChannelRequestLog extends Resource
     public function listChannels(): Response
     {
         return $this->connector->send(new ListChannels());
+    }
+
+    public function listRequestLogs(
+        ?string $statusCode,
+        ?string $requestMethod,
+        ?string $occurredBefore,
+        ?string $occurredAfter,
+        ?string $statusCodeBefore,
+        ?string $statusCodeAfter,
+        ?string $channelId,
+    ): Response {
+        return $this->connector->send(new ListRequestLogs($statusCode, $requestMethod, $occurredBefore, $occurredAfter,
+            $statusCodeBefore, $statusCodeAfter, $channelId));
     }
 }

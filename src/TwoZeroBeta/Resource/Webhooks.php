@@ -12,26 +12,25 @@ use SimpleSquid\Vend\TwoZeroBeta\Requests\Webhooks\UpdateWebhook;
 
 class Webhooks extends Resource
 {
-    public function getWebhook(
-        string $webhookId,
-    ): Response {
-        return $this->connector->send(new GetWebhook($webhookId));
-    }
-
     /**
      * @param  array<string, mixed>  $payload
      */
-    public function updateWebhook(
-        string $webhookId,
+    public function createWebhook(
         array $payload,
     ): Response {
-        return $this->connector->send(new UpdateWebhook($webhookId, $payload));
+        return $this->connector->send(new CreateWebhook($payload));
     }
 
     public function deleteWebhook(
         string $webhookId,
     ): Response {
         return $this->connector->send(new DeleteWebhook($webhookId));
+    }
+
+    public function getWebhook(
+        string $webhookId,
+    ): Response {
+        return $this->connector->send(new GetWebhook($webhookId));
     }
 
     public function listWebhooks(): Response
@@ -42,9 +41,10 @@ class Webhooks extends Resource
     /**
      * @param  array<string, mixed>  $payload
      */
-    public function createWebhook(
+    public function updateWebhook(
+        string $webhookId,
         array $payload,
     ): Response {
-        return $this->connector->send(new CreateWebhook($payload));
+        return $this->connector->send(new UpdateWebhook($webhookId, $payload));
     }
 }

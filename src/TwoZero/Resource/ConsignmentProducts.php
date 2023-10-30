@@ -12,25 +12,16 @@ use SimpleSquid\Vend\TwoZero\Requests\ConsignmentProducts\UpdateProductInConsign
 
 class ConsignmentProducts extends Resource
 {
-    public function listProductsInConsignment(
-        string $consignmentId,
-        ?int $before,
-        ?int $pageSize,
-    ): Response {
-        return $this->connector->send(new ListProductsInConsignment($consignmentId, $before, $pageSize));
-    }
-
     public function addProductToConsignment(
         string $consignmentId,
     ): Response {
         return $this->connector->send(new AddProductToConsignment($consignmentId));
     }
 
-    public function updateProductInConsignment(
+    public function bulkUpdateProductsInConsignment(
         string $consignmentId,
-        string $productId,
     ): Response {
-        return $this->connector->send(new UpdateProductInConsignment($consignmentId, $productId));
+        return $this->connector->send(new BulkUpdateProductsInConsignment($consignmentId));
     }
 
     public function deleteProductFromConsignment(
@@ -40,9 +31,18 @@ class ConsignmentProducts extends Resource
         return $this->connector->send(new DeleteProductFromConsignment($consignmentId, $productId));
     }
 
-    public function bulkUpdateProductsInConsignment(
+    public function listProductsInConsignment(
         string $consignmentId,
+        ?int $before,
+        ?int $pageSize,
     ): Response {
-        return $this->connector->send(new BulkUpdateProductsInConsignment($consignmentId));
+        return $this->connector->send(new ListProductsInConsignment($consignmentId, $before, $pageSize));
+    }
+
+    public function updateProductInConsignment(
+        string $consignmentId,
+        string $productId,
+    ): Response {
+        return $this->connector->send(new UpdateProductInConsignment($consignmentId, $productId));
     }
 }

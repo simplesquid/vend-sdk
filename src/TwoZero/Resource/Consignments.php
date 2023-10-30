@@ -13,28 +13,9 @@ use SimpleSquid\Vend\TwoZero\Requests\Consignments\UpdateConsignment;
 
 class Consignments extends Resource
 {
-    public function listConsignments(
-        ?int $before,
-        ?int $pageSize,
-    ): Response {
-        return $this->connector->send(new ListConsignments($before, $pageSize));
-    }
-
     public function createConsignment(): Response
     {
         return $this->connector->send(new CreateConsignment());
-    }
-
-    public function getConsignment(
-        string $consignmentId,
-    ): Response {
-        return $this->connector->send(new GetConsignment($consignmentId));
-    }
-
-    public function updateConsignment(
-        string $consignmentId,
-    ): Response {
-        return $this->connector->send(new UpdateConsignment($consignmentId));
     }
 
     public function deleteConsignment(
@@ -43,9 +24,28 @@ class Consignments extends Resource
         return $this->connector->send(new DeleteConsignment($consignmentId));
     }
 
+    public function getConsignment(
+        string $consignmentId,
+    ): Response {
+        return $this->connector->send(new GetConsignment($consignmentId));
+    }
+
     public function getConsignmentTotals(
         string $consignmentId,
     ): Response {
         return $this->connector->send(new GetConsignmentTotals($consignmentId));
+    }
+
+    public function listConsignments(
+        ?int $before,
+        ?int $pageSize,
+    ): Response {
+        return $this->connector->send(new ListConsignments($before, $pageSize));
+    }
+
+    public function updateConsignment(
+        string $consignmentId,
+    ): Response {
+        return $this->connector->send(new UpdateConsignment($consignmentId));
     }
 }

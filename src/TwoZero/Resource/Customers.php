@@ -12,17 +12,15 @@ use SimpleSquid\Vend\TwoZero\Requests\Customers\UpdateCustomer;
 
 class Customers extends Resource
 {
-    public function listCustomers(
-        ?int $before,
-        ?int $pageSize,
-        ?bool $deleted,
-    ): Response {
-        return $this->connector->send(new ListCustomers($before, $pageSize, $deleted));
-    }
-
     public function createCustomer(): Response
     {
         return $this->connector->send(new CreateCustomer());
+    }
+
+    public function deleteCustomer(
+        string $customerId,
+    ): Response {
+        return $this->connector->send(new DeleteCustomer($customerId));
     }
 
     public function getCustomer(
@@ -31,15 +29,17 @@ class Customers extends Resource
         return $this->connector->send(new GetCustomer($customerId));
     }
 
+    public function listCustomers(
+        ?int $before,
+        ?int $pageSize,
+        ?bool $deleted,
+    ): Response {
+        return $this->connector->send(new ListCustomers($before, $pageSize, $deleted));
+    }
+
     public function updateCustomer(
         string $customerId,
     ): Response {
         return $this->connector->send(new UpdateCustomer($customerId));
-    }
-
-    public function deleteCustomer(
-        string $customerId,
-    ): Response {
-        return $this->connector->send(new DeleteCustomer($customerId));
     }
 }

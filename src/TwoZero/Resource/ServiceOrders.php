@@ -11,16 +11,10 @@ use SimpleSquid\Vend\TwoZero\Requests\ServiceOrders\ListServices;
 
 class ServiceOrders extends Resource
 {
-    public function listServices(
-        ?int $limit,
+    public function getOutletServicesAgenda(
+        string $outletId,
     ): Response {
-        return $this->connector->send(new ListServices($limit));
-    }
-
-    public function listServiceItems(
-        ?int $limit,
-    ): Response {
-        return $this->connector->send(new ListServiceItems($limit));
+        return $this->connector->send(new GetOutletServicesAgenda($outletId));
     }
 
     public function getService(
@@ -29,9 +23,15 @@ class ServiceOrders extends Resource
         return $this->connector->send(new GetService($serviceId));
     }
 
-    public function getOutletServicesAgenda(
-        string $outletId,
+    public function listServiceItems(
+        ?int $limit,
     ): Response {
-        return $this->connector->send(new GetOutletServicesAgenda($outletId));
+        return $this->connector->send(new ListServiceItems($limit));
+    }
+
+    public function listServices(
+        ?int $limit,
+    ): Response {
+        return $this->connector->send(new ListServices($limit));
     }
 }

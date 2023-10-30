@@ -14,16 +14,6 @@ use SimpleSquid\Vend\TwoZeroBeta\Requests\GiftCards\VoidGiftCard;
 
 class GiftCards extends Resource
 {
-    public function listGiftCards(
-        ?string $before,
-        ?string $after,
-        ?int $pageSize,
-        ?string $cardNumber,
-        ?string $status,
-    ): Response {
-        return $this->connector->send(new ListGiftCards($before, $after, $pageSize, $cardNumber, $status));
-    }
-
     /**
      * @param  array<string, mixed>  $payload
      */
@@ -31,18 +21,6 @@ class GiftCards extends Resource
         array $payload,
     ): Response {
         return $this->connector->send(new CreateGiftCard($payload));
-    }
-
-    public function findGiftCard(
-        string $number,
-    ): Response {
-        return $this->connector->send(new FindGiftCard($number));
-    }
-
-    public function voidGiftCard(
-        string $number,
-    ): Response {
-        return $this->connector->send(new VoidGiftCard($number));
     }
 
     /**
@@ -55,15 +33,37 @@ class GiftCards extends Resource
         return $this->connector->send(new CreateGiftCardTransaction($number, $payload));
     }
 
+    public function findGiftCard(
+        string $number,
+    ): Response {
+        return $this->connector->send(new FindGiftCard($number));
+    }
+
     public function findGiftCardFromTransaction(
         string $transactionId,
     ): Response {
         return $this->connector->send(new FindGiftCardFromTransaction($transactionId));
     }
 
+    public function listGiftCards(
+        ?string $before,
+        ?string $after,
+        ?int $pageSize,
+        ?string $cardNumber,
+        ?string $status,
+    ): Response {
+        return $this->connector->send(new ListGiftCards($before, $after, $pageSize, $cardNumber, $status));
+    }
+
     public function reverseGiftCardTransaction(
         string $transactionId,
     ): Response {
         return $this->connector->send(new ReverseGiftCardTransaction($transactionId));
+    }
+
+    public function voidGiftCard(
+        string $number,
+    ): Response {
+        return $this->connector->send(new VoidGiftCard($number));
     }
 }

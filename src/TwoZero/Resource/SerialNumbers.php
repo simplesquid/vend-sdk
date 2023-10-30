@@ -11,20 +11,15 @@ use SimpleSquid\Vend\TwoZero\Requests\SerialNumbers\ListSerialNumbers;
 
 class SerialNumbers extends Resource
 {
-    public function listSerialNumbers(
-        ?string $productId,
-        ?string $outletId,
-        ?string $saleId,
-        ?string $lineItemId,
-        ?int $before,
-        ?int $pageSize,
-    ): Response {
-        return $this->connector->send(new ListSerialNumbers($productId, $outletId, $saleId, $lineItemId, $before, $pageSize));
-    }
-
     public function createSerialNumber(): Response
     {
         return $this->connector->send(new CreateSerialNumber());
+    }
+
+    public function deleteSerialNumber(
+        string $serialNumberId,
+    ): Response {
+        return $this->connector->send(new DeleteSerialNumber($serialNumberId));
     }
 
     public function getSerialNumber(
@@ -33,9 +28,15 @@ class SerialNumbers extends Resource
         return $this->connector->send(new GetSerialNumber($serialNumberId));
     }
 
-    public function deleteSerialNumber(
-        string $serialNumberId,
+    public function listSerialNumbers(
+        ?string $productId,
+        ?string $outletId,
+        ?string $saleId,
+        ?string $lineItemId,
+        ?int $before,
+        ?int $pageSize,
     ): Response {
-        return $this->connector->send(new DeleteSerialNumber($serialNumberId));
+        return $this->connector->send(new ListSerialNumbers($productId, $outletId, $saleId, $lineItemId, $before,
+            $pageSize));
     }
 }

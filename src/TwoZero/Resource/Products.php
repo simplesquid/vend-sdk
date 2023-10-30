@@ -15,23 +15,9 @@ use SimpleSquid\Vend\TwoZero\Requests\Products\UploadImage;
 
 class Products extends Resource
 {
-    public function listProducts(
-        ?int $before,
-        ?bool $deleted,
-        ?int $pageSize,
-    ): Response {
-        return $this->connector->send(new ListProducts($before, $deleted, $pageSize));
-    }
-
     public function createProduct(): Response
     {
         return $this->connector->send(new CreateProduct());
-    }
-
-    public function getProduct(
-        string $productId,
-    ): Response {
-        return $this->connector->send(new GetProduct($productId));
     }
 
     public function deleteProduct(
@@ -46,12 +32,6 @@ class Products extends Resource
         return $this->connector->send(new DeleteProductFamily($productId));
     }
 
-    public function uploadImage(
-        string $productId,
-    ): Response {
-        return $this->connector->send(new UploadImage($productId));
-    }
-
     public function getInventoryForProduct(
         string $productId,
         ?int $before,
@@ -64,5 +44,25 @@ class Products extends Resource
         string $productId,
     ): Response {
         return $this->connector->send(new GetPriceBooksForProduct($productId));
+    }
+
+    public function getProduct(
+        string $productId,
+    ): Response {
+        return $this->connector->send(new GetProduct($productId));
+    }
+
+    public function listProducts(
+        ?int $before,
+        ?bool $deleted,
+        ?int $pageSize,
+    ): Response {
+        return $this->connector->send(new ListProducts($before, $deleted, $pageSize));
+    }
+
+    public function uploadImage(
+        string $productId,
+    ): Response {
+        return $this->connector->send(new UploadImage($productId));
     }
 }

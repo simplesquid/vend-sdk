@@ -12,12 +12,6 @@ use SimpleSquid\Vend\TwoZeroBeta\Requests\VariantAttributes\UpdateVariantAttribu
 
 class VariantAttributes extends Resource
 {
-    public function listVariantAttributes(
-        ?bool $deleted,
-    ): Response {
-        return $this->connector->send(new ListVariantAttributes($deleted));
-    }
-
     /**
      * @param  array<string, mixed>  $payload
      */
@@ -27,11 +21,23 @@ class VariantAttributes extends Resource
         return $this->connector->send(new CreateVariantAttribute($payload));
     }
 
+    public function deleteVariantAttribute(
+        string $attributeId,
+    ): Response {
+        return $this->connector->send(new DeleteVariantAttribute($attributeId));
+    }
+
     public function getVariantAttribute(
         string $attributeId,
         ?bool $deleted,
     ): Response {
         return $this->connector->send(new GetVariantAttribute($attributeId, $deleted));
+    }
+
+    public function listVariantAttributes(
+        ?bool $deleted,
+    ): Response {
+        return $this->connector->send(new ListVariantAttributes($deleted));
     }
 
     /**
@@ -42,11 +48,5 @@ class VariantAttributes extends Resource
         array $payload,
     ): Response {
         return $this->connector->send(new UpdateVariantAttribute($attributeId, $payload));
-    }
-
-    public function deleteVariantAttribute(
-        string $attributeId,
-    ): Response {
-        return $this->connector->send(new DeleteVariantAttribute($attributeId));
     }
 }

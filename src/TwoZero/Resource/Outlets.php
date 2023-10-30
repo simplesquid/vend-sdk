@@ -9,17 +9,17 @@ use SimpleSquid\Vend\TwoZero\Requests\Outlets\ListOutlets;
 
 class Outlets extends Resource
 {
+    public function getOutlet(
+        string $outletId,
+    ): Response {
+        return $this->connector->send(new GetOutlet($outletId));
+    }
+
     public function listOutlets(
         ?int $before,
         ?int $pageSize,
         ?bool $deleted,
     ): Response {
         return $this->connector->send(new ListOutlets($before, $pageSize, $deleted));
-    }
-
-    public function getOutlet(
-        string $outletId,
-    ): Response {
-        return $this->connector->send(new GetOutlet($outletId));
     }
 }
