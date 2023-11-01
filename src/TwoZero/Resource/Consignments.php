@@ -13,9 +13,13 @@ use SimpleSquid\Vend\TwoZero\Requests\Consignments\UpdateConsignment;
 
 class Consignments extends Resource
 {
-    public function createConsignment(): Response
-    {
-        return $this->connector->send(new CreateConsignment());
+    /**
+     * @param  array<string, mixed>  $payload
+     */
+    public function createConsignment(
+        array $payload,
+    ): Response {
+        return $this->connector->send(new CreateConsignment($payload));
     }
 
     public function deleteConsignment(
@@ -44,9 +48,13 @@ class Consignments extends Resource
         return $this->connector->send(new ListConsignments($after, $before, $pageSize));
     }
 
+    /**
+     * @param  array<string, mixed>  $payload
+     */
     public function updateConsignment(
         string $consignmentId,
+        array $payload,
     ): Response {
-        return $this->connector->send(new UpdateConsignment($consignmentId));
+        return $this->connector->send(new UpdateConsignment($consignmentId, $payload));
     }
 }

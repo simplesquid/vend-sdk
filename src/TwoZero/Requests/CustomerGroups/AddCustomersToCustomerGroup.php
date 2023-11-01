@@ -18,8 +18,20 @@ class AddCustomersToCustomerGroup extends Request implements HasBody
         return "/customer_groups/{$this->customerGroupId}/customers";
     }
 
+    /**
+     * @param  array<string, mixed>  $payload
+     */
     public function __construct(
         protected string $customerGroupId,
+        protected array $payload = [],
     ) {
+    }
+
+    /**
+     * @return array<string, mixed>
+     */
+    public function defaultBody(): array
+    {
+        return $this->payload;
     }
 }

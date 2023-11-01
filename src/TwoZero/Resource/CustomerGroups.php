@@ -15,15 +15,23 @@ use SimpleSquid\Vend\TwoZero\Requests\CustomerGroups\UpdateCustomerGroup;
 
 class CustomerGroups extends Resource
 {
+    /**
+     * @param  array<string, mixed>  $payload
+     */
     public function addCustomersToCustomerGroup(
         string $customerGroupId,
+        array $payload,
     ): Response {
-        return $this->connector->send(new AddCustomersToCustomerGroup($customerGroupId));
+        return $this->connector->send(new AddCustomersToCustomerGroup($customerGroupId, $payload));
     }
 
-    public function createCustomerGroup(): Response
-    {
-        return $this->connector->send(new CreateCustomerGroup());
+    /**
+     * @param  array<string, mixed>  $payload
+     */
+    public function createCustomerGroup(
+        array $payload,
+    ): Response {
+        return $this->connector->send(new CreateCustomerGroup($payload));
     }
 
     public function deleteCustomerGroup(
@@ -32,10 +40,14 @@ class CustomerGroups extends Resource
         return $this->connector->send(new DeleteCustomerGroup($customerGroupId));
     }
 
+    /**
+     * @param  array<string, mixed>  $payload
+     */
     public function deleteCustomersFromCustomerGroup(
         string $customerGroupId,
+        array $payload,
     ): Response {
-        return $this->connector->send(new DeleteCustomersFromCustomerGroup($customerGroupId));
+        return $this->connector->send(new DeleteCustomersFromCustomerGroup($customerGroupId, $payload));
     }
 
     public function getCustomerGroup(string $customerGroupId): Response
@@ -61,8 +73,13 @@ class CustomerGroups extends Resource
         return $this->connector->send(new ListCustomerGroups($after, $before, $pageSize, $deleted));
     }
 
-    public function updateCustomerGroup(string $customerGroupId): Response
-    {
-        return $this->connector->send(new UpdateCustomerGroup($customerGroupId));
+    /**
+     * @param  array<string, mixed>  $payload
+     */
+    public function updateCustomerGroup(
+        string $customerGroupId,
+        array $payload,
+    ): Response {
+        return $this->connector->send(new UpdateCustomerGroup($customerGroupId, $payload));
     }
 }

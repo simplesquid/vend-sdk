@@ -17,4 +17,20 @@ class CreateCustomerGroup extends Request implements HasBody
     {
         return '/customer_groups';
     }
+
+    /**
+     * @param  array<string, mixed>  $payload
+     */
+    public function __construct(
+        protected array $payload = [],
+    ) {
+    }
+
+    /**
+     * @return array<string, mixed>
+     */
+    public function defaultBody(): array
+    {
+        return $this->payload;
+    }
 }

@@ -12,9 +12,13 @@ use SimpleSquid\Vend\TwoZero\Requests\Customers\UpdateCustomer;
 
 class Customers extends Resource
 {
-    public function createCustomer(): Response
-    {
-        return $this->connector->send(new CreateCustomer());
+    /**
+     * @param  array<string, mixed>  $payload
+     */
+    public function createCustomer(
+        array $payload,
+    ): Response {
+        return $this->connector->send(new CreateCustomer($payload));
     }
 
     public function deleteCustomer(
@@ -38,9 +42,13 @@ class Customers extends Resource
         return $this->connector->send(new ListCustomers($after, $before, $pageSize, $deleted));
     }
 
+    /**
+     * @param  array<string, mixed>  $payload
+     */
     public function updateCustomer(
         string $customerId,
+        array $payload,
     ): Response {
-        return $this->connector->send(new UpdateCustomer($customerId));
+        return $this->connector->send(new UpdateCustomer($customerId, $payload));
     }
 }
