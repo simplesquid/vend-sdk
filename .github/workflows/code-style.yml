@@ -4,19 +4,22 @@ on:
   push:
     branches:
       - main
+      - 0.x
+      - 1.x
     paths:
       - '**.php'
   pull_request:
     branches:
       - main
+      - 0.x
+      - 1.x
     paths:
       - '**.php'
 
 jobs:
-  style:
-    name: Check code styling
+  format:
+    name: Run code formatters and analysis
     runs-on: ubuntu-latest
-
     steps:
       - name: 📚 Checkout code
         uses: actions/checkout@v3
@@ -24,14 +27,40 @@ jobs:
       - name: 🔥 Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: 8.1
+          php-version: 8.2
           coverage: none
-          tools: cs2pr, pint
+          tools: cs2pr
 
-      - name: 📝 Run Laravel Pint
+      - name: 📦 Install Composer dependencies
+        uses: ramsey/composer-install@v2
+
+      - name: 💾 Cache Laravel Pint results
+        uses: actions/cache@v3
+        env:
+          cache-name: cache-pint
+        with:
+          path: .php-cs-fixer.cache
+          key: ${{ github.repository }}-${{ env.cache-name }}-${{ github.sha }}
+          restore-keys: |
+            ${{ github.repository }}-${{ env.cache-name }}-
+
+      - name: 💾 Cache PHPStan results
+        uses: actions/cache@v3
+        env:
+          cache-name: cache-phpstan
+        with:
+          path: /tmp/phpstan/resultCache.php
+          key: ${{ github.repository }}-${{ env.cache-name }}-${{ github.sha }}
+          restore-keys: |
+            ${{ github.repository }}-${{ env.cache-name }}-
+
+      - name: 📝 Run linting
         id: run-pint
-        run: pint --test
+        run: composer lint -- --test
 
-      - name: 📝 Generate GitHub annotations
+      - name: 📝 Generate annotations for linting
         if: failure() && steps.run-pint.outcome != 'success'
-        run: pint --test --format=checkstyle | cs2pr
+        run: composer lint -- --test --format=checkstyle | cs2pr
+
+      - name: 🧐 Run static analysis
+        run: composer analyse -- --error-format=github --no-ansi --no-progress

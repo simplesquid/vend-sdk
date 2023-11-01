@@ -4,9 +4,13 @@ on:
   push:
     branches:
       - main
+      - 0.x
+      - 1.x
   pull_request:
     branches:
       - main
+      - 0.x
+      - 1.x
 
 jobs:
   test:
@@ -16,7 +20,7 @@ jobs:
       fail-fast: true
       matrix:
         os: [ ubuntu-latest, windows-latest ]
-        php: [ 8.0, 8.1 ]
+        php: [ 8.2 ]
         stability: [ prefer-lowest, prefer-stable ]
 
     name: P${{ matrix.php }} - ${{ matrix.stability }} - ${{ matrix.os }}
@@ -29,7 +33,7 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php }}
-          extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite, bcmath, soap, intl, gd, exif, iconv, imagick, fileinfo
+          extensions: bcmath, curl, dom, fileinfo, intl, libxml, mbstring, pcntl, pdo, redis, soap, sqlite, zip
           coverage: none
 
       - name: 🔎 Setup problem matchers
@@ -38,7 +42,7 @@ jobs:
           echo "::add-matcher::${{ runner.tool_cache }}/phpunit.json"
 
       - name: 📦 Install Composer dependencies
-        run: composer update --${{ matrix.stability }} --prefer-dist --no-interaction --no-ansi --no-scripts --no-progress
+        uses: ramsey/composer-install@v2
 
       - name: 🧪 Run test suite
-        run: ./vendor/bin/pest
+        run: composer test
