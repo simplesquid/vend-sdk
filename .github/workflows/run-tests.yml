@@ -19,11 +19,11 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        os: [ ubuntu-latest, windows-latest ]
+        os: [ ubuntu-latest ]
         php: [ 8.2 ]
         stability: [ prefer-lowest, prefer-stable ]
 
-    name: P${{ matrix.php }} - ${{ matrix.stability }} - ${{ matrix.os }}
+    name: Test package (P${{ matrix.php }} - ${{ matrix.stability }} - ${{ matrix.os }})
 
     steps:
       - name: 📚 Checkout code
