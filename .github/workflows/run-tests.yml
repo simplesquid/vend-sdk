@@ -21,9 +21,9 @@ jobs:
       matrix:
         os: [ ubuntu-latest ]
         php: [ 8.2 ]
-        stability: [ prefer-lowest, prefer-stable ]
+        stability: [ lowest, highest ]
 
-    name: Test package (P${{ matrix.php }} - ${{ matrix.stability }} - ${{ matrix.os }})
+    name: Test package (PHP ${{ matrix.php }} - ${{ matrix.stability }})
 
     steps:
       - name: 📚 Checkout code
@@ -43,6 +43,8 @@ jobs:
 
       - name: 📦 Install Composer dependencies
         uses: ramsey/composer-install@v2
+        with:
+          dependency-versions: ${{ matrix.stability }}
 
       - name: 🧪 Run test suite
         run: composer test
