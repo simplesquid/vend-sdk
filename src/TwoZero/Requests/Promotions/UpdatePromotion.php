@@ -14,8 +14,20 @@ class UpdatePromotion extends Request
         return "/promotions/{$this->promotionId}";
     }
 
+    /**
+     * @param  array<string, mixed>  $payload
+     */
     public function __construct(
         protected string $promotionId,
+        protected array $payload = [],
     ) {
+    }
+
+    /**
+     * @return array<string, mixed>
+     */
+    public function defaultBody(): array
+    {
+        return $this->payload;
     }
 }

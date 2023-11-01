@@ -3,13 +3,13 @@
 namespace SimpleSquid\Vend\TwoZero\Resource;
 
 use Saloon\Http\Response;
-use SimpleSquid\Vend\Common\Resource;
+use SimpleSquid\Vend\Common\BaseResource;
 use SimpleSquid\Vend\TwoZero\Requests\ChannelRequestLog\GetRequestLog;
 use SimpleSquid\Vend\TwoZero\Requests\ChannelRequestLog\GetRequestLogText;
 use SimpleSquid\Vend\TwoZero\Requests\ChannelRequestLog\ListChannels;
 use SimpleSquid\Vend\TwoZero\Requests\ChannelRequestLog\ListRequestLogs;
 
-class ChannelRequestLog extends Resource
+class ChannelRequestLog extends BaseResource
 {
     public function getRequestLog(
         string $requestLogId,

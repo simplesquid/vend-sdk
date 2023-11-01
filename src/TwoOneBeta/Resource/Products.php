@@ -3,11 +3,11 @@
 namespace SimpleSquid\Vend\TwoOneBeta\Resource;
 
 use Saloon\Http\Response;
-use SimpleSquid\Vend\Common\Resource;
+use SimpleSquid\Vend\Common\BaseResource;
 use SimpleSquid\Vend\TwoOneBeta\Requests\Products\CreateSingleVariant;
 use SimpleSquid\Vend\TwoOneBeta\Requests\Products\UpdateProduct;
 
-class Products extends Resource
+class Products extends BaseResource
 {
     /**
      * @param  array<string, mixed>  $payload

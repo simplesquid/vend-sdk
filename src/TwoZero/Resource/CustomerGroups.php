@@ -3,7 +3,7 @@
 namespace SimpleSquid\Vend\TwoZero\Resource;
 
 use Saloon\Http\Response;
-use SimpleSquid\Vend\Common\Resource;
+use SimpleSquid\Vend\Common\BaseResource;
 use SimpleSquid\Vend\TwoZero\Requests\CustomerGroups\AddCustomersToCustomerGroup;
 use SimpleSquid\Vend\TwoZero\Requests\CustomerGroups\CreateCustomerGroup;
 use SimpleSquid\Vend\TwoZero\Requests\CustomerGroups\DeleteCustomerGroup;
@@ -13,7 +13,7 @@ use SimpleSquid\Vend\TwoZero\Requests\CustomerGroups\GetCustomersInCustomerGroup
 use SimpleSquid\Vend\TwoZero\Requests\CustomerGroups\ListCustomerGroups;
 use SimpleSquid\Vend\TwoZero\Requests\CustomerGroups\UpdateCustomerGroup;
 
-class CustomerGroups extends Resource
+class CustomerGroups extends BaseResource
 {
     /**
      * @param  array<string, mixed>  $payload

@@ -3,14 +3,14 @@
 namespace SimpleSquid\Vend\TwoZero\Resource;
 
 use Saloon\Http\Response;
-use SimpleSquid\Vend\Common\Resource;
+use SimpleSquid\Vend\Common\BaseResource;
 use SimpleSquid\Vend\TwoZero\Requests\Suppliers\CreateSupplier;
 use SimpleSquid\Vend\TwoZero\Requests\Suppliers\DeleteSupplier;
 use SimpleSquid\Vend\TwoZero\Requests\Suppliers\GetSupplier;
 use SimpleSquid\Vend\TwoZero\Requests\Suppliers\ListSuppliers;
 use SimpleSquid\Vend\TwoZero\Requests\Suppliers\UpdateSupplier;
 
-class Suppliers extends Resource
+class Suppliers extends BaseResource
 {
     /**
      * @param  array<string, mixed>  $payload

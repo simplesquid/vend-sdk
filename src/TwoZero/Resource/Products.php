@@ -3,7 +3,7 @@
 namespace SimpleSquid\Vend\TwoZero\Resource;
 
 use Saloon\Http\Response;
-use SimpleSquid\Vend\Common\Resource;
+use SimpleSquid\Vend\Common\BaseResource;
 use SimpleSquid\Vend\TwoZero\Requests\Products\CreateProduct;
 use SimpleSquid\Vend\TwoZero\Requests\Products\DeleteProduct;
 use SimpleSquid\Vend\TwoZero\Requests\Products\DeleteProductFamily;
@@ -13,7 +13,7 @@ use SimpleSquid\Vend\TwoZero\Requests\Products\GetProduct;
 use SimpleSquid\Vend\TwoZero\Requests\Products\ListProducts;
 use SimpleSquid\Vend\TwoZero\Requests\Products\UploadImage;
 
-class Products extends Resource
+class Products extends BaseResource
 {
     /**
      * @param  array<string, mixed>  $payload

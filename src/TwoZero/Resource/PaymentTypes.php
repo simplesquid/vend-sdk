@@ -3,10 +3,10 @@
 namespace SimpleSquid\Vend\TwoZero\Resource;
 
 use Saloon\Http\Response;
-use SimpleSquid\Vend\Common\Resource;
+use SimpleSquid\Vend\Common\BaseResource;
 use SimpleSquid\Vend\TwoZero\Requests\PaymentTypes\ListPaymentTypes;
 
-class PaymentTypes extends Resource
+class PaymentTypes extends BaseResource
 {
     public function listPaymentTypes(
         ?int $after = null,

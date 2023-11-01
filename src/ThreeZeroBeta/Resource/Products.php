@@ -3,11 +3,11 @@
 namespace SimpleSquid\Vend\ThreeZeroBeta\Resource;
 
 use Saloon\Http\Response;
-use SimpleSquid\Vend\Common\Resource;
+use SimpleSquid\Vend\Common\BaseResource;
 use SimpleSquid\Vend\ThreeZeroBeta\Requests\Products\GetProduct;
 use SimpleSquid\Vend\ThreeZeroBeta\Requests\Products\ListProducts;
 
-class Products extends Resource
+class Products extends BaseResource
 {
     public function getProduct(
         string $productId,

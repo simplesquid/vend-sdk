@@ -28,6 +28,9 @@ class UploadImage extends Request implements HasBody
     ) {
     }
 
+    /**
+     * @return \Saloon\Data\MultipartValue[]
+     */
     protected function defaultBody(): array
     {
         return [

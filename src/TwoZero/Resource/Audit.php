@@ -3,10 +3,10 @@
 namespace SimpleSquid\Vend\TwoZero\Resource;
 
 use Saloon\Http\Response;
-use SimpleSquid\Vend\Common\Resource;
+use SimpleSquid\Vend\Common\BaseResource;
 use SimpleSquid\Vend\TwoZero\Requests\Audit\ListSecurityEvents;
 
-class Audit extends Resource
+class Audit extends BaseResource
 {
     public function listSecurityEvents(): Response
     {

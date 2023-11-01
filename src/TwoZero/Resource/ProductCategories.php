@@ -3,12 +3,12 @@
 namespace SimpleSquid\Vend\TwoZero\Resource;
 
 use Saloon\Http\Response;
-use SimpleSquid\Vend\Common\Resource;
+use SimpleSquid\Vend\Common\BaseResource;
 use SimpleSquid\Vend\TwoZero\Requests\ProductCategories\CreateAndUpdateProductCategories;
 use SimpleSquid\Vend\TwoZero\Requests\ProductCategories\DeleteProductCategories;
 use SimpleSquid\Vend\TwoZero\Requests\ProductCategories\ListProductCategories;
 
-class ProductCategories extends Resource
+class ProductCategories extends BaseResource
 {
     /**
      * @param  array<string, mixed>  $payload

@@ -3,10 +3,10 @@
 namespace SimpleSquid\Vend\ZeroNine\Resource;
 
 use Saloon\Http\Response;
-use SimpleSquid\Vend\Common\Resource;
+use SimpleSquid\Vend\Common\BaseResource;
 use SimpleSquid\Vend\ZeroNine\Requests\RegisterSales\CreateUpdateRegisterSale;
 
-class RegisterSales extends Resource
+class RegisterSales extends BaseResource
 {
     /**
      * @param  array<string, mixed>  $payload

@@ -3,10 +3,10 @@
 namespace SimpleSquid\Vend\TwoZero\Resource;
 
 use Saloon\Http\Response;
-use SimpleSquid\Vend\Common\Resource;
+use SimpleSquid\Vend\Common\BaseResource;
 use SimpleSquid\Vend\TwoZero\Requests\Inventory\ListInventoryRecords;
 
-class Inventory extends Resource
+class Inventory extends BaseResource
 {
     public function listInventoryRecords(
         ?int $after = null,

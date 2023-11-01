@@ -3,14 +3,14 @@
 namespace SimpleSquid\Vend\TwoZero\Resource;
 
 use Saloon\Http\Response;
-use SimpleSquid\Vend\Common\Resource;
+use SimpleSquid\Vend\Common\BaseResource;
 use SimpleSquid\Vend\TwoZero\Requests\Tags\CreateTag;
 use SimpleSquid\Vend\TwoZero\Requests\Tags\DeleteTag;
 use SimpleSquid\Vend\TwoZero\Requests\Tags\GetTag;
 use SimpleSquid\Vend\TwoZero\Requests\Tags\ListTags;
 use SimpleSquid\Vend\TwoZero\Requests\Tags\UpdateTag;
 
-class Tags extends Resource
+class Tags extends BaseResource
 {
     /**
      * @param  array<string, mixed>  $payload

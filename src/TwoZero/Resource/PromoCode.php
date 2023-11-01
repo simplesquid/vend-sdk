@@ -3,11 +3,11 @@
 namespace SimpleSquid\Vend\TwoZero\Resource;
 
 use Saloon\Http\Response;
-use SimpleSquid\Vend\Common\Resource;
+use SimpleSquid\Vend\Common\BaseResource;
 use SimpleSquid\Vend\TwoZero\Requests\PromoCode\DeletePromoCodes;
 use SimpleSquid\Vend\TwoZero\Requests\PromoCode\GetPromoCodeStatuses;
 
-class PromoCode extends Resource
+class PromoCode extends BaseResource
 {
     /**
      * @param  array<string, mixed>  $payload

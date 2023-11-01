@@ -3,13 +3,13 @@
 namespace SimpleSquid\Vend\ThreeZero\Resource;
 
 use Saloon\Http\Response;
-use SimpleSquid\Vend\Common\Resource;
+use SimpleSquid\Vend\Common\BaseResource;
 use SimpleSquid\Vend\ThreeZero\Requests\PriceBooks\CreatePriceBook;
 use SimpleSquid\Vend\ThreeZero\Requests\PriceBooks\GetPriceBook;
 use SimpleSquid\Vend\ThreeZero\Requests\PriceBooks\ListPriceBooks;
 use SimpleSquid\Vend\ThreeZero\Requests\PriceBooks\UpdatePriceBook;
 
-class PriceBooks extends Resource
+class PriceBooks extends BaseResource
 {
     /**
      * @param  array<string, mixed>  $payload

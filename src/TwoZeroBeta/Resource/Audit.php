@@ -3,10 +3,10 @@
 namespace SimpleSquid\Vend\TwoZeroBeta\Resource;
 
 use Saloon\Http\Response;
-use SimpleSquid\Vend\Common\Resource;
+use SimpleSquid\Vend\Common\BaseResource;
 use SimpleSquid\Vend\TwoZeroBeta\Requests\Audit\GetAuditLogEvents;
 
-class Audit extends Resource
+class Audit extends BaseResource
 {
     public function listAuditEvents(
         ?string $pageSize = null,

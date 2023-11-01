@@ -3,7 +3,7 @@
 namespace SimpleSquid\Vend\TwoZeroBeta\Resource;
 
 use Saloon\Http\Response;
-use SimpleSquid\Vend\Common\Resource;
+use SimpleSquid\Vend\Common\BaseResource;
 use SimpleSquid\Vend\TwoZeroBeta\Requests\Workflows\CreateCustomField;
 use SimpleSquid\Vend\TwoZeroBeta\Requests\Workflows\CreateRemoteRule;
 use SimpleSquid\Vend\TwoZeroBeta\Requests\Workflows\CreateRule;
@@ -17,7 +17,7 @@ use SimpleSquid\Vend\TwoZeroBeta\Requests\Workflows\ListRules;
 use SimpleSquid\Vend\TwoZeroBeta\Requests\Workflows\SetCustomFieldValues;
 use SimpleSquid\Vend\TwoZeroBeta\Requests\Workflows\UpdateCustomField;
 
-class Workflows extends Resource
+class Workflows extends BaseResource
 {
     /**
      * @param  array<string, mixed>  $payload

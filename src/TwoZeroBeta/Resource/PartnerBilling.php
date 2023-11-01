@@ -3,14 +3,14 @@
 namespace SimpleSquid\Vend\TwoZeroBeta\Resource;
 
 use Saloon\Http\Response;
-use SimpleSquid\Vend\Common\Resource;
+use SimpleSquid\Vend\Common\BaseResource;
 use SimpleSquid\Vend\TwoZeroBeta\Requests\PartnerBilling\CreatePartnerSubscriptionToken;
 use SimpleSquid\Vend\TwoZeroBeta\Requests\PartnerBilling\CreatePartnerSubscriptionTokenForUpdate;
 use SimpleSquid\Vend\TwoZeroBeta\Requests\PartnerBilling\GetPartnerSubcriptionByToken;
 use SimpleSquid\Vend\TwoZeroBeta\Requests\PartnerBilling\GetPartnerSubscription;
 use SimpleSquid\Vend\TwoZeroBeta\Requests\PartnerBilling\ListPartnerSubscriptions;
 
-class PartnerBilling extends Resource
+class PartnerBilling extends BaseResource
 {
     /**
      * @param  array<string, mixed>  $payload

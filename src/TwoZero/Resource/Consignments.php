@@ -3,7 +3,7 @@
 namespace SimpleSquid\Vend\TwoZero\Resource;
 
 use Saloon\Http\Response;
-use SimpleSquid\Vend\Common\Resource;
+use SimpleSquid\Vend\Common\BaseResource;
 use SimpleSquid\Vend\TwoZero\Requests\Consignments\CreateConsignment;
 use SimpleSquid\Vend\TwoZero\Requests\Consignments\DeleteConsignment;
 use SimpleSquid\Vend\TwoZero\Requests\Consignments\GetConsignment;
@@ -11,7 +11,7 @@ use SimpleSquid\Vend\TwoZero\Requests\Consignments\GetConsignmentTotals;
 use SimpleSquid\Vend\TwoZero\Requests\Consignments\ListConsignments;
 use SimpleSquid\Vend\TwoZero\Requests\Consignments\UpdateConsignment;
 
-class Consignments extends Resource
+class Consignments extends BaseResource
 {
     /**
      * @param  array<string, mixed>  $payload

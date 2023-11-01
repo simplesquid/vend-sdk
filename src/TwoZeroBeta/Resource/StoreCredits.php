@@ -3,14 +3,14 @@
 namespace SimpleSquid\Vend\TwoZeroBeta\Resource;
 
 use Saloon\Http\Response;
-use SimpleSquid\Vend\Common\Resource;
+use SimpleSquid\Vend\Common\BaseResource;
 use SimpleSquid\Vend\TwoZeroBeta\Requests\StoreCredits\CreateStoreCreditTransaction;
 use SimpleSquid\Vend\TwoZeroBeta\Requests\StoreCredits\ListStoreCredits;
 use SimpleSquid\Vend\TwoZeroBeta\Requests\StoreCredits\ListStoreCreditsForCustomer;
 use SimpleSquid\Vend\TwoZeroBeta\Requests\StoreCredits\ListStoreCreditsForCustomers;
 use SimpleSquid\Vend\TwoZeroBeta\Requests\StoreCredits\StoreCreditReport;
 
-class StoreCredits extends Resource
+class StoreCredits extends BaseResource
 {
     /**
      * @param  array<string, mixed>  $payload

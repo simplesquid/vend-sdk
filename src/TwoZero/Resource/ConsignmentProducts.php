@@ -3,14 +3,14 @@
 namespace SimpleSquid\Vend\TwoZero\Resource;
 
 use Saloon\Http\Response;
-use SimpleSquid\Vend\Common\Resource;
+use SimpleSquid\Vend\Common\BaseResource;
 use SimpleSquid\Vend\TwoZero\Requests\ConsignmentProducts\AddProductToConsignment;
 use SimpleSquid\Vend\TwoZero\Requests\ConsignmentProducts\BulkUpdateProductsInConsignment;
 use SimpleSquid\Vend\TwoZero\Requests\ConsignmentProducts\DeleteProductFromConsignment;
 use SimpleSquid\Vend\TwoZero\Requests\ConsignmentProducts\ListProductsInConsignment;
 use SimpleSquid\Vend\TwoZero\Requests\ConsignmentProducts\UpdateProductInConsignment;
 
-class ConsignmentProducts extends Resource
+class ConsignmentProducts extends BaseResource
 {
     /**
      * @param  array<string, mixed>  $payload

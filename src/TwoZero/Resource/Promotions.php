@@ -3,7 +3,7 @@
 namespace SimpleSquid\Vend\TwoZero\Resource;
 
 use Saloon\Http\Response;
-use SimpleSquid\Vend\Common\Resource;
+use SimpleSquid\Vend\Common\BaseResource;
 use SimpleSquid\Vend\TwoZero\Requests\Promotions\ApplyDiscount;
 use SimpleSquid\Vend\TwoZero\Requests\Promotions\CreatePromotion;
 use SimpleSquid\Vend\TwoZero\Requests\Promotions\GetProductsInPromotion;
@@ -13,22 +13,33 @@ use SimpleSquid\Vend\TwoZero\Requests\Promotions\ListPromotions;
 use SimpleSquid\Vend\TwoZero\Requests\Promotions\SearchPromotions;
 use SimpleSquid\Vend\TwoZero\Requests\Promotions\UpdatePromotion;
 
-class Promotions extends Resource
+class Promotions extends BaseResource
 {
-    public function applyDiscount(): Response
-    {
-        return $this->connector->send(new ApplyDiscount());
+    /**
+     * @param  array<string, mixed>  $payload
+     */
+    public function applyDiscount(
+        array $payload,
+    ): Response {
+        return $this->connector->send(new ApplyDiscount($payload));
     }
 
-    public function createPromotion(): Response
-    {
-        return $this->connector->send(new CreatePromotion());
+    /**
+     * @param  array<string, mixed>  $payload
+     */
+    public function createPromotion(
+        array $payload,
+    ): Response {
+        return $this->connector->send(new CreatePromotion($payload));
     }
 
     public function getProductsInPromotion(
         string $promotionId,
+        ?string $name = null,
+        ?int $offset = null,
+        ?int $pageSize = null,
     ): Response {
-        return $this->connector->send(new GetProductsInPromotion($promotionId));
+        return $this->connector->send(new GetProductsInPromotion($promotionId, $name, $offset, $pageSize));
     }
 
     public function getPromoCodesForPromotion(
@@ -51,12 +62,16 @@ class Promotions extends Resource
         return $this->connector->send(new ListPromotions($endTimeTo, $endTimeFrom, $pageSize));
     }
 
+    /**
+     * @param  null|string[]  $outletIds
+     */
     public function searchPromotions(
         ?string $scope = null,
         ?string $name = null,
         ?string $startDate = null,
         ?string $endDate = null,
-        ?array $outletId = null,
+        ?array $outletIds = null,
+        ?string $orderBy = null,
         ?string $direction = null,
         ?int $offset = null,
         ?int $pageSize = null,
@@ -66,16 +81,21 @@ class Promotions extends Resource
             $name,
             $startDate,
             $endDate,
-            $outletId,
+            $outletIds,
+            $orderBy,
             $direction,
             $offset,
             $pageSize,
         ));
     }
 
+    /**
+     * @param  array<string, mixed>  $payload
+     */
     public function updatePromotion(
         string $promotionId,
+        array $payload,
     ): Response {
-        return $this->connector->send(new UpdatePromotion($promotionId));
+        return $this->connector->send(new UpdatePromotion($promotionId, $payload));
     }
 }

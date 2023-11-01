@@ -3,14 +3,14 @@
 namespace SimpleSquid\Vend\TwoZeroBeta\Resource;
 
 use Saloon\Http\Response;
-use SimpleSquid\Vend\Common\Resource;
+use SimpleSquid\Vend\Common\BaseResource;
 use SimpleSquid\Vend\TwoZeroBeta\Requests\VariantAttributes\CreateVariantAttribute;
 use SimpleSquid\Vend\TwoZeroBeta\Requests\VariantAttributes\DeleteVariantAttribute;
 use SimpleSquid\Vend\TwoZeroBeta\Requests\VariantAttributes\GetVariantAttribute;
 use SimpleSquid\Vend\TwoZeroBeta\Requests\VariantAttributes\ListVariantAttributes;
 use SimpleSquid\Vend\TwoZeroBeta\Requests\VariantAttributes\UpdateVariantAttribute;
 
-class VariantAttributes extends Resource
+class VariantAttributes extends BaseResource
 {
     /**
      * @param  array<string, mixed>  $payload

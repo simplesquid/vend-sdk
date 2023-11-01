@@ -3,14 +3,14 @@
 namespace SimpleSquid\Vend\TwoZero\Resource;
 
 use Saloon\Http\Response;
-use SimpleSquid\Vend\Common\Resource;
+use SimpleSquid\Vend\Common\BaseResource;
 use SimpleSquid\Vend\TwoZero\Requests\Registers\CloseRegister;
 use SimpleSquid\Vend\TwoZero\Requests\Registers\GetRegister;
 use SimpleSquid\Vend\TwoZero\Requests\Registers\ListRegisters;
 use SimpleSquid\Vend\TwoZero\Requests\Registers\OpenRegister;
 use SimpleSquid\Vend\TwoZero\Requests\Registers\RegisterPaymentsSummary;
 
-class Registers extends Resource
+class Registers extends BaseResource
 {
     /**
      * @param  array<string, mixed>  $payload

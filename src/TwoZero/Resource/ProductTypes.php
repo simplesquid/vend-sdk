@@ -3,11 +3,11 @@
 namespace SimpleSquid\Vend\TwoZero\Resource;
 
 use Saloon\Http\Response;
-use SimpleSquid\Vend\Common\Resource;
+use SimpleSquid\Vend\Common\BaseResource;
 use SimpleSquid\Vend\TwoZero\Requests\ProductTypes\GetProductType;
 use SimpleSquid\Vend\TwoZero\Requests\ProductTypes\ListProductTypes;
 
-class ProductTypes extends Resource
+class ProductTypes extends BaseResource
 {
     public function getProductType(
         string $productTypeId,

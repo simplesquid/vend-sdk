@@ -3,13 +3,13 @@
 namespace SimpleSquid\Vend\TwoZero\Resource;
 
 use Saloon\Http\Response;
-use SimpleSquid\Vend\Common\Resource;
+use SimpleSquid\Vend\Common\BaseResource;
 use SimpleSquid\Vend\TwoZero\Requests\SerialNumbers\CreateSerialNumber;
 use SimpleSquid\Vend\TwoZero\Requests\SerialNumbers\DeleteSerialNumber;
 use SimpleSquid\Vend\TwoZero\Requests\SerialNumbers\GetSerialNumber;
 use SimpleSquid\Vend\TwoZero\Requests\SerialNumbers\ListSerialNumbers;
 
-class SerialNumbers extends Resource
+class SerialNumbers extends BaseResource
 {
     /**
      * @param  array<string, mixed>  $payload

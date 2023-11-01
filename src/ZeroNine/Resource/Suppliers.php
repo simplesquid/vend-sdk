@@ -3,11 +3,11 @@
 namespace SimpleSquid\Vend\ZeroNine\Resource;
 
 use Saloon\Http\Response;
-use SimpleSquid\Vend\Common\Resource;
+use SimpleSquid\Vend\Common\BaseResource;
 use SimpleSquid\Vend\ZeroNine\Requests\Suppliers\CreateUpdateSupplier;
 use SimpleSquid\Vend\ZeroNine\Requests\Suppliers\DeleteSupplier;
 
-class Suppliers extends Resource
+class Suppliers extends BaseResource
 {
     /**
      * @param  array<string, mixed>  $payload

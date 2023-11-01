@@ -3,7 +3,7 @@
 namespace SimpleSquid\Vend\TwoZero\Resource;
 
 use Saloon\Http\Response;
-use SimpleSquid\Vend\Common\Resource;
+use SimpleSquid\Vend\Common\BaseResource;
 use SimpleSquid\Vend\TwoZero\Requests\PriceBooks\AddProductsToPriceBook;
 use SimpleSquid\Vend\TwoZero\Requests\PriceBooks\DeletePriceBook;
 use SimpleSquid\Vend\TwoZero\Requests\PriceBooks\DeleteProductsFromPriceBook;
@@ -11,7 +11,7 @@ use SimpleSquid\Vend\TwoZero\Requests\PriceBooks\ListPriceBookProducts;
 use SimpleSquid\Vend\TwoZero\Requests\PriceBooks\ListProductsInPriceBook;
 use SimpleSquid\Vend\TwoZero\Requests\PriceBooks\UpdateProductsInPriceBook;
 
-class PriceBooks extends Resource
+class PriceBooks extends BaseResource
 {
     /**
      * @param  array<string, mixed>  $payload

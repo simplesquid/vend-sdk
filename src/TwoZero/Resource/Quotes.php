@@ -3,11 +3,11 @@
 namespace SimpleSquid\Vend\TwoZero\Resource;
 
 use Saloon\Http\Response;
-use SimpleSquid\Vend\Common\Resource;
+use SimpleSquid\Vend\Common\BaseResource;
 use SimpleSquid\Vend\TwoZero\Requests\Quotes\GetQuote;
 use SimpleSquid\Vend\TwoZero\Requests\Quotes\ListQuotes;
 
-class Quotes extends Resource
+class Quotes extends BaseResource
 {
     public function getQuote(
         string $quoteId,

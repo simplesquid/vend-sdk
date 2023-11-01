@@ -3,10 +3,10 @@
 namespace SimpleSquid\Vend\TwoZero\Resource;
 
 use Saloon\Http\Response;
-use SimpleSquid\Vend\Common\Resource;
+use SimpleSquid\Vend\Common\BaseResource;
 use SimpleSquid\Vend\TwoZero\Requests\Taxes\ListTaxes;
 
-class Taxes extends Resource
+class Taxes extends BaseResource
 {
     public function listTaxes(
         ?int $after = null,

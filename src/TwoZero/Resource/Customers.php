@@ -3,14 +3,14 @@
 namespace SimpleSquid\Vend\TwoZero\Resource;
 
 use Saloon\Http\Response;
-use SimpleSquid\Vend\Common\Resource;
+use SimpleSquid\Vend\Common\BaseResource;
 use SimpleSquid\Vend\TwoZero\Requests\Customers\CreateCustomer;
 use SimpleSquid\Vend\TwoZero\Requests\Customers\DeleteCustomer;
 use SimpleSquid\Vend\TwoZero\Requests\Customers\GetCustomer;
 use SimpleSquid\Vend\TwoZero\Requests\Customers\ListCustomers;
 use SimpleSquid\Vend\TwoZero\Requests\Customers\UpdateCustomer;
 
-class Customers extends Resource
+class Customers extends BaseResource
 {
     /**
      * @param  array<string, mixed>  $payload

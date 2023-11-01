@@ -3,14 +3,14 @@
 namespace SimpleSquid\Vend\TwoZeroBeta\Resource;
 
 use Saloon\Http\Response;
-use SimpleSquid\Vend\Common\Resource;
+use SimpleSquid\Vend\Common\BaseResource;
 use SimpleSquid\Vend\TwoZeroBeta\Requests\Webhooks\CreateWebhook;
 use SimpleSquid\Vend\TwoZeroBeta\Requests\Webhooks\DeleteWebhook;
 use SimpleSquid\Vend\TwoZeroBeta\Requests\Webhooks\GetWebhook;
 use SimpleSquid\Vend\TwoZeroBeta\Requests\Webhooks\ListWebhooks;
 use SimpleSquid\Vend\TwoZeroBeta\Requests\Webhooks\UpdateWebhook;
 
-class Webhooks extends Resource
+class Webhooks extends BaseResource
 {
     /**
      * @param  array<string, mixed>  $payload

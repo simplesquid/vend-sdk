@@ -3,7 +3,7 @@
 namespace SimpleSquid\Vend\TwoZeroBeta\Resource;
 
 use Saloon\Http\Response;
-use SimpleSquid\Vend\Common\Resource;
+use SimpleSquid\Vend\Common\BaseResource;
 use SimpleSquid\Vend\TwoZeroBeta\Requests\GiftCards\CreateGiftCard;
 use SimpleSquid\Vend\TwoZeroBeta\Requests\GiftCards\CreateGiftCardTransaction;
 use SimpleSquid\Vend\TwoZeroBeta\Requests\GiftCards\FindGiftCard;
@@ -12,7 +12,7 @@ use SimpleSquid\Vend\TwoZeroBeta\Requests\GiftCards\ListGiftCards;
 use SimpleSquid\Vend\TwoZeroBeta\Requests\GiftCards\ReverseGiftCardTransaction;
 use SimpleSquid\Vend\TwoZeroBeta\Requests\GiftCards\VoidGiftCard;
 
-class GiftCards extends Resource
+class GiftCards extends BaseResource
 {
     /**
      * @param  array<string, mixed>  $payload

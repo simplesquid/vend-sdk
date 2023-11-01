@@ -3,13 +3,13 @@
 namespace SimpleSquid\Vend\TwoZero\Resource;
 
 use Saloon\Http\Response;
-use SimpleSquid\Vend\Common\Resource;
+use SimpleSquid\Vend\Common\BaseResource;
 use SimpleSquid\Vend\TwoZero\Requests\ServiceOrders\GetOutletServicesAgenda;
 use SimpleSquid\Vend\TwoZero\Requests\ServiceOrders\GetService;
 use SimpleSquid\Vend\TwoZero\Requests\ServiceOrders\ListServiceItems;
 use SimpleSquid\Vend\TwoZero\Requests\ServiceOrders\ListServices;
 
-class ServiceOrders extends Resource
+class ServiceOrders extends BaseResource
 {
     public function getOutletServicesAgenda(
         string $outletId,

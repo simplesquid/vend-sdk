@@ -3,12 +3,12 @@
 namespace SimpleSquid\Vend\TwoZero\Resource;
 
 use Saloon\Http\Response;
-use SimpleSquid\Vend\Common\Resource;
+use SimpleSquid\Vend\Common\BaseResource;
 use SimpleSquid\Vend\TwoZero\Requests\ProductImages\DeleteProductImage;
 use SimpleSquid\Vend\TwoZero\Requests\ProductImages\GetProductImageData;
 use SimpleSquid\Vend\TwoZero\Requests\ProductImages\SetImagePosition;
 
-class ProductImages extends Resource
+class ProductImages extends BaseResource
 {
     public function deleteProductImage(
         string $productImageId,

@@ -3,12 +3,12 @@
 namespace SimpleSquid\Vend\TwoZero\Resource;
 
 use Saloon\Http\Response;
-use SimpleSquid\Vend\Common\Resource;
+use SimpleSquid\Vend\Common\BaseResource;
 use SimpleSquid\Vend\TwoZero\Requests\Sales\GetSale;
 use SimpleSquid\Vend\TwoZero\Requests\Sales\ListSales;
 use SimpleSquid\Vend\TwoZero\Requests\Sales\ReturnSale;
 
-class Sales extends Resource
+class Sales extends BaseResource
 {
     public function getSale(
         string $saleId,
