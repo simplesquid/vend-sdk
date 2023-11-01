@@ -4,8 +4,9 @@ namespace SimpleSquid\Vend\TwoZero\Requests\PriceBooks;
 
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Saloon\PaginationPlugin\Contracts\Paginatable;
 
-class ListPriceBookProducts extends Request
+class ListPriceBookProducts extends Request implements Paginatable
 {
     protected Method $method = Method::GET;
 
