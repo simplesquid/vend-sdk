@@ -5,17 +5,25 @@ namespace SimpleSquid\Vend\TwoZero\Resource;
 use Saloon\Http\Response;
 use SimpleSquid\Vend\Common\Resource;
 use SimpleSquid\Vend\TwoZero\Requests\PromoCode\DeletePromoCodes;
-use SimpleSquid\Vend\TwoZero\Requests\PromoCode\GetActivePromoCodes;
+use SimpleSquid\Vend\TwoZero\Requests\PromoCode\GetPromoCodeStatuses;
 
 class PromoCode extends Resource
 {
-    public function deletePromoCodes(): Response
-    {
-        return $this->connector->send(new DeletePromoCodes());
+    /**
+     * @param  array<string, mixed>  $payload
+     */
+    public function deletePromoCodes(
+        array $payload,
+    ): Response {
+        return $this->connector->send(new DeletePromoCodes($payload));
     }
 
-    public function getActivePromoCodes(): Response
-    {
-        return $this->connector->send(new GetActivePromoCodes());
+    /**
+     * @param  array<string, mixed>  $payload
+     */
+    public function getPromoCodeStatuses(
+        array $payload,
+    ): Response {
+        return $this->connector->send(new GetPromoCodeStatuses($payload));
     }
 }

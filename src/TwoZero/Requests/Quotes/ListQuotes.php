@@ -3,9 +3,13 @@
 namespace SimpleSquid\Vend\TwoZero\Requests\Quotes;
 
 use Saloon\Enums\Method;
+use Saloon\Http\Connector;
 use Saloon\Http\Request;
+use Saloon\PaginationPlugin\Contracts\HasRequestPagination;
+use Saloon\PaginationPlugin\Paginator;
+use SimpleSquid\Vend\Common\Paginators\VendCursorPaginator;
 
-class ListQuotes extends Request
+class ListQuotes extends Request implements HasRequestPagination
 {
     protected Method $method = Method::GET;
 
@@ -15,6 +19,7 @@ class ListQuotes extends Request
     }
 
     public function __construct(
+        protected ?int $after = null,
         protected ?int $limit = null,
     ) {
     }
@@ -22,7 +27,16 @@ class ListQuotes extends Request
     public function defaultQuery(): array
     {
         return array_filter([
+            'after' => $this->after,
             'limit' => $this->limit,
         ]);
+    }
+
+    public function paginate(Connector $connector): Paginator
+    {
+        return new class($connector, $this) extends VendCursorPaginator
+        {
+            protected string $limitKeyName = 'limit';
+        };
     }
 }

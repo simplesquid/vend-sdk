@@ -16,6 +16,16 @@ class GetOutletServicesAgenda extends Request
 
     public function __construct(
         protected string $outletId,
+        protected string $startDate,
+        protected ?int $days = null,
     ) {
+    }
+
+    public function defaultQuery(): array
+    {
+        return array_filter([
+            'start_date' => $this->startDate,
+            'days' => $this->days,
+        ]);
     }
 }

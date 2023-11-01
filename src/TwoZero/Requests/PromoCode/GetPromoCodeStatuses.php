@@ -7,7 +7,7 @@ use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Traits\Body\HasJsonBody;
 
-class GetActivePromoCodes extends Request implements HasBody
+class GetPromoCodeStatuses extends Request implements HasBody
 {
     use HasJsonBody;
 
@@ -16,5 +16,21 @@ class GetActivePromoCodes extends Request implements HasBody
     public function resolveEndpoint(): string
     {
         return '/promocode/bulk/active';
+    }
+
+    /**
+     * @param  array<string, mixed>  $payload
+     */
+    public function __construct(
+        protected array $payload = [],
+    ) {
+    }
+
+    /**
+     * @return array<string, mixed>
+     */
+    public function defaultBody(): array
+    {
+        return $this->payload;
     }
 }

@@ -13,8 +13,10 @@ class ServiceOrders extends Resource
 {
     public function getOutletServicesAgenda(
         string $outletId,
+        string $startDate,
+        ?int $days = null,
     ): Response {
-        return $this->connector->send(new GetOutletServicesAgenda($outletId));
+        return $this->connector->send(new GetOutletServicesAgenda($outletId, $startDate, $days));
     }
 
     public function getService(
@@ -24,14 +26,16 @@ class ServiceOrders extends Resource
     }
 
     public function listServiceItems(
+        ?int $after = null,
         ?int $limit = null,
     ): Response {
-        return $this->connector->send(new ListServiceItems($limit));
+        return $this->connector->send(new ListServiceItems($after, $limit));
     }
 
     public function listServices(
+        ?int $after = null,
         ?int $limit = null,
     ): Response {
-        return $this->connector->send(new ListServices($limit));
+        return $this->connector->send(new ListServices($after, $limit));
     }
 }

@@ -12,10 +12,14 @@ use SimpleSquid\Vend\TwoZero\Requests\Registers\RegisterPaymentsSummary;
 
 class Registers extends Resource
 {
+    /**
+     * @param  array<string, mixed>  $payload
+     */
     public function closeRegister(
         string $registerId,
+        array $payload,
     ): Response {
-        return $this->connector->send(new CloseRegister($registerId));
+        return $this->connector->send(new CloseRegister($registerId, $payload));
     }
 
     public function getRegister(
@@ -33,10 +37,14 @@ class Registers extends Resource
         return $this->connector->send(new ListRegisters($after, $before, $deleted, $pageSize));
     }
 
+    /**
+     * @param  array<string, mixed>  $payload
+     */
     public function openRegister(
         string $registerId,
+        array $payload,
     ): Response {
-        return $this->connector->send(new OpenRegister($registerId));
+        return $this->connector->send(new OpenRegister($registerId, $payload));
     }
 
     public function registerPaymentsSummary(

@@ -11,9 +11,13 @@ use SimpleSquid\Vend\TwoZero\Requests\SerialNumbers\ListSerialNumbers;
 
 class SerialNumbers extends Resource
 {
-    public function createSerialNumber(): Response
-    {
-        return $this->connector->send(new CreateSerialNumber());
+    /**
+     * @param  array<string, mixed>  $payload
+     */
+    public function createSerialNumber(
+        array $payload,
+    ): Response {
+        return $this->connector->send(new CreateSerialNumber($payload));
     }
 
     public function deleteSerialNumber(
