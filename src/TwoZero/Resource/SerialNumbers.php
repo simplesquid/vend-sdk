@@ -29,13 +29,13 @@ class SerialNumbers extends Resource
     }
 
     public function listSerialNumbers(
-        ?string $productId,
-        ?string $outletId,
-        ?string $saleId,
-        ?string $lineItemId,
-        ?int $after,
-        ?int $before,
-        ?int $pageSize,
+        ?string $productId = null,
+        ?string $outletId = null,
+        ?string $saleId = null,
+        ?string $lineItemId = null,
+        ?int $after = null,
+        ?int $before = null,
+        ?int $pageSize = null,
     ): Response {
         return $this->connector->send(new ListSerialNumbers(
             $productId,

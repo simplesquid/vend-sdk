@@ -24,13 +24,13 @@ class ServiceOrders extends Resource
     }
 
     public function listServiceItems(
-        ?int $limit,
+        ?int $limit = null,
     ): Response {
         return $this->connector->send(new ListServiceItems($limit));
     }
 
     public function listServices(
-        ?int $limit,
+        ?int $limit = null,
     ): Response {
         return $this->connector->send(new ListServices($limit));
     }

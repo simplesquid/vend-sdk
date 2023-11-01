@@ -9,9 +9,9 @@ use SimpleSquid\Vend\TwoZero\Requests\Taxes\ListTaxes;
 class Taxes extends Resource
 {
     public function listTaxes(
-        ?int $after,
-        ?int $before,
-        ?int $pageSize,
+        ?int $after = null,
+        ?int $before = null,
+        ?int $pageSize = null,
     ): Response {
         return $this->connector->send(new ListTaxes($after, $before, $pageSize));
     }

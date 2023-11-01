@@ -16,10 +16,10 @@ class Tags extends Resource
     }
 
     public function listTags(
-        ?int $after,
-        ?int $before,
-        ?int $pageSize,
-        ?bool $deleted,
+        ?int $after = null,
+        ?int $before = null,
+        ?int $pageSize = null,
+        ?bool $deleted = null,
     ): Response {
         return $this->connector->send(new ListTags($after, $before, $pageSize, $deleted));
     }

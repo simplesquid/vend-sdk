@@ -17,4 +17,20 @@ class CreateProduct extends Request implements HasBody
     {
         return '/products';
     }
+
+    /**
+     * @param  array<string, mixed>  $payload
+     */
+    public function __construct(
+        protected array $payload = [],
+    ) {
+    }
+
+    /**
+     * @return array<string, mixed>
+     */
+    public function defaultBody(): array
+    {
+        return $this->payload;
+    }
 }

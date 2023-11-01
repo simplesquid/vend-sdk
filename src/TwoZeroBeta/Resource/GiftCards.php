@@ -46,11 +46,11 @@ class GiftCards extends Resource
     }
 
     public function listGiftCards(
-        ?string $after,
-        ?string $before,
-        ?int $pageSize,
-        ?string $cardNumber,
-        ?string $status,
+        ?string $after = null,
+        ?string $before = null,
+        ?int $pageSize = null,
+        ?string $cardNumber = null,
+        ?string $status = null,
     ): Response {
         return $this->connector->send(new ListGiftCards($after, $before, $pageSize, $cardNumber, $status));
     }

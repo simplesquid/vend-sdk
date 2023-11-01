@@ -2,6 +2,7 @@
 
 namespace SimpleSquid\Vend;
 
+use Composer\InstalledVersions;
 use Saloon\Helpers\OAuth2\OAuthConfig;
 use Saloon\Http\Connector;
 use Saloon\Traits\OAuth2\AuthorizationCodeGrant;
@@ -56,6 +57,13 @@ abstract class VendConnector extends Connector
         $this->domainPrefix = $domainPrefix;
 
         return $this;
+    }
+
+    protected function defaultHeaders(): array
+    {
+        return [
+            'User-Agent' => 'SimpleSquid-Vend/'.InstalledVersions::getVersion('simplesquid/vend'),
+        ];
     }
 
     protected function defaultOauthConfig(): OAuthConfig

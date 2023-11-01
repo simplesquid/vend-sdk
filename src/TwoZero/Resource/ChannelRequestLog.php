@@ -29,13 +29,13 @@ class ChannelRequestLog extends Resource
     }
 
     public function listRequestLogs(
-        ?string $statusCode,
-        ?string $requestMethod,
-        ?string $occurredBefore,
-        ?string $occurredAfter,
-        ?string $statusCodeBefore,
-        ?string $statusCodeAfter,
-        ?string $channelId,
+        ?string $statusCode = null,
+        ?string $requestMethod = null,
+        ?string $occurredBefore = null,
+        ?string $occurredAfter = null,
+        ?string $statusCodeBefore = null,
+        ?string $statusCodeAfter = null,
+        ?string $channelId = null,
     ): Response {
         return $this->connector->send(new ListRequestLogs(
             $statusCode,

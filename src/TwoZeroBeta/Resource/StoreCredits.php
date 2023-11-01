@@ -26,8 +26,8 @@ class StoreCredits extends Resource
      * @param  null|string[]  $includes
      */
     public function listStoreCredits(
-        ?int $pageSize,
-        ?array $includes,
+        ?int $pageSize = null,
+        ?array $includes = null,
     ): Response {
         return $this->connector->send(new ListStoreCredits($pageSize, $includes));
     }
@@ -37,7 +37,7 @@ class StoreCredits extends Resource
      */
     public function listStoreCreditsForCustomer(
         string $customerId,
-        ?array $includes,
+        ?array $includes = null,
     ): Response {
         return $this->connector->send(new ListStoreCreditsForCustomer($customerId, $includes));
     }

@@ -22,9 +22,13 @@ class ProductImages extends Resource
         return $this->connector->send(new GetProductImageData($productImageId));
     }
 
+    /**
+     * @param  array<string, mixed>  $payload
+     */
     public function setImagePosition(
         string $productImageId,
+        array $payload,
     ): Response {
-        return $this->connector->send(new SetImagePosition($productImageId));
+        return $this->connector->send(new SetImagePosition($productImageId, $payload));
     }
 }

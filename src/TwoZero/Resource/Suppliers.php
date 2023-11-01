@@ -16,9 +16,9 @@ class Suppliers extends Resource
     }
 
     public function listSuppliers(
-        ?int $after,
-        ?int $before,
-        ?int $pageSize,
+        ?int $after = null,
+        ?int $before = null,
+        ?int $pageSize = null,
     ): Response {
         return $this->connector->send(new ListSuppliers($after, $before, $pageSize));
     }

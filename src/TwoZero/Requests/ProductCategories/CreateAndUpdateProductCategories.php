@@ -1,28 +1,27 @@
 <?php
 
-namespace SimpleSquid\Vend\TwoZero\Requests\ProductImages;
+namespace SimpleSquid\Vend\TwoZero\Requests\ProductCategories;
 
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Traits\Body\HasJsonBody;
 
-class SetImagePosition extends Request implements HasBody
+class CreateAndUpdateProductCategories extends Request implements HasBody
 {
     use HasJsonBody;
 
-    protected Method $method = Method::PUT;
+    protected Method $method = Method::POST;
 
     public function resolveEndpoint(): string
     {
-        return "/product_images/{$this->productImageId}";
+        return '/product_categories/bulk';
     }
 
     /**
      * @param  array<string, mixed>  $payload
      */
     public function __construct(
-        protected string $productImageId,
         protected array $payload = [],
     ) {
     }

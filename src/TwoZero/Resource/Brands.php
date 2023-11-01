@@ -34,9 +34,9 @@ class Brands extends Resource
     }
 
     public function listBrands(
-        ?int $after,
-        ?int $before,
-        ?int $pageSize,
+        ?int $after = null,
+        ?int $before = null,
+        ?int $pageSize = null,
     ): Response {
         return $this->connector->send(new ListBrands($after, $before, $pageSize));
     }

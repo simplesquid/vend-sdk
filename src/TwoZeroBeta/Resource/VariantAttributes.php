@@ -29,13 +29,13 @@ class VariantAttributes extends Resource
 
     public function getVariantAttribute(
         string $attributeId,
-        ?bool $deleted,
+        ?bool $deleted = null,
     ): Response {
         return $this->connector->send(new GetVariantAttribute($attributeId, $deleted));
     }
 
     public function listVariantAttributes(
-        ?bool $deleted,
+        ?bool $deleted = null,
     ): Response {
         return $this->connector->send(new ListVariantAttributes($deleted));
     }

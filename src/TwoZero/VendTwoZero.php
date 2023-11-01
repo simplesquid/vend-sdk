@@ -19,6 +19,7 @@ use SimpleSquid\Vend\TwoZero\Resource\OutletProductTaxes;
 use SimpleSquid\Vend\TwoZero\Resource\Outlets;
 use SimpleSquid\Vend\TwoZero\Resource\PaymentTypes;
 use SimpleSquid\Vend\TwoZero\Resource\PriceBooks;
+use SimpleSquid\Vend\TwoZero\Resource\ProductCategories;
 use SimpleSquid\Vend\TwoZero\Resource\ProductImages;
 use SimpleSquid\Vend\TwoZero\Resource\Products;
 use SimpleSquid\Vend\TwoZero\Resource\ProductTypes;
@@ -117,6 +118,11 @@ class VendTwoZero extends VendConnector implements HasPagination
     public function priceBooks(): PriceBooks
     {
         return new PriceBooks($this);
+    }
+
+    public function productCategories(): ProductCategories
+    {
+        return new ProductCategories($this);
     }
 
     public function productImages(): ProductImages

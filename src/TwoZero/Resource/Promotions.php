@@ -44,22 +44,22 @@ class Promotions extends Resource
     }
 
     public function listPromotions(
-        ?string $endTimeTo,
-        ?string $endTimeFrom,
-        ?int $pageSize,
+        ?string $endTimeTo = null,
+        ?string $endTimeFrom = null,
+        ?int $pageSize = null,
     ): Response {
         return $this->connector->send(new ListPromotions($endTimeTo, $endTimeFrom, $pageSize));
     }
 
     public function searchPromotions(
-        ?string $scope,
-        ?string $name,
-        ?string $startDate,
-        ?string $endDate,
-        ?array $outletId,
-        ?string $direction,
-        ?int $offset,
-        ?int $pageSize,
+        ?string $scope = null,
+        ?string $name = null,
+        ?string $startDate = null,
+        ?string $endDate = null,
+        ?array $outletId = null,
+        ?string $direction = null,
+        ?int $offset = null,
+        ?int $pageSize = null,
     ): Response {
         return $this->connector->send(new SearchPromotions(
             $scope,

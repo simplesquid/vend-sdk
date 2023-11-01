@@ -41,9 +41,9 @@ class ConsignmentProducts extends Resource
 
     public function listProductsInConsignment(
         string $consignmentId,
-        ?int $after,
-        ?int $before,
-        ?int $pageSize,
+        ?int $after = null,
+        ?int $before = null,
+        ?int $pageSize = null,
     ): Response {
         return $this->connector->send(new ListProductsInConsignment($consignmentId, $after, $before, $pageSize));
     }

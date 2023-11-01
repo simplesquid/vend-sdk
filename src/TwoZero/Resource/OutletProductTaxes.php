@@ -9,11 +9,11 @@ use SimpleSquid\Vend\TwoZero\Requests\OutletProductTaxes\ListProductTaxesForOutl
 class OutletProductTaxes extends Resource
 {
     public function listProductTaxesForOutlet(
-        ?string $outletId,
-        ?int $after,
-        ?int $before,
-        ?int $pageSize,
-        ?bool $deleted,
+        ?string $outletId = null,
+        ?int $after = null,
+        ?int $before = null,
+        ?int $pageSize = null,
+        ?bool $deleted = null,
     ): Response {
         return $this->connector->send(new ListProductTaxesForOutlet($outletId, $after, $before, $pageSize, $deleted));
     }
