@@ -18,8 +18,20 @@ class FulfillSale extends Request implements HasBody
         return "/sales/{$this->saleId}/fulfill";
     }
 
+    /**
+     * @param  array<string, mixed>  $payload
+     */
     public function __construct(
         protected string $saleId,
+        protected array $payload = [],
     ) {
+    }
+
+    /**
+     * @return array<string, mixed>
+     */
+    public function defaultBody(): array
+    {
+        return $this->payload;
     }
 }

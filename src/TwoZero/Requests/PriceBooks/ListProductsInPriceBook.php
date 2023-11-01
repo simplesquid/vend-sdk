@@ -14,16 +14,19 @@ class ListProductsInPriceBook extends Request
         return "/price_books/{$this->priceBookId}/products";
     }
 
+    /**
+     * @param  string[]  $productIds
+     */
     public function __construct(
         protected string $priceBookId,
-        protected ?string $productIds = null,
+        protected array $productIds = [],
     ) {
     }
 
     public function defaultQuery(): array
     {
         return array_filter([
-            'product_ids' => $this->productIds,
+            'product_ids' => implode(',', $this->productIds),
         ]);
     }
 }

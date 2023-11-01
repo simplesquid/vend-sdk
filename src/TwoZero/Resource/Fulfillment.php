@@ -9,10 +9,14 @@ use SimpleSquid\Vend\TwoZero\Requests\Fulfillment\ListSaleFulfillments;
 
 class Fulfillment extends Resource
 {
+    /**
+     * @param  array<string, mixed>  $payload
+     */
     public function fulfillSale(
         string $saleId,
+        array $payload,
     ): Response {
-        return $this->connector->send(new FulfillSale($saleId));
+        return $this->connector->send(new FulfillSale($saleId, $payload));
     }
 
     public function listSaleFulfillments(

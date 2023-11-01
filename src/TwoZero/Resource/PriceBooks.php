@@ -13,10 +13,14 @@ use SimpleSquid\Vend\TwoZero\Requests\PriceBooks\UpdateProductsInPriceBook;
 
 class PriceBooks extends Resource
 {
+    /**
+     * @param  array<string, mixed>  $payload
+     */
     public function addProductsToPriceBook(
         string $priceBookId,
+        array $payload,
     ): Response {
-        return $this->connector->send(new AddProductsToPriceBook($priceBookId));
+        return $this->connector->send(new AddProductsToPriceBook($priceBookId, $payload));
     }
 
     public function deletePriceBook(
@@ -25,10 +29,14 @@ class PriceBooks extends Resource
         return $this->connector->send(new DeletePriceBook($priceBookId));
     }
 
+    /**
+     * @param  array<string, mixed>  $payload
+     */
     public function deleteProductsFromPriceBook(
         string $priceBookId,
+        array $payload,
     ): Response {
-        return $this->connector->send(new DeleteProductsFromPriceBook($priceBookId));
+        return $this->connector->send(new DeleteProductsFromPriceBook($priceBookId, $payload));
     }
 
     public function listPriceBookProducts(
@@ -39,16 +47,23 @@ class PriceBooks extends Resource
         return $this->connector->send(new ListPriceBookProducts($after, $before, $pageSize));
     }
 
+    /**
+     * @param  string[]  $productIds
+     */
     public function listProductsInPriceBook(
         string $priceBookId,
-        ?string $productIds,
+        array $productIds = [],
     ): Response {
         return $this->connector->send(new ListProductsInPriceBook($priceBookId, $productIds));
     }
 
+    /**
+     * @param  array<string, mixed>  $payload
+     */
     public function updateProductsInPriceBook(
         string $priceBookId,
+        array $payload,
     ): Response {
-        return $this->connector->send(new UpdateProductsInPriceBook($priceBookId));
+        return $this->connector->send(new UpdateProductsInPriceBook($priceBookId, $payload));
     }
 }

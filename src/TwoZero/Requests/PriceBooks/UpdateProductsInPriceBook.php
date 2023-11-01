@@ -18,8 +18,20 @@ class UpdateProductsInPriceBook extends Request implements HasBody
         return "/price_books/{$this->priceBookId}/products";
     }
 
+    /**
+     * @param  array<string, mixed>  $payload
+     */
     public function __construct(
         protected string $priceBookId,
+        protected array $payload = [],
     ) {
+    }
+
+    /**
+     * @return array<string, mixed>
+     */
+    public function defaultBody(): array
+    {
+        return $this->payload;
     }
 }
