@@ -5,12 +5,14 @@ namespace SimpleSquid\Vend;
 use Saloon\Helpers\OAuth2\OAuthConfig;
 use Saloon\Http\Connector;
 use Saloon\Traits\OAuth2\AuthorizationCodeGrant;
+use Saloon\Traits\Plugins\AcceptsJson;
 use SimpleSquid\Vend\Common\Exceptions\AuthenticationDetailsMissingException;
 use SimpleSquid\Vend\Common\Exceptions\DomainPrefixMissingException;
 use SimpleSquid\Vend\Common\Responses\VendResponse;
 
 abstract class VendConnector extends Connector
 {
+    use AcceptsJson;
     use AuthorizationCodeGrant;
 
     protected ?string $response = VendResponse::class;
@@ -49,19 +51,11 @@ abstract class VendConnector extends Connector
         return "https://{$this->domainPrefix}.vendhq.com/api";
     }
 
-    public function setDomainPrefix(string $domainPrefix): static
+    public function withDomainPrefix(string $domainPrefix): static
     {
         $this->domainPrefix = $domainPrefix;
 
         return $this;
-    }
-
-    protected function defaultHeaders(): array
-    {
-        return [
-            'Accept' => 'application/json',
-            'Content-Type' => 'application/json',
-        ];
     }
 
     protected function defaultOauthConfig(): OAuthConfig

@@ -18,8 +18,20 @@ class BulkUpdateProductsInConsignment extends Request implements HasBody
         return "/consignments/{$this->consignmentId}/bulk";
     }
 
+    /**
+     * @param  array<string, mixed>  $payload
+     */
     public function __construct(
         protected string $consignmentId,
+        protected array $payload = [],
     ) {
+    }
+
+    /**
+     * @return array<string, mixed>
+     */
+    public function defaultBody(): array
+    {
+        return $this->payload;
     }
 }

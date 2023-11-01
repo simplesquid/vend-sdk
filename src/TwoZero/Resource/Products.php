@@ -34,10 +34,11 @@ class Products extends Resource
 
     public function getInventoryForProduct(
         string $productId,
+        ?int $after,
         ?int $before,
         ?int $pageSize,
     ): Response {
-        return $this->connector->send(new GetInventoryForProduct($productId, $before, $pageSize));
+        return $this->connector->send(new GetInventoryForProduct($productId, $after, $before, $pageSize));
     }
 
     public function getPriceBooksForProduct(
@@ -53,11 +54,12 @@ class Products extends Resource
     }
 
     public function listProducts(
+        ?int $after,
         ?int $before,
         ?bool $deleted,
         ?int $pageSize,
     ): Response {
-        return $this->connector->send(new ListProducts($before, $deleted, $pageSize));
+        return $this->connector->send(new ListProducts($after, $before, $deleted, $pageSize));
     }
 
     public function uploadImage(

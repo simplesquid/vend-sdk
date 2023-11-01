@@ -9,9 +9,10 @@ use SimpleSquid\Vend\TwoZero\Requests\Inventory\ListInventoryRecords;
 class Inventory extends Resource
 {
     public function listInventoryRecords(
+        ?int $after,
         ?int $before,
         ?int $pageSize,
     ): Response {
-        return $this->connector->send(new ListInventoryRecords($before, $pageSize));
+        return $this->connector->send(new ListInventoryRecords($after, $before, $pageSize));
     }
 }

@@ -17,10 +17,11 @@ class Sales extends Resource
     }
 
     public function listSales(
+        ?int $after,
         ?int $before,
         ?int $pageSize,
     ): Response {
-        return $this->connector->send(new ListSales($before, $pageSize));
+        return $this->connector->send(new ListSales($after, $before, $pageSize));
     }
 
     public function returnSale(

@@ -16,8 +16,8 @@ class ListGiftCards extends Request implements Paginatable
     }
 
     public function __construct(
-        protected ?string $before = null,
         protected ?string $after = null,
+        protected ?string $before = null,
         protected ?int $pageSize = null,
         protected ?string $cardNumber = null,
         protected ?string $status = null,
@@ -27,8 +27,8 @@ class ListGiftCards extends Request implements Paginatable
     public function defaultQuery(): array
     {
         return array_filter([
-            'before' => $this->before,
             'after' => $this->after,
+            'before' => $this->before,
             'page_size' => $this->pageSize,
             'card_number' => $this->cardNumber,
             'status' => $this->status,

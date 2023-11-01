@@ -35,8 +35,15 @@ class PriceBooks extends Resource
         ?bool $deleted = null,
         ?string $customerGroupId = null,
     ): Response {
-        return $this->connector->send(new ListPriceBooks($after, $before, $pageSize, $order, $direction, $deleted,
-            $customerGroupId));
+        return $this->connector->send(new ListPriceBooks(
+            $after,
+            $before,
+            $pageSize,
+            $order,
+            $direction,
+            $deleted,
+            $customerGroupId,
+        ));
     }
 
     /**

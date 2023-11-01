@@ -45,18 +45,20 @@ class CustomerGroups extends Resource
 
     public function getCustomersInCustomerGroup(
         string $customerGroupId,
+        ?int $after,
         ?int $before,
         ?int $pageSize,
     ): Response {
-        return $this->connector->send(new GetCustomersInCustomerGroup($customerGroupId, $before, $pageSize));
+        return $this->connector->send(new GetCustomersInCustomerGroup($customerGroupId, $after, $before, $pageSize));
     }
 
     public function listCustomerGroups(
+        ?int $after,
         ?int $before,
         ?int $pageSize,
         ?bool $deleted,
     ): Response {
-        return $this->connector->send(new ListCustomerGroups($before, $pageSize, $deleted));
+        return $this->connector->send(new ListCustomerGroups($after, $before, $pageSize, $deleted));
     }
 
     public function updateCustomerGroup(string $customerGroupId): Response

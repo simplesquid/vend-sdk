@@ -15,6 +15,7 @@ class ListTags extends Request
     }
 
     public function __construct(
+        protected ?int $after = null,
         protected ?int $before = null,
         protected ?int $pageSize = null,
         protected ?bool $deleted = null,
@@ -24,6 +25,7 @@ class ListTags extends Request
     public function defaultQuery(): array
     {
         return array_filter([
+            'after' => $this->after,
             'before' => $this->before,
             'page_size' => $this->pageSize,
             'deleted' => $this->deleted,

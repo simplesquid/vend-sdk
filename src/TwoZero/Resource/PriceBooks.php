@@ -32,10 +32,11 @@ class PriceBooks extends Resource
     }
 
     public function listPriceBookProducts(
+        ?int $after,
         ?int $before,
         ?int $pageSize,
     ): Response {
-        return $this->connector->send(new ListPriceBookProducts($before, $pageSize));
+        return $this->connector->send(new ListPriceBookProducts($after, $before, $pageSize));
     }
 
     public function listProductsInPriceBook(

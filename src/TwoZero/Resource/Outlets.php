@@ -16,10 +16,11 @@ class Outlets extends Resource
     }
 
     public function listOutlets(
+        ?int $after,
         ?int $before,
         ?int $pageSize,
         ?bool $deleted,
     ): Response {
-        return $this->connector->send(new ListOutlets($before, $pageSize, $deleted));
+        return $this->connector->send(new ListOutlets($after, $before, $pageSize, $deleted));
     }
 }

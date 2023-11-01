@@ -46,13 +46,13 @@ class GiftCards extends Resource
     }
 
     public function listGiftCards(
-        ?string $before,
         ?string $after,
+        ?string $before,
         ?int $pageSize,
         ?string $cardNumber,
         ?string $status,
     ): Response {
-        return $this->connector->send(new ListGiftCards($before, $after, $pageSize, $cardNumber, $status));
+        return $this->connector->send(new ListGiftCards($after, $before, $pageSize, $cardNumber, $status));
     }
 
     public function reverseGiftCardTransaction(

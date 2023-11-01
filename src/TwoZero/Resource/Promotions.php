@@ -61,8 +61,16 @@ class Promotions extends Resource
         ?int $offset,
         ?int $pageSize,
     ): Response {
-        return $this->connector->send(new SearchPromotions($scope, $name, $startDate, $endDate, $outletId, $direction,
-            $offset, $pageSize));
+        return $this->connector->send(new SearchPromotions(
+            $scope,
+            $name,
+            $startDate,
+            $endDate,
+            $outletId,
+            $direction,
+            $offset,
+            $pageSize,
+        ));
     }
 
     public function updatePromotion(

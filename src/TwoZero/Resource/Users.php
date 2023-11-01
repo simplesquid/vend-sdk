@@ -16,9 +16,10 @@ class Users extends Resource
     }
 
     public function listUsers(
+        ?int $after,
         ?int $before,
         ?int $pageSize,
     ): Response {
-        return $this->connector->send(new ListUsers($before, $pageSize));
+        return $this->connector->send(new ListUsers($after, $before, $pageSize));
     }
 }

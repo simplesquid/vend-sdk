@@ -37,10 +37,11 @@ class Consignments extends Resource
     }
 
     public function listConsignments(
+        ?int $after,
         ?int $before,
         ?int $pageSize,
     ): Response {
-        return $this->connector->send(new ListConsignments($before, $pageSize));
+        return $this->connector->send(new ListConsignments($after, $before, $pageSize));
     }
 
     public function updateConsignment(

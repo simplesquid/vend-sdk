@@ -16,6 +16,7 @@ class GetInventoryForProduct extends Request
 
     public function __construct(
         protected string $productId,
+        protected ?int $after = null,
         protected ?int $before = null,
         protected ?int $pageSize = null,
     ) {
@@ -24,6 +25,7 @@ class GetInventoryForProduct extends Request
     public function defaultQuery(): array
     {
         return array_filter([
+            'after' => $this->after,
             'before' => $this->before,
             'page_size' => $this->pageSize,
         ]);

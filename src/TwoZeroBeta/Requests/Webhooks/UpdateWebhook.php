@@ -23,6 +23,9 @@ class UpdateWebhook extends Request
     ) {
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     public function defaultBody(): array
     {
         return $this->payload;

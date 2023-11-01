@@ -16,9 +16,10 @@ class ProductTypes extends Resource
     }
 
     public function listProductTypes(
+        ?int $after,
         ?int $before,
         ?int $pageSize,
     ): Response {
-        return $this->connector->send(new ListProductTypes($before, $pageSize));
+        return $this->connector->send(new ListProductTypes($after, $before, $pageSize));
     }
 }

@@ -30,11 +30,12 @@ class Customers extends Resource
     }
 
     public function listCustomers(
+        ?int $after,
         ?int $before,
         ?int $pageSize,
         ?bool $deleted,
     ): Response {
-        return $this->connector->send(new ListCustomers($before, $pageSize, $deleted));
+        return $this->connector->send(new ListCustomers($after, $before, $pageSize, $deleted));
     }
 
     public function updateCustomer(

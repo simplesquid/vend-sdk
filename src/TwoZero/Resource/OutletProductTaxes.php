@@ -10,10 +10,11 @@ class OutletProductTaxes extends Resource
 {
     public function listProductTaxesForOutlet(
         ?string $outletId,
+        ?int $after,
         ?int $before,
         ?int $pageSize,
         ?bool $deleted,
     ): Response {
-        return $this->connector->send(new ListProductTaxesForOutlet($outletId, $before, $pageSize, $deleted));
+        return $this->connector->send(new ListProductTaxesForOutlet($outletId, $after, $before, $pageSize, $deleted));
     }
 }

@@ -33,10 +33,18 @@ class SerialNumbers extends Resource
         ?string $outletId,
         ?string $saleId,
         ?string $lineItemId,
+        ?int $after,
         ?int $before,
         ?int $pageSize,
     ): Response {
-        return $this->connector->send(new ListSerialNumbers($productId, $outletId, $saleId, $lineItemId, $before,
-            $pageSize));
+        return $this->connector->send(new ListSerialNumbers(
+            $productId,
+            $outletId,
+            $saleId,
+            $lineItemId,
+            $after,
+            $before,
+            $pageSize,
+        ));
     }
 }

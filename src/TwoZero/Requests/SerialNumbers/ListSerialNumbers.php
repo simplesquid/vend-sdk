@@ -19,6 +19,7 @@ class ListSerialNumbers extends Request
         protected ?string $outletId = null,
         protected ?string $saleId = null,
         protected ?string $lineItemId = null,
+        protected ?int $after = null,
         protected ?int $before = null,
         protected ?int $pageSize = null,
     ) {
@@ -31,6 +32,7 @@ class ListSerialNumbers extends Request
             'outlet_id' => $this->outletId,
             'sale_id' => $this->saleId,
             'line_item_id' => $this->lineItemId,
+            'after' => $this->after,
             'before' => $this->before,
             'page_size' => $this->pageSize,
         ]);

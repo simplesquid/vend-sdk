@@ -2,11 +2,12 @@
 
 namespace SimpleSquid\Vend\TwoOneBeta\Requests\Products;
 
+use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Traits\Body\HasJsonBody;
 
-class UpdateProduct extends Request
+class UpdateProduct extends Request implements HasBody
 {
     use HasJsonBody;
 
@@ -26,6 +27,9 @@ class UpdateProduct extends Request
     ) {
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     public function defaultBody(): array
     {
         return $this->payload;

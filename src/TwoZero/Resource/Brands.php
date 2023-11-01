@@ -34,10 +34,11 @@ class Brands extends Resource
     }
 
     public function listBrands(
+        ?int $after,
         ?int $before,
         ?int $pageSize,
     ): Response {
-        return $this->connector->send(new ListBrands($before, $pageSize));
+        return $this->connector->send(new ListBrands($after, $before, $pageSize));
     }
 
     /**

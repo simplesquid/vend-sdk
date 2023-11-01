@@ -25,11 +25,12 @@ class Registers extends Resource
     }
 
     public function listRegisters(
+        ?int $after,
         ?int $before,
         ?bool $deleted,
         ?int $pageSize,
     ): Response {
-        return $this->connector->send(new ListRegisters($before, $deleted, $pageSize));
+        return $this->connector->send(new ListRegisters($after, $before, $deleted, $pageSize));
     }
 
     public function openRegister(

@@ -16,6 +16,7 @@ class ListProductTaxesForOutlet extends Request
 
     public function __construct(
         protected ?string $outletId = null,
+        protected ?int $after = null,
         protected ?int $before = null,
         protected ?int $pageSize = null,
         protected ?bool $deleted = null,
@@ -26,6 +27,7 @@ class ListProductTaxesForOutlet extends Request
     {
         return array_filter([
             'outlet_id' => $this->outletId,
+            'after' => $this->after,
             'before' => $this->before,
             'page_size' => $this->pageSize,
             'deleted' => $this->deleted,

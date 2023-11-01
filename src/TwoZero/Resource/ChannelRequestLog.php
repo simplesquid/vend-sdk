@@ -37,7 +37,14 @@ class ChannelRequestLog extends Resource
         ?string $statusCodeAfter,
         ?string $channelId,
     ): Response {
-        return $this->connector->send(new ListRequestLogs($statusCode, $requestMethod, $occurredBefore, $occurredAfter,
-            $statusCodeBefore, $statusCodeAfter, $channelId));
+        return $this->connector->send(new ListRequestLogs(
+            $statusCode,
+            $requestMethod,
+            $occurredBefore,
+            $occurredAfter,
+            $statusCodeBefore,
+            $statusCodeAfter,
+            $channelId,
+        ));
     }
 }
