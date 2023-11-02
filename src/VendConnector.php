@@ -69,7 +69,7 @@ abstract class VendConnector extends Connector
     protected function defaultHeaders(): array
     {
         return [
-            'User-Agent' => 'SimpleSquid-Vend/'.InstalledVersions::getVersion('simplesquid/vend'),
+            'User-Agent' => 'SimpleSquid-Vend/'.InstalledVersions::getVersion('simplesquid/vend-sdk'),
         ];
     }
 
