@@ -21,9 +21,9 @@ abstract class VendConnector extends Connector
     protected ?string $domainPrefix;
 
     /**
-     * @var callable(): ?\Saloon\Contracts\Authenticator
+     * @var ?callable(static): ?\Saloon\Contracts\Authenticator
      */
-    protected $defaultAuth;
+    protected $defaultAuth = null;
 
     public function __construct(
         ?string $clientId = null,
@@ -49,7 +49,7 @@ abstract class VendConnector extends Connector
         return "https://{$this->domainPrefix}.vendhq.com/api";
     }
 
-    public function withDomainPrefix(string $domainPrefix): static
+    public function withDomainPrefix(?string $domainPrefix): static
     {
         $this->domainPrefix = $domainPrefix;
 
@@ -57,11 +57,13 @@ abstract class VendConnector extends Connector
     }
 
     /**
-     * @param  callable(): ?\Saloon\Contracts\Authenticator  $callable
+     * @param  callable(static): ?\Saloon\Contracts\Authenticator  $callable
      */
     public function authenticateWith(callable $callable): static
     {
         $this->defaultAuth = $callable;
+
+        return $this;
     }
 
     protected function defaultHeaders(): array
@@ -81,6 +83,6 @@ abstract class VendConnector extends Connector
 
     protected function defaultAuth(): ?Authenticator
     {
-        return isset($this->defaultAuth) ? ($this->defaultAuth)() : null;
+        return is_callable($this->defaultAuth) ? ($this->defaultAuth)($this) : null;
     }
 }
