@@ -6,7 +6,7 @@ use Saloon\Http\Request;
 use Saloon\PaginationPlugin\Contracts\HasPagination;
 use Saloon\PaginationPlugin\Paginator;
 use SimpleSquid\Vend\Common\Paginators\VendCursorPaginator;
-use SimpleSquid\Vend\ThreeZero\Resource\PriceBooks;
+use SimpleSquid\Vend\ThreeZero\Resources\PriceBooks;
 use SimpleSquid\Vend\VendConnector;
 
 /**

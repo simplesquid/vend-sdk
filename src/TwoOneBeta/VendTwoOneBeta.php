@@ -2,7 +2,7 @@
 
 namespace SimpleSquid\Vend\TwoOneBeta;
 
-use SimpleSquid\Vend\TwoOneBeta\Resource\Products;
+use SimpleSquid\Vend\TwoOneBeta\Resources\Products;
 use SimpleSquid\Vend\VendConnector;
 
 /**

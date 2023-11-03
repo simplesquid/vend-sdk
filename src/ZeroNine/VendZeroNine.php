@@ -3,9 +3,9 @@
 namespace SimpleSquid\Vend\ZeroNine;
 
 use SimpleSquid\Vend\VendConnector;
-use SimpleSquid\Vend\ZeroNine\Resource\RegisterSales;
-use SimpleSquid\Vend\ZeroNine\Resource\Suppliers;
-use SimpleSquid\Vend\ZeroNine\Resource\Taxes;
+use SimpleSquid\Vend\ZeroNine\Resources\RegisterSales;
+use SimpleSquid\Vend\ZeroNine\Resources\Suppliers;
+use SimpleSquid\Vend\ZeroNine\Resources\Taxes;
 
 /**
  * API 0.9

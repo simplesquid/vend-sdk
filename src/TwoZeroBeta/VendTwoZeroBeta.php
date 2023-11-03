@@ -6,13 +6,13 @@ use Saloon\Http\Request;
 use Saloon\PaginationPlugin\Contracts\HasPagination;
 use Saloon\PaginationPlugin\Paginator;
 use SimpleSquid\Vend\Common\Paginators\VendCursorPaginator;
-use SimpleSquid\Vend\TwoZeroBeta\Resource\Audit;
-use SimpleSquid\Vend\TwoZeroBeta\Resource\GiftCards;
-use SimpleSquid\Vend\TwoZeroBeta\Resource\PartnerBilling;
-use SimpleSquid\Vend\TwoZeroBeta\Resource\StoreCredits;
-use SimpleSquid\Vend\TwoZeroBeta\Resource\VariantAttributes;
-use SimpleSquid\Vend\TwoZeroBeta\Resource\Webhooks;
-use SimpleSquid\Vend\TwoZeroBeta\Resource\Workflows;
+use SimpleSquid\Vend\TwoZeroBeta\Resources\Audit;
+use SimpleSquid\Vend\TwoZeroBeta\Resources\GiftCards;
+use SimpleSquid\Vend\TwoZeroBeta\Resources\PartnerBilling;
+use SimpleSquid\Vend\TwoZeroBeta\Resources\StoreCredits;
+use SimpleSquid\Vend\TwoZeroBeta\Resources\VariantAttributes;
+use SimpleSquid\Vend\TwoZeroBeta\Resources\Webhooks;
+use SimpleSquid\Vend\TwoZeroBeta\Resources\Workflows;
 use SimpleSquid\Vend\VendConnector;
 
 class VendTwoZeroBeta extends VendConnector implements HasPagination
