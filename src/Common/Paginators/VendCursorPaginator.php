@@ -14,6 +14,8 @@ class VendCursorPaginator extends Paginator
 
     protected string $limitKeyName = 'page_size';
 
+    protected int $startCursor = 0;
+
     protected function isLastPage(Response $response): bool
     {
         return empty($response->json('data'));
@@ -26,14 +28,25 @@ class VendCursorPaginator extends Paginator
 
     protected function applyPagination(Request $request): Request
     {
+        $cursor = $this->startCursor;
+
         if ($this->currentResponse instanceof Response) {
-            $request->query()->add($this->cursorKeyName, $this->currentResponse->json('version.max'));
+            $cursor = max($cursor, $this->currentResponse->json('version.max'));
         }
+
+        $request->query()->add($this->cursorKeyName, $cursor);
 
         if (isset($this->perPageLimit)) {
             $request->query()->add($this->limitKeyName, $this->perPageLimit);
         }
 
         return $request;
+    }
+
+    public function setStartCursor(int $cursor): static
+    {
+        $this->startCursor = $cursor;
+
+        return $this;
     }
 }

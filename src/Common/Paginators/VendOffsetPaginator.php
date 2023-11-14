@@ -38,4 +38,13 @@ class VendOffsetPaginator extends OffsetPaginator
 
         return $request;
     }
+
+    public function setStartPage(int $startPage): static
+    {
+        parent::setStartPage($startPage);
+
+        $this->page = max($this->page, $this->startPage);
+
+        return $this;
+    }
 }
