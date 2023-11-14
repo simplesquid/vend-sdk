@@ -6,7 +6,6 @@ use Saloon\Enums\Method;
 use Saloon\Http\Connector;
 use Saloon\Http\Request;
 use Saloon\PaginationPlugin\Contracts\HasRequestPagination;
-use Saloon\PaginationPlugin\Paginator;
 use SimpleSquid\Vend\Common\Paginators\VendCursorPaginator;
 
 class ListServiceItems extends Request implements HasRequestPagination
@@ -32,7 +31,7 @@ class ListServiceItems extends Request implements HasRequestPagination
         ]);
     }
 
-    public function paginate(Connector $connector): Paginator
+    public function paginate(Connector $connector): VendCursorPaginator
     {
         return new class($connector, $this) extends VendCursorPaginator
         {

@@ -6,7 +6,6 @@ use Saloon\Enums\Method;
 use Saloon\Http\Connector;
 use Saloon\Http\Request;
 use Saloon\PaginationPlugin\Contracts\HasRequestPagination;
-use Saloon\PaginationPlugin\Paginator;
 use SimpleSquid\Vend\Common\Paginators\VendOffsetPaginator;
 
 class Search extends Request implements HasRequestPagination
@@ -45,7 +44,7 @@ class Search extends Request implements HasRequestPagination
         ] + $this->searchAttributes);
     }
 
-    public function paginate(Connector $connector): Paginator
+    public function paginate(Connector $connector): VendOffsetPaginator
     {
         return new VendOffsetPaginator($connector, $this);
     }

@@ -6,7 +6,6 @@ use Saloon\Enums\Method;
 use Saloon\Http\Connector;
 use Saloon\Http\Request;
 use Saloon\PaginationPlugin\Contracts\HasRequestPagination;
-use Saloon\PaginationPlugin\Paginator;
 use SimpleSquid\Vend\Common\Paginators\VendOffsetPaginator;
 
 class GetAuditLogEvents extends Request implements HasRequestPagination
@@ -42,7 +41,7 @@ class GetAuditLogEvents extends Request implements HasRequestPagination
         ]);
     }
 
-    public function paginate(Connector $connector): Paginator
+    public function paginate(Connector $connector): VendOffsetPaginator
     {
         return new VendOffsetPaginator($connector, $this);
     }

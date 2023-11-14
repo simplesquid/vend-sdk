@@ -4,7 +4,6 @@ namespace SimpleSquid\Vend\ThreeZeroBeta;
 
 use Saloon\Http\Request;
 use Saloon\PaginationPlugin\Contracts\HasPagination;
-use Saloon\PaginationPlugin\Paginator;
 use SimpleSquid\Vend\Common\Paginators\VendCursorPaginator;
 use SimpleSquid\Vend\ThreeZeroBeta\Resources\Products;
 use SimpleSquid\Vend\VendConnector;
@@ -23,7 +22,7 @@ class VendThreeZeroBeta extends VendConnector implements HasPagination
         return parent::resolveBaseUrl().'/3.0';
     }
 
-    public function paginate(Request $request): Paginator
+    public function paginate(Request $request): VendCursorPaginator
     {
         return new class($this, $request) extends VendCursorPaginator
         {
