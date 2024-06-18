@@ -6,7 +6,7 @@
 [![MIT License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
 [![Total Downloads](https://img.shields.io/packagist/dt/simplesquid/vend-sdk.svg?style=flat-square)](https://packagist.org/packages/simplesquid/vend-sdk)
 
-An unofficial PHP SDK for the [Lightspeed Retail (X-Series)](https://docs.vendhq.com/) (formally Vend).
+An unofficial PHP SDK for the [Lightspeed Retail (X-Series)](https://x-series-api.lightspeedhq.com/) (formally Vend).
 
 ## Installation
 

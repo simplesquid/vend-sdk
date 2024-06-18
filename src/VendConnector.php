@@ -46,7 +46,7 @@ abstract class VendConnector extends Connector
             throw new DomainPrefixMissingException();
         }
 
-        return "https://{$this->domainPrefix}.vendhq.com/api";
+        return "https://{$this->domainPrefix}.retail.lightspeed.app/api";
     }
 
     public function withDomainPrefix(?string $domainPrefix): static
@@ -76,7 +76,7 @@ abstract class VendConnector extends Connector
     protected function defaultOauthConfig(): OAuthConfig
     {
         return OAuthConfig::make()
-            ->setAuthorizeEndpoint('https://secure.vendhq.com/connect')
+            ->setAuthorizeEndpoint('https://secure.retail.lightspeed.app/connect')
             ->setTokenEndpoint('/1.0/token')
             ->setUserEndpoint('/2.0/retailer');
     }
