@@ -25,6 +25,14 @@ abstract class VendConnector extends Connector
      */
     protected $defaultAuth = null;
 
+    public ?int $tries = 3;
+
+    public ?int $retryInterval = 500;
+
+    public ?bool $useExponentialBackoff = true;
+
+    public ?bool $throwOnMaxTries = false;
+
     public function __construct(
         ?string $clientId = null,
         ?string $clientSecret = null,
