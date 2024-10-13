@@ -24,8 +24,7 @@ class CloseRegister extends Request implements HasBody
     public function __construct(
         protected string $registerId,
         protected array $payload = [],
-    ) {
-    }
+    ) {}
 
     /**
      * @return array<string, mixed>

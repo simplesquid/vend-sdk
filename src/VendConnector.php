@@ -51,7 +51,7 @@ abstract class VendConnector extends Connector
     public function resolveBaseUrl(): string
     {
         if (is_null($this->domainPrefix)) {
-            throw new DomainPrefixMissingException();
+            throw new DomainPrefixMissingException;
         }
 
         return "https://{$this->domainPrefix}.retail.lightspeed.app/api";

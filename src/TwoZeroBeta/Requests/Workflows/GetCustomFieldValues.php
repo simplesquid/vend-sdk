@@ -17,8 +17,7 @@ class GetCustomFieldValues extends Request
     public function __construct(
         protected string $entity,
         protected string $entityId,
-    ) {
-    }
+    ) {}
 
     public function defaultQuery(): array
     {

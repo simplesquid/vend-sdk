@@ -16,6 +16,5 @@ class GetService extends Request
 
     public function __construct(
         protected string $serviceId,
-    ) {
-    }
+    ) {}
 }

@@ -24,8 +24,7 @@ class FulfillSale extends Request implements HasBody
     public function __construct(
         protected string $saleId,
         protected array $payload = [],
-    ) {
-    }
+    ) {}
 
     /**
      * @return array<string, mixed>

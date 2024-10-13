@@ -16,6 +16,5 @@ class GetProductImageData extends Request
 
     public function __construct(
         protected string $productImageId,
-    ) {
-    }
+    ) {}
 }

@@ -53,6 +53,6 @@ class StoreCredits extends BaseResource
 
     public function storeCreditReport(): Response
     {
-        return $this->connector->send(new StoreCreditReport());
+        return $this->connector->send(new StoreCreditReport);
     }
 }

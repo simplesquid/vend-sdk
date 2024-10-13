@@ -21,8 +21,7 @@ class ListGiftCards extends Request implements Paginatable
         protected ?int $pageSize = null,
         protected ?string $cardNumber = null,
         protected ?string $status = null,
-    ) {
-    }
+    ) {}
 
     public function defaultQuery(): array
     {

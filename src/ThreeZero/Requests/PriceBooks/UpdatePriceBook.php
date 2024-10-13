@@ -24,8 +24,7 @@ class UpdatePriceBook extends Request implements HasBody
     public function __construct(
         protected string $priceBookId,
         protected array $payload = [],
-    ) {
-    }
+    ) {}
 
     /**
      * @return array<string, mixed>

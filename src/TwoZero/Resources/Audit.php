@@ -10,6 +10,6 @@ class Audit extends BaseResource
 {
     public function listSecurityEvents(): Response
     {
-        return $this->connector->send(new ListSecurityEvents());
+        return $this->connector->send(new ListSecurityEvents);
     }
 }

@@ -25,8 +25,7 @@ class GetAuditLogEvents extends Request implements HasRequestPagination
         protected ?string $order = null,
         protected ?string $userId = null,
         protected ?string $type = null,
-    ) {
-    }
+    ) {}
 
     public function defaultQuery(): array
     {

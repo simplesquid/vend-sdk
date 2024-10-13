@@ -25,8 +25,7 @@ class UploadImage extends Request implements HasBody
     public function __construct(
         protected string $productId,
         protected mixed $file,
-    ) {
-    }
+    ) {}
 
     /**
      * @return \Saloon\Data\MultipartValue[]

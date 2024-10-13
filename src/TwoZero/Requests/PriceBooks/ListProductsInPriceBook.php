@@ -20,8 +20,7 @@ class ListProductsInPriceBook extends Request
     public function __construct(
         protected string $priceBookId,
         protected array $productIds = [],
-    ) {
-    }
+    ) {}
 
     public function defaultQuery(): array
     {

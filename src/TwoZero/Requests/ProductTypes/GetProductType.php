@@ -16,6 +16,5 @@ class GetProductType extends Request
 
     public function __construct(
         protected string $productTypeId,
-    ) {
-    }
+    ) {}
 }

@@ -23,8 +23,7 @@ class ListPriceBooks extends Request implements Paginatable
         protected ?string $direction = null,
         protected ?bool $deleted = null,
         protected ?string $customerGroupId = null,
-    ) {
-    }
+    ) {}
 
     public function defaultQuery(): array
     {

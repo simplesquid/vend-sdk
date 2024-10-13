@@ -24,8 +24,7 @@ class UpdateTag extends Request implements HasBody
     public function __construct(
         protected string $tagId,
         protected array $payload = [],
-    ) {
-    }
+    ) {}
 
     /**
      * @return array<string, mixed>

@@ -25,8 +25,7 @@ class UpdateProductInConsignment extends Request implements HasBody
         protected string $consignmentId,
         protected string $productId,
         protected array $payload = [],
-    ) {
-    }
+    ) {}
 
     /**
      * @return array<string, mixed>

@@ -10,6 +10,6 @@ class Retailers extends BaseResource
 {
     public function getRetailer(): Response
     {
-        return $this->connector->send(new GetRetailer());
+        return $this->connector->send(new GetRetailer);
     }
 }

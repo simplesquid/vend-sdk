@@ -24,8 +24,7 @@ class CreateStoreCreditTransaction extends Request implements HasBody
     public function __construct(
         protected string $customerId,
         protected array $payload = [],
-    ) {
-    }
+    ) {}
 
     /**
      * @return array<string, mixed>

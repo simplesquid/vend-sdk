@@ -17,6 +17,5 @@ class DeleteProductFromConsignment extends Request
     public function __construct(
         protected string $consignmentId,
         protected string $productId,
-    ) {
-    }
+    ) {}
 }

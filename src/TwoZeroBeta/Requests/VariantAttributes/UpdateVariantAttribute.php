@@ -24,8 +24,7 @@ class UpdateVariantAttribute extends Request implements HasBody
     public function __construct(
         protected string $attributeId,
         protected array $payload = [],
-    ) {
-    }
+    ) {}
 
     /**
      * @return array<string, mixed>

@@ -2,6 +2,4 @@
 
 namespace SimpleSquid\Vend\Common\Exceptions;
 
-class AuthenticationDetailsMissingException extends VendException
-{
-}
+class AuthenticationDetailsMissingException extends VendException {}

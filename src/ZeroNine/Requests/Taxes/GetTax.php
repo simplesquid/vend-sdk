@@ -16,6 +16,5 @@ class GetTax extends Request
 
     public function __construct(
         protected string $taxId,
-    ) {
-    }
+    ) {}
 }

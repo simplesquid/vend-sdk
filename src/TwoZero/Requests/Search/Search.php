@@ -27,8 +27,7 @@ class Search extends Request implements HasRequestPagination
         protected ?string $orderDirection = null,
         protected ?int $pageSize = null,
         protected ?int $offset = null,
-    ) {
-    }
+    ) {}
 
     /**
      * @return array<string, mixed>

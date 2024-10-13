@@ -16,8 +16,7 @@ class ListVariantAttributes extends Request
 
     public function __construct(
         protected ?bool $deleted = null,
-    ) {
-    }
+    ) {}
 
     public function defaultQuery(): array
     {

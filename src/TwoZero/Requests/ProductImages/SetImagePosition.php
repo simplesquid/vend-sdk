@@ -24,8 +24,7 @@ class SetImagePosition extends Request implements HasBody
     public function __construct(
         protected string $productImageId,
         protected array $payload = [],
-    ) {
-    }
+    ) {}
 
     /**
      * @return array<string, mixed>

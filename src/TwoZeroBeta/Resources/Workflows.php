@@ -79,12 +79,12 @@ class Workflows extends BaseResource
 
     public function listRemoteRules(): Response
     {
-        return $this->connector->send(new ListRemoteRules());
+        return $this->connector->send(new ListRemoteRules);
     }
 
     public function listRules(): Response
     {
-        return $this->connector->send(new ListRules());
+        return $this->connector->send(new ListRules);
     }
 
     /**

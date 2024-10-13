@@ -20,8 +20,7 @@ class ListStoreCreditsForCustomer extends Request
     public function __construct(
         protected string $customerId,
         protected ?array $includes = null,
-    ) {
-    }
+    ) {}
 
     public function defaultQuery(): array
     {

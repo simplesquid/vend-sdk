@@ -16,6 +16,5 @@ class ListSaleFulfillments extends Request
 
     public function __construct(
         protected string $saleId,
-    ) {
-    }
+    ) {}
 }

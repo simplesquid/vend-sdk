@@ -16,6 +16,5 @@ class UpdateCustomField extends Request
 
     public function __construct(
         protected string $customFieldId,
-    ) {
-    }
+    ) {}
 }

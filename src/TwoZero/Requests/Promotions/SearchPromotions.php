@@ -30,8 +30,7 @@ class SearchPromotions extends Request implements HasRequestPagination
         protected ?string $direction = null,
         protected ?int $offset = null,
         protected ?int $pageSize = null,
-    ) {
-    }
+    ) {}
 
     public function defaultQuery(): array
     {

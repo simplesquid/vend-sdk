@@ -16,6 +16,5 @@ class VoidGiftCard extends Request
 
     public function __construct(
         protected string $number,
-    ) {
-    }
+    ) {}
 }

@@ -24,8 +24,7 @@ class UpdateProduct extends Request implements HasBody
     public function __construct(
         protected string $productId,
         protected array $payload = [],
-    ) {
-    }
+    ) {}
 
     /**
      * @return array<string, mixed>

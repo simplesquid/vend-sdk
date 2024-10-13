@@ -16,6 +16,5 @@ class GetQuote extends Request
 
     public function __construct(
         protected string $quoteId,
-    ) {
-    }
+    ) {}
 }

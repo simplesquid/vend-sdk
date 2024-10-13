@@ -18,8 +18,7 @@ class ListPromotions extends Request
         protected ?string $endTimeTo = null,
         protected ?string $endTimeFrom = null,
         protected ?int $pageSize = null,
-    ) {
-    }
+    ) {}
 
     public function defaultQuery(): array
     {

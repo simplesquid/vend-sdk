@@ -16,8 +16,7 @@ class ListCustomFields extends Request
 
     public function __construct(
         protected string $entity,
-    ) {
-    }
+    ) {}
 
     public function defaultQuery(): array
     {

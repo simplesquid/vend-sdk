@@ -16,6 +16,5 @@ class DeleteRule extends Request
 
     public function __construct(
         protected string $ruleId,
-    ) {
-    }
+    ) {}
 }

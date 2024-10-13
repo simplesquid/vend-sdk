@@ -20,8 +20,7 @@ class UpdatePromotion extends Request
     public function __construct(
         protected string $promotionId,
         protected array $payload = [],
-    ) {
-    }
+    ) {}
 
     /**
      * @return array<string, mixed>

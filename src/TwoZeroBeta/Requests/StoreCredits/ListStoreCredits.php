@@ -20,8 +20,7 @@ class ListStoreCredits extends Request
     public function __construct(
         protected ?int $pageSize = null,
         protected ?array $includes = null,
-    ) {
-    }
+    ) {}
 
     public function defaultQuery(): array
     {

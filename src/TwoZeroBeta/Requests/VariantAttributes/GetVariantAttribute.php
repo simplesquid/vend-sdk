@@ -17,8 +17,7 @@ class GetVariantAttribute extends Request
     public function __construct(
         protected string $attributeId,
         protected ?bool $deleted = null,
-    ) {
-    }
+    ) {}
 
     public function defaultQuery(): array
     {

@@ -24,8 +24,7 @@ class BulkUpdateProductsInConsignment extends Request implements HasBody
     public function __construct(
         protected string $consignmentId,
         protected array $payload = [],
-    ) {
-    }
+    ) {}
 
     /**
      * @return array<string, mixed>

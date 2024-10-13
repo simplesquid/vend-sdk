@@ -24,8 +24,7 @@ class UpdateSupplier extends Request implements HasBody
     public function __construct(
         protected string $supplierId,
         protected array $payload = [],
-    ) {
-    }
+    ) {}
 
     /**
      * @return array<string, mixed>

@@ -20,8 +20,7 @@ class UpdateWebhook extends Request
     public function __construct(
         protected string $webhookId,
         protected array $payload = [],
-    ) {
-    }
+    ) {}
 
     /**
      * @return array<string, mixed>

@@ -18,8 +18,7 @@ class GetOutletServicesAgenda extends Request
         protected string $outletId,
         protected string $startDate,
         protected ?int $days = null,
-    ) {
-    }
+    ) {}
 
     public function defaultQuery(): array
     {

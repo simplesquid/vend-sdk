@@ -16,6 +16,5 @@ class GetPriceBook extends Request
 
     public function __construct(
         protected string $priceBookId,
-    ) {
-    }
+    ) {}
 }

@@ -35,7 +35,7 @@ class Webhooks extends BaseResource
 
     public function listWebhooks(): Response
     {
-        return $this->connector->send(new ListWebhooks());
+        return $this->connector->send(new ListWebhooks);
     }
 
     /**

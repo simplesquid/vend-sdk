@@ -20,8 +20,7 @@ class ListCustomers extends Request implements Paginatable
         protected ?int $before = null,
         protected ?int $pageSize = null,
         protected ?bool $deleted = null,
-    ) {
-    }
+    ) {}
 
     public function defaultQuery(): array
     {

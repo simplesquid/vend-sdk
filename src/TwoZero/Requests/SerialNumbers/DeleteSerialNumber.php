@@ -16,6 +16,5 @@ class DeleteSerialNumber extends Request
 
     public function __construct(
         protected string $serialNumberId,
-    ) {
-    }
+    ) {}
 }

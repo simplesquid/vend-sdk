@@ -16,6 +16,5 @@ class GetUser extends Request
 
     public function __construct(
         protected string $userId,
-    ) {
-    }
+    ) {}
 }

@@ -20,8 +20,7 @@ class ListQuotes extends Request implements HasRequestPagination
     public function __construct(
         protected ?int $after = null,
         protected ?int $limit = null,
-    ) {
-    }
+    ) {}
 
     public function defaultQuery(): array
     {

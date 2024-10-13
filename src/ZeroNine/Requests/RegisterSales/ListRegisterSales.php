@@ -24,8 +24,7 @@ class ListRegisterSales extends Request implements Paginatable
         protected ?array $status = null,
         protected ?int $page = null,
         protected ?int $pageSize = null,
-    ) {
-    }
+    ) {}
 
     public function defaultQuery(): array
     {

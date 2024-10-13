@@ -16,6 +16,5 @@ class FindGiftCard extends Request
 
     public function __construct(
         protected string $number,
-    ) {
-    }
+    ) {}
 }

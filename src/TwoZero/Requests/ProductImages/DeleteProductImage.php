@@ -16,6 +16,5 @@ class DeleteProductImage extends Request
 
     public function __construct(
         protected string $productImageId,
-    ) {
-    }
+    ) {}
 }

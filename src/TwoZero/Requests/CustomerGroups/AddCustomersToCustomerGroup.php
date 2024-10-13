@@ -24,8 +24,7 @@ class AddCustomersToCustomerGroup extends Request implements HasBody
     public function __construct(
         protected string $customerGroupId,
         protected array $payload = [],
-    ) {
-    }
+    ) {}
 
     /**
      * @return array<string, mixed>

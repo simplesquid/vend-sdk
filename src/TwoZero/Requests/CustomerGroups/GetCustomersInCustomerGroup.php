@@ -20,8 +20,7 @@ class GetCustomersInCustomerGroup extends Request implements Paginatable
         protected ?int $after = null,
         protected ?int $before = null,
         protected ?int $pageSize = null,
-    ) {
-    }
+    ) {}
 
     public function defaultQuery(): array
     {

@@ -22,8 +22,7 @@ class ListRequestLogs extends Request
         protected ?string $statusCodeBefore = null,
         protected ?string $statusCodeAfter = null,
         protected ?string $channelId = null,
-    ) {
-    }
+    ) {}
 
     public function defaultQuery(): array
     {

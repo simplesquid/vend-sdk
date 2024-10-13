@@ -25,7 +25,7 @@ class ChannelRequestLog extends BaseResource
 
     public function listChannels(): Response
     {
-        return $this->connector->send(new ListChannels());
+        return $this->connector->send(new ListChannels);
     }
 
     public function listRequestLogs(

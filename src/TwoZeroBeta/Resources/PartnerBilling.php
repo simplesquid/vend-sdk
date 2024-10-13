@@ -44,6 +44,6 @@ class PartnerBilling extends BaseResource
 
     public function listPartnerSubscriptions(): Response
     {
-        return $this->connector->send(new ListPartnerSubscriptions());
+        return $this->connector->send(new ListPartnerSubscriptions);
     }
 }

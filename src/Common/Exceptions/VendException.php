@@ -4,6 +4,4 @@ namespace SimpleSquid\Vend\Common\Exceptions;
 
 use Exception;
 
-class VendException extends Exception
-{
-}
+class VendException extends Exception {}

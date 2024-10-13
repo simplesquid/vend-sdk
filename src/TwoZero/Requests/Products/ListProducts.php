@@ -20,8 +20,7 @@ class ListProducts extends Request implements Paginatable
         protected ?int $before = null,
         protected ?bool $deleted = null,
         protected ?int $pageSize = null,
-    ) {
-    }
+    ) {}
 
     public function defaultQuery(): array
     {

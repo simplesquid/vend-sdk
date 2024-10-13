@@ -16,6 +16,5 @@ class ReturnSale extends Request
 
     public function __construct(
         protected string $saleId,
-    ) {
-    }
+    ) {}
 }

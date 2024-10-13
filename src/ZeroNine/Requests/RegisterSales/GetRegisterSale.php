@@ -16,6 +16,5 @@ class GetRegisterSale extends Request
 
     public function __construct(
         protected string $registerSaleId,
-    ) {
-    }
+    ) {}
 }

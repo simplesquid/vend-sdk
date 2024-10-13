@@ -2,6 +2,4 @@
 
 namespace SimpleSquid\Vend\Common\Exceptions;
 
-class DomainPrefixMissingException extends VendException
-{
-}
+class DomainPrefixMissingException extends VendException {}

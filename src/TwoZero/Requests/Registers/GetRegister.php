@@ -16,6 +16,5 @@ class GetRegister extends Request
 
     public function __construct(
         protected string $registerId,
-    ) {
-    }
+    ) {}
 }
