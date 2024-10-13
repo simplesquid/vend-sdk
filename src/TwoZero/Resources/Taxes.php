@@ -11,8 +11,9 @@ class Taxes extends BaseResource
     public function listTaxes(
         ?int $after = null,
         ?int $before = null,
+        ?bool $deleted = null,
         ?int $pageSize = null,
     ): Response {
-        return $this->connector->send(new ListTaxes($after, $before, $pageSize));
+        return $this->connector->send(new ListTaxes($after, $before, $deleted, $pageSize));
     }
 }
