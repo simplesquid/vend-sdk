@@ -11,8 +11,9 @@ class PaymentTypes extends BaseResource
     public function listPaymentTypes(
         ?int $after = null,
         ?int $before = null,
+        ?bool $deleted = null,
         ?int $pageSize = null,
     ): Response {
-        return $this->connector->send(new ListPaymentTypes($after, $before, $pageSize));
+        return $this->connector->send(new ListPaymentTypes($after, $before, $deleted, $pageSize));
     }
 }
